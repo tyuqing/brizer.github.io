@@ -1,0 +1,711 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="brizer,前端,博客,刘放" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="jQuery&amp;#x9762;&amp;#x5411;&amp;#x5BF9;&amp;#x8C61;&amp;#x7684;&amp;#x5199;&amp;#x6CD5;&amp;#x524D;&amp;#x8A00;&amp;#x4F5C;&amp;#x4E3A;&amp;#x524D;&amp;#x7AEF;&amp;#x5F00;&amp;#x53D1;&amp;#x8005;&amp;#xFF0C;&amp;#x4E00;&amp;#x822C;&amp;#x7684;&amp;#x7B80;&amp;#x5355;&amp;#x903B;&amp;#x8F91;&amp;#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery面向对象写法-项目经验">
+<meta property="og:url" content="http://yoursite.com/2016/04/05/jQuery面向对象写法/index.html">
+<meta property="og:site_name" content="Brizer's Blog">
+<meta property="og:description" content="jQuery&amp;#x9762;&amp;#x5411;&amp;#x5BF9;&amp;#x8C61;&amp;#x7684;&amp;#x5199;&amp;#x6CD5;&amp;#x524D;&amp;#x8A00;&amp;#x4F5C;&amp;#x4E3A;&amp;#x524D;&amp;#x7AEF;&amp;#x5F00;&amp;#x53D1;&amp;#x8005;&amp;#xFF0C;&amp;#x4E00;&amp;#x822C;&amp;#x7684;&amp;#x7B80;&amp;#x5355;&amp;#x903B;&amp;#x8F91;&amp;#">
+<meta property="og:updated_time" content="2016-04-21T00:23:31.629Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jQuery面向对象写法-项目经验">
+<meta name="twitter:description" content="jQuery&amp;#x9762;&amp;#x5411;&amp;#x5BF9;&amp;#x8C61;&amp;#x7684;&amp;#x5199;&amp;#x6CD5;&amp;#x524D;&amp;#x8A00;&amp;#x4F5C;&amp;#x4E3A;&amp;#x524D;&amp;#x7AEF;&amp;#x5F00;&amp;#x53D1;&amp;#x8005;&amp;#xFF0C;&amp;#x4E00;&amp;#x822C;&amp;#x7684;&amp;#x7B80;&amp;#x5355;&amp;#x903B;&amp;#x8F91;&amp;#">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> jQuery面向对象写法-项目经验 | Brizer's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Brizer's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">刘放 学习笔记</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+  
+    <style type="text/css">
+		#so360{white-space:nowrap;margin:10px auto;}
+		#so360 form{margin:0;padding:0}
+		#so360_keyword{width:157px;height:32px;line-height:32px;font:14px arial;padding:2px 5px;margin-right:5px;
+		border:2px solid #061201;outline:0;vertical-align:middle}
+		#so360_keyword{background:url(https://p.ssl.qhimg.com/t01ab1a3fb05f0ee893.png) no-repeat 236px center}
+		#so360_submit{width:60px;height:40px;border:0;color:#fff;background:#061201;
+		font-weight:bold;font:bold 14px arial;padding:0;padding-top:3px\9;cursor:pointer;
+		vertical-align:middle}
+	</style>
+	<div id="so360">
+	    <form action="http://www.so.com/s" target="_blank" id="so360form">
+	   <input type="text" autocomplete="off" name="q" id="so360_keyword">
+	        <input type="submit" id="so360_submit" value="搜 索">
+	        <input type="hidden" name="ie" value="utf8">
+	        <input type="hidden" name="src" value="zz_brizer.top">
+	        <input type="hidden" name="site" value="brizer.top">
+	        <input type="hidden" name="rg" value="1">
+	    </form>
+	</div> 
+	
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/demo" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            demo
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                jQuery面向对象写法-项目经验
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-05T08:21:19+08:00" content="2016-04-05">
+              2016-04-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/jquery/" itemprop="url" rel="index">
+                    <span itemprop="name">jquery</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/05/jQuery面向对象写法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/05/jQuery面向对象写法/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+                    
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+              </span>
+                     
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="jQuery&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7684;&#x5199;&#x6CD5;"><a href="#jQuery&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7684;&#x5199;&#x6CD5;" class="headerlink" title="jQuery&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7684;&#x5199;&#x6CD5;"></a><strong>jQuery&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7684;&#x5199;&#x6CD5;</strong></h1><h2 id="&#x524D;&#x8A00;"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a><strong>&#x524D;&#x8A00;</strong></h2><p>&#x4F5C;&#x4E3A;&#x524D;&#x7AEF;&#x5F00;&#x53D1;&#x8005;&#xFF0C;&#x4E00;&#x822C;&#x7684;&#x7B80;&#x5355;&#x903B;&#x8F91;&#x53EF;&#x80FD;&#x5DF2;&#x7ECF;&#x4E60;&#x60EF;&#x4E86;&#x8FD0;&#x7528;&#x9762;&#x5411;&#x51FD;&#x6570;&#x7684;&#x7F16;&#x7A0B;&#x65B9;&#x6CD5;&#xFF0C;&#x4ECA;&#x5929;&#x4E3B;&#x8981;&#x770B;&#x770B;jQuery&#x4E2D;&#x7684;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7684;&#x5199;&#x6CD5;&#xFF0C;&#x5176;&#x5B9E;&#x539F;&#x751F;&#x7684;&#x4E5F;&#x662F;&#x5DEE;&#x4E0D;&#x591A;&#x7684;&#x3002;</p>
+<hr>
+<h2 id="&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7684;&#x5199;&#x6CD5;"><a href="#&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7684;&#x5199;&#x6CD5;" class="headerlink" title="&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7684;&#x5199;&#x6CD5;"></a><strong>&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7684;&#x5199;&#x6CD5;</strong></h2><p>&#x8FD9;&#x91CC;&#x4EE5;&#x4E00;&#x4E2A;&#x64AD;&#x653E;&#x5668;&#x7EC4;&#x4EF6;&#x4E3A;&#x4F8B;&#x5B50;&#xFF0C;&#x901A;&#x8FC7;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;jQuery&#x7684;&#x5168;&#x5C40;&#x5BF9;&#x8C61;&#x6765;&#x5F15;&#x7528;&#x5B83;&#xFF1A;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">jq, g</span>)</span>{</span><br><span class="line"> </span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">VideoDialog</span>(<span class="params"></span>)</span>{</span><br><span class="line">  <span class="comment">//&#x6267;&#x884C;&#x521D;&#x59CB;&#x5316;</span></span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.init.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>);</span><br><span class="line"> }</span><br><span class="line"> </span><br><span class="line"> <span class="keyword">var</span> vPro = VideoDialog.prototype;</span><br><span class="line"> <span class="keyword">var</span> maskObj = jq.showComMask();</span><br><span class="line"> <span class="comment">//&#x5B9A;&#x4E49;UI&#x76F8;&#x5E94;&#x7684;html&#x3002;&#x81F3;&#x4E8E;css&#x5219;&#x5728;&#x5BF9;&#x5E94;&#x7684;css&#x6587;&#x4EF6;&#x4E2D;&#x53BB;&#x5B9A;&#x4E49;</span></span><br><span class="line"> <span class="keyword">var</span> tpl = <span class="string">&apos;&lt;div class=&quot;u-video-dialog&quot; id=&quot;j-videoDialog&quot;&gt;\</span><br><span class="line">     &lt;div class=&quot;title&quot;&gt;\</span><br><span class="line">      &lt;h3&gt;&#x89C6;&#x9891;&#x4ECB;&#x7ECD;&lt;/h3&gt;\</span><br><span class="line">      &lt;a class=&quot;close&quot; id=&quot;j-close&quot;&gt;&lt;/a&gt;\</span><br><span class="line">     &lt;/div&gt;\</span><br><span class="line">     &lt;div class=&quot;video-box&quot; id=&quot;j-videoBox&quot;&gt;\</span><br><span class="line">     &lt;/div&gt;\</span><br><span class="line">    &lt;/div&gt;&apos;</span>;</span><br><span class="line"> </span><br><span class="line"> vPro.init = <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>{</span><br><span class="line">  <span class="keyword">if</span>(!data){</span><br><span class="line">   <span class="keyword">return</span>;</span><br><span class="line">  }</span><br><span class="line">  <span class="comment">//&#x7EDF;&#x4E00;&#x5B9A;&#x4E49;&#x53D8;&#x91CF;</span></span><br><span class="line">  <span class="keyword">this</span>.tpl = $(tpl);</span><br><span class="line">  <span class="keyword">this</span>.videoBoxNode = <span class="keyword">this</span>.tpl.find(<span class="string">&apos;#j-videoBox&apos;</span>);</span><br><span class="line">  <span class="keyword">this</span>.closeBtnNode = <span class="keyword">this</span>.tpl.find(<span class="string">&apos;#j-close&apos;</span>);</span><br><span class="line"> </span><br><span class="line">  jq.cloudPlayer({</span><br><span class="line">         parent : $(<span class="keyword">this</span>.videoBoxNode),</span><br><span class="line">         autoStart : <span class="literal">true</span>,</span><br><span class="line">         resolutions:{</span><br><span class="line">             hdfile: data.url</span><br><span class="line">         },</span><br><span class="line">         sdMp4Url:<span class="string">&apos;http://video.study.163.com/edu-video/nos/mp4/2014/11/26/876018_hd.mp4&apos;</span>,</span><br><span class="line">     });</span><br><span class="line"> </span><br><span class="line">     <span class="keyword">var</span> top = ((jq(<span class="built_in">window</span>).height() - <span class="number">450</span>)/<span class="number">2</span> + (jq(<span class="built_in">document</span>).scrollTop() || <span class="number">0</span>));</span><br><span class="line">     <span class="keyword">this</span>.tpl.css({<span class="string">&apos;top&apos;</span>:top});</span><br><span class="line"> </span><br><span class="line">  <span class="keyword">this</span>.bindEvent();</span><br><span class="line"> }</span><br><span class="line"> <span class="comment">//&#x5B9A;&#x4E49;&#x5404;&#x79CD;&#x65B9;&#x6CD5;</span></span><br><span class="line"> vPro.bindEvent = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">  <span class="keyword">var</span> that = <span class="keyword">this</span>;</span><br><span class="line"> </span><br><span class="line">  $(<span class="keyword">this</span>.closeBtnNode).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">   that.remove();</span><br><span class="line">  })</span><br><span class="line"> };</span><br><span class="line"> </span><br><span class="line"> vPro.remove = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">  $(<span class="keyword">this</span>.tpl).remove();</span><br><span class="line">  maskObj.removeMask();</span><br><span class="line"> };</span><br><span class="line"> </span><br><span class="line"> vPro.show = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">  maskObj.show();</span><br><span class="line">  $(<span class="built_in">document</span>.body).append(<span class="keyword">this</span>.tpl);</span><br><span class="line"> };</span><br><span class="line"> <span class="comment">//&#x6700;&#x540E;&#x6302;&#x5230;&#x5168;&#x5C40;&#x5BF9;&#x8C61;jq&#x4E2D;&#x53BB;</span></span><br><span class="line"> jq.showVideoDialog = <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>{</span><br><span class="line">  <span class="keyword">return</span> (<span class="keyword">new</span> VideoDialog(data)).show();</span><br><span class="line"> };</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">})(jQuery, <span class="built_in">window</span>);</span><br></pre></td></tr></table></figure>
+<p>&#x5F15;&#x5165;&#x8BE5;&#x6587;&#x4EF6;&#x540E;&#xFF0C;&#x76F4;&#x63A5;&#x901A;&#x8FC7;jq.showVideoDialog(data),&#x5C31;&#x53EF;&#x4EE5;&#x8FDB;&#x884C;&#x8C03;&#x7528;&#x4E86;&#x3002; </p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/04/01/puer使用手册/" rel="next" title="puer使用手册">
+                <i class="fa fa-chevron-left"></i> puer使用手册
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/04/07/jQuery特效组件/" rel="prev" title="jQuery特效组件-项目经验">
+                jQuery特效组件-项目经验 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/04/05/jQuery面向对象写法/"
+     data-title="jQuery面向对象写法-项目经验"
+     data-content=""
+     data-url="http://yoursite.com/2016/04/05/jQuery面向对象写法/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/04/05/jQuery面向对象写法/"
+           data-title="jQuery面向对象写法-项目经验" data-url="http://yoursite.com/2016/04/05/jQuery面向对象写法/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://nos.netease.com/edu-image/5AA61D30A78B81D8CF5AE7608A1468C2.jpg"
+               alt="刘放" />
+          <p class="site-author-name" itemprop="name">刘放</p>
+          <p class="site-description motion-element" itemprop="description">网易前端开发 brizer@163.com</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">110</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/brizer" target="_blank" title="github">
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/3978835322" target="_blank" title="weibo">
+                  
+                  weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://study.163.com/topics/2016-11sales/#/main" title="云课堂充电节" target="_blank">云课堂充电节</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://study.163.com/" title="网易云课堂" target="_blank">网易云课堂</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.icourse163.org/" title="中国大学MOOC" target="_blank">中国大学MOOC</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://100.163.com/" title="网易100分" target="_blank">网易100分</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#jQuery面向对象的写法"><span class="nav-number">1.</span> <span class="nav-text">jQuery面向对象的写法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面向对象的写法"><span class="nav-number">1.2.</span> <span class="nav-text">面向对象的写法</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刘放</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i> 总访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"brizer"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+  
+  
+</body>
+</html>

@@ -1,0 +1,723 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="brizer,前端,博客,刘放" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x524D;&amp;#x8A00;&amp;#x6709;&amp;#x65F6;&amp;#x5019;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x81EA;&amp;#x5DF1;&amp;#x5B9A;&amp;#x4E49;&amp;#x4E00;&amp;#x4E9B;&amp;#x516C;&amp;#x53F8;&amp;#x9879;&amp;#x76EE;&amp;#x5185;&amp;#x90E8;&amp;#x7528;&amp;#x7684;&amp;#x7EC4;&amp;#x4EF6;&amp;#x65F6;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自定义浏览器原生组件样式之radio和checkbox">
+<meta property="og:url" content="http://yoursite.com/2016/04/28/自定义浏览器原生组件样式之radio和checkbox/index.html">
+<meta property="og:site_name" content="Brizer's Blog">
+<meta property="og:description" content="&amp;#x524D;&amp;#x8A00;&amp;#x6709;&amp;#x65F6;&amp;#x5019;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x81EA;&amp;#x5DF1;&amp;#x5B9A;&amp;#x4E49;&amp;#x4E00;&amp;#x4E9B;&amp;#x516C;&amp;#x53F8;&amp;#x9879;&amp;#x76EE;&amp;#x5185;&amp;#x90E8;&amp;#x7528;&amp;#x7684;&amp;#x7EC4;&amp;#x4EF6;&amp;#x65F6;">
+<meta property="og:image" content="http://yoursite.com/2016/04/28/自定义浏览器原生组件样式之radio和checkbox/1-1.png">
+<meta property="og:updated_time" content="2016-04-28T01:54:49.311Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="自定义浏览器原生组件样式之radio和checkbox">
+<meta name="twitter:description" content="&amp;#x524D;&amp;#x8A00;&amp;#x6709;&amp;#x65F6;&amp;#x5019;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x81EA;&amp;#x5DF1;&amp;#x5B9A;&amp;#x4E49;&amp;#x4E00;&amp;#x4E9B;&amp;#x516C;&amp;#x53F8;&amp;#x9879;&amp;#x76EE;&amp;#x5185;&amp;#x90E8;&amp;#x7528;&amp;#x7684;&amp;#x7EC4;&amp;#x4EF6;&amp;#x65F6;">
+<meta name="twitter:image" content="http://yoursite.com/2016/04/28/自定义浏览器原生组件样式之radio和checkbox/1-1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 自定义浏览器原生组件样式之radio和checkbox | Brizer's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Brizer's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">刘放 学习笔记</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+  
+    <style type="text/css">
+		#so360{white-space:nowrap;margin:10px auto;}
+		#so360 form{margin:0;padding:0}
+		#so360_keyword{width:157px;height:32px;line-height:32px;font:14px arial;padding:2px 5px;margin-right:5px;
+		border:2px solid #061201;outline:0;vertical-align:middle}
+		#so360_keyword{background:url(https://p.ssl.qhimg.com/t01ab1a3fb05f0ee893.png) no-repeat 236px center}
+		#so360_submit{width:60px;height:40px;border:0;color:#fff;background:#061201;
+		font-weight:bold;font:bold 14px arial;padding:0;padding-top:3px\9;cursor:pointer;
+		vertical-align:middle}
+	</style>
+	<div id="so360">
+	    <form action="http://www.so.com/s" target="_blank" id="so360form">
+	   <input type="text" autocomplete="off" name="q" id="so360_keyword">
+	        <input type="submit" id="so360_submit" value="搜 索">
+	        <input type="hidden" name="ie" value="utf8">
+	        <input type="hidden" name="src" value="zz_brizer.top">
+	        <input type="hidden" name="site" value="brizer.top">
+	        <input type="hidden" name="rg" value="1">
+	    </form>
+	</div> 
+	
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/demo" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            demo
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                自定义浏览器原生组件样式之radio和checkbox
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-28T09:44:51+08:00" content="2016-04-28">
+              2016-04-28
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/css/" itemprop="url" rel="index">
+                    <span itemprop="name">css</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/28/自定义浏览器原生组件样式之radio和checkbox/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/28/自定义浏览器原生组件样式之radio和checkbox/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+                    
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+              </span>
+                     
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="&#x524D;&#x8A00;"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a><strong>&#x524D;&#x8A00;</strong></h1><p>&#x6709;&#x65F6;&#x5019;&#xFF0C;&#x6211;&#x4EEC;&#x81EA;&#x5DF1;&#x5B9A;&#x4E49;&#x4E00;&#x4E9B;&#x516C;&#x53F8;&#x9879;&#x76EE;&#x5185;&#x90E8;&#x7528;&#x7684;&#x7EC4;&#x4EF6;&#x65F6;&#xFF0C;&#x4F1A;&#x5BF9;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x5404;&#x79CD;&#x7EC4;&#x4EF6;&#x8FDB;&#x884C;&#x6837;&#x5F0F;&#x4FEE;&#x6539;&#x3002;&#x8FD9;&#x91CC;&#x4E3B;&#x8981;&#x8BF4;&#x4E00;&#x4E0B;checkbox&#x548C;radio&#x7EC4;&#x4EF6;&#x7684;&#x6837;&#x5F0F;&#x4FEE;&#x6539;&#x65B9;&#x5F0F;&#x3002;</p>
+<hr>
+<h1 id="&#x5B9E;&#x73B0;"><a href="#&#x5B9E;&#x73B0;" class="headerlink" title="&#x5B9E;&#x73B0;"></a><strong>&#x5B9E;&#x73B0;</strong></h1><p>&#x9996;&#x5148;&#x770B;&#x770B;&#x6548;&#x679C;&#xFF1A;<br><img src="/2016/04/28/&#x81EA;&#x5B9A;&#x4E49;&#x6D4F;&#x89C8;&#x5668;&#x539F;&#x751F;&#x7EC4;&#x4EF6;&#x6837;&#x5F0F;&#x4E4B;radio&#x548C;checkbox/1-1.png" alt="images"></p>
+<p>&#x5176;&#x5B9E;&#x73B0;&#x539F;&#x7406;&#x5C31;&#x662F;&#x5C06;input&#x9690;&#x85CF;&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7;label&#x6307;&#x5411;input&#xFF0C;&#x5BF9;input&#x548C;&#x5176;&#x4F2A;&#x5143;&#x7D20;&#x8FDB;&#x884C;&#x6837;&#x5F0F;&#x4FEE;&#x6539;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x5148;&#x770B;&#x770B;chechbox&#xFF1A;</p>
+<p>html&#xFF1A;<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">id</span>=<span class="string">&quot;check1&quot;</span> <span class="attr">class</span>=<span class="string">&quot;checkbox1&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;check1&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>css:<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.checkbox1</span> {</span><br><span class="line">  <span class="attribute">display</span>:none;</span><br><span class="line">}</span><br><span class="line"><span class="selector-class">.checkbox1</span> + <span class="selector-tag">label</span> {</span><br><span class="line">  <span class="attribute">position</span>:relative;</span><br><span class="line">  <span class="attribute">padding</span>:<span class="number">4px</span> <span class="number">9px</span>;</span><br><span class="line">  <span class="attribute">border</span>:<span class="number">1px</span> solid green;</span><br><span class="line">  <span class="attribute">border-radius</span>:<span class="number">3px</span>;</span><br><span class="line">}</span><br><span class="line"><span class="selector-class">.checkbox1</span><span class="selector-pseudo">:checked</span> + <span class="selector-tag">label</span><span class="selector-pseudo">:after</span> {</span><br><span class="line">  <span class="attribute">position</span>:absolute;</span><br><span class="line">  <span class="attribute">content</span>:<span class="string">&apos;\2714&apos;</span>;</span><br><span class="line">  <span class="attribute">font-size</span>:<span class="number">14px</span>;</span><br><span class="line">  <span class="attribute">top</span>:<span class="number">2px</span>;</span><br><span class="line">  <span class="attribute">left</span>:<span class="number">3px</span>;</span><br><span class="line">  <span class="attribute">color</span>:blue;</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<p>&#x518D;&#x6765;&#x770B;&#x770B;radio&#xFF1A;</p>
+<p>html&#xFF1A;</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">id</span>=<span class="string">&quot;radio1&quot;</span> <span class="attr">name</span>=<span class="string">&quot;radio1-1&quot;</span> <span class="attr">class</span>=<span class="string">&quot;radio1&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;radio1&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;&quot;</span> <span class="attr">style</span>=<span class="string">&quot;height:20px;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">id</span>=<span class="string">&quot;radio2&quot;</span> <span class="attr">name</span>=<span class="string">&quot;radio1-1&quot;</span> <span class="attr">class</span>=<span class="string">&quot;radio1&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;radio2&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>&#x5BF9;&#x5E94;css&#xFF1A;</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.radio1</span> {</span><br><span class="line">  <span class="attribute">display</span>:none;</span><br><span class="line">}</span><br><span class="line"><span class="selector-class">.radio1</span> + <span class="selector-tag">label</span> {</span><br><span class="line">  <span class="attribute">position</span>:relative;</span><br><span class="line">  <span class="attribute">padding</span>:<span class="number">6px</span> <span class="number">12px</span>;</span><br><span class="line">  <span class="attribute">border</span>:<span class="number">1px</span> solid red;</span><br><span class="line">  <span class="attribute">border-radius</span>:<span class="number">50%</span>;</span><br><span class="line">}</span><br><span class="line"><span class="selector-class">.radio1</span><span class="selector-pseudo">:checked</span> + <span class="selector-tag">label</span><span class="selector-pseudo">:after</span>{</span><br><span class="line">  <span class="attribute">position</span>:absolute;</span><br><span class="line">  <span class="attribute">top</span>:<span class="number">6px</span>;</span><br><span class="line">  <span class="attribute">left</span>:<span class="number">5px</span>;</span><br><span class="line">  <span class="attribute">content</span>:<span class="string">&apos;&apos;</span>;</span><br><span class="line">  <span class="attribute">width</span>:<span class="number">15px</span>;</span><br><span class="line">  <span class="attribute">height</span>:<span class="number">15px</span>;</span><br><span class="line">  <span class="attribute">font-size</span>:<span class="number">32px</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>:<span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">background-color</span>:blue;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="&#x5B8C;&#x6574;&#x793A;&#x4F8B;"><a href="#&#x5B8C;&#x6574;&#x793A;&#x4F8B;" class="headerlink" title="&#x5B8C;&#x6574;&#x793A;&#x4F8B;"></a><strong>&#x5B8C;&#x6574;&#x793A;&#x4F8B;</strong></h1><p>&#x5B8C;&#x6574;&#x793A;&#x4F8B;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p></p><p data-height="266" data-theme-id="0" data-slug-hash="xVyKax" data-default-tab="css,result" data-user="brizer" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/brizer/pen/xVyKax/" target="_blank" rel="external">&#x81EA;&#x5B9A;&#x4E49;&#x6D4F;&#x89C8;&#x5668;&#x5143;&#x7D20;&#x7EC4;&#x4EF6;&#x6837;&#x5F0F;</a> by &#x5218;&#x653E; (<a href="http://codepen.io/brizer" target="_blank" rel="external">@brizer</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/04/27/jQuery的deferred对象详解/" rel="next" title="jQuery的deferred对象详解">
+                <i class="fa fa-chevron-left"></i> jQuery的deferred对象详解
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/04/28/Angular中通过ajax上传文件解决方案/" rel="prev" title="Angular中通过ajax上传文件解决方案-项目经验">
+                Angular中通过ajax上传文件解决方案-项目经验 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/04/28/自定义浏览器原生组件样式之radio和checkbox/"
+     data-title="自定义浏览器原生组件样式之radio和checkbox"
+     data-content=""
+     data-url="http://yoursite.com/2016/04/28/自定义浏览器原生组件样式之radio和checkbox/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/04/28/自定义浏览器原生组件样式之radio和checkbox/"
+           data-title="自定义浏览器原生组件样式之radio和checkbox" data-url="http://yoursite.com/2016/04/28/自定义浏览器原生组件样式之radio和checkbox/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://nos.netease.com/edu-image/5AA61D30A78B81D8CF5AE7608A1468C2.jpg"
+               alt="刘放" />
+          <p class="site-author-name" itemprop="name">刘放</p>
+          <p class="site-description motion-element" itemprop="description">网易前端开发 brizer@163.com</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">110</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/brizer" target="_blank" title="github">
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/3978835322" target="_blank" title="weibo">
+                  
+                  weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://study.163.com/topics/2016-11sales/#/main" title="云课堂充电节" target="_blank">云课堂充电节</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://study.163.com/" title="网易云课堂" target="_blank">网易云课堂</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.icourse163.org/" title="中国大学MOOC" target="_blank">中国大学MOOC</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://100.163.com/" title="网易100分" target="_blank">网易100分</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实现"><span class="nav-number">2.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#完整示例"><span class="nav-number">3.</span> <span class="nav-text">完整示例</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刘放</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i> 总访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"brizer"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+  
+  
+</body>
+</html>

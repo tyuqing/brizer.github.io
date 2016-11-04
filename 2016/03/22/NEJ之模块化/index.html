@@ -1,0 +1,804 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="brizer,前端,博客,刘放" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="Nej&amp;#x4E4B;&amp;#x6A21;&amp;#x5757;&amp;#x5316;&amp;#x5F00;&amp;#x53D1;
+&amp;#x524D;&amp;#x8A00;&amp;#x9700;&amp;#x8981;&amp;#x5F00;&amp;#x53D1;study&amp;#x9879;&amp;#x76EE;&amp;#xFF0C;&amp;#x9700;&amp;#x8981;&amp;#x7528;&amp;#x5230;nej&amp;#xFF0C;&amp;#x6545;&amp;#x5BF9;&amp;#x6B64;&amp;#x8">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NEJ之模块化">
+<meta property="og:url" content="http://yoursite.com/2016/03/22/NEJ之模块化/index.html">
+<meta property="og:site_name" content="Brizer's Blog">
+<meta property="og:description" content="Nej&amp;#x4E4B;&amp;#x6A21;&amp;#x5757;&amp;#x5316;&amp;#x5F00;&amp;#x53D1;
+&amp;#x524D;&amp;#x8A00;&amp;#x9700;&amp;#x8981;&amp;#x5F00;&amp;#x53D1;study&amp;#x9879;&amp;#x76EE;&amp;#xFF0C;&amp;#x9700;&amp;#x8981;&amp;#x7528;&amp;#x5230;nej&amp;#xFF0C;&amp;#x6545;&amp;#x5BF9;&amp;#x6B64;&amp;#x8">
+<meta property="og:image" content="http://yoursite.com/2016/03/22/NEJ之模块化/1-1.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/22/NEJ之模块化/1-2.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/22/NEJ之模块化/1-3.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/22/NEJ之模块化/1-4.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/22/NEJ之模块化/1-5.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/22/NEJ之模块化/1-6.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/22/NEJ之模块化/1-7.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/22/NEJ之模块化/1-8.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/22/NEJ之模块化/1-9.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/22/NEJ之模块化/1-10.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/22/NEJ之模块化/1-11.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/22/NEJ之模块化/1-12.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/22/NEJ之模块化/1-13.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/22/NEJ之模块化/1-14.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/22/NEJ之模块化/1-15.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/22/NEJ之模块化/1-16.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/22/NEJ之模块化/1-17.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/22/NEJ之模块化/1-18.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/22/NEJ之模块化/1-19.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/22/NEJ之模块化/1-20.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/22/NEJ之模块化/1-21.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/22/NEJ之模块化/1-22.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/22/NEJ之模块化/1-23.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/22/NEJ之模块化/1-24.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/22/NEJ之模块化/1-25.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/22/NEJ之模块化/1-26.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/22/NEJ之模块化/1-27.jpg">
+<meta property="og:updated_time" content="2016-04-21T00:53:54.513Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="NEJ之模块化">
+<meta name="twitter:description" content="Nej&amp;#x4E4B;&amp;#x6A21;&amp;#x5757;&amp;#x5316;&amp;#x5F00;&amp;#x53D1;
+&amp;#x524D;&amp;#x8A00;&amp;#x9700;&amp;#x8981;&amp;#x5F00;&amp;#x53D1;study&amp;#x9879;&amp;#x76EE;&amp;#xFF0C;&amp;#x9700;&amp;#x8981;&amp;#x7528;&amp;#x5230;nej&amp;#xFF0C;&amp;#x6545;&amp;#x5BF9;&amp;#x6B64;&amp;#x8">
+<meta name="twitter:image" content="http://yoursite.com/2016/03/22/NEJ之模块化/1-1.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> NEJ之模块化 | Brizer's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Brizer's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">刘放 学习笔记</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+  
+    <style type="text/css">
+		#so360{white-space:nowrap;margin:10px auto;}
+		#so360 form{margin:0;padding:0}
+		#so360_keyword{width:157px;height:32px;line-height:32px;font:14px arial;padding:2px 5px;margin-right:5px;
+		border:2px solid #061201;outline:0;vertical-align:middle}
+		#so360_keyword{background:url(https://p.ssl.qhimg.com/t01ab1a3fb05f0ee893.png) no-repeat 236px center}
+		#so360_submit{width:60px;height:40px;border:0;color:#fff;background:#061201;
+		font-weight:bold;font:bold 14px arial;padding:0;padding-top:3px\9;cursor:pointer;
+		vertical-align:middle}
+	</style>
+	<div id="so360">
+	    <form action="http://www.so.com/s" target="_blank" id="so360form">
+	   <input type="text" autocomplete="off" name="q" id="so360_keyword">
+	        <input type="submit" id="so360_submit" value="搜 索">
+	        <input type="hidden" name="ie" value="utf8">
+	        <input type="hidden" name="src" value="zz_brizer.top">
+	        <input type="hidden" name="site" value="brizer.top">
+	        <input type="hidden" name="rg" value="1">
+	    </form>
+	</div> 
+	
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/demo" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            demo
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                NEJ之模块化
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-22T08:52:51+08:00" content="2016-03-22">
+              2016-03-22
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/nej/" itemprop="url" rel="index">
+                    <span itemprop="name">nej</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/03/22/NEJ之模块化/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/22/NEJ之模块化/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+                    
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+              </span>
+                     
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Nej&#x4E4B;&#x6A21;&#x5757;&#x5316;&#x5F00;&#x53D1;"><a href="#Nej&#x4E4B;&#x6A21;&#x5757;&#x5316;&#x5F00;&#x53D1;" class="headerlink" title="Nej&#x4E4B;&#x6A21;&#x5757;&#x5316;&#x5F00;&#x53D1;"></a>Nej&#x4E4B;&#x6A21;&#x5757;&#x5316;&#x5F00;&#x53D1;</h1><hr>
+<h2 id="&#x524D;&#x8A00;"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a><strong>&#x524D;&#x8A00;</strong></h2><p>&#x9700;&#x8981;&#x5F00;&#x53D1;study&#x9879;&#x76EE;&#xFF0C;&#x9700;&#x8981;&#x7528;&#x5230;nej&#xFF0C;&#x6545;&#x5BF9;&#x6B64;&#x8FDB;&#x884C;&#x5B66;&#x4E60;&#x3002;</p>
+<p>&#x6587;&#x7AE0;&#x5148;&#x4ECB;&#x7ECD;&#x57FA;&#x672C;&#x6982;&#x5FF5;&#xFF0C;&#x7136;&#x540E;&#x7EDF;&#x4E00;&#x4ECB;&#x7ECD;&#x76F8;&#x5173;API&#x3002;&#x6700;&#x540E;&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x5E94;&#x7528;&#x5B9E;&#x4F8B;&#x7B80;&#x5355;&#x8BA4;&#x8BC6;&#x4E0B;nej&#x3002;</p>
+<hr>
+<h2 id="&#x65B9;&#x6848;&#x7ED3;&#x6784;"><a href="#&#x65B9;&#x6848;&#x7ED3;&#x6784;" class="headerlink" title="&#x65B9;&#x6848;&#x7ED3;&#x6784;"></a><strong>&#x65B9;&#x6848;&#x7ED3;&#x6784;</strong></h2><p>&#x6574;&#x4E2A;&#x65B9;&#x6848;<strong>&#x7EB5;&#x5411;&#x91C7;&#x7528;MVC&#x5206;&#x5C42;&#x67B6;&#x6784;&#x601D;&#x8DEF;&#xFF0C;&#x6A2A;&#x5411;&#x91C7;&#x7528;&#x6A21;&#x5757;&#x5316;&#x8C03;&#x5EA6;&#x601D;&#x8DEF;</strong>&#xFF0C;&#x5BF9;&#x7CFB;&#x7EDF;&#x7684;&#x5404;&#x5B50;&#x7CFB;&#x7EDF;&#x6A21;&#x5757;&#x5316;&#x5C01;&#x88C5;&#xFF0C;&#x6A21;&#x5757;&#x4E4B;&#x95F4;&#x901A;&#x8FC7;<strong>&#x6D88;&#x606F;&#x673A;&#x5236;&#x4EA4;&#x4E92;</strong>&#xFF0C;&#x793A;&#x610F;&#x56FE;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
+<p><img src="/2016/03/22/NEJ&#x4E4B;&#x6A21;&#x5757;&#x5316;/1-1.jpg" alt="1-1.jpg"></p>
+<p>&#x7531;&#x4EE5;&#x4E0B;&#x51E0;&#x90E8;&#x5206;&#x7EC4;&#x6210;&#xFF1A;</p>
+<p><strong>&#x5386;&#x53F2;&#x7BA1;&#x7406;&#x5668;</strong>&#xFF1A;&#x4E3B;&#x8981;&#x8D1F;&#x8D23;&#x7BA1;&#x7406;&#x64CD;&#x4F5C;&#x5386;&#x53F2;&#x53CA;&#x7CFB;&#x7EDF;&#x5BF9;&#x5916;&#x63A5;&#x53E3;&#x53D8;&#x5316;&#x68C0;&#x6D4B;</p>
+<p><strong>&#x6A21;&#x5757;&#x8C03;&#x5EA6;&#x5668;</strong>&#xFF1A;&#x4E3B;&#x8981;&#x8D1F;&#x8D23;&#x6309;&#x7167;&#x63A5;&#x53E3;&#x53D8;&#x5316;&#x8C03;&#x5EA6;&#x76F8;&#x5E94;&#x7684;&#x6A21;&#x5757;</p>
+<p><strong>&#x6A21;&#x5757;</strong>&#xFF1A;&#x4E3B;&#x8981;&#x8D1F;&#x8D23;&#x5B9E;&#x73B0;&#x5177;&#x4F53;&#x6A21;&#x5757;&#x7684;&#x4E1A;&#x52A1;&#x903B;&#x8F91;</p>
+<p>&#x76F8;&#x4E92;&#x5173;&#x7CFB;&#x5982;&#x56FE;&#xFF1A;</p>
+<p><img src="/2016/03/22/NEJ&#x4E4B;&#x6A21;&#x5757;&#x5316;/1-2.jpg" alt="1-2.jpg"></p>
+<hr>
+<h2 id="&#x6A21;&#x5757;&#x7C7B;&#x578B;"><a href="#&#x6A21;&#x5757;&#x7C7B;&#x578B;" class="headerlink" title="&#x6A21;&#x5757;&#x7C7B;&#x578B;"></a><strong>&#x6A21;&#x5757;&#x7C7B;&#x578B;</strong></h2><p>&#x53EF;&#x4EE5;&#x5206;&#x4E3A;&#xFF1A;</p>
+<p><strong>&#x8BBF;&#x95EE;&#x6A21;&#x5757;</strong>&#xFF1A;&#x901A;&#x8FC7;&#x5BF9;&#x5916;&#x63A5;&#x53E3;&#x53EF;&#x76F4;&#x63A5;&#x8BBF;&#x95EE;&#x5230;&#x6307;&#x5B9A;&#x6A21;&#x5757;</p>
+<p><strong>&#x79C1;&#x6709;&#x6A21;&#x5757;</strong>&#xFF1A;&#x6B64;&#x7C7B;&#x6A21;&#x5757;&#x591A;&#x4E3A;&#x53EF;&#x8BBF;&#x95EE;&#x6A21;&#x5757;&#x7684;&#x7EC4;&#x6210;&#x6A21;&#x5757;&#xFF0C;&#x82E5;&#x5E72;&#x79C1;&#x6709;&#x6A21;&#x5757;&#x7EC4;&#x6210;&#x4E00;&#x4E2A;&#x53EF;&#x8BBF;&#x95EE;&#x6A21;&#x5757;</p>
+<p>&#x5982;&#x4E0B;&#x56FE;&#xFF0C;&#x6BCF;&#x4E2A;&#x6A59;&#x8272;&#x6846;&#x53EF;&#x89C6;&#x4E3A;&#x4E00;&#x4E2A;&#x79C1;&#x6709;&#x6A21;&#x5757;&#xFF0C;&#x79C1;&#x6709;&#x6A21;&#x5757;&#x662F;&#x65E0;&#x6CD5;&#x901A;&#x8FC7;&#x5730;&#x5740;&#x680F;&#x76F4;&#x63A5;&#x8BBF;&#x95EE;&#x5230;&#x7684;&#x3002;</p>
+<p><img src="/2016/03/22/NEJ&#x4E4B;&#x6A21;&#x5757;&#x5316;/1-3.jpg" alt="images"></p>
+<hr>
+<h2 id="UMI"><a href="#UMI" class="headerlink" title="UMI"></a><strong>UMI</strong></h2><p><strong>UMI&#xFF08;Uniform Module Identifier&#xFF09;</strong>&#xFF1A;&#x6A21;&#x5757;&#x7EDF;&#x4E00;&#x6807;&#x8BC6;&#x7B26;&#xFF0C;&#x7528;&#x6765;&#x552F;&#x4E00;&#x6807;&#x8BC6;&#x7CFB;&#x7EDF;&#x4E2D;&#x6307;&#x5B9A;&#x7684;&#x6A21;&#x5757;&#x3002;</p>
+<p>&#x5FC5;&#x987B;&#x4EE5;&#x201C;/&#x201D;&#x7B26;&#x53F7;&#x5F00;&#x59CB;&#xFF0C;<strong>&#x79C1;&#x6709;&#x6A21;&#x5757;&#x6807;&#x8BC6;&#x5FC5;&#x987B;&#x4EE5;&#x201C;/&#xFF1F;&#x201D;&#x7B26;&#x53F7;</strong>&#x5F00;&#x59CB;&#x3002; </p>
+<p>&#x7B80;&#x5355;&#x7684;&#x6A21;&#x5757;&#x6807;&#x8BC6;&#x7B26;&#x5982;&#x201C;/a/b/&#x201D;</p>
+<p>&#x5047;&#x8BBE;&#x6709;&#x4E09;&#x4E2A;&#x6A21;&#x5757;&#x7684;UMI&#x4E3A;&#x201C;/a&#x201D;&#xFF0C;&#x201C;/a/b&#x201D;&#xFF0C;&#x201C;/a/c&#x201D;&#x5219;&#x8868;&#x793A;b&#x548C;c&#x6A21;&#x5757;&#x4E3A;a&#x7684;&#x5B50;&#x6A21;&#x5757;&#x3002;</p>
+<hr>
+<h2 id="&#x6A21;&#x5757;&#x7ED3;&#x6784;"><a href="#&#x6A21;&#x5757;&#x7ED3;&#x6784;" class="headerlink" title="&#x6A21;&#x5757;&#x7ED3;&#x6784;"></a><strong>&#x6A21;&#x5757;&#x7ED3;&#x6784;</strong></h2><p>&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x7531;html&#xFF0C;css&#x548C;js&#x7EC4;&#x6210;&#x3002;&#x6A21;&#x5757;&#x7684;&#x7ED3;&#x6784;&#x901A;&#x8FC7;&#x4E09;&#x7C7B;&#x57FA;&#x672C;<strong>&#x6A21;&#x677F;</strong>&#x7C7B;&#x578B;&#x5F15;&#x5165;&#xFF0C;&#x5982;&#x4E0B;&#x56FE;&#xFF1A;</p>
+<p><img src="/2016/03/22/NEJ&#x4E4B;&#x6A21;&#x5757;&#x5316;/1-4.jpg" alt="images"></p>
+<hr>
+<h2 id="&#x8C03;&#x5EA6;&#x5668;"><a href="#&#x8C03;&#x5EA6;&#x5668;" class="headerlink" title="&#x8C03;&#x5EA6;&#x5668;"></a><strong>&#x8C03;&#x5EA6;&#x5668;</strong></h2><p>&#x6846;&#x67B6;&#x4F1A;&#x5728;&#x5168;&#x5C40;&#x5B9E;&#x4F8B;&#x5316;&#x4E00;&#x4E2A;&#x8C03;&#x5EA6;&#x5668;&#x5B9E;&#x4F8B;dispatcher&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x8C03;&#x7528;&#x6B64;&#x5B9E;&#x4F8B;&#x7684;&#x63A5;&#x53E3;&#x5B8C;&#x6210;&#x76F8;&#x5E94;&#x7684;&#x64CD;&#x4F5C;&#x3002;</p>
+<p><img src="/2016/03/22/NEJ&#x4E4B;&#x6A21;&#x5757;&#x5316;/1-5.jpg" alt="images"></p>
+<hr>
+<h2 id="&#x6D88;&#x606F;&#x673A;&#x5236;"><a href="#&#x6D88;&#x606F;&#x673A;&#x5236;" class="headerlink" title="&#x6D88;&#x606F;&#x673A;&#x5236;"></a><strong>&#x6D88;&#x606F;&#x673A;&#x5236;</strong></h2><p>&#x5206;&#x4E3A;&#x4E09;&#x79CD;&#xFF1A;<strong>&#x76EE;&#x6807;&#x6D88;&#x606F;</strong>&#xFF0C;<strong>&#x76EE;&#x6807;&#x5E7F;&#x64AD;</strong>&#x548C;<strong>&#x7FA4;&#x4F53;&#x5E7F;&#x64AD;</strong>&#x3002;</p>
+<p>&#x5206;&#x522B;&#x4E3E;&#x4F8B;&#xFF1A;</p>
+<p>&#x76EE;&#x6807;&#x6D88;&#x606F;&#xFF0C;&#x4F20;&#x9001;&#x5230;&#x6307;&#x5B9A;UMI&#xFF0C;&#x4EC5;&#x6B64;&#x6A21;&#x5757;&#x4F1A;&#x6536;&#x5230;&#x6D88;&#x606F;&#xFF1A;</p>
+<p><img src="/2016/03/22/NEJ&#x4E4B;&#x6A21;&#x5757;&#x5316;/1-6.jpg" alt="images"></p>
+<p>&#x76EE;&#x6807;&#x5E7F;&#x64AD;&#xFF0C;&#x4F20;&#x9001;&#x5230;&#x81F3;UMI&#x8DEF;&#x5F84;&#x4E0A;&#x7684;&#x6240;&#x6709;&#x6A21;&#x677F;&#xFF0C;&#x90FD;&#x4F1A;&#x6536;&#x5230;&#x6D88;&#x606F;&#xFF1A;</p>
+<p><img src="/2016/03/22/NEJ&#x4E4B;&#x6A21;&#x5757;&#x5316;/1-7.jpg" alt="images"></p>
+<p>&#x7FA4;&#x4F53;&#x5E7F;&#x64AD;&#xFF0C;&#x4F20;&#x9001;&#x5230;&#x81F3;UML&#x7684;&#x6240;&#x6709;&#x5B50;&#x5B59;&#x6A21;&#x5757;&#x548C;&#x8DEF;&#x5F84;&#x4E0A;&#x7684;&#x6A21;&#x677F;&#x3002;</p>
+<p><img src="/2016/03/22/NEJ&#x4E4B;&#x6A21;&#x5757;&#x5316;/1-8.jpg" alt="images"></p>
+<hr>
+<h2 id="&#x5386;&#x53F2;&#x7BA1;&#x7406;&#x5668;"><a href="#&#x5386;&#x53F2;&#x7BA1;&#x7406;&#x5668;" class="headerlink" title="&#x5386;&#x53F2;&#x7BA1;&#x7406;&#x5668;"></a><strong>&#x5386;&#x53F2;&#x7BA1;&#x7406;&#x5668;</strong></h2><p>&#x8D1F;&#x8D23;&#x68C0;&#x6D4B;&#x7CFB;&#x7EDF;&#x5BF9;&#x5916;&#x63A5;&#x53E3;&#x7684;&#x53D8;&#x5316;&#xFF0C;&#x540C;&#x65F6;&#x8BB0;&#x5F55;&#x6BCF;&#x6B21;&#x53D8;&#x5316;&#x5386;&#x53F2;&#x3002;</p>
+<hr>
+<h2 id="&#x76F8;&#x5173;API"><a href="#&#x76F8;&#x5173;API" class="headerlink" title="&#x76F8;&#x5173;API"></a><strong>&#x76F8;&#x5173;API</strong></h2><h3 id="nej-ut-Module"><a href="#nej-ut-Module" class="headerlink" title="nej.ut._$$Module"></a><strong>nej.ut._$$Module</strong></h3><p>&#x8BE5;&#x6A21;&#x677F;&#x662F;&#x6240;&#x6709;&#x6A21;&#x5757;&#x7684;&#x57FA;&#x7C7B;&#x3002;&#x6240;&#x6709;&#x6A21;&#x5757;<strong>&#x5FC5;&#x987B;&#x4ECE;&#x6B64;&#x6A21;&#x5757;&#x57FA;&#x7C7B;&#x7EE7;&#x627F;</strong>&#xFF0C;&#x5426;&#x5219;&#x8C03;&#x5EA6;&#x5668;&#x5C06;&#x5FFD;&#x7565;&#x6CE8;&#x518C;&#x3002;</p>
+<h4 id="onShow"><a href="#onShow" class="headerlink" title="__onShow"></a><strong>__onShow</strong></h4><p><img src="/2016/03/22/NEJ&#x4E4B;&#x6A21;&#x5757;&#x5316;/1-9.jpg" alt="images"></p>
+<h4 id="onApply"><a href="#onApply" class="headerlink" title="__onApply"></a><strong>__onApply</strong></h4><p><img src="/2016/03/22/NEJ&#x4E4B;&#x6A21;&#x5757;&#x5316;/1-10.jpg" alt="images"></p>
+<h4 id="onHide"><a href="#onHide" class="headerlink" title="__onHide"></a><strong>__onHide</strong></h4><p><img src="/2016/03/22/NEJ&#x4E4B;&#x6A21;&#x5757;&#x5316;/1-11.jpg" alt="images"></p>
+<h4 id="onRefresh"><a href="#onRefresh" class="headerlink" title="__onRefresh"></a><strong>__onRefresh</strong></h4><p><img src="/2016/03/22/NEJ&#x4E4B;&#x6A21;&#x5757;&#x5316;/1-12.jpg" alt="images"></p>
+<h4 id="onMessage"><a href="#onMessage" class="headerlink" title="__onMessage"></a><strong>__onMessage</strong></h4><p><img src="/2016/03/22/NEJ&#x4E4B;&#x6A21;&#x5757;&#x5316;/1-13.jpg" alt="images"></p>
+<h4 id="onBeforeHide"><a href="#onBeforeHide" class="headerlink" title="__onBeforeHide"></a><strong>__onBeforeHide</strong></h4><p><img src="/2016/03/22/NEJ&#x4E4B;&#x6A21;&#x5757;&#x5316;/1-14.jpg" alt="images"></p>
+<h3 id="dispatcher"><a href="#dispatcher" class="headerlink" title="dispatcher"></a><strong>dispatcher</strong></h3><h4 id="regist"><a href="#regist" class="headerlink" title="_$regist"></a><strong>_$regist</strong></h4><p><img src="/2016/03/22/NEJ&#x4E4B;&#x6A21;&#x5757;&#x5316;/1-15.jpg" alt="images"></p>
+<h4 id="registAll"><a href="#registAll" class="headerlink" title="_$registAll"></a><strong>_$registAll</strong></h4><p><img src="/2016/03/22/NEJ&#x4E4B;&#x6A21;&#x5757;&#x5316;/1-16.jpg" alt="images"></p>
+<h4 id="active"><a href="#active" class="headerlink" title="_$active"></a><strong>_$active</strong></h4><p><img src="/2016/03/22/NEJ&#x4E4B;&#x6A21;&#x5757;&#x5316;/1-17.jpg" alt="images"></p>
+<h4 id="apply"><a href="#apply" class="headerlink" title="_$apply"></a><strong>_$apply</strong></h4><p><img src="/2016/03/22/NEJ&#x4E4B;&#x6A21;&#x5757;&#x5316;/1-18.jpg" alt="images"></p>
+<h4 id="redirect"><a href="#redirect" class="headerlink" title="_$redirect"></a><strong>_$redirect</strong></h4><p><img src="/2016/03/22/NEJ&#x4E4B;&#x6A21;&#x5757;&#x5316;/1-19.jpg" alt="images"></p>
+<h4 id="message"><a href="#message" class="headerlink" title="_$message"></a><strong>_$message</strong></h4><p><img src="/2016/03/22/NEJ&#x4E4B;&#x6A21;&#x5757;&#x5316;/1-20.jpg" alt="images"></p>
+<h4 id="rule"><a href="#rule" class="headerlink" title="_$rule"></a><strong>_$rule</strong></h4><p><img src="/2016/03/22/NEJ&#x4E4B;&#x6A21;&#x5757;&#x5316;/1-21.jpg" alt="images"></p>
+<h3 id="location"><a href="#location" class="headerlink" title="location"></a><strong>location</strong></h3><h4 id="location-redirect"><a href="#location-redirect" class="headerlink" title="location.redirect"></a><strong>location.redirect</strong></h4><p><img src="/2016/03/22/NEJ&#x4E4B;&#x6A21;&#x5757;&#x5316;/1-22.jpg" alt="images"></p>
+<h4 id="location-active"><a href="#location-active" class="headerlink" title="location.active"></a><strong>location.active</strong></h4><p><img src="/2016/03/22/NEJ&#x4E4B;&#x6A21;&#x5757;&#x5316;/1-23.jpg" alt="images"></p>
+<h4 id="location-onurlchange"><a href="#location-onurlchange" class="headerlink" title="location.onurlchange"></a><strong>location.onurlchange</strong></h4><p><img src="/2016/03/22/NEJ&#x4E4B;&#x6A21;&#x5757;&#x5316;/1-24.jpg" alt="images"></p>
+<hr>
+<h2 id="&#x5E94;&#x7528;&#x4E3E;&#x4F8B;"><a href="#&#x5E94;&#x7528;&#x4E3E;&#x4F8B;" class="headerlink" title="&#x5E94;&#x7528;&#x4E3E;&#x4F8B;"></a><strong>&#x5E94;&#x7528;&#x4E3E;&#x4F8B;</strong></h2><p>&#x7CFB;&#x7EDF;&#x5165;&#x53E3;&#xFF1A;</p>
+<p><img src="/2016/03/22/NEJ&#x4E4B;&#x6A21;&#x5757;&#x5316;/1-25.jpg" alt="images"></p>
+<p>&#x6A21;&#x5757;&#x7ED3;&#x6784;&#xFF1A;</p>
+<p><img src="/2016/03/22/NEJ&#x4E4B;&#x6A21;&#x5757;&#x5316;/1-26.jpg" alt="images"></p>
+<p>&#x6A21;&#x5757;&#x903B;&#x8F91;&#xFF1A;</p>
+<p><img src="/2016/03/22/NEJ&#x4E4B;&#x6A21;&#x5757;&#x5316;/1-27.jpg" alt="images"></p>
+<hr>
+<h2 id="&#x53C2;&#x8003;"><a href="#&#x53C2;&#x8003;" class="headerlink" title="&#x53C2;&#x8003;"></a><strong>&#x53C2;&#x8003;</strong></h2><p><a href="http://nej.netease.com/course/topic/dispatcher/" target="_blank" rel="external">nej&#x4E4B;&#x6A21;&#x5757;&#x5316;&#x5F00;&#x53D1;&#x624B;&#x518C;</a></p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/03/17/原型/" rel="next" title="原型">
+                <i class="fa fa-chevron-left"></i> 原型
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/03/23/NEJ之模板/" rel="prev" title="NEJ之模板">
+                NEJ之模板 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/03/22/NEJ之模块化/"
+     data-title="NEJ之模块化"
+     data-content=""
+     data-url="http://yoursite.com/2016/03/22/NEJ之模块化/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/03/22/NEJ之模块化/"
+           data-title="NEJ之模块化" data-url="http://yoursite.com/2016/03/22/NEJ之模块化/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://nos.netease.com/edu-image/5AA61D30A78B81D8CF5AE7608A1468C2.jpg"
+               alt="刘放" />
+          <p class="site-author-name" itemprop="name">刘放</p>
+          <p class="site-description motion-element" itemprop="description">网易前端开发 brizer@163.com</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">110</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/brizer" target="_blank" title="github">
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/3978835322" target="_blank" title="weibo">
+                  
+                  weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://study.163.com/topics/2016-11sales/#/main" title="云课堂充电节" target="_blank">云课堂充电节</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://study.163.com/" title="网易云课堂" target="_blank">网易云课堂</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.icourse163.org/" title="中国大学MOOC" target="_blank">中国大学MOOC</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://100.163.com/" title="网易100分" target="_blank">网易100分</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Nej之模块化开发"><span class="nav-number">1.</span> <span class="nav-text">Nej之模块化开发</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方案结构"><span class="nav-number">1.2.</span> <span class="nav-text">方案结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模块类型"><span class="nav-number">1.3.</span> <span class="nav-text">模块类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UMI"><span class="nav-number">1.4.</span> <span class="nav-text">UMI</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模块结构"><span class="nav-number">1.5.</span> <span class="nav-text">模块结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调度器"><span class="nav-number">1.6.</span> <span class="nav-text">调度器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#消息机制"><span class="nav-number">1.7.</span> <span class="nav-text">消息机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#历史管理器"><span class="nav-number">1.8.</span> <span class="nav-text">历史管理器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关API"><span class="nav-number">1.9.</span> <span class="nav-text">相关API</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#nej-ut-Module"><span class="nav-number">1.9.1.</span> <span class="nav-text">nej.ut._$$Module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#onShow"><span class="nav-number">1.9.1.1.</span> <span class="nav-text">__onShow</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#onApply"><span class="nav-number">1.9.1.2.</span> <span class="nav-text">__onApply</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#onHide"><span class="nav-number">1.9.1.3.</span> <span class="nav-text">__onHide</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#onRefresh"><span class="nav-number">1.9.1.4.</span> <span class="nav-text">__onRefresh</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#onMessage"><span class="nav-number">1.9.1.5.</span> <span class="nav-text">__onMessage</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#onBeforeHide"><span class="nav-number">1.9.1.6.</span> <span class="nav-text">__onBeforeHide</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dispatcher"><span class="nav-number">1.9.2.</span> <span class="nav-text">dispatcher</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#regist"><span class="nav-number">1.9.2.1.</span> <span class="nav-text">_$regist</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#registAll"><span class="nav-number">1.9.2.2.</span> <span class="nav-text">_$registAll</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#active"><span class="nav-number">1.9.2.3.</span> <span class="nav-text">_$active</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#apply"><span class="nav-number">1.9.2.4.</span> <span class="nav-text">_$apply</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#redirect"><span class="nav-number">1.9.2.5.</span> <span class="nav-text">_$redirect</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#message"><span class="nav-number">1.9.2.6.</span> <span class="nav-text">_$message</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rule"><span class="nav-number">1.9.2.7.</span> <span class="nav-text">_$rule</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#location"><span class="nav-number">1.9.3.</span> <span class="nav-text">location</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#location-redirect"><span class="nav-number">1.9.3.1.</span> <span class="nav-text">location.redirect</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#location-active"><span class="nav-number">1.9.3.2.</span> <span class="nav-text">location.active</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#location-onurlchange"><span class="nav-number">1.9.3.3.</span> <span class="nav-text">location.onurlchange</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用举例"><span class="nav-number">1.10.</span> <span class="nav-text">应用举例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">1.11.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刘放</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i> 总访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"brizer"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+  
+  
+</body>
+</html>

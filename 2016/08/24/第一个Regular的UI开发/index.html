@@ -1,0 +1,719 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="brizer,前端,博客,刘放" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x524D;&amp;#x8A00;&amp;#x8FD9;&amp;#x6B21;&amp;#x8FED;&amp;#x4EE3;&amp;#xFF0C;&amp;#x7EC8;&amp;#x4E8E;&amp;#x7528;&amp;#x5230;&amp;#x4E86;&amp;#x516C;&amp;#x53F8;&amp;#x81EA;&amp;#x5DF1;&amp;#x7684;&amp;#x6846;&amp;#x67B6;&amp;#x2013;Regular&amp;#x3002;&amp;#x786E;&amp;#x5B9E;&amp;#x5F88;&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第一个Regular的UI开发">
+<meta property="og:url" content="http://yoursite.com/2016/08/24/第一个Regular的UI开发/index.html">
+<meta property="og:site_name" content="Brizer's Blog">
+<meta property="og:description" content="&amp;#x524D;&amp;#x8A00;&amp;#x8FD9;&amp;#x6B21;&amp;#x8FED;&amp;#x4EE3;&amp;#xFF0C;&amp;#x7EC8;&amp;#x4E8E;&amp;#x7528;&amp;#x5230;&amp;#x4E86;&amp;#x516C;&amp;#x53F8;&amp;#x81EA;&amp;#x5DF1;&amp;#x7684;&amp;#x6846;&amp;#x67B6;&amp;#x2013;Regular&amp;#x3002;&amp;#x786E;&amp;#x5B9E;&amp;#x5F88;&amp;">
+<meta property="og:image" content="http://yoursite.com/2016/08/24/第一个Regular的UI开发/../第一个Regular的UI开发/1.png">
+<meta property="og:updated_time" content="2016-08-24T10:44:43.438Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="第一个Regular的UI开发">
+<meta name="twitter:description" content="&amp;#x524D;&amp;#x8A00;&amp;#x8FD9;&amp;#x6B21;&amp;#x8FED;&amp;#x4EE3;&amp;#xFF0C;&amp;#x7EC8;&amp;#x4E8E;&amp;#x7528;&amp;#x5230;&amp;#x4E86;&amp;#x516C;&amp;#x53F8;&amp;#x81EA;&amp;#x5DF1;&amp;#x7684;&amp;#x6846;&amp;#x67B6;&amp;#x2013;Regular&amp;#x3002;&amp;#x786E;&amp;#x5B9E;&amp;#x5F88;&amp;">
+<meta name="twitter:image" content="http://yoursite.com/2016/08/24/第一个Regular的UI开发/../第一个Regular的UI开发/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 第一个Regular的UI开发 | Brizer's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Brizer's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">刘放 学习笔记</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+  
+    <style type="text/css">
+		#so360{white-space:nowrap;margin:10px auto;}
+		#so360 form{margin:0;padding:0}
+		#so360_keyword{width:157px;height:32px;line-height:32px;font:14px arial;padding:2px 5px;margin-right:5px;
+		border:2px solid #061201;outline:0;vertical-align:middle}
+		#so360_keyword{background:url(https://p.ssl.qhimg.com/t01ab1a3fb05f0ee893.png) no-repeat 236px center}
+		#so360_submit{width:60px;height:40px;border:0;color:#fff;background:#061201;
+		font-weight:bold;font:bold 14px arial;padding:0;padding-top:3px\9;cursor:pointer;
+		vertical-align:middle}
+	</style>
+	<div id="so360">
+	    <form action="http://www.so.com/s" target="_blank" id="so360form">
+	   <input type="text" autocomplete="off" name="q" id="so360_keyword">
+	        <input type="submit" id="so360_submit" value="搜 索">
+	        <input type="hidden" name="ie" value="utf8">
+	        <input type="hidden" name="src" value="zz_brizer.top">
+	        <input type="hidden" name="site" value="brizer.top">
+	        <input type="hidden" name="rg" value="1">
+	    </form>
+	</div> 
+	
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/demo" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            demo
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                第一个Regular的UI开发
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-24T17:48:20+08:00" content="2016-08-24">
+              2016-08-24
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Regular/" itemprop="url" rel="index">
+                    <span itemprop="name">Regular</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/24/第一个Regular的UI开发/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/24/第一个Regular的UI开发/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+                    
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+              </span>
+                     
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="&#x524D;&#x8A00;"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a><strong>&#x524D;&#x8A00;</strong></h1><p>&#x8FD9;&#x6B21;&#x8FED;&#x4EE3;&#xFF0C;&#x7EC8;&#x4E8E;&#x7528;&#x5230;&#x4E86;&#x516C;&#x53F8;&#x81EA;&#x5DF1;&#x7684;&#x6846;&#x67B6;&#x2013;Regular&#x3002;&#x786E;&#x5B9E;&#x5F88;&#x65B9;&#x4FBF;&#x554A;&#x3002;<br><a href="http://regularjs.github.io/guide/zh/index.html" target="_blank" rel="external">&#x6307;&#x5F15;&#x6587;&#x6863;</a>,<a href="http://regularjs.github.io/reference/?api-zh" target="_blank" rel="external">API</a>,<a href="http://regularjs.github.io/reference/?syntax-zh" target="_blank" rel="external">&#x6A21;&#x677F;&#x8BED;&#x6CD5;</a></p>
+<p>&#x8FD9;&#x91CC;&#x5C31;&#x4E0D;&#x505A;&#x5E7F;&#x544A;&#x4E86;&#xFF0C;&#x4E3B;&#x8981;&#x662F;&#x8BB0;&#x5F55;&#x81EA;&#x5DF1;&#x4F7F;&#x7528;&#x8BE5;&#x6846;&#x67B6;&#x7684;&#x7ECF;&#x9A8C;&#xFF0C;&#x65B9;&#x4FBF;&#x65E5;&#x540E;&#x67E5;&#x9605;&#x548C;&#x5BF9;&#x6BD4;&#x6539;&#x8FDB;&#x3002;</p>
+<hr>
+<h1 id="&#x4E00;&#x4E2A;UI"><a href="#&#x4E00;&#x4E2A;UI" class="headerlink" title="&#x4E00;&#x4E2A;UI"></a><strong>&#x4E00;&#x4E2A;UI</strong></h1><p>&#x5C06;&#x7EC4;&#x4EF6;&#x5B8C;&#x6574;&#x4EE3;&#x7801;&#x8D34;&#x51FA;&#xFF1A;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span><br><span class="line"> * --------------------------------------------</span><br><span class="line"> * &#x5FAE;&#x4E13;&#x4E1A;&#x8BE6;&#x60C5;&#x9875;&#x8BFE;&#x7A0B;&#x4FE1;&#x606F;UI</span><br><span class="line"> * @version  1.0</span><br><span class="line"> * @author   hzliufang(hzliufang@corp.netease.com)</span><br><span class="line"> * --------------------------------------------</span><br><span class="line"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="keyword">var</span> u = NEJ.P(<span class="string">&apos;nej.u&apos;</span>),</span><br><span class="line">        eu = NEJ.P(<span class="string">&apos;edu.u&apos;</span>),</span><br><span class="line">        r = NEJ.P(<span class="string">&apos;edu.r&apos;</span>),</span><br><span class="line">        e = NEJ.P(<span class="string">&apos;nej.e&apos;</span>),</span><br><span class="line">        d = NEJ.P(<span class="string">&apos;edu.d&apos;</span>),</span><br><span class="line">        v = NEJ.P(<span class="string">&apos;nej.v&apos;</span>),</span><br><span class="line">        g = <span class="built_in">window</span>;</span><br><span class="line"><span class="comment">/*&#x5B9A;&#x4E49;&#x7ED3;&#x6784;&#x6A21;&#x677F;*/</span></span><br><span class="line"><span class="keyword">var</span> _template = <span class="string">&apos;&lt;div class=&quot;m-courseDetail-lists f-mfc&quot;&gt;\</span><br><span class="line">			{#list lists as item}\</span><br><span class="line">			&lt;div class=&quot;item&quot;&gt;\</span><br><span class="line">				&lt;div class=&quot;content&quot; on-click={this.toggleShow(item_index,item.isShow)}&gt;\</span><br><span class="line">					&lt;div class=&quot;icon f-ib  f-icon icon-num-{item_index+1}&quot;&gt;&lt;/div&gt;\</span><br><span class="line">					&lt;div class=&quot;title f-ib&quot;&gt;\</span><br><span class="line">						&lt;p class=&quot;name&quot;&gt;{item.name}&lt;/p&gt;\</span><br><span class="line">						&lt;p class=&quot;date f-pr&quot;&gt;&#x5F00;&#x8BFE;&#x65F6;&#x95F4;&#xFF1A;{item.currentTerm.startTime|dateConvert} - {item.currentTerm.endTime|dateConvert}&lt;/p&gt;\</span><br><span class="line">					&lt;/div&gt;\</span><br><span class="line">					&lt;div class=&quot;f-icon icon-course-arrow f-fr&quot; style=&quot;font-size:20px;&quot; r-class={{&quot;rotate&quot;:item.isShow == 1}}&gt;&lt;/div&gt;\</span><br><span class="line">				&lt;/div&gt;\</span><br><span class="line">				&lt;div class=&quot;hiddenContent&quot; r-hide=&quot;item.isShow == 0&quot;&gt;\</span><br><span class="line">					&lt;div class=&quot;htit&quot;&gt;&#x8BFE;&#x7A0B;&#x65F6;&#x957F;&#xFF1A;&lt;span class=&quot;htxt&quot;&gt;{item.currentTerm.duration}&#x5468;&lt;/span&gt;&lt;/div&gt;\</span><br><span class="line">					&lt;div class=&quot;htit&quot;&gt;&#x8BFE;&#x7A0B;&#x8D1F;&#x8F7D;&#xFF1A;&lt;span class=&quot;htxt&quot;&gt;{item.currentTerm.courseLoad}&lt;/span&gt;&lt;/div&gt;\</span><br><span class="line">					&lt;div class=&quot;htit&quot;&gt;&#x5185;&#x5BB9;&#x7C7B;&#x578B;&#xFF1A;&lt;span class=&quot;htxt&quot;&gt;{item.currentTerm.courseStyle}&lt;/span&gt;&lt;/div&gt;\</span><br><span class="line">					&lt;div class=&quot;htit&quot;&gt;&#x8BFE;&#x7A0B;&#x5206;&#x7C7B;&#xFF1A;&lt;span class=&quot;htxt&quot;&gt;{#list item.categoryNames as categoryName}{categoryName} {/list}&lt;/span&gt;&lt;/div&gt;\</span><br><span class="line">					&lt;div class=&quot;des&quot; r-html={item.currentTerm.description}&gt;&lt;/div&gt;\</span><br><span class="line">					&lt;div class=&quot;action&quot;&gt;\</span><br><span class="line">						&lt;a class=&quot;home f-ib f-mfc f-mfcbd&quot; on-click={this.gotoHome(item.schoolShortName,item.currentTerm.courseId)}&gt;&#x8BFE;&#x7A0B;&#x4E3B;&#x9875;&lt;/a&gt;\</span><br><span class="line">						&lt;div class=&quot;video f-ib f-mc f-mcbd&quot; r-hide=&quot;item.currentTerm.videoPreview == 0&quot; on-click={this.showDialog(item_index,item.isMaskShow)}&gt;&#x89C6;&#x9891;&#x8BD5;&#x770B;&lt;/div&gt;\</span><br><span class="line">					&lt;/div&gt;\</span><br><span class="line">				&lt;/div&gt;\</span><br><span class="line">			&lt;/div&gt;\</span><br><span class="line">			&lt;div class=&quot;mask&quot; r-hide=&quot;item.isMaskShow == 0&quot; on-click={item.isMaskShow = 0}&gt;\</span><br><span class="line">				&lt;div class=&quot;videoDialog&quot;&gt;\</span><br><span class="line">					&lt;div class=&quot;line1&quot;&gt;\</span><br><span class="line">						&lt;div class=&quot;close&quot; on-click={item.isMaskShow = 0}&gt;&#xD7;&lt;/div&gt;\</span><br><span class="line">					&lt;/div&gt;\</span><br><span class="line">					&lt;div class=&quot;line2&quot;&gt;\</span><br><span class="line">						&#x9009;&#x62E9;&#x8981;&#x8BD5;&#x770B;&#x7684;&#x89C6;&#x9891;\</span><br><span class="line">					&lt;/div&gt;\</span><br><span class="line">					&lt;div class=&quot;line3&quot;&gt;\</span><br><span class="line">						{#list item.currentTerm.videoPreviewContentDtos as videoDto}\</span><br><span class="line">						&lt;div class=&quot;videoBtn&quot; on-click={this.playVideo(videoDto.videoId)}&gt;{videoDto.name}&lt;/div&gt;\</span><br><span class="line">						{/list}\</span><br><span class="line">					&lt;/div&gt;\</span><br><span class="line">				&lt;/div&gt;\</span><br><span class="line">			&lt;/div&gt;\</span><br><span class="line">			{/list}\</span><br><span class="line">		&lt;/div&gt;&apos;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*&#x7EE7;&#x627F;&#x516C;&#x5171;&#x7EC4;&#x4EF6;&#xFF0C;&#x8FD9;&#x91CC;&#x548C;&#x9879;&#x76EE;&#x76F8;&#x5173;&#xFF0C;Regular&#x5E76;&#x4E0D;&#x4F9D;&#x8D56;nej*/</span></span><br><span class="line">    r._$$SPCoursePanelUI = r._$$BaseComponent.extend({      </span><br><span class="line">        name: <span class="string">&apos;SPCoursePanelUI&apos;</span>,</span><br><span class="line">        template: _template,</span><br><span class="line">        <span class="comment">/*&#x6570;&#x636E;&#x5904;&#x7406;&#x9636;&#x6BB5;&#xFF0C;&#x8BE5;&#x9636;&#x6BB5;DOM&#x8FD8;&#x672A;&#x6302;&#x5728;&#x9875;&#x9762;&#x4E2D;*/</span></span><br><span class="line">        config: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">     		<span class="keyword">var</span> lists = <span class="keyword">this</span>.data.lists;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>,len=lists.length;i&lt;len;i++){</span><br><span class="line">				lists[i].isShow = <span class="number">0</span>;</span><br><span class="line">				lists[i].isMaskShow = <span class="number">0</span>;</span><br><span class="line">			}</span><br><span class="line">        },</span><br><span class="line">        <span class="comment">/*&#x521D;&#x59CB;&#x5316;&#x9636;&#x6BB5;&#xFF0C;&#x8BE5;&#x9636;&#x6BB5;DOM&#x5DF2;&#x7ECF;&#x5B58;&#x5728;&#x9875;&#x9762;&#x4E2D;*/</span></span><br><span class="line">        init: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line"></span><br><span class="line">	        <span class="keyword">this</span>.__commonCache = <span class="keyword">new</span> d._$$COM_Cache_CommonCache();</span><br><span class="line">	        <span class="comment">//&#x83B7;&#x53D6;&#x89C6;&#x9891;&#x4FE1;&#x606F;</span></span><br><span class="line">	        <span class="keyword">this</span>.__commonCache._$addEvent(<span class="string">&quot;onGetByVideoId&quot;</span>,<span class="keyword">this</span>.__onGetByVideoId._$bind(<span class="keyword">this</span>));</span><br><span class="line">			<span class="comment">/*&#x5F3A;&#x5236;&#x89E6;&#x53D1;&#x810F;&#x68C0;&#x6D4B;*/</span></span><br><span class="line">            <span class="keyword">this</span>.$update();</span><br><span class="line">        },</span><br><span class="line">        <span class="comment">/*&#x5207;&#x6362;&#x663E;&#x793A;&#x72B6;&#x6001;*/</span></span><br><span class="line">       	toggleShow: <span class="function"><span class="keyword">function</span>(<span class="params">index,isShow</span>)</span>{</span><br><span class="line">       		isShow = (isShow == <span class="number">0</span>)?<span class="number">1</span>:<span class="number">0</span>;</span><br><span class="line">       		<span class="keyword">this</span>.data.lists[index].isShow = isShow;</span><br><span class="line">       	},</span><br><span class="line">        <span class="comment">/*&#x6253;&#x5F00;&#x8BFE;&#x7A0B;&#x4E3B;&#x9875;*/</span></span><br><span class="line">        gotoHome: <span class="function"><span class="keyword">function</span>(<span class="params">name,id</span>)</span>{</span><br><span class="line">        	<span class="built_in">window</span>.open(<span class="string">&apos;http://mooc.study.163.com/course/&apos;</span>+name+<span class="string">&apos;-&apos;</span>+id);</span><br><span class="line">        },</span><br><span class="line">        <span class="comment">/*&#x6253;&#x5F00;&#x9009;&#x62E9;&#x89C6;&#x9891;&#x5F39;&#x6846;*/</span></span><br><span class="line">        showDialog:<span class="function"><span class="keyword">function</span>(<span class="params">index,isMaskShow</span>)</span>{</span><br><span class="line">        	<span class="keyword">if</span>(<span class="keyword">this</span>.data.lists[index].currentTerm.videoPreviewContentDtos.length ==<span class="number">1</span>){</span><br><span class="line">        		<span class="keyword">this</span>.playVideo(<span class="keyword">this</span>.data.lists[index].currentTerm.videoPreviewContentDtos[<span class="number">0</span>].videoId);</span><br><span class="line">        	} <span class="keyword">else</span> {</span><br><span class="line">	        	isMaskShow = (isMaskShow == <span class="number">0</span>)?<span class="number">1</span>:<span class="number">0</span>;</span><br><span class="line">	        	<span class="keyword">this</span>.data.lists[index].isMaskShow = isMaskShow;</span><br><span class="line">        	}</span><br><span class="line">        },</span><br><span class="line">        <span class="comment">/*&#x5BA2;&#x6237;&#x7AEF;&#x89C6;&#x9891;&#x56DE;&#x8C03;&#x65B9;&#x6CD5;*/</span></span><br><span class="line">       	__onGetByVideoId:<span class="function"><span class="keyword">function</span>(<span class="params">_data</span>)</span>{</span><br><span class="line">       		eu._$callAppPlayVideo(_data.videoVo.mp4HdUrl, <span class="string">&apos;&#x89C6;&#x9891;&#x4ECB;&#x7ECD;&apos;</span>);</span><br><span class="line">       	},</span><br><span class="line">        <span class="comment">/*&#x64AD;&#x653E;&#x89C6;&#x9891;&#x901A;&#x7528;&#x65B9;&#x6CD5;*/</span></span><br><span class="line">        playVideo:<span class="function"><span class="keyword">function</span>(<span class="params">videoId</span>)</span>{</span><br><span class="line">            <span class="keyword">if</span>(eu._$isSupportAppPlayer()){</span><br><span class="line"></span><br><span class="line">                <span class="keyword">this</span>.__commonCache._$getByVideoId(videoId);</span><br><span class="line">            }<span class="keyword">else</span>{</span><br><span class="line">                eu._$$VideoDialog._$showDialog({     </span><br><span class="line">                    customStyle: <span class="string">&apos;u-smartVideo&apos;</span>,</span><br><span class="line">                    data:{</span><br><span class="line">                        vid:videoId</span><br><span class="line">                    }</span><br><span class="line">                });</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    });</span><br><span class="line">	<span class="comment">/*&#x4E00;&#x4E2A;&#x81EA;&#x5B9A;&#x4E49;&#x8FC7;&#x6EE4;&#x5668;&#xFF0C;&#x8F6C;&#x6362;&#x65F6;&#x95F4;&#x683C;&#x5F0F;*/</span></span><br><span class="line">	Regular.filter( <span class="string">&quot;dateConvert&quot;</span> , <span class="function"><span class="keyword">function</span>(<span class="params">date</span>) </span>{</span><br><span class="line">	    <span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>(date);</span><br><span class="line">		<span class="keyword">var</span> M = date.getMonth()+<span class="number">1</span> + <span class="string">&apos;&#x6708;&apos;</span>;</span><br><span class="line">	    <span class="keyword">var</span>	D = date.getDate() + <span class="string">&apos;&#x65E5;&apos;</span>;</span><br><span class="line">		<span class="keyword">var</span> h = date.getHours() + <span class="string">&apos;:&apos;</span>;</span><br><span class="line">		<span class="keyword">var</span> m = date.getMinutes()&lt;<span class="number">10</span>?<span class="string">&apos;0&apos;</span>+date.getMinutes():date.getMinutes();</span><br><span class="line">		<span class="keyword">return</span> M+D+h+m;</span><br><span class="line">	});</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> r._$$SPCoursePanelUI;</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line">NEJ.define(<span class="string">&apos;{pro}ui/smartSpec/detail/mobile/coursePanelUI.js&apos;</span>,[</span><br><span class="line">    <span class="string">&apos;{pro}regularui/base.js&apos;</span></span><br><span class="line">], f);</span><br></pre></td></tr></table></figure>
+<p>&#x7136;&#x540E;&#x5728;&#x4F7F;&#x7528;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5728;&#x9700;&#x8981;&#x5F15;&#x5165;&#x8BE5;&#x7EC4;&#x4EF6;&#x65F6;&#x4F20;&#x5165;&#x6570;&#x636E;,&#x5E76;&#x9009;&#x4E2D;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#x6302;&#x8F7D;&#xFF1A;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * &#x8BFE;&#x7A0B;&#x8BE6;&#x60C5;&#x56DE;&#x8C03;</span><br><span class="line"> */</span></span><br><span class="line">__proSmartSpecDetail.__onGetYocCourseDtoListBySpecId = <span class="function"><span class="keyword">function</span>(<span class="params">_data</span>)</span>{</span><br><span class="line">	<span class="keyword">this</span>.__SPCoursePanelUI = <span class="keyword">new</span> r._$$SPCoursePanelUI({</span><br><span class="line">		data:{</span><br><span class="line">			lists:_data</span><br><span class="line">		}</span><br><span class="line">	});</span><br><span class="line">    <span class="keyword">this</span>.__SPCoursePanelUI.$inject(<span class="string">&apos;#j-coursePanel&apos;</span>);</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>&#x5C31;&#x53EF;&#x4EE5;&#x5566;&#x3002;&#x6548;&#x679C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><img src="/2016/08/24/&#x7B2C;&#x4E00;&#x4E2A;Regular&#x7684;UI&#x5F00;&#x53D1;/../&#x7B2C;&#x4E00;&#x4E2A;Regular&#x7684;UI&#x5F00;&#x53D1;/1.png" alt="iamge"></p>
+<hr>
+<h1 id="&#x5C0F;&#x7ED3;"><a href="#&#x5C0F;&#x7ED3;" class="headerlink" title="&#x5C0F;&#x7ED3;"></a><strong>&#x5C0F;&#x7ED3;</strong></h1><p>&#x65E5;&#x540E;&#x6709;&#x65F6;&#x95F4;&#x4F1A;&#x8BE6;&#x7EC6;&#x5B66;&#x4E60;&#xFF0C;&#x518D;&#x6574;&#x7406;&#x5176;&#x7EC6;&#x8282;&#x3002;</p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/20/移动web适配方案动态计算版/" rel="next" title="移动web适配方案动态计算版">
+                <i class="fa fa-chevron-left"></i> 移动web适配方案动态计算版
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/11/前端工具汇总/" rel="prev" title="前端工具汇总">
+                前端工具汇总 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/08/24/第一个Regular的UI开发/"
+     data-title="第一个Regular的UI开发"
+     data-content=""
+     data-url="http://yoursite.com/2016/08/24/第一个Regular的UI开发/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/24/第一个Regular的UI开发/"
+           data-title="第一个Regular的UI开发" data-url="http://yoursite.com/2016/08/24/第一个Regular的UI开发/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://nos.netease.com/edu-image/5AA61D30A78B81D8CF5AE7608A1468C2.jpg"
+               alt="刘放" />
+          <p class="site-author-name" itemprop="name">刘放</p>
+          <p class="site-description motion-element" itemprop="description">网易前端开发 brizer@163.com</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">110</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/brizer" target="_blank" title="github">
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/3978835322" target="_blank" title="weibo">
+                  
+                  weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://study.163.com/topics/2016-11sales/#/main" title="云课堂充电节" target="_blank">云课堂充电节</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://study.163.com/" title="网易云课堂" target="_blank">网易云课堂</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.icourse163.org/" title="中国大学MOOC" target="_blank">中国大学MOOC</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://100.163.com/" title="网易100分" target="_blank">网易100分</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一个UI"><span class="nav-number">2.</span> <span class="nav-text">一个UI</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#小结"><span class="nav-number">3.</span> <span class="nav-text">小结</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刘放</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i> 总访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"brizer"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+  
+  
+</body>
+</html>

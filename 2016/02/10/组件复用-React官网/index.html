@@ -1,0 +1,733 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="brizer,前端,博客,刘放" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="React&amp;#x4E4B;&amp;#x53EF;&amp;#x590D;&amp;#x7528;&amp;#x7EC4;&amp;#x4EF6;
+&amp;#x524D;&amp;#x8A00;&amp;#x672C;&amp;#x6587;&amp;#x4E3B;&amp;#x8981;&amp;#x5B66;&amp;#x4E60;&amp;#x4E86;React&amp;#x4E2D;&amp;#x7EC4;&amp;#x4EF6;&amp;#x590D;&amp;#x7528;&amp;#x65F6;&amp;#x9700;&amp;#x8981;&amp;#x6C">
+<meta property="og:type" content="article">
+<meta property="og:title" content="组件复用-React官网">
+<meta property="og:url" content="http://yoursite.com/2016/02/10/组件复用-React官网/index.html">
+<meta property="og:site_name" content="Brizer's Blog">
+<meta property="og:description" content="React&amp;#x4E4B;&amp;#x53EF;&amp;#x590D;&amp;#x7528;&amp;#x7EC4;&amp;#x4EF6;
+&amp;#x524D;&amp;#x8A00;&amp;#x672C;&amp;#x6587;&amp;#x4E3B;&amp;#x8981;&amp;#x5B66;&amp;#x4E60;&amp;#x4E86;React&amp;#x4E2D;&amp;#x7EC4;&amp;#x4EF6;&amp;#x590D;&amp;#x7528;&amp;#x65F6;&amp;#x9700;&amp;#x8981;&amp;#x6C">
+<meta property="og:updated_time" content="2016-04-23T02:49:20.646Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="组件复用-React官网">
+<meta name="twitter:description" content="React&amp;#x4E4B;&amp;#x53EF;&amp;#x590D;&amp;#x7528;&amp;#x7EC4;&amp;#x4EF6;
+&amp;#x524D;&amp;#x8A00;&amp;#x672C;&amp;#x6587;&amp;#x4E3B;&amp;#x8981;&amp;#x5B66;&amp;#x4E60;&amp;#x4E86;React&amp;#x4E2D;&amp;#x7EC4;&amp;#x4EF6;&amp;#x590D;&amp;#x7528;&amp;#x65F6;&amp;#x9700;&amp;#x8981;&amp;#x6C">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 组件复用-React官网 | Brizer's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Brizer's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">刘放 学习笔记</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+  
+    <style type="text/css">
+		#so360{white-space:nowrap;margin:10px auto;}
+		#so360 form{margin:0;padding:0}
+		#so360_keyword{width:157px;height:32px;line-height:32px;font:14px arial;padding:2px 5px;margin-right:5px;
+		border:2px solid #061201;outline:0;vertical-align:middle}
+		#so360_keyword{background:url(https://p.ssl.qhimg.com/t01ab1a3fb05f0ee893.png) no-repeat 236px center}
+		#so360_submit{width:60px;height:40px;border:0;color:#fff;background:#061201;
+		font-weight:bold;font:bold 14px arial;padding:0;padding-top:3px\9;cursor:pointer;
+		vertical-align:middle}
+	</style>
+	<div id="so360">
+	    <form action="http://www.so.com/s" target="_blank" id="so360form">
+	   <input type="text" autocomplete="off" name="q" id="so360_keyword">
+	        <input type="submit" id="so360_submit" value="搜 索">
+	        <input type="hidden" name="ie" value="utf8">
+	        <input type="hidden" name="src" value="zz_brizer.top">
+	        <input type="hidden" name="site" value="brizer.top">
+	        <input type="hidden" name="rg" value="1">
+	    </form>
+	</div> 
+	
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/demo" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            demo
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                组件复用-React官网
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-02-10T10:47:26+08:00" content="2016-02-10">
+              2016-02-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/react/" itemprop="url" rel="index">
+                    <span itemprop="name">react</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/02/10/组件复用-React官网/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/10/组件复用-React官网/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+                    
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+              </span>
+                     
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="React&#x4E4B;&#x53EF;&#x590D;&#x7528;&#x7EC4;&#x4EF6;"><a href="#React&#x4E4B;&#x53EF;&#x590D;&#x7528;&#x7EC4;&#x4EF6;" class="headerlink" title="React&#x4E4B;&#x53EF;&#x590D;&#x7528;&#x7EC4;&#x4EF6;"></a>React&#x4E4B;&#x53EF;&#x590D;&#x7528;&#x7EC4;&#x4EF6;</h1><hr>
+<h2 id="&#x524D;&#x8A00;"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a><strong>&#x524D;&#x8A00;</strong></h2><p>&#x672C;&#x6587;&#x4E3B;&#x8981;&#x5B66;&#x4E60;&#x4E86;React&#x4E2D;&#x7EC4;&#x4EF6;&#x590D;&#x7528;&#x65F6;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;props&#x95EE;&#x9898;&#x548C;mixin&#x95EE;&#x9898;&#x3002;</p>
+<hr>
+<p>&#x5728;&#x8BBE;&#x8BA1;&#x63A5;&#x53E3;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x4E00;&#x822C;&#x628A;&#x901A;&#x7528;&#x7684;&#x8BBE;&#x8BA1;&#x5143;&#x7D20;&#x6BD4;&#x5982;&#x6309;&#x94AE;&#x3001;&#x8868;&#x5355;&#x6846;&#x3001;&#x5E03;&#x5C40;&#x7EC4;&#x4EF6;&#x7B49;&#x62C6;&#x6210;&#x63A5;&#x53E3;&#x826F;&#x597D;&#x5B9A;&#x4E49;&#x7684;&#x53EF;&#x590D;&#x7528;&#x7EC4;&#x4EF6;&#x3002;&#x8FD9;&#x6837;&#x53EF;&#x4EE5;&#x63D0;&#x9AD8;&#x5F00;&#x53D1;&#x7684;&#x6548;&#x7387;&#x548C;&#x8D28;&#x91CF;&#x3002;</p>
+<hr>
+<h2 id="propTypes"><a href="#propTypes" class="headerlink" title="propTypes"></a><strong>propTypes</strong></h2><p>&#x968F;&#x7740;&#x5E94;&#x7528;&#x4E0D;&#x65AD;&#x53D8;&#x5927;&#xFF0C;&#x4FDD;&#x8BC1;&#x7EC4;&#x4EF6;&#x88AB;&#x6B63;&#x786E;&#x4F7F;&#x7528;&#x53D8;&#x5F97;&#x975E;&#x5E38;&#x6709;&#x7528;&#x3002;&#x4E3A;&#x6B64;&#x6211;&#x4EEC;&#x5F15;&#x5165; <code>propTypes</code>&#x3002;<code>React.PropTypes</code> &#x63D0;&#x4F9B;&#x5F88;&#x591A;&#x9A8C;&#x8BC1;&#x5668; (validator) &#x6765;&#x9A8C;&#x8BC1;&#x4F20;&#x5165;&#x6570;&#x636E;&#x7684;&#x6709;&#x6548;&#x6027;&#x3002;&#x5F53;&#x5411; <code>props</code> &#x4F20;&#x5165;&#x65E0;&#x6548;&#x6570;&#x636E;&#x65F6;&#xFF0C;JavaScript &#x63A7;&#x5236;&#x53F0;&#x4F1A;&#x629B;&#x51FA;&#x8B66;&#x544A;&#x3002;&#x6CE8;&#x610F;&#x4E3A;&#x4E86;&#x6027;&#x80FD;&#x8003;&#x8651;&#xFF0C;&#x53EA;&#x5728;&#x5F00;&#x53D1;&#x73AF;&#x5883;&#x9A8C;&#x8BC1; <code>propTypes</code>&#x3002;&#x4E0B;&#x9762;&#x7528;&#x4F8B;&#x5B50;&#x6765;&#x8BF4;&#x660E;&#x4E0D;&#x540C;&#x9A8C;&#x8BC1;&#x5668;&#x7684;&#x533A;&#x522B;&#xFF1A;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">React.createClass({</span><br><span class="line">  propTypes: {</span><br><span class="line">    <span class="comment">// &#x53EF;&#x4EE5;&#x58F0;&#x660E; prop &#x4E3A;&#x6307;&#x5B9A;&#x7684; JS &#x57FA;&#x672C;&#x7C7B;&#x578B;&#x3002;&#x9ED8;&#x8BA4;</span></span><br><span class="line">    <span class="comment">// &#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x8FD9;&#x4E9B; prop &#x90FD;&#x662F;&#x53EF;&#x4F20;&#x53EF;&#x4E0D;&#x4F20;&#x7684;&#x3002;</span></span><br><span class="line">    optionalArray: React.PropTypes.array,</span><br><span class="line">    optionalBool: React.PropTypes.bool,</span><br><span class="line">    optionalFunc: React.PropTypes.func,</span><br><span class="line">    optionalNumber: React.PropTypes.number,</span><br><span class="line">    optionalObject: React.PropTypes.object,</span><br><span class="line">    o javascriptptionalString: React.PropTypes.string,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// &#x6240;&#x6709;&#x53EF;&#x4EE5;&#x88AB;&#x6E32;&#x67D3;&#x7684;&#x5BF9;&#x8C61;&#xFF1A;&#x6570;&#x5B57;&#xFF0C;</span></span><br><span class="line">    <span class="comment">// &#x5B57;&#x7B26;&#x4E32;&#xFF0C;DOM &#x5143;&#x7D20;&#x6216;&#x5305;&#x542B;&#x8FD9;&#x4E9B;&#x7C7B;&#x578B;&#x7684;&#x6570;&#x7EC4;&#x3002;</span></span><br><span class="line">    optionalNode: React.PropTypes.node,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// React &#x5143;&#x7D20;</span></span><br><span class="line">    optionalElement: React.PropTypes.element,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// &#x7528; JS &#x7684; instanceof &#x64CD;&#x4F5C;&#x7B26;&#x58F0;&#x660E; prop &#x4E3A;&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#x3002;</span></span><br><span class="line">    optionalMessage: React.PropTypes.instanceOf(Message),</span><br><span class="line"></span><br><span class="line">    <span class="comment">// &#x7528; enum &#x6765;&#x9650;&#x5236; prop &#x53EA;&#x63A5;&#x53D7;&#x6307;&#x5B9A;&#x7684;&#x503C;&#x3002;</span></span><br><span class="line">    optionalEnum: React.PropTypes.oneOf([<span class="string">&apos;News&apos;</span>, <span class="string">&apos;Photos&apos;</span>]),</span><br><span class="line"></span><br><span class="line">    <span class="comment">// &#x6307;&#x5B9A;&#x7684;&#x591A;&#x4E2A;&#x5BF9;&#x8C61;&#x7C7B;&#x578B;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;</span></span><br><span class="line">    optionalUnion: React.PropTypes.oneOfType([</span><br><span class="line">      React.PropTypes.string,</span><br><span class="line">      React.PropTypes.number,</span><br><span class="line">      React.PropTypes.instanceOf(Message)</span><br><span class="line">    ]),</span><br><span class="line"></span><br><span class="line">    <span class="comment">// &#x6307;&#x5B9A;&#x7C7B;&#x578B;&#x7EC4;&#x6210;&#x7684;&#x6570;&#x7EC4;</span></span><br><span class="line">    optionalArrayOf: React.PropTypes.arrayOf(React.PropTypes.number),</span><br><span class="line"></span><br><span class="line">    <span class="comment">// &#x6307;&#x5B9A;&#x7C7B;&#x578B;&#x7684;&#x5C5E;&#x6027;&#x6784;&#x6210;&#x7684;&#x5BF9;&#x8C61;</span></span><br><span class="line">    optionalObjectOf: React.PropTypes.objectOf(React.PropTypes.number),</span><br><span class="line"></span><br><span class="line">    <span class="comment">// &#x7279;&#x5B9A;&#x5F62;&#x72B6;&#x53C2;&#x6570;&#x7684;&#x5BF9;&#x8C61;</span></span><br><span class="line">    optionalObjectWithShape: React.PropTypes.shape({</span><br><span class="line">      color: React.PropTypes.string,</span><br><span class="line">      fontSize: React.PropTypes.number</span><br><span class="line">    }),</span><br><span class="line"></span><br><span class="line">    <span class="comment">// &#x4EE5;&#x540E;&#x4EFB;&#x610F;&#x7C7B;&#x578B;&#x52A0;&#x4E0A; `isRequired` &#x6765;&#x4F7F; prop &#x4E0D;&#x53EF;&#x7A7A;&#x3002;</span></span><br><span class="line">    requiredFunc: React.PropTypes.func.isRequired,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// &#x4E0D;&#x53EF;&#x7A7A;&#x7684;&#x4EFB;&#x610F;&#x7C7B;&#x578B;</span></span><br><span class="line">    requiredAny: React.PropTypes.any.isRequired,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// &#x81EA;&#x5B9A;&#x4E49;&#x9A8C;&#x8BC1;&#x5668;&#x3002;&#x5982;&#x679C;&#x9A8C;&#x8BC1;&#x5931;&#x8D25;&#x9700;&#x8981;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A; Error &#x5BF9;&#x8C61;&#x3002;&#x4E0D;&#x8981;&#x76F4;&#x63A5;</span></span><br><span class="line">    <span class="comment">// &#x4F7F;&#x7528; `console.warn` &#x6216;&#x629B;&#x5F02;&#x5E38;&#xFF0C;&#x56E0;&#x4E3A;&#x8FD9;&#x6837; `oneOfType` &#x4F1A;&#x5931;&#x6548;&#x3002;</span></span><br><span class="line">    customProp: <span class="function"><span class="keyword">function</span>(<span class="params">props, propName, componentName</span>) </span>{</span><br><span class="line">      <span class="keyword">if</span> (!<span class="regexp">/matchme/</span>.test(props[propName])) {</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">&apos;Validation failed!&apos;</span>);</span><br><span class="line">      }</span><br><span class="line">    }</span><br><span class="line">  },</span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">});</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="props&#x4F20;&#x503C;"><a href="#props&#x4F20;&#x503C;" class="headerlink" title="props&#x4F20;&#x503C;"></a><strong>props&#x4F20;&#x503C;</strong></h2><p>&#x5982;&#x679C;&#x7236;&#x7EA7;&#x6CA1;&#x6709;&#x4F20;&#x5165;<code>props</code>&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<code>getDefaultProps</code>&#x8BBE;&#x7F6E;<code>props</code>&#x7684;&#x9ED8;&#x8BA4;&#x503C;&#xFF0C;&#x8BE5;&#x7ED3;&#x679C;&#x4F1A;&#x88AB;&#x7F13;&#x5B58;&#x3002;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ComponentWithDefaultProps = React.createClass({</span><br><span class="line">  getDefaultProps: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="keyword">return</span> {</span><br><span class="line">      value: <span class="string">&apos;default value&apos;</span></span><br><span class="line">    };</span><br><span class="line">  }</span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">});</span><br></pre></td></tr></table></figure>
+<p>&#x5982;&#x679C;&#x6211;&#x60F3;&#x628A;&#x4F20;&#x5165;&#x7EC4;&#x4EF6;&#x7684;<code>props</code>&#x590D;&#x5236;&#x5230;&#x5BF9;&#x5E94;&#x7684;HTML&#x5143;&#x7D20;&#x4E0A;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x5230;&#x524D;&#x9762;&#x5B66;&#x4E60;JSX&#x8BED;&#x6CD5;&#x4E2D;&#x63D0;&#x5230;&#x7684;<code>...</code>&#x8BED;&#x6CD5;&#xFF1A;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> CheckLink = React.createClass({</span><br><span class="line">  render: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="comment">// &#x8FD9;&#x6837;&#x4F1A;&#x628A; CheckList &#x6240;&#x6709;&#x7684; props &#x590D;&#x5236;&#x5230; &lt;a&gt;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">a</span> {<span class="attr">...this.props</span>}&gt;</span>{&apos;&#x221A; &apos;}{this.props.children}<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span>;</span><br><span class="line">  }</span><br><span class="line">});</span><br><span class="line"></span><br><span class="line">React.render(</span><br><span class="line">  <span class="xml"><span class="tag">&lt;<span class="name">CheckLink</span> <span class="attr">href</span>=<span class="string">&quot;/checked.html&quot;</span>&gt;</span></span><br><span class="line">    Click here!</span><br><span class="line">  <span class="tag">&lt;/<span class="name">CheckLink</span>&gt;</span></span>,</span><br><span class="line">  <span class="built_in">document</span>.getElementById(<span class="string">&apos;example&apos;</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<code>React.PropTyps.element</code>&#x6765;&#x9650;&#x5B9A;&#x53EA;&#x80FD;&#x6709;&#x4E00;&#x4E2A;&#x5B50;&#x7EA7;&#x4F20;&#x5165;&#x3002;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> MyComponent = React.createClass({</span><br><span class="line">  propTypes: {</span><br><span class="line">    children: React.PropTypes.element.isRequired</span><br><span class="line">  },</span><br><span class="line"></span><br><span class="line">  render: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        {this.props.children} // &#x6709;&#x4E14;&#x4EC5;&#x6709;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#xFF0C;&#x5426;&#x5219;&#x4F1A;&#x629B;&#x5F02;&#x5E38;&#x3002;</span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">});</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="Mixins"><a href="#Mixins" class="headerlink" title="Mixins"></a><strong>Mixins</strong></h2><p>React&#x4F7F;&#x7528;&#x7EC4;&#x4EF6;&#x800C;&#x4E0D;&#x662F;&#x7EE7;&#x627F;&#x6765;&#x5904;&#x7406;&#x7236;&#x5B50;&#x7EC4;&#x4EF6;&#x3002;&#x6240;&#x4EE5;&#x6211;&#x4EEC;<strong>&#x65E0;&#x6CD5;&#x901A;&#x8FC7;&#x7EE7;&#x627F;&#x7236;&#x7C7B;&#x6765;&#x5B9E;&#x73B0;&#x516C;&#x5171;&#x529F;&#x80FD;</strong>&#xFF0C;&#x6240;&#x4EE5;React&#x63D0;&#x4F9B;&#x4E86;<code>Mixins</code>&#x7684;&#x673A;&#x5236;&#x3002;</p>
+<p>Mixins&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;&#x5C06;Mixins&#x5BF9;&#x8C61;&#x4E0A;&#x7684;&#x65B9;&#x6CD5;&#x90FD;&#x6DF7;&#x5408;&#x5230;&#x53E6;&#x4E00;&#x4E2A;&#x7EC4;&#x4EF6;&#x4E0A;&#xFF0C;&#x548C;jquery&#x4E2D;&#x7684;<code>$.extend</code>&#x7C7B;&#x4F3C;&#x3002;</p>
+<p>&#x4E0D;&#x8FC7;&#xFF0C;react&#x5BF9;mixin&#x505A;&#x4E86;&#x4E00;&#x4E9B;&#x7279;&#x6B8A;&#x5904;&#x7406;&#x3002;</p>
+<p>&#x5728;mixin&#x4E2D;&#x5199;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x76F8;&#x5173;&#x7684;&#x56DE;&#x8C03;&#x90FD;&#x4F1A;&#x88AB;&#x5408;&#x5E76;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x5373;&#x4F7F;&#x5B9A;&#x4E49;&#x4E86;&#x591A;&#x4E2A;mixin&#xFF0C;&#x4ED6;&#x4EEC;<strong>&#x90FD;&#x4F1A;&#x6309;&#x7167;&#x987A;&#x5E8F;&#x6267;&#x884C;</strong>&#xFF0C;&#x800C;&#x4E0D;&#x4F1A;&#x4E92;&#x76F8;&#x8986;&#x76D6;&#x6389;&#x3002;<br>&#x6BD4;&#x5982; &#x4F60;&#x5728;mixin&#x4E2D;&#x53EF;&#x4EE5;&#x5B9A;&#x4E49; <code>componentDidMount</code> &#x6765;&#x521D;&#x59CB;&#x5316;&#x7EC4;&#x4EF6;&#xFF0C;&#x4ED6;&#x4E0D;&#x4F1A;&#x8986;&#x76D6;&#x6389;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;mixin&#x7684;&#x7EC4;&#x4EF6;&#x3002;&#x5B9E;&#x9645;&#x6267;&#x884C;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F1A;&#x5148;&#x6267;&#x884C; <code>mixin</code> &#x7684; <code>componentDidMount</code> &#xFF0C;<strong>&#x6700;&#x540E;&#x6267;&#x884C;&#x7EC4;&#x4EF6;&#x7684;</strong> <code>componentDidMount</code> &#x65B9;&#x6CD5;&#x3002;</p>
+<p>&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x56E0;&#x4E3A;mixin&#x7684;&#x4F5C;&#x7528;&#x662F;<strong>&#x62BD;&#x79BB;&#x516C;&#x5171;&#x529F;&#x80FD;</strong>&#xFF0C;&#x4E0D;&#x5B58;&#x5728;&#x6E32;&#x67D3;dom&#x7684;&#x9700;&#x8981;&#xFF0C;&#x6240;&#x4EE5;&#x5B83;<strong>&#x6CA1;&#x6709;render&#x65B9;&#x6CD5;</strong>&#x3002;&#x5982;&#x679C;&#x4F60;&#x5B9A;&#x4E49;&#x4E86;render&#x65B9;&#x6CD5;&#xFF0C;&#x90A3;&#x4E48;&#x4ED6;&#x4F1A;&#x548C;&#x7EC4;&#x4EF6;&#x7684;render&#x65B9;&#x6CD5;&#x51B2;&#x7A81;&#x800C;&#x62A5;&#x9519;&#x3002;<br>&#x540C;&#x6837; javascript&#xFF0C;<strong>mixin&#x4E0D;&#x5E94;&#x8BE5;&#x6C61;&#x67D3;state</strong>&#xFF0C;&#x6240;&#x4EE5;&#x4ED6;&#x4E5F;<strong>&#x6CA1;&#x6709; setState &#x65B9;&#x6CD5;</strong>&#x3002;mixin&#x5E94;&#x8BE5;&#x53EA;&#x63D0;&#x4F9B;&#x63A5;&#x53E3;&#xFF08;&#x5373;&#x65B9;&#x6CD5;&#xFF09;&#xFF0C;&#x4E0D;&#x5E94;&#x8BE5;&#x63D0;&#x4F9B;&#x4EFB;&#x4F55;&#x5C5E;&#x6027;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x6765;&#x770B;&#x770B;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;mixin&#xFF0C;&#x4F7F;&#x7528; <code>setInterval()</code> &#x5E76;&#x4FDD;&#x8BC1;&#x5728;&#x7EC4;&#x4EF6;&#x9500;&#x6BC1;&#x65F6;&#x6E05;&#x7406;&#x5B9A;&#x65F6;&#x5668;&#xFF1A;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> SetIntervalMixin = {</span><br><span class="line">  componentWillMount: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="keyword">this</span>.intervals = [];</span><br><span class="line">  },</span><br><span class="line">  setInterval: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="keyword">this</span>.intervals.push(setInterval.apply(<span class="literal">null</span>, <span class="built_in">arguments</span>));</span><br><span class="line">  },</span><br><span class="line">  componentWillUnmount: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="keyword">this</span>.intervals.map(clearInterval);</span><br><span class="line">  }</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> TickTock = React.createClass({</span><br><span class="line">  mixins: [SetIntervalMixin], <span class="comment">// &#x5F15;&#x7528; mixin</span></span><br><span class="line">  getInitialState: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="keyword">return</span> {seconds: <span class="number">0</span>};</span><br><span class="line">  },</span><br><span class="line">  componentDidMount: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="keyword">this</span>.setInterval(<span class="keyword">this</span>.tick, <span class="number">1000</span>); <span class="comment">// &#x8C03;&#x7528; mixin &#x7684;&#x65B9;&#x6CD5;</span></span><br><span class="line">  },</span><br><span class="line">  tick: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="keyword">this</span>.setState({seconds: <span class="keyword">this</span>.state.seconds + <span class="number">1</span>});</span><br><span class="line">  },</span><br><span class="line">  render: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">        React has been running for {this.state.seconds} seconds.</span><br><span class="line">      <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">  }</span><br><span class="line">});</span><br><span class="line"></span><br><span class="line">React.render(</span><br><span class="line">  <span class="xml"><span class="tag">&lt;<span class="name">TickTock</span> /&gt;</span>,</span><br><span class="line">  document.getElementById(&apos;example&apos;)</span><br><span class="line">);</span></span><br></pre></td></tr></table></figure>
+<p>&#x5176;&#x4E2D;&#x7684;<code>componentWillMount</code>&#x548C;<code>componentDidMount</code>&#x65B9;&#x6CD5;&#x5206;&#x522B;&#x5728;&#x521D;&#x59CB;&#x5316;&#x6E32;&#x67D3;&#x4E4B;&#x524D;&#x548C;&#x4E4B;&#x540E;&#x8C03;&#x7528;&#xFF0C;&#x800C;<code>componentWillUnmount</code>&#x65B9;&#x6CD5;&#x5219;&#x662F;&#x5728;&#x79FB;&#x9664;&#x7684;&#x65F6;&#x5019;&#x7ACB;&#x5373;&#x8C03;&#x7528;&#x3002;</p>
+<hr>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/02/09/异步操作/" rel="next" title="异步操作">
+                <i class="fa fa-chevron-left"></i> 异步操作
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/02/10/map替代for循环/" rel="prev" title="map替代for循环">
+                map替代for循环 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/02/10/组件复用-React官网/"
+     data-title="组件复用-React官网"
+     data-content=""
+     data-url="http://yoursite.com/2016/02/10/组件复用-React官网/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/02/10/组件复用-React官网/"
+           data-title="组件复用-React官网" data-url="http://yoursite.com/2016/02/10/组件复用-React官网/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://nos.netease.com/edu-image/5AA61D30A78B81D8CF5AE7608A1468C2.jpg"
+               alt="刘放" />
+          <p class="site-author-name" itemprop="name">刘放</p>
+          <p class="site-description motion-element" itemprop="description">网易前端开发 brizer@163.com</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">110</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/brizer" target="_blank" title="github">
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/3978835322" target="_blank" title="weibo">
+                  
+                  weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://study.163.com/topics/2016-11sales/#/main" title="云课堂充电节" target="_blank">云课堂充电节</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://study.163.com/" title="网易云课堂" target="_blank">网易云课堂</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.icourse163.org/" title="中国大学MOOC" target="_blank">中国大学MOOC</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://100.163.com/" title="网易100分" target="_blank">网易100分</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#React之可复用组件"><span class="nav-number">1.</span> <span class="nav-text">React之可复用组件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#propTypes"><span class="nav-number">1.2.</span> <span class="nav-text">propTypes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#props传值"><span class="nav-number">1.3.</span> <span class="nav-text">props传值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mixins"><span class="nav-number">1.4.</span> <span class="nav-text">Mixins</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刘放</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i> 总访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"brizer"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+  
+  
+</body>
+</html>

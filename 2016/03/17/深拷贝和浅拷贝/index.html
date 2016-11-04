@@ -1,0 +1,730 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="brizer,前端,博客,刘放" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="javascript&amp;#x9762;&amp;#x5411;&amp;#x5BF9;&amp;#x8C61;&amp;#x7F16;&amp;#x7A0B;&amp;#x6307;&amp;#x5357;&amp;#x7B2C;&amp;#x516D;&amp;#x7AE0;&amp;#x7EE7;&amp;#x627F;
+&amp;#x524D;&amp;#x8A00;&amp;#x4EE5;&amp;#x524D;&amp;#x7684;&amp;#x6587;&amp;#x7AE0;&amp;#x4E5F;&amp;#x8BF4;&amp;#x8FC7;&amp;#x7E">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深拷贝和浅拷贝">
+<meta property="og:url" content="http://yoursite.com/2016/03/17/深拷贝和浅拷贝/index.html">
+<meta property="og:site_name" content="Brizer's Blog">
+<meta property="og:description" content="javascript&amp;#x9762;&amp;#x5411;&amp;#x5BF9;&amp;#x8C61;&amp;#x7F16;&amp;#x7A0B;&amp;#x6307;&amp;#x5357;&amp;#x7B2C;&amp;#x516D;&amp;#x7AE0;&amp;#x7EE7;&amp;#x627F;
+&amp;#x524D;&amp;#x8A00;&amp;#x4EE5;&amp;#x524D;&amp;#x7684;&amp;#x6587;&amp;#x7AE0;&amp;#x4E5F;&amp;#x8BF4;&amp;#x8FC7;&amp;#x7E">
+<meta property="og:updated_time" content="2016-07-28T05:52:20.349Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="深拷贝和浅拷贝">
+<meta name="twitter:description" content="javascript&amp;#x9762;&amp;#x5411;&amp;#x5BF9;&amp;#x8C61;&amp;#x7F16;&amp;#x7A0B;&amp;#x6307;&amp;#x5357;&amp;#x7B2C;&amp;#x516D;&amp;#x7AE0;&amp;#x7EE7;&amp;#x627F;
+&amp;#x524D;&amp;#x8A00;&amp;#x4EE5;&amp;#x524D;&amp;#x7684;&amp;#x6587;&amp;#x7AE0;&amp;#x4E5F;&amp;#x8BF4;&amp;#x8FC7;&amp;#x7E">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 深拷贝和浅拷贝 | Brizer's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Brizer's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">刘放 学习笔记</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+  
+    <style type="text/css">
+		#so360{white-space:nowrap;margin:10px auto;}
+		#so360 form{margin:0;padding:0}
+		#so360_keyword{width:157px;height:32px;line-height:32px;font:14px arial;padding:2px 5px;margin-right:5px;
+		border:2px solid #061201;outline:0;vertical-align:middle}
+		#so360_keyword{background:url(https://p.ssl.qhimg.com/t01ab1a3fb05f0ee893.png) no-repeat 236px center}
+		#so360_submit{width:60px;height:40px;border:0;color:#fff;background:#061201;
+		font-weight:bold;font:bold 14px arial;padding:0;padding-top:3px\9;cursor:pointer;
+		vertical-align:middle}
+	</style>
+	<div id="so360">
+	    <form action="http://www.so.com/s" target="_blank" id="so360form">
+	   <input type="text" autocomplete="off" name="q" id="so360_keyword">
+	        <input type="submit" id="so360_submit" value="搜 索">
+	        <input type="hidden" name="ie" value="utf8">
+	        <input type="hidden" name="src" value="zz_brizer.top">
+	        <input type="hidden" name="site" value="brizer.top">
+	        <input type="hidden" name="rg" value="1">
+	    </form>
+	</div> 
+	
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/demo" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            demo
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                深拷贝和浅拷贝
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-17T19:36:38+08:00" content="2016-03-17">
+              2016-03-17
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/03/17/深拷贝和浅拷贝/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/17/深拷贝和浅拷贝/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+                    
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+              </span>
+                     
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="javascript&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7F16;&#x7A0B;&#x6307;&#x5357;&#x7B2C;&#x516D;&#x7AE0;&#x7EE7;&#x627F;"><a href="#javascript&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7F16;&#x7A0B;&#x6307;&#x5357;&#x7B2C;&#x516D;&#x7AE0;&#x7EE7;&#x627F;" class="headerlink" title="javascript&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7F16;&#x7A0B;&#x6307;&#x5357;&#x7B2C;&#x516D;&#x7AE0;&#x7EE7;&#x627F;"></a>javascript&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7F16;&#x7A0B;&#x6307;&#x5357;&#x7B2C;&#x516D;&#x7AE0;&#x7EE7;&#x627F;</h1><hr>
+<h2 id="&#x524D;&#x8A00;"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a><strong>&#x524D;&#x8A00;</strong></h2><p><a href="http://blog.csdn.net/mevicky/article/details/49443543" target="_blank" rel="external">&#x4EE5;&#x524D;&#x7684;&#x6587;&#x7AE0;</a>&#x4E5F;&#x8BF4;&#x8FC7;&#x7EE7;&#x627F;&#x76F8;&#x5173;&#x7684;&#x5185;&#x5BB9;&#x3002;&#x8FD9;&#x91CC;&#x4E3B;&#x8981;&#x8BF4;&#x8BF4;&#x6DF1;&#x62F7;&#x8D1D;&#x548C;&#x6D45;&#x62F7;&#x8D1D;&#x5427;&#x3002;</p>
+<hr>
+<h2 id="&#x6D45;&#x62F7;&#x8D1D;"><a href="#&#x6D45;&#x62F7;&#x8D1D;" class="headerlink" title="&#x6D45;&#x62F7;&#x8D1D;"></a><strong>&#x6D45;&#x62F7;&#x8D1D;</strong></h2><p>&#x6211;&#x4EEC;&#x5728;&#x5F88;&#x591A;&#x65F6;&#x5019;&#x9700;&#x8981;&#x5355;&#x7EAF;&#x7684;&#x5C06;&#x5C5E;&#x6027;&#x5168;&#x90E8;&#x62F7;&#x8D1D;&#x3002;&#x6211;&#x4EEC;&#x770B;&#x770B;&#x4EE3;&#x7801;&#xFF1A;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">extendCopy</span>(<span class="params">p</span>)</span>{</span><br><span class="line">    <span class="keyword">var</span> c = {};</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> p){</span><br><span class="line">        c[i] = p[i];</span><br><span class="line">    }</span><br><span class="line">    c.uber = p;</span><br><span class="line">    <span class="keyword">return</span> c;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>&#x8FD9;&#x6837;&#x5C31;&#x5B9E;&#x73B0;&#x4E86;&#x6D45;&#x62F7;&#x8D1D;&#x3002;&#x6211;&#x4EEC;&#x6765;&#x770B;&#x770B;&#x5E94;&#x7528;&#xFF1A;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> shape = {</span><br><span class="line">    name:<span class="string">&quot;shape&quot;</span>,</span><br><span class="line">    toString:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{<span class="keyword">return</span> <span class="keyword">this</span>.name;}</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> twoDee = extendCopy(shape);</span><br><span class="line">twoDee.name = <span class="string">&quot;2D shape&quot;</span>;</span><br><span class="line">twoDee.toString = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{<span class="keyword">return</span> <span class="keyword">this</span>.uber.toString() + <span class="string">&quot;,&quot;</span> + <span class="keyword">this</span>.name;};</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> triangle = extendCopy(twoDee);</span><br><span class="line">triangle.name = <span class="string">&quot;Triangle&quot;</span>;</span><br><span class="line">triangle.getArea = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{<span class="keyword">return</span> <span class="keyword">this</span>.side * <span class="keyword">this</span>.height /<span class="number">2</span>;}</span><br></pre></td></tr></table></figure>
+<p>&#x7136;&#x540E;&#x6211;&#x4EEC;&#x4F7F;&#x7528;triangle&#xFF1A;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">triangle.side = <span class="number">5</span>;</span><br><span class="line">triangle.height = <span class="number">10</span>;</span><br><span class="line">triangle.getArea();<span class="comment">//25</span></span><br><span class="line"></span><br><span class="line">triangle.toString();<span class="comment">//&quot;shape, 2Dshape, Triangle&quot;</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="&#x6DF1;&#x62F7;&#x8D1D;"><a href="#&#x6DF1;&#x62F7;&#x8D1D;" class="headerlink" title="&#x6DF1;&#x62F7;&#x8D1D;"></a><strong>&#x6DF1;&#x62F7;&#x8D1D;</strong></h2><p>&#x524D;&#x9762;&#x7684;extendCopy()&#x65B9;&#x6CD5;&#x521B;&#x5EFA;&#x65B9;&#x5F0F;&#x53EB;&#x505A;&#x6D45;&#x62F7;&#x8D1D;&#x3002;&#x6211;&#x4EEC;&#x77E5;&#x9053;&#xFF0C;&#x5F53;&#x5BF9;&#x8C61;&#x7C7B;&#x578B;&#x7684;&#x5C5E;&#x6027;&#x88AB;&#x62F7;&#x8D1D;&#x65F6;&#xFF0C;&#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x5F15;&#x7528;&#xFF0C;&#x8FD9;&#x5C31;&#x662F;&#x6D45;&#x62F7;&#x8D1D;&#x3002;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x4FEE;&#x6539;&#x4E86;&#x62F7;&#x8D1D;&#x5BF9;&#x8C61;&#xFF0C;&#x5C31;&#x7B49;&#x540C;&#x4E8E;&#x4FEE;&#x6539;&#x4E86;&#x539F;&#x5BF9;&#x8C61;&#xFF0C;&#x800C;<strong>&#x6DF1;&#x62F7;&#x8D1D;&#x5219;&#x53EF;&#x4EE5;&#x5E2E;&#x52A9;&#x6211;&#x4EEC;&#x907F;&#x514D;&#x8FD9;&#x65B9;&#x9762;&#x7684;&#x95EE;&#x9898;</strong>&#x3002;</p>
+<p>&#x6DF1;&#x62F7;&#x8D1D;&#x7684;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;&#x4E0E;&#x6D45;&#x62F7;&#x8D1D;&#x57FA;&#x672C;&#x76F8;&#x540C;&#xFF0C;&#x4E5F;&#x9700;&#x8981;&#x901A;&#x8FC7;&#x904D;&#x5386;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x6765;&#x8FDB;&#x884C;&#x62F7;&#x8D1D;&#x64CD;&#x4F5C;&#xFF1A;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepCopy</span>(<span class="params">p,c</span>)</span>{</span><br><span class="line">    <span class="keyword">var</span> c = c || {};</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> p){</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">typeof</span> p[i] === <span class="string">&quot;object&quot;</span>){</span><br><span class="line">            c[i] = (p[i].constructor === <span class="built_in">Array</span>)?[]:{};</span><br><span class="line">            deepCopy(p[i],c[i]);</span><br><span class="line">        } <span class="keyword">else</span> {</span><br><span class="line">            c[i] = p[i];</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> c;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>&#x5176;&#x5B9E;&#x6DF1;&#x62F7;&#x8D1D;&#x4E0E;&#x6D45;&#x62F7;&#x8D1D;&#x7684;&#x533A;&#x522B;&#x5C31;&#x5728;&#x4E8E;&#x5BF9;javascript&#x4E2D;&#x503C;&#x4F20;&#x9012;&#x548C;&#x5F15;&#x7528;&#x4F20;&#x9012;&#x7684;&#x7406;&#x89E3;&#x3002;<strong>&#x53EA;&#x8981;&#x5C06;&#x9700;&#x8981;&#x62F7;&#x8D1D;&#x7684;&#x5BF9;&#x8C61;&#x5168;&#x90E8;&#x6DF1;&#x5EA6;&#x904D;&#x5386;&#x5230;&#x7B80;&#x5355;&#x7C7B;&#x578B;&#x4E00;&#x5C42;&#x518D;&#x8FDB;&#x884C;&#x590D;&#x5236;&#xFF0C;&#x5C31;&#x4E0D;&#x4F1A;&#x51FA;&#x73B0;&#x5F15;&#x7528;&#x4F20;&#x9012;&#x4E86;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x771F;&#x6B63;&#x7684;&#x6DF1;&#x62F7;&#x8D1D;&#x4E86;</strong>&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x901A;&#x8FC7;&#x4F8B;&#x5B50;&#x770B;&#x770B;&#x6DF1;&#x62F7;&#x8D1D;&#x548C;&#x6D45;&#x62F7;&#x8D1D;&#x7684;&#x533A;&#x522B;&#x3002;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> parent = {</span><br><span class="line">    numbers: [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],</span><br><span class="line">    letters: [<span class="string">&apos;a&apos;</span>,<span class="string">&apos;b&apos;</span>,<span class="string">&apos;c&apos;</span>],</span><br><span class="line">    obj: {</span><br><span class="line">        prop:<span class="number">1</span></span><br><span class="line">    },</span><br><span class="line">    bool:<span class="literal">true</span></span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> mydeep = deepCopy(parent);</span><br><span class="line"><span class="keyword">var</span> myshallow = extendCopy(parent);</span><br><span class="line">mydeep.numbers.push(<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>);<span class="comment">//6</span></span><br><span class="line">mydeep.numbers<span class="comment">//[1,2,3,4,5,6]</span></span><br><span class="line">parent.numbers<span class="comment">//[1,2,3]</span></span><br><span class="line">myshallow.numbers.push(<span class="number">10</span>);<span class="comment">//4</span></span><br><span class="line">myshallow.numbers<span class="comment">//[1,2,3,10]</span></span><br><span class="line">parent.numbers<span class="comment">//[1,2,3,10]</span></span><br></pre></td></tr></table></figure>
+<p>&#x4E00;&#x822C;&#x7684;&#x6846;&#x67B6;&#x4E2D;&#xFF0C;&#x7EE7;&#x627F;&#x5173;&#x7CFB;&#x90FD;&#x4F1A;&#x91C7;&#x7528;&#x6DF1;&#x62F7;&#x8D1D;&#x7684;&#x5F62;&#x5F0F;&#x3002;</p>
+<hr>
+<h2 id="&#x6DF1;&#x62F7;&#x8D1D;&#x7684;&#x7B80;&#x6D01;&#x7248;&#x672C;"><a href="#&#x6DF1;&#x62F7;&#x8D1D;&#x7684;&#x7B80;&#x6D01;&#x7248;&#x672C;" class="headerlink" title="&#x6DF1;&#x62F7;&#x8D1D;&#x7684;&#x7B80;&#x6D01;&#x7248;&#x672C;"></a><strong>&#x6DF1;&#x62F7;&#x8D1D;&#x7684;&#x7B80;&#x6D01;&#x7248;&#x672C;</strong></h2><p>&#x5F53;&#x90FD;&#x662F;&#x7B80;&#x5355;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6DF1;&#x62F7;&#x8D1D;&#x6709;&#x4E00;&#x79CD;&#x7B80;&#x5355;&#x7684;&#x5B9E;&#x73B0;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/*&#x62F7;&#x8D1D;&#x6570;&#x7EC4;*/</span></span><br><span class="line"><span class="keyword">var</span> arrayA = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> arrayB = arrayA.slice(<span class="number">0</span>);</span><br><span class="line">arrayB.push(<span class="number">4</span>);</span><br><span class="line"><span class="built_in">document</span>.writeln(arrayA[<span class="number">3</span>]);<span class="comment">//undefined</span></span><br><span class="line"><span class="built_in">document</span>.writeln(arrayB[<span class="number">3</span>]);<span class="comment">//4</span></span><br><span class="line"><span class="comment">/*&#x6DF1;&#x62F7;&#x8D1D;&#x5BF9;&#x8C61;*/</span></span><br><span class="line"><span class="keyword">var</span> objectA = {</span><br><span class="line">    <span class="string">&apos;a&apos;</span>:<span class="string">&apos;lf&apos;</span>,</span><br><span class="line">    <span class="string">&apos;b&apos;</span>:<span class="string">&apos;tyq&apos;</span></span><br><span class="line">};</span><br><span class="line"><span class="keyword">var</span> objectB = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(objectA));</span><br><span class="line">objectB.b = <span class="string">&apos;tyqbb&apos;</span>;</span><br><span class="line"><span class="built_in">document</span>.writeln(objectA.b);<span class="comment">//tyq</span></span><br><span class="line"><span class="built_in">document</span>.writeln(objectB.b);<span class="comment">//tyqbb</span></span><br></pre></td></tr></table></figure>
+<p>&#x5229;&#x7528;JSON&#x3002;</p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/03/16/jQuery异步when用法/" rel="next" title="jQuery异步when用法-项目经验">
+                <i class="fa fa-chevron-left"></i> jQuery异步when用法-项目经验
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/03/17/原型/" rel="prev" title="原型">
+                原型 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/03/17/深拷贝和浅拷贝/"
+     data-title="深拷贝和浅拷贝"
+     data-content=""
+     data-url="http://yoursite.com/2016/03/17/深拷贝和浅拷贝/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/03/17/深拷贝和浅拷贝/"
+           data-title="深拷贝和浅拷贝" data-url="http://yoursite.com/2016/03/17/深拷贝和浅拷贝/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://nos.netease.com/edu-image/5AA61D30A78B81D8CF5AE7608A1468C2.jpg"
+               alt="刘放" />
+          <p class="site-author-name" itemprop="name">刘放</p>
+          <p class="site-description motion-element" itemprop="description">网易前端开发 brizer@163.com</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">110</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/brizer" target="_blank" title="github">
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/3978835322" target="_blank" title="weibo">
+                  
+                  weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://study.163.com/topics/2016-11sales/#/main" title="云课堂充电节" target="_blank">云课堂充电节</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://study.163.com/" title="网易云课堂" target="_blank">网易云课堂</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.icourse163.org/" title="中国大学MOOC" target="_blank">中国大学MOOC</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://100.163.com/" title="网易100分" target="_blank">网易100分</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#javascript面向对象编程指南第六章继承"><span class="nav-number">1.</span> <span class="nav-text">javascript面向对象编程指南第六章继承</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浅拷贝"><span class="nav-number">1.2.</span> <span class="nav-text">浅拷贝</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#深拷贝"><span class="nav-number">1.3.</span> <span class="nav-text">深拷贝</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#深拷贝的简洁版本"><span class="nav-number">1.4.</span> <span class="nav-text">深拷贝的简洁版本</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刘放</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i> 总访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"brizer"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+  
+  
+</body>
+</html>

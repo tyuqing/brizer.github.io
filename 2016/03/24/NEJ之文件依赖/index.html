@@ -1,0 +1,746 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="brizer,前端,博客,刘放" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="NEJ&amp;#x4E4B;&amp;#x6587;&amp;#x4EF6;&amp;#x4F9D;&amp;#x8D56;&amp;#x524D;&amp;#x8A00;&amp;#x672C;&amp;#x6587;&amp;#x4E3B;&amp;#x8981;&amp;#x8BF4;&amp;#x8BF4;NEJ&amp;#x7684;&amp;#x6587;&amp;#x4EF6;&amp;#x4F9D;&amp;#x8D56;&amp;#x7CFB;&amp;#x7EDF;&amp;#x7528;&amp;#x6CD5;&amp;#x3002;&amp;#x4E3B;&amp;#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NEJ之文件依赖">
+<meta property="og:url" content="http://yoursite.com/2016/03/24/NEJ之文件依赖/index.html">
+<meta property="og:site_name" content="Brizer's Blog">
+<meta property="og:description" content="NEJ&amp;#x4E4B;&amp;#x6587;&amp;#x4EF6;&amp;#x4F9D;&amp;#x8D56;&amp;#x524D;&amp;#x8A00;&amp;#x672C;&amp;#x6587;&amp;#x4E3B;&amp;#x8981;&amp;#x8BF4;&amp;#x8BF4;NEJ&amp;#x7684;&amp;#x6587;&amp;#x4EF6;&amp;#x4F9D;&amp;#x8D56;&amp;#x7CFB;&amp;#x7EDF;&amp;#x7528;&amp;#x6CD5;&amp;#x3002;&amp;#x4E3B;&amp;#">
+<meta property="og:image" content="http://yoursite.com/2016/03/24/NEJ之文件依赖/3-1.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/24/NEJ之文件依赖/3-2.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/24/NEJ之文件依赖/3-3.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/24/NEJ之文件依赖/3-4.jpg">
+<meta property="og:updated_time" content="2016-10-19T03:28:48.795Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="NEJ之文件依赖">
+<meta name="twitter:description" content="NEJ&amp;#x4E4B;&amp;#x6587;&amp;#x4EF6;&amp;#x4F9D;&amp;#x8D56;&amp;#x524D;&amp;#x8A00;&amp;#x672C;&amp;#x6587;&amp;#x4E3B;&amp;#x8981;&amp;#x8BF4;&amp;#x8BF4;NEJ&amp;#x7684;&amp;#x6587;&amp;#x4EF6;&amp;#x4F9D;&amp;#x8D56;&amp;#x7CFB;&amp;#x7EDF;&amp;#x7528;&amp;#x6CD5;&amp;#x3002;&amp;#x4E3B;&amp;#">
+<meta name="twitter:image" content="http://yoursite.com/2016/03/24/NEJ之文件依赖/3-1.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> NEJ之文件依赖 | Brizer's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Brizer's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">刘放 学习笔记</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+  
+    <style type="text/css">
+		#so360{white-space:nowrap;margin:10px auto;}
+		#so360 form{margin:0;padding:0}
+		#so360_keyword{width:157px;height:32px;line-height:32px;font:14px arial;padding:2px 5px;margin-right:5px;
+		border:2px solid #061201;outline:0;vertical-align:middle}
+		#so360_keyword{background:url(https://p.ssl.qhimg.com/t01ab1a3fb05f0ee893.png) no-repeat 236px center}
+		#so360_submit{width:60px;height:40px;border:0;color:#fff;background:#061201;
+		font-weight:bold;font:bold 14px arial;padding:0;padding-top:3px\9;cursor:pointer;
+		vertical-align:middle}
+	</style>
+	<div id="so360">
+	    <form action="http://www.so.com/s" target="_blank" id="so360form">
+	   <input type="text" autocomplete="off" name="q" id="so360_keyword">
+	        <input type="submit" id="so360_submit" value="搜 索">
+	        <input type="hidden" name="ie" value="utf8">
+	        <input type="hidden" name="src" value="zz_brizer.top">
+	        <input type="hidden" name="site" value="brizer.top">
+	        <input type="hidden" name="rg" value="1">
+	    </form>
+	</div> 
+	
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/demo" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            demo
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                NEJ之文件依赖
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-24T08:41:42+08:00" content="2016-03-24">
+              2016-03-24
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/nej/" itemprop="url" rel="index">
+                    <span itemprop="name">nej</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/03/24/NEJ之文件依赖/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/24/NEJ之文件依赖/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+                    
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+              </span>
+                     
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="NEJ&#x4E4B;&#x6587;&#x4EF6;&#x4F9D;&#x8D56;"><a href="#NEJ&#x4E4B;&#x6587;&#x4EF6;&#x4F9D;&#x8D56;" class="headerlink" title="NEJ&#x4E4B;&#x6587;&#x4EF6;&#x4F9D;&#x8D56;"></a><strong>NEJ&#x4E4B;&#x6587;&#x4EF6;&#x4F9D;&#x8D56;</strong></h1><h2 id="&#x524D;&#x8A00;"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a><strong>&#x524D;&#x8A00;</strong></h2><p>&#x672C;&#x6587;&#x4E3B;&#x8981;&#x8BF4;&#x8BF4;NEJ&#x7684;&#x6587;&#x4EF6;&#x4F9D;&#x8D56;&#x7CFB;&#x7EDF;&#x7528;&#x6CD5;&#x3002;&#x4E3B;&#x8981;&#x662F;define&#x65B9;&#x6CD5;&#x548C;&#x5BF9;&#x5E94;&#x7684;js&#x6587;&#x4EF6;&#x5F15;&#x5165;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;&#x3002;&#x6700;&#x540E;&#x7ED9;&#x51FA;&#x4E86;&#x57FA;&#x672C;&#x7684;demo&#x3002;</p>
+<hr>
+<h2 id="&#x8DEF;&#x5F84;&#x914D;&#x7F6E;"><a href="#&#x8DEF;&#x5F84;&#x914D;&#x7F6E;" class="headerlink" title="&#x8DEF;&#x5F84;&#x914D;&#x7F6E;"></a><strong>&#x8DEF;&#x5F84;&#x914D;&#x7F6E;</strong></h2><p>&#x6587;&#x4EF6;&#x5B9A;&#x4E49;&#x65F6;&#x6307;&#x5B9A;&#x7684;&#x8DEF;&#x5F84;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8DEF;&#x5F84;&#x914D;&#x7F6E;&#x7684;&#x53D8;&#x91CF;&#x6765;&#x6307;&#x5B9A;&#x524D;&#x7F00;&#xFF1A;</p>
+<p><img src="/2016/03/24/NEJ&#x4E4B;&#x6587;&#x4EF6;&#x4F9D;&#x8D56;/3-1.jpg" alt="images"></p>
+<p>&#x6211;&#x4EEC;&#x6765;&#x770B;&#x4E00;&#x4E2A;&#x9879;&#x76EE;&#x4E2D;&#x7684;demo&#xFF0C;&#x6211;&#x4EEC;&#x5728;html&#x6216;&#x8005;ftl&#x4E2D;&#x5F15;&#x7528;js&#xFF1A;</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;/src/javascript/vendor/nej/src/define.js?pro=/src/javascript/web/&amp;core=/src/javascript/core/&quot;</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;/src/javascript/web/pages/cloudClass/myCloudClass.js&quot;</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>&#x7136;&#x540E;&#x6211;&#x4EEC;&#x5728;&#x5F15;&#x5165;&#x7684;js&#x6587;&#x4EF6;myCloudClass.js&#x4E2D;&#x8FD9;&#x6837;&#x5B9A;&#x4E49;&#x6587;&#x4EF6;&#x4F9D;&#x8D56;&#xFF1A;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="string">&apos;{pro}pages/cloudClass/myCloudClass.js&apos;</span>,</span><br><span class="line">      [<span class="string">&apos;{lib}util/dispatcher/dispatcher.2.js&apos;</span>,</span><br><span class="line">       <span class="string">&apos;{pro}util/util.js&apos;</span>,<span class="string">&apos;{core}util/userUtil.js&apos;</span>,</span><br><span class="line">    <span class="string">&apos;{lib}util/template/tpl.js&apos;</span>],f);</span><br></pre></td></tr></table></figure>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;pro&#x548C;core&#x662F;&#x6211;&#x4EEC;&#x4E0A;&#x9762;define.js&#x7684;&#x53C2;&#x6570;&#x3002;</p>
+<p>&#x4ECE;&#x4E0A;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x4E2D;&#x6211;&#x4EEC;&#x8FD8;&#x53EF;&#x4EE5;&#x5B66;&#x5230;&#x7684;&#x662F;&#x6A21;&#x5757;&#x7684;&#x5B9A;&#x4E49;&#x548C;&#x4F9D;&#x8D56;&#x3002;</p>
+<p>&#x7CFB;&#x7EDF;&#x9ED8;&#x8BA4;&#x9884;&#x7F6E;&#x4E86;lib&#x3001;pro&#x3001;platform&#x7684;&#x8DEF;&#x5F84;&#x914D;&#x7F6E;&#x3002;</p>
+<h3 id="lib"><a href="#lib" class="headerlink" title="lib"></a>lib</h3><p>NEJ&#x6846;&#x67B6;&#x8DEF;&#x5F84;&#x914D;&#x7F6E;&#x540D;&#x79F0;&#x4E3A;&#x201D;lib&#x201D;&#xFF0C;&#x6587;&#x4EF6;&#x5B9A;&#x4E49;&#x548C;&#x4F9D;&#x8D56;&#x65F6;&#x53EF;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x201D;{lib}&#x201D;&#x6765;&#x8868;&#x793A;&#x6846;&#x67B6;&#x7684;&#x8DEF;&#x5F84;&#xFF0C;&#x9ED8;&#x8BA4;&#x6B64;&#x8DEF;&#x5F84;&#x4E3A;&#x5916;&#x8054;&#x7684;define.js&#x6587;&#x4EF6;&#x6240;&#x5728;&#x7684;&#x8DEF;&#x5F84;&#x3002;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;/path/to/nej/define.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">NEJ.define([</span><br><span class="line">    &apos;base/element&apos;,</span><br><span class="line">    &apos;lib/base/element&apos;,</span><br><span class="line">    &apos;{lib}base/element.js&apos;</span><br><span class="line">],function(e1,e2,e3){</span><br><span class="line"></span><br><span class="line">    // &#x8FD9;&#x91CC;&#x89E3;&#x6790;&#x51FA;&#x6765;&#x7684;lib&#x4E3A; /path/to/nej/</span><br><span class="line">    // &#x4EE5;&#x4E0A;&#x4E09;&#x79CD;&#x65B9;&#x5F0F;&#x8BBF;&#x95EE;&#x7684;&#x4E3A;&#x540C;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x90FD;&#x662F; /path/to/nej/base/element.js &#x6587;&#x4EF6;</span><br><span class="line"></span><br><span class="line">});</span><br></pre></td></tr></table></figure>
+<h3 id="pro"><a href="#pro" class="headerlink" title="pro"></a>pro</h3><p>&#x9879;&#x76EE;&#x811A;&#x672C;&#x6839;&#x8DEF;&#x5F84;&#x914D;&#x7F6E;&#x540D;&#x79F0;&#x4E3A;&#x201C;pro&#x201D;&#xFF0C;&#x6587;&#x4EF6;&#x5B9A;&#x4E49;&#x548C;&#x4F9D;&#x8D56;&#x65F6;&#x53EF;&#x76F4;&#x63A5;&#x4F7F;&#x7528;pro&#x6216;&#x201C;{pro}&#x201D;&#x6765;&#x8868;&#x793A;&#x811A;&#x672C;&#x6839;&#x8DEF;&#x5F84;&#xFF0C;&#x6B64;&#x914D;&#x7F6E;&#x4FE1;&#x606F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5916;&#x8054;&#x7684;define.js&#x8DEF;&#x5F84;&#x4E2D;&#x7684;&#x67E5;&#x8BE2;&#x4E32;&#x8FDB;&#x884C;&#x914D;&#x7F6E;&#x3002;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x81EA;&#x5B9A;&#x4E49;&#x914D;&#x7F6E;&#x5219;&#x9ED8;&#x8BA4;&#x76F8;&#x5BF9;&#x4E8E;&#x5F53;&#x524D;&#x9875;&#x9762;&#x8BBF;&#x95EE;&#x8DEF;&#x5F84;&#x7684;&#x201C;../javascript/&#x201D;&#x8DEF;&#x5F84;&#x3002;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;/path/to/nej/define.js?pro=./&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">NEJ.define([</span><br><span class="line">    &apos;pro/api/element&apos;,</span><br><span class="line">    &apos;{pro}/api/element.js&apos;</span><br><span class="line">],function(e1,e2){</span><br><span class="line"></span><br><span class="line">    // &#x4EE5;&#x4E0A;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#x8BBF;&#x95EE;&#x7684;&#x4E3A;&#x540C;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x90FD;&#x662F; ./api/element.js &#x6587;&#x4EF6;</span><br><span class="line"></span><br><span class="line">});</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="define"><a href="#define" class="headerlink" title="define"></a><strong>define</strong></h2><p>&#x6211;&#x4EEC;&#x6765;&#x8BF4;&#x8BF4;define&#x65B9;&#x6CD5;&#xFF1A;</p>
+<p>&#x5E26;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#x4F9D;&#x6B21;&#x4E3A;&#xFF1A;&#x5F53;&#x524D;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#xFF0C;&#x4F9D;&#x8D56;&#x6587;&#x4EF6;&#x5217;&#x8868;&#xFF0C;&#x6587;&#x4EF6;&#x6267;&#x884C;&#x51FD;&#x6570;</p>
+<p><img src="/2016/03/24/NEJ&#x4E4B;&#x6587;&#x4EF6;&#x4F9D;&#x8D56;/3-2.jpg" alt="images"></p>
+<p>&#x53EF;&#x4EE5;&#x5FFD;&#x7565;&#x5F53;&#x524D;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x3002;</p>
+<p><strong>&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x9075;&#x5FAA;&#x4EE5;&#x4E0B;&#x89C4;&#x5219;</strong></p>
+<p>&#x5B8C;&#x6574;&#x7684;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#xFF0C;&#x5982; <a href="http://a.b.com/patch/to/file.js" target="_blank" rel="external">http://a.b.com/patch/to/file.js</a><br>&#x4F7F;&#x7528;{}&#x6807;&#x8BC6;&#x914D;&#x7F6E;&#x53C2;&#x6570;&#xFF0C;&#x5982;{root}file.js<br>&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x975E;{}&#x6807;&#x8BC6;&#x914D;&#x7F6E;&#x53C2;&#x6570;&#xFF0C;&#x6B64;&#x65F6;&#x4E0D;&#x80FD;&#x52A0;.js&#x540E;&#x7F00;&#xFF0C;&#x7CFB;&#x7EDF;&#x81EA;&#x52A8;&#x52A0;.js&#x540E;&#x7F00;&#xFF0C;&#x5982; root/file<br>NEJ&#x5E93;&#x6587;&#x4EF6;&#x53EF;&#x4EE5;&#x7701;&#x7565;lib&#x6807;&#x8BC6;&#xFF0C;&#x5982;base/element&#xFF0C;&#x7B49;&#x4EF7;&#x4E8E; lib/base/element&#xFF0C;&#x7B49;&#x4EF7;&#x4E8E; {lib}base/element.js<br>&#x5176;&#x4ED6;&#x6587;&#x672C;&#x8D44;&#x6E90;&#x91C7;&#x7528;text!&#x524D;&#x7F00;&#x6807;&#x8BC6;&#xFF0C;&#x5982;text!/path/to/file.css&#xFF0C;&#x6CE8;&#x610F;&#x5F00;&#x53D1;&#x65F6;&#x5982;&#x679C;&#x8D44;&#x6E90;&#x662F;&#x8DE8;&#x57DF;&#x7684;&#x8BF7;&#x8BBE;&#x7F6E;&#x597D;&#x6D4F;&#x89C8;&#x5668;XHR&#x7684;&#x8DE8;&#x57DF;&#x652F;&#x6301;<br>JSON&#x8D44;&#x6E90;&#x91C7;&#x7528;json!&#x524D;&#x7F00;&#x6807;&#x8BC6;&#xFF0C;&#x5982;json!/path/to/data.json&#xFF0C;&#x6CE8;&#x610F;&#x5F00;&#x53D1;&#x65F6;&#x5982;&#x679C;&#x8D44;&#x6E90;&#x662F;&#x8DE8;&#x57DF;&#x7684;&#x8BF7;&#x8BBE;&#x7F6E;&#x597D;&#x6D4F;&#x89C8;&#x5668;XHR&#x7684;&#x8DE8;&#x57DF;&#x652F;&#x6301;<br><strong>Regular&#x6A21;&#x677F;&#x8D44;&#x6E90;&#x91C7;&#x7528;regular!&#x524D;&#x7F00;&#x6807;&#x8BC6;</strong>&#xFF0C;&#x5982;regular!/path/to/file.html&#xFF0C;&#x6CE8;&#x610F;&#x5F00;&#x53D1;&#x65F6;&#x5982;&#x679C;&#x8D44;&#x6E90;&#x662F;&#x8DE8;&#x57DF;&#x7684;&#x8BF7;&#x8BBE;&#x7F6E;&#x597D;&#x6D4F;&#x89C8;&#x5668;XHR&#x7684;&#x8DE8;&#x57DF;&#x652F;&#x6301;<br>&#x8DEF;&#x5F84;&#x4EE5; ./ &#x6216;&#x8005; ../ &#x5F00;&#x59CB;&#x7684;&#x76F8;&#x5BF9;&#x8DEF;&#x5F84;&#x5219;&#x76F8;&#x5BF9;&#x4E8E;&#x5F53;&#x524D;&#x811A;&#x672C;&#x6587;&#x4EF6;&#x7684;&#x8DEF;&#x5F84;&#xFF0C;&#x5982; ./util.js</p>
+<p><strong>&#x6267;&#x884C;&#x51FD;&#x6570;&#x6CE8;&#x5165;&#x53C2;&#x6570;&#x8BF4;&#x660E;</strong></p>
+<p>&#x6CE8;&#x5165;&#x4F9D;&#x8D56;&#x5217;&#x8868;&#x4E2D;&#x5404;&#x6587;&#x4EF6;&#x5BF9;&#x5E94;&#x7684;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;<br>&#x6CE8;&#x5165;<strong>&#x989D;&#x5916;&#x56DB;&#x4E2A;&#x53C2;&#x6570;</strong>&#xFF0C;&#x4F9D;&#x6B21;&#x4E3A;p&#x3001;o&#x3001;f&#x3001;r&#xFF0C;&#x5176;&#x4E2D;<br>p&#x4E3A;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x96C6;&#x7A7A;&#x95F4;&#xFF0C;&#x7528;&#x4E8E;&#x6CE8;&#x5165;&#x5230;&#x5176;&#x4ED6;&#x6267;&#x884C;&#x51FD;&#x6570;&#x4E2D;&#x7684;&#x5185;&#x5BB9;<br>o&#x4E3A;&#x5BF9;&#x8C61;&#x5B9E;&#x4F8B;&#xFF0C;&#x5373;{}&#xFF0C;&#x7528;&#x4E8E;&#x5904;&#x7406;&#x5BF9;&#x8C61;&#x9ED8;&#x8BA4;&#x503C;&#xFF0C;&#x5982; var x = options||o;<br>f&#x4E3A;&#x51FD;&#x6570;&#x5B9E;&#x4F8B;&#xFF0C;&#x8FD4;&#x56DE;false&#xFF0C;&#x7528;&#x4E8E;&#x5904;&#x7406;&#x65B9;&#x6CD5;&#x9ED8;&#x8BA4;&#x503C;&#xFF0C;&#x5982; var func = x.onready||f;<br>r&#x4E3A;&#x6570;&#x7EC4;&#x5B9E;&#x4F8B;&#xFF0C;&#x5373;[]&#xFF0C;&#x7528;&#x4E8E;&#x5904;&#x7406;&#x6570;&#x7EC4;&#x9ED8;&#x8BA4;&#x503C;&#xFF0C;&#x5982; var arr = options.list||r;</p>
+<p>&#x67E5;&#x770B;demo</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">NEJ.define([</span><br><span class="line">    <span class="string">&apos;util/ajax/tag&apos;</span>,</span><br><span class="line">    <span class="string">&apos;util/template/jst&apos;</span></span><br><span class="line">],<span class="function"><span class="keyword">function</span>(<span class="params">j,e,p,o,f,r</span>)</span>{</span><br><span class="line"></span><br><span class="line">    <span class="comment">// j &#x4E3A; util/ajax/tag &#x6587;&#x4EF6;&#x5BFC;&#x51FA;&#x7684;&#x63A5;&#x53E3;&#x96C6;&#x5408;</span></span><br><span class="line">    <span class="comment">// e &#x4E3A; util/template/jst &#x6587;&#x4EF6;&#x5BFC;&#x51FA;&#x7684;&#x63A5;&#x53E3;&#x96C6;&#x5408;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// &#x7528;&#x4E8E;&#x6CE8;&#x5165;&#x5230;&#x5176;&#x4ED6;&#x6587;&#x4EF6;&#x6267;&#x884C;&#x51FD;&#x6570;&#x4E2D;&#x7684;&#x63A5;&#x53E3;</span></span><br><span class="line">    p.api = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line"></span><br><span class="line">    };</span><br><span class="line"></span><br><span class="line">    <span class="comment">// TODO something</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">});</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="&#x5E94;&#x7528;"><a href="#&#x5E94;&#x7528;" class="headerlink" title="&#x5E94;&#x7528;"></a><strong>&#x5E94;&#x7528;</strong></h2><p>&#x4E0B;&#x9762;&#x770B;&#x4E00;&#x4E2A;&#x57FA;&#x672C;&#x7684;&#x6A21;&#x5757;&#xFF1A;</p>
+<p><img src="/2016/03/24/NEJ&#x4E4B;&#x6587;&#x4EF6;&#x4F9D;&#x8D56;/3-3.jpg" alt="images"></p>
+<p>&#x548C;&#x4E00;&#x4E2A;&#x7A0D;&#x5FAE;&#x590D;&#x6742;&#x4E00;&#x70B9;&#x7684;&#x6A21;&#x5757;&#xFF1A;</p>
+<p><img src="/2016/03/24/NEJ&#x4E4B;&#x6587;&#x4EF6;&#x4F9D;&#x8D56;/3-4.jpg" alt="images"></p>
+<hr>
+<h2 id="&#x611F;&#x609F;"><a href="#&#x611F;&#x609F;" class="headerlink" title="&#x611F;&#x609F;"></a><strong>&#x611F;&#x609F;</strong></h2><p>&#x5E94;&#x8BE5;&#x662F;AMD&#x89C4;&#x8303;&#x7684;&#x5199;&#x6CD5;&#xFF0C;&#x8003;&#x8651;&#x5230;&#x8BE5;&#x6846;&#x67B6;&#x7684;&#x521B;&#x5EFA;&#x65F6;&#x95F4;&#xFF0C;&#x89C9;&#x5F97;&#x516C;&#x53F8;&#x7684;&#x5DE5;&#x7A0B;&#x5E08;&#x8FD8;&#x662F;&#x6280;&#x672F;&#x633A;&#x5148;&#x8FDB;&#x7684;&#x3002;</p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/03/23/NEJ之模板/" rel="next" title="NEJ之模板">
+                <i class="fa fa-chevron-left"></i> NEJ之模板
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/03/25/XHR基础/" rel="prev" title="XHR基础-AngularJS权威指南第十五章">
+                XHR基础-AngularJS权威指南第十五章 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/03/24/NEJ之文件依赖/"
+     data-title="NEJ之文件依赖"
+     data-content=""
+     data-url="http://yoursite.com/2016/03/24/NEJ之文件依赖/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/03/24/NEJ之文件依赖/"
+           data-title="NEJ之文件依赖" data-url="http://yoursite.com/2016/03/24/NEJ之文件依赖/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://nos.netease.com/edu-image/5AA61D30A78B81D8CF5AE7608A1468C2.jpg"
+               alt="刘放" />
+          <p class="site-author-name" itemprop="name">刘放</p>
+          <p class="site-description motion-element" itemprop="description">网易前端开发 brizer@163.com</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">110</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/brizer" target="_blank" title="github">
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/3978835322" target="_blank" title="weibo">
+                  
+                  weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://study.163.com/topics/2016-11sales/#/main" title="云课堂充电节" target="_blank">云课堂充电节</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://study.163.com/" title="网易云课堂" target="_blank">网易云课堂</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.icourse163.org/" title="中国大学MOOC" target="_blank">中国大学MOOC</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://100.163.com/" title="网易100分" target="_blank">网易100分</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#NEJ之文件依赖"><span class="nav-number">1.</span> <span class="nav-text">NEJ之文件依赖</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路径配置"><span class="nav-number">1.2.</span> <span class="nav-text">路径配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#lib"><span class="nav-number">1.2.1.</span> <span class="nav-text">lib</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pro"><span class="nav-number">1.2.2.</span> <span class="nav-text">pro</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#define"><span class="nav-number">1.3.</span> <span class="nav-text">define</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用"><span class="nav-number">1.4.</span> <span class="nav-text">应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#感悟"><span class="nav-number">1.5.</span> <span class="nav-text">感悟</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刘放</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i> 总访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"brizer"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+  
+  
+</body>
+</html>

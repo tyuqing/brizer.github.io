@@ -1,0 +1,752 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="brizer,前端,博客,刘放" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x5F02;&amp;#x6B65;&amp;#x64CD;&amp;#x4F5C;
+&amp;#x524D;&amp;#x8A00;&amp;#x672C;&amp;#x6587;&amp;#x5B66;&amp;#x4E60;&amp;#x4E86;javascript&amp;#x4E2D;&amp;#x7684;&amp;#x5F02;&amp;#x6B65;&amp;#x64CD;&amp;#x4F5C;&amp;#x65B9;&amp;#x5F0F;&amp;#x3002;
+
+&amp;#x57FA;&amp;#x672C;&amp;#x6982;&amp;#x">
+<meta property="og:type" content="article">
+<meta property="og:title" content="异步操作">
+<meta property="og:url" content="http://yoursite.com/2016/02/09/异步操作/index.html">
+<meta property="og:site_name" content="Brizer's Blog">
+<meta property="og:description" content="&amp;#x5F02;&amp;#x6B65;&amp;#x64CD;&amp;#x4F5C;
+&amp;#x524D;&amp;#x8A00;&amp;#x672C;&amp;#x6587;&amp;#x5B66;&amp;#x4E60;&amp;#x4E86;javascript&amp;#x4E2D;&amp;#x7684;&amp;#x5F02;&amp;#x6B65;&amp;#x64CD;&amp;#x4F5C;&amp;#x65B9;&amp;#x5F0F;&amp;#x3002;
+
+&amp;#x57FA;&amp;#x672C;&amp;#x6982;&amp;#x">
+<meta property="og:updated_time" content="2016-04-20T12:34:01.815Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="异步操作">
+<meta name="twitter:description" content="&amp;#x5F02;&amp;#x6B65;&amp;#x64CD;&amp;#x4F5C;
+&amp;#x524D;&amp;#x8A00;&amp;#x672C;&amp;#x6587;&amp;#x5B66;&amp;#x4E60;&amp;#x4E86;javascript&amp;#x4E2D;&amp;#x7684;&amp;#x5F02;&amp;#x6B65;&amp;#x64CD;&amp;#x4F5C;&amp;#x65B9;&amp;#x5F0F;&amp;#x3002;
+
+&amp;#x57FA;&amp;#x672C;&amp;#x6982;&amp;#x">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 异步操作 | Brizer's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Brizer's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">刘放 学习笔记</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+  
+    <style type="text/css">
+		#so360{white-space:nowrap;margin:10px auto;}
+		#so360 form{margin:0;padding:0}
+		#so360_keyword{width:157px;height:32px;line-height:32px;font:14px arial;padding:2px 5px;margin-right:5px;
+		border:2px solid #061201;outline:0;vertical-align:middle}
+		#so360_keyword{background:url(https://p.ssl.qhimg.com/t01ab1a3fb05f0ee893.png) no-repeat 236px center}
+		#so360_submit{width:60px;height:40px;border:0;color:#fff;background:#061201;
+		font-weight:bold;font:bold 14px arial;padding:0;padding-top:3px\9;cursor:pointer;
+		vertical-align:middle}
+	</style>
+	<div id="so360">
+	    <form action="http://www.so.com/s" target="_blank" id="so360form">
+	   <input type="text" autocomplete="off" name="q" id="so360_keyword">
+	        <input type="submit" id="so360_submit" value="搜 索">
+	        <input type="hidden" name="ie" value="utf8">
+	        <input type="hidden" name="src" value="zz_brizer.top">
+	        <input type="hidden" name="site" value="brizer.top">
+	        <input type="hidden" name="rg" value="1">
+	    </form>
+	</div> 
+	
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/demo" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            demo
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                异步操作
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-02-09T20:32:24+08:00" content="2016-02-09">
+              2016-02-09
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/02/09/异步操作/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/09/异步操作/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+                    
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+              </span>
+                     
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="&#x5F02;&#x6B65;&#x64CD;&#x4F5C;"><a href="#&#x5F02;&#x6B65;&#x64CD;&#x4F5C;" class="headerlink" title="&#x5F02;&#x6B65;&#x64CD;&#x4F5C;"></a>&#x5F02;&#x6B65;&#x64CD;&#x4F5C;</h1><hr>
+<h2 id="&#x524D;&#x8A00;"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a><strong>&#x524D;&#x8A00;</strong></h2><p>&#x672C;&#x6587;&#x5B66;&#x4E60;&#x4E86;javascript&#x4E2D;&#x7684;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x65B9;&#x5F0F;&#x3002;</p>
+<hr>
+<h2 id="&#x57FA;&#x672C;&#x6982;&#x5FF5;"><a href="#&#x57FA;&#x672C;&#x6982;&#x5FF5;" class="headerlink" title="&#x57FA;&#x672C;&#x6982;&#x5FF5;"></a><strong>&#x57FA;&#x672C;&#x6982;&#x5FF5;</strong></h2><p>javascript&#x662F;&#x5355;&#x7EBF;&#x7A0B;&#x8FD0;&#x884C;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x5F02;&#x6B65;&#x663E;&#x5F97;&#x683C;&#x5916;&#x91CD;&#x8981;&#x3002;<br>ES6&#x8BDE;&#x751F;&#x4EE5;&#x524D;&#xFF0C;&#x5F02;&#x6B65;&#x7F16;&#x7A0B;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x5927;&#x6982;&#x6709;&#x4E0B;&#x9762;&#x56DB;&#x79CD;&#x3002;</p>
+<p>&#x56DE;&#x8C03;&#x51FD;&#x6570;<br>&#x4E8B;&#x4EF6;&#x76D1;&#x542C;<br>&#x53D1;&#x5E03;/&#x8BA2;&#x9605;<br>Promise &#x5BF9;&#x8C61;</p>
+<p>ES6&#x5C06;JavaScript&#x5F02;&#x6B65;&#x7F16;&#x7A0B;&#x5E26;&#x5165;&#x4E86;&#x4E00;&#x4E2A;&#x5168;&#x65B0;&#x7684;&#x9636;&#x6BB5;&#xFF0C;ES7&#x7684;Async&#x51FD;&#x6570;&#x66F4;&#x662F;&#x63D0;&#x51FA;&#x4E86;&#x5F02;&#x6B65;&#x7F16;&#x7A0B;&#x7684;&#x7EC8;&#x6781;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x3002;</p>
+<h3 id="&#x5F02;&#x6B65;"><a href="#&#x5F02;&#x6B65;" class="headerlink" title="&#x5F02;&#x6B65;"></a><strong>&#x5F02;&#x6B65;</strong></h3><p>&#x5F02;&#x6B65;&#xFF0C;&#x7B80;&#x5355;&#x8BF4;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x4EFB;&#x52A1;&#x5206;&#x6210;&#x4E24;&#x6BB5;&#xFF0C;&#x5148;&#x6267;&#x884C;&#x7B2C;&#x4E00;&#x6BB5;&#xFF0C;&#x7136;&#x540E;&#x8F6C;&#x800C;&#x6267;&#x884C;&#x5176;&#x4ED6;&#x4EFB;&#x52A1;&#xFF0C;&#x7B49;&#x505A;&#x597D;&#x4E86;&#x51C6;&#x5907;&#xFF0C;&#x518D;&#x56DE;&#x8FC7;&#x5934;&#x6267;&#x884C;&#x7B2C;&#x4E8C;&#x6BB5;&#x3002;</p>
+<h3 id="&#x56DE;&#x8C03;&#x51FD;&#x6570;"><a href="#&#x56DE;&#x8C03;&#x51FD;&#x6570;" class="headerlink" title="&#x56DE;&#x8C03;&#x51FD;&#x6570;"></a><strong>&#x56DE;&#x8C03;&#x51FD;&#x6570;</strong></h3><p>JavaScript&#x8BED;&#x8A00;&#x5BF9;&#x5F02;&#x6B65;&#x7F16;&#x7A0B;&#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x5C31;&#x662F;<strong>&#x56DE;&#x8C03;&#x51FD;&#x6570;</strong>&#x3002;&#x6240;&#x8C13;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#xFF0C;&#x5C31;&#x662F;&#x628A;&#x4EFB;&#x52A1;&#x7684;&#x7B2C;&#x4E8C;&#x6BB5;&#x5355;&#x72EC;&#x5199;&#x5728;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x91CC;&#x9762;&#xFF0C;&#x7B49;&#x5230;&#x91CD;&#x65B0;&#x6267;&#x884C;&#x8FD9;&#x4E2A;&#x4EFB;&#x52A1;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5C31;&#x76F4;&#x63A5;&#x8C03;&#x7528;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x3002;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fs.readFile(<span class="string">&apos;/etc/passwd&apos;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err, data</span>) </span>{</span><br><span class="line">  <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</span><br><span class="line">  <span class="built_in">console</span>.log(data);</span><br><span class="line">});</span><br></pre></td></tr></table></figure>
+<p>readFile&#x51FD;&#x6570;&#x7684;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x5C31;&#x662F;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x4EFB;&#x52A1;&#x7684;&#x7B2C;&#x4E8C;&#x6BB5;&#x3002;&#x7B49;&#x5230;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x8FD4;&#x56DE;&#x4E86;<code>/etc/passwd</code>&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x4EE5;&#x540E;&#xFF0C;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x624D;&#x4F1A;&#x6267;&#x884C;&#x3002;</p>
+<h3 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a><strong>Promise</strong></h3><p>&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x672C;&#x8EAB;&#x5E76;&#x6CA1;&#x6709;&#x95EE;&#x9898;&#xFF0C;&#x5B83;&#x7684;&#x95EE;&#x9898;&#x51FA;&#x73B0;&#x5728;&#x591A;&#x4E2A;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x5D4C;&#x5957;,&#x8FD9;&#x6837;&#x5C31;&#x4F1A;&#x9020;&#x6210;&#x56DE;&#x8C03;&#x5730;&#x72F1;&#x3002;</p>
+<p>Promise&#x5C31;&#x662F;&#x4E3A;&#x4E86;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x800C;&#x63D0;&#x51FA;&#x7684;&#x3002;&#x5B83;&#x4E0D;&#x662F;&#x65B0;&#x7684;&#x8BED;&#x6CD5;&#x529F;&#x80FD;&#xFF0C;&#x800C;&#x662F;&#x4E00;&#x79CD;&#x65B0;&#x7684;&#x5199;&#x6CD5;&#xFF0C;&#x5141;&#x8BB8;&#x5C06;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x7684;&#x6A2A;&#x5411;&#x52A0;&#x8F7D;&#xFF0C;&#x6539;&#x6210;&#x7EB5;&#x5411;&#x52A0;&#x8F7D;&#x3002;&#x91C7;&#x7528;Promise&#xFF0C;&#x8FDE;&#x7EED;&#x8BFB;&#x53D6;&#x591A;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;&#x5199;&#x6CD5;&#x5982;&#x4E0B;&#xFF1A;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> readFile = <span class="built_in">require</span>(<span class="string">&apos;fs-readfile-promise&apos;</span>);</span><br><span class="line"></span><br><span class="line">readFile(fileA)</span><br><span class="line">.then(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>{</span><br><span class="line">  <span class="built_in">console</span>.log(data.toString());</span><br><span class="line">})</span><br><span class="line">.then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">  <span class="keyword">return</span> readFile(fileB);</span><br><span class="line">})</span><br><span class="line">.then(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>{</span><br><span class="line">  <span class="built_in">console</span>.log(data.toString());</span><br><span class="line">})</span><br><span class="line">.catch(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>{</span><br><span class="line">  <span class="built_in">console</span>.log(err);</span><br><span class="line">});</span><br></pre></td></tr></table></figure></p>
+<p>Promise &#x7684;&#x5199;&#x6CD5;&#x53EA;&#x662F;<strong>&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x7684;&#x6539;&#x8FDB;</strong>&#xFF0C;&#x4F7F;&#x7528;then&#x65B9;&#x6CD5;&#x4EE5;&#x540E;&#xFF0C;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#x7684;&#x4E24;&#x6BB5;&#x6267;&#x884C;&#x770B;&#x5F97;&#x66F4;&#x6E05;&#x695A;&#x4E86;&#xFF0C;&#x9664;&#x6B64;&#x4EE5;&#x5916;&#xFF0C;&#x5E76;&#x65E0;&#x65B0;&#x610F;&#x3002;</p>
+<p>Promise &#x7684;&#x6700;&#x5927;&#x95EE;&#x9898;&#x662F;&#x4EE3;&#x7801;&#x5197;&#x4F59;&#xFF0C;&#x539F;&#x6765;&#x7684;&#x4EFB;&#x52A1;&#x88AB;Promise &#x5305;&#x88C5;&#x4E86;&#x4E00;&#x4E0B;&#xFF0C;&#x4E0D;&#x7BA1;&#x4EC0;&#x4E48;&#x64CD;&#x4F5C;&#xFF0C;&#x4E00;&#x773C;&#x770B;&#x53BB;&#x90FD;&#x662F;&#x4E00;&#x5806; then&#xFF0C;&#x539F;&#x6765;&#x7684;&#x8BED;&#x4E49;&#x53D8;&#x5F97;&#x5F88;&#x4E0D;&#x6E05;&#x695A;&#x3002;</p>
+<hr>
+<h2 id="generator"><a href="#generator" class="headerlink" title="generator"></a><strong>generator</strong></h2><p>Generator&#x51FD;&#x6570;&#x662F;&#x534F;&#x7A0B;&#x5728;ES6&#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x6700;&#x5927;&#x7279;&#x70B9;&#x5C31;&#x662F;&#x53EF;&#x4EE5;&#x4EA4;&#x51FA;&#x51FD;&#x6570;&#x7684;&#x6267;&#x884C;&#x6743;&#xFF08;&#x5373;&#x6682;&#x505C;&#x6267;&#x884C;&#xFF09;&#x3002;</p>
+<p>&#x6574;&#x4E2A;Generator&#x51FD;&#x6570;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x5C01;&#x88C5;&#x7684;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#xFF0C;&#x6216;&#x8005;&#x8BF4;&#x662F;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#x7684;&#x5BB9;&#x5668;&#x3002;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x9700;&#x8981;&#x6682;&#x505C;&#x7684;&#x5730;&#x65B9;&#xFF0C;&#x90FD;&#x7528;yield&#x8BED;&#x53E5;&#x6CE8;&#x660E;&#x3002;Generator&#x51FD;&#x6570;&#x7684;&#x6267;&#x884C;&#x65B9;&#x6CD5;&#x5982;&#x4E0B;&#x3002;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">gen</span>(<span class="params">x</span>)</span>{</span><br><span class="line">  <span class="keyword">var</span> y = <span class="keyword">yield</span> x + <span class="number">2</span>;</span><br><span class="line">  <span class="keyword">return</span> y;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> g = gen(<span class="number">1</span>);</span><br><span class="line">g.next() <span class="comment">// { value: 3, done: false }</span></span><br><span class="line">g.next() <span class="comment">// { value: undefined, done: true }</span></span><br></pre></td></tr></table></figure>
+<p>next&#x65B9;&#x6CD5;&#x7684;&#x4F5C;&#x7528;&#x662F;&#x5206;&#x9636;&#x6BB5;&#x6267;&#x884C;Generator&#x51FD;&#x6570;&#x3002;&#x6BCF;&#x6B21;&#x8C03;&#x7528;next&#x65B9;&#x6CD5;&#xFF0C;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x8868;&#x793A;&#x5F53;&#x524D;&#x9636;&#x6BB5;&#x7684;&#x4FE1;&#x606F;&#xFF08;value&#x5C5E;&#x6027;&#x548C;done&#x5C5E;&#x6027;&#xFF09;&#x3002;value&#x5C5E;&#x6027;&#x662F;yield&#x8BED;&#x53E5;&#x540E;&#x9762;&#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x503C;&#xFF0C;&#x8868;&#x793A;&#x5F53;&#x524D;&#x9636;&#x6BB5;&#x7684;&#x503C;&#xFF1B;done&#x5C5E;&#x6027;&#x662F;&#x4E00;&#x4E2A;&#x5E03;&#x5C14;&#x503C;&#xFF0C;&#x8868;&#x793A;Generator&#x51FD;&#x6570;&#x662F;&#x5426;&#x6267;&#x884C;&#x5B8C;&#x6BD5;&#xFF0C;&#x5373;&#x662F;&#x5426;&#x8FD8;&#x6709;&#x4E0B;&#x4E00;&#x4E2A;&#x9636;&#x6BB5;&#x3002;</p>
+<p>&#x770B;&#x770B;&#x5982;&#x4F55;&#x4F7F;&#x7528;generator&#x6765;&#x5B8C;&#x6210;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#xFF1A;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fetch = <span class="built_in">require</span>(<span class="string">&apos;node-fetch&apos;</span>);</span><br><span class="line"><span class="comment">//&#x5C01;&#x88C5;&#x4E00;&#x4E2A;&#x5F02;&#x6B65;&#x64E6;&#x505A;&#xFF0C;&#x5148;&#x4ECE;&#x63A5;&#x53E3;&#x83B7;&#x53D6;&#x6570;&#x636E;&#x7136;&#x540E;&#x4ECE;json&#x683C;&#x5F0F;&#x4E2D;&#x89E3;&#x6790;&#x6570;&#x636E;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">gen</span>(<span class="params"></span>)</span>{</span><br><span class="line">  <span class="keyword">var</span> url = <span class="string">&apos;https://api.github.com/users/github&apos;</span>;</span><br><span class="line">  <span class="keyword">var</span> result = <span class="keyword">yield</span> fetch(url);</span><br><span class="line">  <span class="built_in">console</span>.log(result.bio);</span><br><span class="line">}</span><br><span class="line"><span class="comment">//&#x83B7;&#x53D6;&#x904D;&#x5386;&#x5668;&#x5BF9;&#x8C61;</span></span><br><span class="line"><span class="keyword">var</span> g = gen();</span><br><span class="line"><span class="keyword">var</span> result = g.next();</span><br><span class="line"><span class="comment">//&#x7531;&#x4E8E;Fetch&#x6A21;&#x5757;&#x8FD4;&#x56DE;&#x7684;&#x662F;&#x4E00;&#x4E2A;Promise&#x5BF9;&#x8C61;&#xFF0C;&#x56E0;&#x6B64;&#x8981;&#x7528;then&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x4E0B;&#x4E00;&#x4E2A;next &#x65B9;&#x6CD5;</span></span><br><span class="line">result.value.then(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>{</span><br><span class="line">  <span class="keyword">return</span> data.json();</span><br><span class="line">}).then(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>{</span><br><span class="line">  g.next(data);</span><br><span class="line">});</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="async"><a href="#async" class="headerlink" title="async"></a><strong>async</strong></h2><p>ES7&#x63D0;&#x51FA;&#x4E86;async&#x51FD;&#x6570;&#xFF0C;generator&#x7684;&#x4E00;&#x4E2A;&#x8BED;&#x6CD5;&#x7CD6;&#x3002;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">&apos;fs&apos;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> readFile = <span class="function"><span class="keyword">function</span> (<span class="params">fileName</span>)</span>{</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>)</span>{</span><br><span class="line">    fs.readFile(fileName, <span class="function"><span class="keyword">function</span>(<span class="params">error, data</span>)</span>{</span><br><span class="line">      <span class="keyword">if</span> (error) reject(error);</span><br><span class="line">      resolve(data);</span><br><span class="line">    });</span><br><span class="line">  });</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> gen = <span class="function"><span class="keyword">function</span>* (<span class="params"></span>)</span>{</span><br><span class="line">  <span class="keyword">var</span> f1 = <span class="keyword">yield</span> readFile(<span class="string">&apos;/etc/fstab&apos;</span>);</span><br><span class="line">  <span class="keyword">var</span> f2 = <span class="keyword">yield</span> readFile(<span class="string">&apos;/etc/shells&apos;</span>);</span><br><span class="line">  <span class="built_in">console</span>.log(f1.toString());</span><br><span class="line">  <span class="built_in">console</span>.log(f2.toString());</span><br><span class="line">};</span><br></pre></td></tr></table></figure></p>
+<p>&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x6539;&#x6210;async&#x6765;&#x5B9E;&#x73B0;&#xFF1A;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> asyncReadFile = <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>{</span><br><span class="line">  <span class="keyword">var</span> f1 = <span class="keyword">await</span> readFile(<span class="string">&apos;/etc/fstab&apos;</span>);</span><br><span class="line">  <span class="keyword">var</span> f2 = <span class="keyword">await</span> readFile(<span class="string">&apos;/etc/shells&apos;</span>);</span><br><span class="line">  <span class="built_in">console</span>.log(f1.toString());</span><br><span class="line">  <span class="built_in">console</span>.log(f2.toString());</span><br><span class="line">};</span><br></pre></td></tr></table></figure>
+<p>&#x4E00;&#x6BD4;&#x8F83;&#x5C31;&#x4F1A;&#x53D1;&#x73B0;&#xFF0C;async&#x51FD;&#x6570;&#x5C31;&#x662F;&#x5C06;Generator&#x51FD;&#x6570;&#x7684;&#x661F;&#x53F7;&#xFF08;*&#xFF09;&#x66FF;&#x6362;&#x6210;async&#xFF0C;&#x5C06;yield&#x66FF;&#x6362;&#x6210;await&#xFF0C;&#x4EC5;&#x6B64;&#x800C;&#x5DF2;&#x3002;</p>
+<p>&#x540C;Generator&#x51FD;&#x6570;&#x4E00;&#x6837;&#xFF0C;async&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;Promise&#x5BF9;&#x8C61;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;then&#x65B9;&#x6CD5;&#x6DFB;&#x52A0;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x3002;&#x5F53;&#x51FD;&#x6570;&#x6267;&#x884C;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4E00;&#x65E6;&#x9047;&#x5230;await&#x5C31;&#x4F1A;&#x5148;&#x8FD4;&#x56DE;&#xFF0C;&#x7B49;&#x5230;&#x89E6;&#x53D1;&#x7684;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x5B8C;&#x6210;&#xFF0C;&#x518D;&#x63A5;&#x7740;&#x6267;&#x884C;&#x51FD;&#x6570;&#x4F53;&#x5185;&#x540E;&#x9762;&#x7684;&#x8BED;&#x53E5;&#x3002;</p>
+<hr>
+<h2 id="&#x603B;&#x7ED3;"><a href="#&#x603B;&#x7ED3;" class="headerlink" title="&#x603B;&#x7ED3;"></a><strong>&#x603B;&#x7ED3;</strong></h2><p>&#x6211;&#x4EEC;&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;&#xFF0C;&#x6765;&#x770B;Async&#x51FD;&#x6570;&#x4E0E;Promise&#x3001;Generator&#x51FD;&#x6570;&#x7684;&#x533A;&#x522B;&#x3002;</p>
+<p>&#x5047;&#x5B9A;&#x67D0;&#x4E2A;DOM&#x5143;&#x7D20;&#x4E0A;&#x9762;&#xFF0C;&#x90E8;&#x7F72;&#x4E86;&#x4E00;&#x7CFB;&#x5217;&#x7684;&#x52A8;&#x753B;&#xFF0C;&#x524D;&#x4E00;&#x4E2A;&#x52A8;&#x753B;&#x7ED3;&#x675F;&#xFF0C;&#x624D;&#x80FD;&#x5F00;&#x59CB;&#x540E;&#x4E00;&#x4E2A;&#x3002;&#x5982;&#x679C;&#x5F53;&#x4E2D;&#x6709;&#x4E00;&#x4E2A;&#x52A8;&#x753B;&#x51FA;&#x9519;&#xFF0C;&#x5C31;&#x4E0D;&#x518D;&#x5F80;&#x4E0B;&#x6267;&#x884C;&#xFF0C;&#x8FD4;&#x56DE;&#x4E0A;&#x4E00;&#x4E2A;&#x6210;&#x529F;&#x6267;&#x884C;&#x7684;&#x52A8;&#x753B;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x3002;</p>
+<p>&#x9996;&#x5148;&#x662F;Promise&#x7684;&#x5199;&#x6CD5;&#x3002;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">chainAnimationsPromise</span>(<span class="params">elem, animations</span>) </span>{</span><br><span class="line"></span><br><span class="line">  <span class="comment">// &#x53D8;&#x91CF;ret&#x7528;&#x6765;&#x4FDD;&#x5B58;&#x4E0A;&#x4E00;&#x4E2A;&#x52A8;&#x753B;&#x7684;&#x8FD4;&#x56DE;&#x503C;</span></span><br><span class="line">  <span class="keyword">var</span> ret = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// &#x65B0;&#x5EFA;&#x4E00;&#x4E2A;&#x7A7A;&#x7684;Promise</span></span><br><span class="line">  <span class="keyword">var</span> p = <span class="built_in">Promise</span>.resolve();</span><br><span class="line"></span><br><span class="line">  <span class="comment">// &#x4F7F;&#x7528;then&#x65B9;&#x6CD5;&#xFF0C;&#x6DFB;&#x52A0;&#x6240;&#x6709;&#x52A8;&#x753B;</span></span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> anim <span class="keyword">in</span> animations) {</span><br><span class="line">    p = p.then(<span class="function"><span class="keyword">function</span>(<span class="params">val</span>) </span>{</span><br><span class="line">      ret = val;</span><br><span class="line">      <span class="keyword">return</span> anim(elem);</span><br><span class="line">    })</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  <span class="comment">// &#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x90E8;&#x7F72;&#x4E86;&#x9519;&#x8BEF;&#x6355;&#x6349;&#x673A;&#x5236;&#x7684;Promise</span></span><br><span class="line">  <span class="keyword">return</span> p.catch(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>{</span><br><span class="line">    <span class="comment">/* &#x5FFD;&#x7565;&#x9519;&#x8BEF;&#xFF0C;&#x7EE7;&#x7EED;&#x6267;&#x884C; */</span></span><br><span class="line">  }).then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">  });</span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<p>&#x867D;&#x7136;Promise&#x7684;&#x5199;&#x6CD5;&#x6BD4;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x7684;&#x5199;&#x6CD5;&#x5927;&#x5927;&#x6539;&#x8FDB;&#xFF0C;&#x4F46;&#x662F;&#x4E00;&#x773C;&#x770B;&#x4E0A;&#x53BB;&#xFF0C;&#x4EE3;&#x7801;&#x5B8C;&#x5168;&#x90FD;&#x662F;<a href="http://es6.ruanyifeng.com/#docs/promise" target="_blank" rel="external">Promise&#x7684;API</a>&#xFF08;then&#x3001;catch&#x7B49;&#x7B49;&#xFF09;&#xFF0C;&#x64CD;&#x4F5C;&#x672C;&#x8EAB;&#x7684;&#x8BED;&#x4E49;&#x53CD;&#x800C;&#x4E0D;&#x5BB9;&#x6613;&#x770B;&#x51FA;&#x6765;&#x3002;</p>
+<p>&#x63A5;&#x7740;&#x662F;Generator&#x51FD;&#x6570;&#x7684;&#x5199;&#x6CD5;&#x3002;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">chainAnimationsGenerator</span>(<span class="params">elem, animations</span>) </span>{</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> spawn(<span class="function"><span class="keyword">function</span>*(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="keyword">var</span> ret = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">try</span> {</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">var</span> anim <span class="keyword">of</span> animations) {</span><br><span class="line">        ret = <span class="keyword">yield</span> anim(elem);</span><br><span class="line">      }</span><br><span class="line">    } <span class="keyword">catch</span>(e) {</span><br><span class="line">      <span class="comment">/* &#x5FFD;&#x7565;&#x9519;&#x8BEF;&#xFF0C;&#x7EE7;&#x7EED;&#x6267;&#x884C; */</span></span><br><span class="line">    }</span><br><span class="line">      <span class="keyword">return</span> ret;</span><br><span class="line">  });</span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4F7F;&#x7528;Generator&#x51FD;&#x6570;&#x904D;&#x5386;&#x4E86;&#x6BCF;&#x4E2A;&#x52A8;&#x753B;&#xFF0C;&#x8BED;&#x4E49;&#x6BD4;Promise&#x5199;&#x6CD5;&#x66F4;&#x6E05;&#x6670;&#xFF0C;&#x7528;&#x6237;&#x5B9A;&#x4E49;&#x7684;&#x64CD;&#x4F5C;&#x5168;&#x90E8;&#x90FD;&#x51FA;&#x73B0;&#x5728;spawn&#x51FD;&#x6570;&#x7684;&#x5185;&#x90E8;&#x3002;&#x8FD9;&#x4E2A;&#x5199;&#x6CD5;&#x7684;&#x95EE;&#x9898;&#x5728;&#x4E8E;&#xFF0C;<strong>&#x5FC5;&#x987B;&#x6709;&#x4E00;&#x4E2A;&#x4EFB;&#x52A1;&#x8FD0;&#x884C;&#x5668;&#xFF0C;&#x81EA;&#x52A8;&#x6267;&#x884C;Generator&#x51FD;&#x6570;</strong>&#xFF0C;&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x7684;spawn&#x51FD;&#x6570;&#x5C31;&#x662F;&#x81EA;&#x52A8;&#x6267;&#x884C;&#x5668;&#xFF0C;&#x5B83;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;Promise&#x5BF9;&#x8C61;&#xFF0C;&#x800C;&#x4E14;&#x5FC5;&#x987B;&#x4FDD;&#x8BC1;yield&#x8BED;&#x53E5;&#x540E;&#x9762;&#x7684;&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;&#x5FC5;&#x987B;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;Promise&#x3002;</p>
+<p>&#x6700;&#x540E;&#x662F;Async&#x51FD;&#x6570;&#x7684;&#x5199;&#x6CD5;&#x3002;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">chainAnimationsAsync</span>(<span class="params">elem, animations</span>) </span>{</span><br><span class="line">  <span class="keyword">var</span> ret = <span class="literal">null</span>;</span><br><span class="line">  <span class="keyword">try</span> {</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> anim <span class="keyword">of</span> animations) {</span><br><span class="line">      ret = <span class="keyword">await</span> anim(elem);</span><br><span class="line">    }</span><br><span class="line">  } <span class="keyword">catch</span>(e) {</span><br><span class="line">    <span class="comment">/* &#x5FFD;&#x7565;&#x9519;&#x8BEF;&#xFF0C;&#x7EE7;&#x7EED;&#x6267;&#x884C; */</span></span><br><span class="line">  }</span><br><span class="line">  <span class="keyword">return</span> ret;</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;Async&#x51FD;&#x6570;&#x7684;&#x5B9E;&#x73B0;&#x6700;&#x7B80;&#x6D01;&#xFF0C;&#x6700;&#x7B26;&#x5408;&#x8BED;&#x4E49;&#xFF0C;&#x51E0;&#x4E4E;&#x6CA1;&#x6709;&#x8BED;&#x4E49;&#x4E0D;&#x76F8;&#x5173;&#x7684;&#x4EE3;&#x7801;&#x3002;&#x5B83;&#x5C06;Generator&#x5199;&#x6CD5;&#x4E2D;&#x7684;&#x81EA;&#x52A8;&#x6267;&#x884C;&#x5668;&#xFF0C;&#x6539;&#x5728;&#x8BED;&#x8A00;&#x5C42;&#x9762;&#x63D0;&#x4F9B;&#xFF0C;&#x4E0D;&#x66B4;&#x9732;&#x7ED9;&#x7528;&#x6237;&#xFF0C;&#x56E0;&#x6B64;&#x4EE3;&#x7801;&#x91CF;&#x6700;&#x5C11;&#x3002;&#x5982;&#x679C;&#x4F7F;&#x7528;Generator&#x5199;&#x6CD5;&#xFF0C;&#x81EA;&#x52A8;&#x6267;&#x884C;&#x5668;&#x9700;&#x8981;&#x7528;&#x6237;&#x81EA;&#x5DF1;&#x63D0;&#x4F9B;&#x3002;</p>
+<hr>
+<h2 id="&#x53C2;&#x8003;"><a href="#&#x53C2;&#x8003;" class="headerlink" title="&#x53C2;&#x8003;"></a><strong>&#x53C2;&#x8003;</strong></h2><p><a href="http://es6.ruanyifeng.com/#docs/async" target="_blank" rel="external">&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x548C;async&#x51FD;&#x6570;</a></p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/02/09/组件拼装-React官网/" rel="next" title="组件拼装-React官网">
+                <i class="fa fa-chevron-left"></i> 组件拼装-React官网
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/02/10/组件复用-React官网/" rel="prev" title="组件复用-React官网">
+                组件复用-React官网 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/02/09/异步操作/"
+     data-title="异步操作"
+     data-content=""
+     data-url="http://yoursite.com/2016/02/09/异步操作/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/02/09/异步操作/"
+           data-title="异步操作" data-url="http://yoursite.com/2016/02/09/异步操作/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://nos.netease.com/edu-image/5AA61D30A78B81D8CF5AE7608A1468C2.jpg"
+               alt="刘放" />
+          <p class="site-author-name" itemprop="name">刘放</p>
+          <p class="site-description motion-element" itemprop="description">网易前端开发 brizer@163.com</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">110</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/brizer" target="_blank" title="github">
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/3978835322" target="_blank" title="weibo">
+                  
+                  weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://study.163.com/topics/2016-11sales/#/main" title="云课堂充电节" target="_blank">云课堂充电节</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://study.163.com/" title="网易云课堂" target="_blank">网易云课堂</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.icourse163.org/" title="中国大学MOOC" target="_blank">中国大学MOOC</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://100.163.com/" title="网易100分" target="_blank">网易100分</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#异步操作"><span class="nav-number">1.</span> <span class="nav-text">异步操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本概念"><span class="nav-number">1.2.</span> <span class="nav-text">基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#异步"><span class="nav-number">1.2.1.</span> <span class="nav-text">异步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#回调函数"><span class="nav-number">1.2.2.</span> <span class="nav-text">回调函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Promise"><span class="nav-number">1.2.3.</span> <span class="nav-text">Promise</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#generator"><span class="nav-number">1.3.</span> <span class="nav-text">generator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#async"><span class="nav-number">1.4.</span> <span class="nav-text">async</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">1.5.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">1.6.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刘放</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i> 总访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"brizer"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+  
+  
+</body>
+</html>

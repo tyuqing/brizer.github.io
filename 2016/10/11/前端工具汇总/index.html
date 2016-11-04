@@ -1,0 +1,725 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="brizer,前端,博客,刘放" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x524D;&amp;#x8A00;&amp;#x4E3B;&amp;#x8981;&amp;#x603B;&amp;#x7ED3;&amp;#x4E0B;&amp;#x524D;&amp;#x7AEF;&amp;#x5F00;&amp;#x53D1;&amp;#x4E2D;&amp;#x5E38;&amp;#x7528;&amp;#x7684;&amp;#x5DE5;&amp;#x5177;&amp;#x548C;&amp;#x5BF9;&amp;#x5E94;&amp;#x7684;&amp;#x94FE;&amp;#x63A5;&amp;#xFF0C;&amp;#x65B9;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端工具汇总">
+<meta property="og:url" content="http://yoursite.com/2016/10/11/前端工具汇总/index.html">
+<meta property="og:site_name" content="Brizer's Blog">
+<meta property="og:description" content="&amp;#x524D;&amp;#x8A00;&amp;#x4E3B;&amp;#x8981;&amp;#x603B;&amp;#x7ED3;&amp;#x4E0B;&amp;#x524D;&amp;#x7AEF;&amp;#x5F00;&amp;#x53D1;&amp;#x4E2D;&amp;#x5E38;&amp;#x7528;&amp;#x7684;&amp;#x5DE5;&amp;#x5177;&amp;#x548C;&amp;#x5BF9;&amp;#x5E94;&amp;#x7684;&amp;#x94FE;&amp;#x63A5;&amp;#xFF0C;&amp;#x65B9;">
+<meta property="og:updated_time" content="2016-10-11T03:23:15.893Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端工具汇总">
+<meta name="twitter:description" content="&amp;#x524D;&amp;#x8A00;&amp;#x4E3B;&amp;#x8981;&amp;#x603B;&amp;#x7ED3;&amp;#x4E0B;&amp;#x524D;&amp;#x7AEF;&amp;#x5F00;&amp;#x53D1;&amp;#x4E2D;&amp;#x5E38;&amp;#x7528;&amp;#x7684;&amp;#x5DE5;&amp;#x5177;&amp;#x548C;&amp;#x5BF9;&amp;#x5E94;&amp;#x7684;&amp;#x94FE;&amp;#x63A5;&amp;#xFF0C;&amp;#x65B9;">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 前端工具汇总 | Brizer's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Brizer's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">刘放 学习笔记</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+  
+    <style type="text/css">
+		#so360{white-space:nowrap;margin:10px auto;}
+		#so360 form{margin:0;padding:0}
+		#so360_keyword{width:157px;height:32px;line-height:32px;font:14px arial;padding:2px 5px;margin-right:5px;
+		border:2px solid #061201;outline:0;vertical-align:middle}
+		#so360_keyword{background:url(https://p.ssl.qhimg.com/t01ab1a3fb05f0ee893.png) no-repeat 236px center}
+		#so360_submit{width:60px;height:40px;border:0;color:#fff;background:#061201;
+		font-weight:bold;font:bold 14px arial;padding:0;padding-top:3px\9;cursor:pointer;
+		vertical-align:middle}
+	</style>
+	<div id="so360">
+	    <form action="http://www.so.com/s" target="_blank" id="so360form">
+	   <input type="text" autocomplete="off" name="q" id="so360_keyword">
+	        <input type="submit" id="so360_submit" value="搜 索">
+	        <input type="hidden" name="ie" value="utf8">
+	        <input type="hidden" name="src" value="zz_brizer.top">
+	        <input type="hidden" name="site" value="brizer.top">
+	        <input type="hidden" name="rg" value="1">
+	    </form>
+	</div> 
+	
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/demo" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            demo
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                前端工具汇总
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-11T10:17:38+08:00" content="2016-10-11">
+              2016-10-11
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/web工程/" itemprop="url" rel="index">
+                    <span itemprop="name">web工程</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/11/前端工具汇总/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/11/前端工具汇总/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+                    
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+              </span>
+                     
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="&#x524D;&#x8A00;"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a><strong>&#x524D;&#x8A00;</strong></h1><p>&#x4E3B;&#x8981;&#x603B;&#x7ED3;&#x4E0B;&#x524D;&#x7AEF;&#x5F00;&#x53D1;&#x4E2D;&#x5E38;&#x7528;&#x7684;&#x5DE5;&#x5177;&#x548C;&#x5BF9;&#x5E94;&#x7684;&#x94FE;&#x63A5;&#xFF0C;&#x65B9;&#x4FBF;&#x65E5;&#x540E;&#x67E5;&#x9605;&#x3002;</p>
+<hr>
+<h1 id="&#x56FE;&#x7247;&#x538B;&#x7F29;&#x5DE5;&#x5177;"><a href="#&#x56FE;&#x7247;&#x538B;&#x7F29;&#x5DE5;&#x5177;" class="headerlink" title="&#x56FE;&#x7247;&#x538B;&#x7F29;&#x5DE5;&#x5177;"></a><strong>&#x56FE;&#x7247;&#x538B;&#x7F29;&#x5DE5;&#x5177;</strong></h1><p><a href="https://tinypng.com/" target="_blank" rel="external">TinyPNG</a> &#x5728;&#x7EBF;&#x538B;&#x7F29;png&#x548C;jpg&#x56FE;&#x7247;</p>
+<p><a href="https://imageoptim.com/mac" target="_blank" rel="external">ImageOptim</a> &#x672C;&#x5730;&#x5E94;&#x7528;&#xFF0C;&#x652F;&#x6301;mac&#x7248;&#xFF0C;&#x529F;&#x80FD;&#x5F3A;&#x5927;&#xFF0C;git&#x90FD;&#x53EF;&#x4EE5;&#x538B;&#x7F29;</p>
+<hr>
+<h1 id="HTML&#x4EE3;&#x7801;&#x68C0;&#x9A8C;&#x5DE5;&#x5177;"><a href="#HTML&#x4EE3;&#x7801;&#x68C0;&#x9A8C;&#x5DE5;&#x5177;" class="headerlink" title="HTML&#x4EE3;&#x7801;&#x68C0;&#x9A8C;&#x5DE5;&#x5177;"></a><strong>HTML&#x4EE3;&#x7801;&#x68C0;&#x9A8C;&#x5DE5;&#x5177;</strong></h1><p><a href="https://validator.w3.org/" target="_blank" rel="external">Validator</a> w3c&#x63D0;&#x4F9B;&#x7684;&#x5728;&#x7EBF;html&#x4EE3;&#x7801;&#x68C0;&#x9A8C;&#x5DE5;&#x5177;&#xFF0C;&#x652F;&#x6301;&#x6587;&#x4EF6;&#x3001;url&#x3001;&#x5728;&#x7EBF;&#x8F93;&#x5165;</p>
+<hr>
+<h1 id="css&#x4EE3;&#x7801;&#x7F8E;&#x5316;"><a href="#css&#x4EE3;&#x7801;&#x7F8E;&#x5316;" class="headerlink" title="css&#x4EE3;&#x7801;&#x7F8E;&#x5316;"></a><strong>css&#x4EE3;&#x7801;&#x7F8E;&#x5316;</strong></h1><p><a href="http://csscomb.com/" target="_blank" rel="external">csscomb</a> &#x4F18;&#x5316;css&#x4EE3;&#x7801;&#x7684;&#x663E;&#x793A;&#xFF0C;&#x652F;&#x6301;&#x7F16;&#x8F91;&#x5668;&#x63D2;&#x4EF6;&#x548C;grunt&#x3001;&#x547D;&#x4EE4;&#x884C;</p>
+<hr>
+<h1 id="css&#x96EA;&#x78A7;&#x56FE;&#x751F;&#x6210;&#x5DE5;&#x5177;"><a href="#css&#x96EA;&#x78A7;&#x56FE;&#x751F;&#x6210;&#x5DE5;&#x5177;" class="headerlink" title="css&#x96EA;&#x78A7;&#x56FE;&#x751F;&#x6210;&#x5DE5;&#x5177;"></a><strong>css&#x96EA;&#x78A7;&#x56FE;&#x751F;&#x6210;&#x5DE5;&#x5177;</strong></h1><p><a href="http://spritegen.website-performance.org/" target="_blank" rel="external">cssspritegenerator</a> &#x5728;&#x7EBF;&#x751F;&#x6210;&#x5DE5;&#x5177;&#xFF0C;&#x7B80;&#x5355;&#x6613;&#x7528;</p>
+<p><a href="http://www.spritecow.com/" target="_blank" rel="external">spriteCow</a> &#x5C06;&#x624B;&#x52A8;&#x62FC;&#x63A5;&#x7684;&#x96EA;&#x78A7;&#x56FE;&#x4E0A;&#x4F20;&#x540E;&#xFF0C;&#x901A;&#x8FC7;&#x9F20;&#x6807;&#x9009;&#x4E2D;&#xFF0C;&#x7ED9;&#x51FA;&#x5BF9;&#x5E94;background-position</p>
+<hr>
+<h1 id="js&#x8BED;&#x6CD5;&#x9A8C;&#x8BC1;&#x5DE5;&#x5177;"><a href="#js&#x8BED;&#x6CD5;&#x9A8C;&#x8BC1;&#x5DE5;&#x5177;" class="headerlink" title="js&#x8BED;&#x6CD5;&#x9A8C;&#x8BC1;&#x5DE5;&#x5177;"></a><strong>js&#x8BED;&#x6CD5;&#x9A8C;&#x8BC1;&#x5DE5;&#x5177;</strong></h1><p><a href="http://jshint.com/" target="_blank" rel="external">jshint</a> &#x63D0;&#x4F9B;&#x5404;&#x79CD;&#x7F16;&#x8F91;&#x5668;&#x63D2;&#x4EF6;&#xFF0C;&#x65B9;&#x4FBF;&#x68C0;&#x6D4B;js&#x8BED;&#x6CD5;</p>
+<hr>
+<h1 id="&#x6D4F;&#x89C8;&#x5668;&#x517C;&#x5BB9;&#x6027;"><a href="#&#x6D4F;&#x89C8;&#x5668;&#x517C;&#x5BB9;&#x6027;" class="headerlink" title="&#x6D4F;&#x89C8;&#x5668;&#x517C;&#x5BB9;&#x6027;"></a><strong>&#x6D4F;&#x89C8;&#x5668;&#x517C;&#x5BB9;&#x6027;</strong></h1><p><a href="http://caniuse.com/" target="_blank" rel="external">caniuse</a> &#x5728;&#x7EBF;&#x67E5;&#x8BE2;&#x5404;&#x4E2A;html&#x3001;css&#x517C;&#x5BB9;&#x6027;</p>
+<p><a href="https://github.com/aFarkas/html5shiv" target="_blank" rel="external">html5shiv</a> &#x901A;&#x8FC7;&#x5F15;&#x5165;js&#x811A;&#x672C;&#x4F7F;&#x4F4E;ie&#x7248;&#x672C;&#x517C;&#x5BB9;h5&#x6807;&#x7B7E;</p>
+<p><a href="https://github.com/postcss/autoprefixer" target="_blank" rel="external">autoprefixer</a> css&#x517C;&#x5BB9;&#x6027;&#x524D;&#x7F00;&#x6DFB;&#x52A0;</p>
+<p><a href="https://github.com/babel/babel" target="_blank" rel="external">babel</a> javascript&#x5411;&#x4E0B;&#x517C;&#x5BB9;&#x8F6C;&#x6362;&#x811A;&#x672C;</p>
+<hr>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/24/第一个Regular的UI开发/" rel="next" title="第一个Regular的UI开发">
+                <i class="fa fa-chevron-left"></i> 第一个Regular的UI开发
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/13/nodeppt使用教程/" rel="prev" title="nodeppt使用教程">
+                nodeppt使用教程 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/10/11/前端工具汇总/"
+     data-title="前端工具汇总"
+     data-content=""
+     data-url="http://yoursite.com/2016/10/11/前端工具汇总/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/10/11/前端工具汇总/"
+           data-title="前端工具汇总" data-url="http://yoursite.com/2016/10/11/前端工具汇总/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://nos.netease.com/edu-image/5AA61D30A78B81D8CF5AE7608A1468C2.jpg"
+               alt="刘放" />
+          <p class="site-author-name" itemprop="name">刘放</p>
+          <p class="site-description motion-element" itemprop="description">网易前端开发 brizer@163.com</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">110</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/brizer" target="_blank" title="github">
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/3978835322" target="_blank" title="weibo">
+                  
+                  weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://study.163.com/topics/2016-11sales/#/main" title="云课堂充电节" target="_blank">云课堂充电节</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://study.163.com/" title="网易云课堂" target="_blank">网易云课堂</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.icourse163.org/" title="中国大学MOOC" target="_blank">中国大学MOOC</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://100.163.com/" title="网易100分" target="_blank">网易100分</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#图片压缩工具"><span class="nav-number">2.</span> <span class="nav-text">图片压缩工具</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTML代码检验工具"><span class="nav-number">3.</span> <span class="nav-text">HTML代码检验工具</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#css代码美化"><span class="nav-number">4.</span> <span class="nav-text">css代码美化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#css雪碧图生成工具"><span class="nav-number">5.</span> <span class="nav-text">css雪碧图生成工具</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#js语法验证工具"><span class="nav-number">6.</span> <span class="nav-text">js语法验证工具</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#浏览器兼容性"><span class="nav-number">7.</span> <span class="nav-text">浏览器兼容性</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刘放</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i> 总访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"brizer"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+  
+  
+</body>
+</html>

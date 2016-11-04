@@ -1,0 +1,722 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="brizer,前端,博客,刘放" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x524D;&amp;#x8A00;&amp;#x4E4B;&amp;#x524D;&amp;#x5728;&amp;#x79FB;&amp;#x52A8;&amp;#x9002;&amp;#x914D;&amp;#x9875;&amp;#x4E0A;&amp;#x7684;&amp;#x9876;&amp;#x90E8;&amp;#x5BFC;&amp;#x822A;&amp;#x6761;&amp;#x90FD;&amp;#x662F;&amp;#x81EA;&amp;#x5DF1;&amp;#x624B;&amp;#x5199;&amp;#x7684;&amp;#xFF0C;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="移动端滑动iscroll使用实践">
+<meta property="og:url" content="http://yoursite.com/2016/06/06/移动端滑动iscroll使用实践/index.html">
+<meta property="og:site_name" content="Brizer's Blog">
+<meta property="og:description" content="&amp;#x524D;&amp;#x8A00;&amp;#x4E4B;&amp;#x524D;&amp;#x5728;&amp;#x79FB;&amp;#x52A8;&amp;#x9002;&amp;#x914D;&amp;#x9875;&amp;#x4E0A;&amp;#x7684;&amp;#x9876;&amp;#x90E8;&amp;#x5BFC;&amp;#x822A;&amp;#x6761;&amp;#x90FD;&amp;#x662F;&amp;#x81EA;&amp;#x5DF1;&amp;#x624B;&amp;#x5199;&amp;#x7684;&amp;#xFF0C;">
+<meta property="og:updated_time" content="2016-06-06T01:44:19.178Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="移动端滑动iscroll使用实践">
+<meta name="twitter:description" content="&amp;#x524D;&amp;#x8A00;&amp;#x4E4B;&amp;#x524D;&amp;#x5728;&amp;#x79FB;&amp;#x52A8;&amp;#x9002;&amp;#x914D;&amp;#x9875;&amp;#x4E0A;&amp;#x7684;&amp;#x9876;&amp;#x90E8;&amp;#x5BFC;&amp;#x822A;&amp;#x6761;&amp;#x90FD;&amp;#x662F;&amp;#x81EA;&amp;#x5DF1;&amp;#x624B;&amp;#x5199;&amp;#x7684;&amp;#xFF0C;">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 移动端滑动iscroll使用实践 | Brizer's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Brizer's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">刘放 学习笔记</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+  
+    <style type="text/css">
+		#so360{white-space:nowrap;margin:10px auto;}
+		#so360 form{margin:0;padding:0}
+		#so360_keyword{width:157px;height:32px;line-height:32px;font:14px arial;padding:2px 5px;margin-right:5px;
+		border:2px solid #061201;outline:0;vertical-align:middle}
+		#so360_keyword{background:url(https://p.ssl.qhimg.com/t01ab1a3fb05f0ee893.png) no-repeat 236px center}
+		#so360_submit{width:60px;height:40px;border:0;color:#fff;background:#061201;
+		font-weight:bold;font:bold 14px arial;padding:0;padding-top:3px\9;cursor:pointer;
+		vertical-align:middle}
+	</style>
+	<div id="so360">
+	    <form action="http://www.so.com/s" target="_blank" id="so360form">
+	   <input type="text" autocomplete="off" name="q" id="so360_keyword">
+	        <input type="submit" id="so360_submit" value="搜 索">
+	        <input type="hidden" name="ie" value="utf8">
+	        <input type="hidden" name="src" value="zz_brizer.top">
+	        <input type="hidden" name="site" value="brizer.top">
+	        <input type="hidden" name="rg" value="1">
+	    </form>
+	</div> 
+	
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/demo" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            demo
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                移动端滑动iscroll使用实践
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-06T09:29:29+08:00" content="2016-06-06">
+              2016-06-06
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/web工程/" itemprop="url" rel="index">
+                    <span itemprop="name">web工程</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/06/移动端滑动iscroll使用实践/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/06/移动端滑动iscroll使用实践/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+                    
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+              </span>
+                     
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="&#x524D;&#x8A00;"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a><strong>&#x524D;&#x8A00;</strong></h1><p>&#x4E4B;&#x524D;&#x5728;&#x79FB;&#x52A8;&#x9002;&#x914D;&#x9875;&#x4E0A;&#x7684;&#x9876;&#x90E8;&#x5BFC;&#x822A;&#x6761;&#x90FD;&#x662F;&#x81EA;&#x5DF1;&#x624B;&#x5199;&#x7684;&#xFF0C;&#x5728;&#x6709;&#x4E9B;&#x5E73;&#x53F0;&#x4E0A;&#x5404;&#x79CD;&#x8E29;&#x5751;&#x3002;&#x4E8E;&#x662F;&#x51B3;&#x5B9A;&#x8C03;&#x7814;&#x4E0B;&#x77E5;&#x540D;&#x7684;iscroll&#xFF0C;&#x770B;&#x770B;&#x80FD;&#x4E0D;&#x80FD;&#x89E3;&#x51B3;&#x6211;&#x4EEC;&#x7684;&#x95EE;&#x9898;&#x3002;&#x8BE5;&#x5DE5;&#x5177;&#x60F3;&#x5FC5;&#x5728;&#x4F7F;&#x7528;&#x540E;&#x4F1A;&#x6709;&#x66F4;&#x591A;&#x603B;&#x7ED3;&#xFF0C;&#x73B0;&#x5728;&#x53EA;&#x662F;&#x7B80;&#x5355;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;demo&#x3002;</p>
+<hr>
+<h1 id="iscroll"><a href="#iscroll" class="headerlink" title="iscroll"></a><strong>iscroll</strong></h1><p>&#x6A21;&#x62DF;&#x79FB;&#x52A8;&#x7AEF;&#x6ED1;&#x52A8;&#x7684;&#x5E93;&#xFF0C;&#x6709;&#x95EE;&#x9898;&#x53EF;&#x4EE5;&#x67E5;&#x9605;<a href="https://iiunknown.gitbooks.io/iscroll-5-api-cn/content/basicfeatures.html" target="_blank" rel="external">&#x8BE5;&#x6587;&#x6863;</a>&#x3002;</p>
+<hr>
+<h1 id="&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x5C0F;demo"><a href="#&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x5C0F;demo" class="headerlink" title="&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x5C0F;demo"></a><strong>&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x5C0F;demo</strong></h1><p>&#x8BE5;demo&#x6A21;&#x62DF;&#x5B9E;&#x73B0;&#x6548;&#x679C;&#xFF0C;&#x6FC0;&#x6D3B;&#x67D0;&#x533A;&#x57DF;&#x540E;&#xFF0C;&#x5BFC;&#x822A;&#x5BF9;&#x5E94;&#x90E8;&#x5206;&#x6FC0;&#x6D3B;&#x5E76;&#x5C45;&#x4E2D;&#x3002;<br>&#x8FD9;&#x4E2A;demo&#x9700;&#x8981;&#x5728;&#x79FB;&#x52A8;&#x7AEF;&#x4E0A;&#x624D;&#x6BD4;&#x8F83;&#x597D;&#xFF0C;&#x56E0;&#x4E3A;&#x5BF9;&#x5E94;&#x7684;meta&#x5934;&#xFF1A;<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>demo&#x5728;codepen&#x4E2D;&#xFF1A;</p>
+<p></p><p data-height="265" data-theme-id="0" data-slug-hash="WxbbPv" data-default-tab="html,result" data-user="brizer" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/brizer/pen/WxbbPv/" target="_blank" rel="external">&#x79FB;&#x52A8;&#x7AEF;&#x6ED1;&#x52A8;iscroll&#x4F7F;&#x7528;</a> by &#x5218;&#x653E; (<a href="http://codepen.io/brizer" target="_blank" rel="external">@brizer</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+
+
+
+
+<p>&#x8FD9;&#x91CC;&#x4E5F;&#x6652;&#x51FA;&#x5168;&#x90E8;&#x4EE3;&#x7801;&#xFF1A;<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>&#x5E03;&#x5C40;<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span><br><span class="line"><span class="selector-tag">html</span> {</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">320px</span>;  </span><br><span class="line">}</span><br><span class="line"><span class="selector-tag">body</span> {</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">320px</span>;  </span><br><span class="line">}</span><br><span class="line"><span class="selector-id">#wrapper</span> {</span><br><span class="line">    <span class="attribute">position</span>:fixed;</span><br><span class="line">    <span class="attribute">top</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">left</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">overflow</span>: scroll;</span><br><span class="line">}</span><br><span class="line"><span class="selector-id">#wrapper</span> <span class="selector-tag">ul</span> {</span><br><span class="line">    <span class="attribute">padding</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">800px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">60px</span>;</span><br><span class="line">    <span class="attribute">font-size</span>:<span class="number">0</span>;    </span><br><span class="line">}</span><br><span class="line"><span class="selector-id">#wrapper</span> <span class="selector-tag">ul</span> <span class="selector-tag">li</span> {</span><br><span class="line">    <span class="attribute">display</span>:inline-block;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">60px</span>;</span><br><span class="line">    <span class="attribute">color</span>:<span class="number">#fff</span>;</span><br><span class="line">    <span class="attribute">font-size</span>:<span class="number">12px</span>;</span><br><span class="line">    <span class="attribute">list-style-type</span>: none;  </span><br><span class="line">    <span class="attribute">background-color</span>:red;</span><br><span class="line">}</span><br><span class="line"><span class="selector-id">#wrapper</span> <span class="selector-tag">ul</span> <span class="selector-tag">li</span><span class="selector-class">.active</span>{</span><br><span class="line">    <span class="attribute">background-color</span>: blue;</span><br><span class="line">}</span><br><span class="line"><span class="selector-class">.u-content</span> {</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">320px</span>;</span><br><span class="line">}</span><br><span class="line"><span class="selector-class">.u-content</span> <span class="selector-class">.content1</span> {</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">600px</span>;</span><br><span class="line">    <span class="attribute">background</span>:green;</span><br><span class="line">}</span><br><span class="line"><span class="selector-class">.u-content</span> <span class="selector-class">.content2</span> {</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">600px</span>;</span><br><span class="line">    <span class="attribute">background</span>:yellow;</span><br><span class="line">}</span><br><span class="line"><span class="selector-class">.u-content</span> <span class="selector-class">.content3</span> {</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">600px</span>;</span><br><span class="line">    <span class="attribute">background</span>:blue;</span><br><span class="line">}</span><br><span class="line"><span class="selector-class">.u-content</span> <span class="selector-class">.content4</span> {</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">600px</span>;</span><br><span class="line">    <span class="attribute">background</span>:green;</span><br><span class="line">}</span><br><span class="line"><span class="selector-class">.u-content</span> <span class="selector-class">.content5</span> {</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">600px</span>;</span><br><span class="line">    <span class="attribute">background</span>:gray;</span><br><span class="line">}</span><br><span class="line"><span class="selector-class">.u-content</span> <span class="selector-class">.content6</span> {</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">600px</span>;</span><br><span class="line">    <span class="attribute">background</span>:black;</span><br><span class="line">}</span><br><span class="line"><span class="selector-class">.u-content</span> <span class="selector-class">.content7</span> {</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">600px</span>;</span><br><span class="line">    <span class="attribute">background</span>:white;</span><br><span class="line">}</span><br><span class="line"><span class="selector-class">.u-content</span> <span class="selector-class">.content8</span> {</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">600px</span>;</span><br><span class="line">    <span class="attribute">background</span>:red;</span><br><span class="line">}</span><br><span class="line"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;./iscroll.js&quot;</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;./jquery.js&quot;</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">onload</span>=<span class="string">&apos;onload()&apos;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;wrapper&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;j-nav&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>&#x5BFC;&#x822A;1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>&#x5BFC;&#x822A;2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>&#x5BFC;&#x822A;3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>&#x5BFC;&#x822A;4<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>&#x5BFC;&#x822A;5<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">&quot;j-spe&quot;</span>&gt;</span>&#x5BFC;&#x822A;6<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>&#x5BFC;&#x822A;7<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span>&#x5BFC;&#x822A;8<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span>	</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;u-content&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;content1&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;content2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;content3&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;content4&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;content5&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;content6&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;content7&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;content8&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span><br><span class="line"><span class="keyword">var</span> myScroll;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">onload</span>(<span class="params"></span>)</span>{</span><br><span class="line">    myScroll = <span class="keyword">new</span> IScroll(<span class="string">&apos;#wrapper&apos;</span>, </span><br><span class="line">    { </span><br><span class="line">     mouseWheel: <span class="literal">true</span>,<span class="comment">//PC&#x7AEF;&#x7684;&#x9F20;&#x6807;&#x4E8B;&#x4EF6;&#x4E5F;&#x76D1;&#x542C;&#xFF0C;&#x65B9;&#x4FBF;PC&#x7AEF;&#x8C03;&#x8BD5;</span></span><br><span class="line">     click: <span class="literal">true</span>,<span class="comment">//&#x5141;&#x8BB8;&#x70B9;&#x51FB;&#x4E8B;&#x4EF6;</span></span><br><span class="line">     eventPassthrough: <span class="literal">true</span>,<span class="comment">//&#x7EB5;&#x5411;&#x6EDA;&#x52A8;&#x6574;&#x4E2A;&#x9875;&#x9762;&#xFF0C;&#x6A2A;&#x5411;&#x6EDA;&#x52A8;iscroll&#x533A;&#x57DF;</span></span><br><span class="line">     scrollX:<span class="literal">true</span>,<span class="comment">//&#x9ED8;&#x8BA4;&#x662F;&#x7EB5;&#x5411;&#xFF0C;&#x6A2A;&#x5411;&#x9700;&#x8981;&#x8BBE;&#x7F6E;scrollX</span></span><br><span class="line">     });</span><br><span class="line">}</span><br><span class="line"><span class="comment">//document.addEventListener(&apos;touchmove&apos;, function (e) { e.preventDefault(); }, false);</span></span><br><span class="line">   </span><br><span class="line"><span class="keyword">var</span> _$nav = $(<span class="string">&apos;.j-nav&apos;</span>);</span><br><span class="line"><span class="keyword">var</span> _$spe = $(<span class="string">&apos;.j-spe&apos;</span>);</span><br><span class="line"></span><br><span class="line">   </span><br><span class="line"></span><br><span class="line">_$nav.on(<span class="string">&apos;click&apos;</span>,<span class="string">&apos;li&apos;</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">var</span> _index = $(<span class="keyword">this</span>).index();</span><br><span class="line">    $(<span class="keyword">this</span>).addClass(<span class="string">&apos;active&apos;</span>).siblings().removeClass(<span class="string">&apos;active&apos;</span>);</span><br><span class="line">    $(<span class="built_in">window</span>).scrollTop((_index)*<span class="number">600</span>); </span><br><span class="line">    <span class="comment">/*&#x6ED1;&#x52A8;&#x5230;&#x6307;&#x5B9A;&#x7D22;&#x5F15;&#x7684;&#x5BFC;&#x822A;&#x8282;&#x70B9;&#x4ECE;&#x5DE6;&#x5F00;&#x59CB;&#x7B2C;&#x4E00;&#x4E2A;&#x663E;&#x793A;*/</span> </span><br><span class="line">    <span class="comment">//myScroll.scrollToElement(_$nav.find(&apos;li:nth-child(4)&apos;).get(0));   </span></span><br><span class="line">    <span class="comment">/*&#x6ED1;&#x52A8;&#x5230;&#x6307;&#x5B9A;&#x7D22;&#x5F15;&#x7684;&#x5BFC;&#x822A;&#x8282;&#x70B9;&#xFF0C;&#x5E76;&#x5C06;&#x5176;&#x5C45;&#x4E2D;&#x663E;&#x793A;*/</span></span><br><span class="line">    myScroll.scrollToElement(_$nav.find(<span class="string">&apos;li:nth-child(&apos;</span>+(_index+<span class="number">1</span>)+<span class="string">&apos;)&apos;</span>).get(<span class="number">0</span>),<span class="literal">null</span>,<span class="literal">true</span>,<span class="literal">true</span>);  </span><br><span class="line">});</span><br><span class="line"><span class="comment">/*&#x6ED1;&#x52A8;&#x5230;&#x54EA;&#x4E2A;&#x533A;&#x57DF;&#x5C31;&#x6FC0;&#x6D3B;&#x5F53;&#x524D;&#x533A;&#x57DF;&#xFF0C;&#x8FD9;&#x91CC;&#x9ED8;&#x8BA4;&#x6ED1;&#x52A8;&#x5230;&#x7B2C;&#x516D;&#x4E2A;&#xFF0C;&#x6ED1;&#x52A8;&#x5230;&#x6307;&#x5B9A;&#x533A;&#x57DF;&#x7684;&#x903B;&#x8F91;&#x4E0D;&#x518D;&#x5199;*/</span></span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">    _$spe.click();</span><br><span class="line">},<span class="number">300</span>);  </span><br><span class="line"></span><br><span class="line"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>&#x8FD9;&#x91CC;&#x9700;&#x8981;&#x6CE8;&#x610F;iscroll&#x7684;<strong>&#x914D;&#x7F6E;&#x9879;</strong>&#xFF0C;&#x548C;scrollToElement&#x7B49;&#x65B9;&#x6CD5;&#x4E2D;&#x7684;&#x8282;&#x70B9;&#x53C2;&#x6570;&#x9700;&#x4E3A;<strong>&#x539F;&#x751F;&#x7684;DOM&#x8282;&#x70B9;</strong>&#xFF0C;&#x5982;&#x679C;&#x4F7F;&#x7528;&#x4E86;jquery&#x7B49;&#x5E93;&#xFF0C;&#x9700;&#x8981;&#x624B;&#x52A8;&#x8F6C;&#x5316;&#x4E00;&#x756A;&#x3002;</p>
+<p>&#x4E0A;&#x9762;&#x7684;demo&#x4E2D;&#xFF0C;&#x9ED8;&#x8BA4;&#x662F;&#x5728;&#x5F00;&#x542F;&#x65F6;&#x6FC0;&#x6D3B;&#x7B2C;&#x516D;&#x5757;&#x533A;&#x57DF;&#xFF0C;&#x5C4F;&#x5E55;&#x6ED1;&#x52A8;&#x5230;&#x56FA;&#x5B9A;&#x533A;&#x57DF;&#x6FC0;&#x6D3B;&#x5BFC;&#x822A;&#x54EA;&#x5757;&#x7684;&#x903B;&#x8F91;&#x5E76;&#x6CA1;&#x6709;&#x5B8C;&#x5584;&#xFF0C;&#x6240;&#x4EE5;&#x8BF4;&#x53EA;&#x80FD;&#x7B97;&#x662F;&#x4E2A;demo&#x3002;&#x5982;&#x679C;&#x540E;&#x671F;&#x5728;&#x751F;&#x4EA7;&#x73AF;&#x5883;&#x4E2D;&#x4F7F;&#x7528;&#xFF0C;&#x4F1A;&#x628A;&#x6700;&#x65B0;&#x6700;&#x5B8C;&#x5584;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x7EE7;&#x7EED;&#x6574;&#x7406;&#x3002;</p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/04/w状态模式与开发实践/" rel="next" title="状态模式与开发实践">
+                <i class="fa fa-chevron-left"></i> 状态模式与开发实践
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/06/07/git使用实践/" rel="prev" title="git使用实践">
+                git使用实践 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/06/06/移动端滑动iscroll使用实践/"
+     data-title="移动端滑动iscroll使用实践"
+     data-content=""
+     data-url="http://yoursite.com/2016/06/06/移动端滑动iscroll使用实践/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/06/06/移动端滑动iscroll使用实践/"
+           data-title="移动端滑动iscroll使用实践" data-url="http://yoursite.com/2016/06/06/移动端滑动iscroll使用实践/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://nos.netease.com/edu-image/5AA61D30A78B81D8CF5AE7608A1468C2.jpg"
+               alt="刘放" />
+          <p class="site-author-name" itemprop="name">刘放</p>
+          <p class="site-description motion-element" itemprop="description">网易前端开发 brizer@163.com</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">110</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/brizer" target="_blank" title="github">
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/3978835322" target="_blank" title="weibo">
+                  
+                  weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://study.163.com/topics/2016-11sales/#/main" title="云课堂充电节" target="_blank">云课堂充电节</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://study.163.com/" title="网易云课堂" target="_blank">网易云课堂</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.icourse163.org/" title="中国大学MOOC" target="_blank">中国大学MOOC</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://100.163.com/" title="网易100分" target="_blank">网易100分</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#iscroll"><span class="nav-number">2.</span> <span class="nav-text">iscroll</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一个简单的小demo"><span class="nav-number">3.</span> <span class="nav-text">一个简单的小demo</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刘放</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i> 总访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"brizer"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+  
+  
+</body>
+</html>

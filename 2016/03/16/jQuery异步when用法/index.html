@@ -1,0 +1,718 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="brizer,前端,博客,刘放" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="jQuery&amp;#x5F02;&amp;#x6B65;&amp;#x7F16;&amp;#x7A0B;&amp;#x4E4B;when&amp;#x7528;&amp;#x6CD5;
+&amp;#x524D;&amp;#x8A00;&amp;#x6211;&amp;#x4EEC;&amp;#x6709;&amp;#x65F6;&amp;#x5019;&amp;#x4F1A;&amp;#x6709;&amp;#x4E00;&amp;#x4E9B;&amp;#x9700;&amp;#x6C42;&amp;#x5C31;&amp;#x662F;&amp;#x67D0;&amp;#x4E">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery异步when用法-项目经验">
+<meta property="og:url" content="http://yoursite.com/2016/03/16/jQuery异步when用法/index.html">
+<meta property="og:site_name" content="Brizer's Blog">
+<meta property="og:description" content="jQuery&amp;#x5F02;&amp;#x6B65;&amp;#x7F16;&amp;#x7A0B;&amp;#x4E4B;when&amp;#x7528;&amp;#x6CD5;
+&amp;#x524D;&amp;#x8A00;&amp;#x6211;&amp;#x4EEC;&amp;#x6709;&amp;#x65F6;&amp;#x5019;&amp;#x4F1A;&amp;#x6709;&amp;#x4E00;&amp;#x4E9B;&amp;#x9700;&amp;#x6C42;&amp;#x5C31;&amp;#x662F;&amp;#x67D0;&amp;#x4E">
+<meta property="og:updated_time" content="2016-04-21T00:33:32.801Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jQuery异步when用法-项目经验">
+<meta name="twitter:description" content="jQuery&amp;#x5F02;&amp;#x6B65;&amp;#x7F16;&amp;#x7A0B;&amp;#x4E4B;when&amp;#x7528;&amp;#x6CD5;
+&amp;#x524D;&amp;#x8A00;&amp;#x6211;&amp;#x4EEC;&amp;#x6709;&amp;#x65F6;&amp;#x5019;&amp;#x4F1A;&amp;#x6709;&amp;#x4E00;&amp;#x4E9B;&amp;#x9700;&amp;#x6C42;&amp;#x5C31;&amp;#x662F;&amp;#x67D0;&amp;#x4E">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> jQuery异步when用法-项目经验 | Brizer's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Brizer's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">刘放 学习笔记</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+  
+    <style type="text/css">
+		#so360{white-space:nowrap;margin:10px auto;}
+		#so360 form{margin:0;padding:0}
+		#so360_keyword{width:157px;height:32px;line-height:32px;font:14px arial;padding:2px 5px;margin-right:5px;
+		border:2px solid #061201;outline:0;vertical-align:middle}
+		#so360_keyword{background:url(https://p.ssl.qhimg.com/t01ab1a3fb05f0ee893.png) no-repeat 236px center}
+		#so360_submit{width:60px;height:40px;border:0;color:#fff;background:#061201;
+		font-weight:bold;font:bold 14px arial;padding:0;padding-top:3px\9;cursor:pointer;
+		vertical-align:middle}
+	</style>
+	<div id="so360">
+	    <form action="http://www.so.com/s" target="_blank" id="so360form">
+	   <input type="text" autocomplete="off" name="q" id="so360_keyword">
+	        <input type="submit" id="so360_submit" value="搜 索">
+	        <input type="hidden" name="ie" value="utf8">
+	        <input type="hidden" name="src" value="zz_brizer.top">
+	        <input type="hidden" name="site" value="brizer.top">
+	        <input type="hidden" name="rg" value="1">
+	    </form>
+	</div> 
+	
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/demo" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            demo
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                jQuery异步when用法-项目经验
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-16T08:32:43+08:00" content="2016-03-16">
+              2016-03-16
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/jquery/" itemprop="url" rel="index">
+                    <span itemprop="name">jquery</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/03/16/jQuery异步when用法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/16/jQuery异步when用法/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+                    
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+              </span>
+                     
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="jQuery&#x5F02;&#x6B65;&#x7F16;&#x7A0B;&#x4E4B;when&#x7528;&#x6CD5;"><a href="#jQuery&#x5F02;&#x6B65;&#x7F16;&#x7A0B;&#x4E4B;when&#x7528;&#x6CD5;" class="headerlink" title="jQuery&#x5F02;&#x6B65;&#x7F16;&#x7A0B;&#x4E4B;when&#x7528;&#x6CD5;"></a>jQuery&#x5F02;&#x6B65;&#x7F16;&#x7A0B;&#x4E4B;when&#x7528;&#x6CD5;</h1><hr>
+<h2 id="&#x524D;&#x8A00;"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a><strong>&#x524D;&#x8A00;</strong></h2><p>&#x6211;&#x4EEC;&#x6709;&#x65F6;&#x5019;&#x4F1A;&#x6709;&#x4E00;&#x4E9B;&#x9700;&#x6C42;&#x5C31;&#x662F;&#x67D0;&#x4E9B;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x6BD4;&#x5982;ajax&#x5B8C;&#x6210;&#x540E;&#x518D;&#x6267;&#x884C;&#x67D0;&#x4E9B;&#x64CD;&#x4F5C;&#x3002;&#x4E00;&#x822C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;ajax&#x65B9;&#x6CD5;&#x7684;done&#x65B9;&#x6CD5;&#x6765;&#x56DE;&#x8C03;&#x3002;&#x4F46;&#x662F;&#x5982;&#x679C;&#x662F;&#x591A;&#x4E2A;ajax&#x5462;&#xFF1F;</p>
+<hr>
+<p>&#x4EE5;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#x6765;&#x8BF4;&#x660E;&#xFF1A;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">$.when($.ajax({</span><br><span class="line">	url:<span class="string">&quot;http://study.163.com/cps/personal/info.htm&quot;</span>,   </span><br><span class="line">	method:<span class="string">&quot;GET&quot;</span>,</span><br><span class="line">	data:<span class="string">&apos;&apos;</span></span><br><span class="line">}),$.ajax({</span><br><span class="line">	url:<span class="string">&quot;http://study.163.com/cps/personal/courseCard.htm&quot;</span>,</span><br><span class="line">	method:<span class="string">&quot;GET&quot;</span>,</span><br><span class="line">	data:{<span class="string">&quot;productType&quot;</span>:<span class="number">30</span>,<span class="string">&quot;ids&quot;</span>:$list_1.data(<span class="string">&quot;ids&quot;</span>)}   </span><br><span class="line">}),$.ajax({</span><br><span class="line">	url:<span class="string">&quot;http://study.163.com/cps/personal/courseCard.htm&quot;</span>,</span><br><span class="line">	method:<span class="string">&quot;GET&quot;</span>,</span><br><span class="line">	data:{<span class="string">&quot;productType&quot;</span>:<span class="number">0</span>,<span class="string">&quot;ids&quot;</span>:$list_2.data(<span class="string">&quot;ids&quot;</span>)}</span><br><span class="line">}))</span><br><span class="line">	.done(<span class="function"><span class="keyword">function</span>(<span class="params">d1,d2,d3</span>)</span>{</span><br><span class="line">		personInfo = <span class="built_in">JSON</span>.parse(d1[<span class="number">0</span>]);</span><br><span class="line">		initData();</span><br><span class="line">		cardsInfo = <span class="built_in">JSON</span>.parse(d2[<span class="number">0</span>]);     </span><br><span class="line">		initYoocCards(cardsInfo);</span><br><span class="line">		studyCardsInfo = <span class="built_in">JSON</span>.parse(d3[<span class="number">0</span>]);</span><br><span class="line">		initStudyCards(studyCardsInfo);	    			</span><br><span class="line">		initEvents()</span><br><span class="line">	});</span><br></pre></td></tr></table></figure>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x6211;&#x4EEC;&#x901A;&#x8FC7;&#x5728;when&#x4E2D;&#x6CE8;&#x518C;&#x591A;&#x4E2A;ajax&#xFF0C;&#x7136;&#x540E;done&#x540E;&#x518D;&#x6267;&#x884C;&#x540E;&#x7EED;&#x64CD;&#x4F5C;&#x3002;<br>&#x5176;&#x4E2D;&#x7684;d1,d2,d3&#x5206;&#x522B;&#x662F;3&#x4E2A;ajax&#x7684;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x3002;&#x6211;&#x4EEC;&#x53BB;d1[0]&#x7684;&#x539F;&#x56E0;&#x662F;&#x5B83;&#x624D;&#x662F;&#x6700;&#x540E;&#x7684;&#x6570;&#x636E;&#x96C6;&#x5408;&#xFF0C;d1[1]&#x5219;&#x662F;success&#x7684;&#x72B6;&#x6001;&#x503C;&#x3002;</p>
+<hr>
+<p>&#x518D;&#x6765;&#x770B;&#x770B;&#x6211;&#x4ECE;&#x4E00;&#x7BC7;&#x6587;&#x7AE0;&#x4E2D;&#x53D1;&#x73B0;&#x7684;&#x4F8B;&#x5B50;&#xFF0C;&#x4E2A;&#x4EBA;&#x89C9;&#x5F97;&#x6BD4;&#x8F83;&#x5178;&#x578B;&#xFF1A;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> username = <span class="string">&apos;testuser&apos;</span>;</span><br><span class="line"><span class="keyword">var</span> fileToSearch = <span class="string">&apos;README.md&apos;</span>;</span><br><span class="line"></span><br><span class="line">$.getJSON(<span class="string">&apos;https://api.github.com/user/&apos;</span> + username + <span class="string">&apos;/repositories&apos;</span>)</span><br><span class="line">  .then(<span class="function"><span class="keyword">function</span>(<span class="params">repositories</span>) </span>{</span><br><span class="line">    <span class="keyword">return</span> repositories[<span class="number">0</span>].name;</span><br><span class="line">  })</span><br><span class="line">  .then(<span class="function"><span class="keyword">function</span>(<span class="params">lastUpdatedRepository</span>) </span>{</span><br><span class="line">    <span class="keyword">return</span> $.getJSON(<span class="string">&apos;https://api.github.com/user/&apos;</span> + username + <span class="string">&apos;/repository/&apos;</span> + lastUpdatedRepository + <span class="string">&apos;/files&apos;</span>);</span><br><span class="line">  })</span><br><span class="line">  .then(<span class="function"><span class="keyword">function</span>(<span class="params">files</span>) </span>{</span><br><span class="line">    <span class="keyword">var</span> README = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; files.length; i++) {</span><br><span class="line">      <span class="keyword">if</span> (files[i].name.indexOf(fileToSearch) &gt;= <span class="number">0</span>) {</span><br><span class="line">        README = files[i].path;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> README;</span><br><span class="line">  })</span><br><span class="line">  .then(<span class="function"><span class="keyword">function</span>(<span class="params">README</span>) </span>{</span><br><span class="line">    <span class="keyword">return</span> $.getJSON(<span class="string">&apos;https://api.github.com/user/&apos;</span> + username + <span class="string">&apos;/repository/&apos;</span> + lastUpdatedRepository + <span class="string">&apos;/file/&apos;</span> + README + <span class="string">&apos;/content&apos;</span>);</span><br><span class="line">  })</span><br><span class="line">  .then(<span class="function"><span class="keyword">function</span>(<span class="params">content</span>) </span>{</span><br><span class="line">    <span class="built_in">console</span>.log(content);</span><br><span class="line">  });</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/03/14/UI层的松耦合/" rel="next" title="UI层的松耦合-编写可维护的javascript第五章">
+                <i class="fa fa-chevron-left"></i> UI层的松耦合-编写可维护的javascript第五章
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/03/17/深拷贝和浅拷贝/" rel="prev" title="深拷贝和浅拷贝">
+                深拷贝和浅拷贝 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/03/16/jQuery异步when用法/"
+     data-title="jQuery异步when用法-项目经验"
+     data-content=""
+     data-url="http://yoursite.com/2016/03/16/jQuery异步when用法/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/03/16/jQuery异步when用法/"
+           data-title="jQuery异步when用法-项目经验" data-url="http://yoursite.com/2016/03/16/jQuery异步when用法/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://nos.netease.com/edu-image/5AA61D30A78B81D8CF5AE7608A1468C2.jpg"
+               alt="刘放" />
+          <p class="site-author-name" itemprop="name">刘放</p>
+          <p class="site-description motion-element" itemprop="description">网易前端开发 brizer@163.com</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">110</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/brizer" target="_blank" title="github">
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/3978835322" target="_blank" title="weibo">
+                  
+                  weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://study.163.com/topics/2016-11sales/#/main" title="云课堂充电节" target="_blank">云课堂充电节</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://study.163.com/" title="网易云课堂" target="_blank">网易云课堂</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.icourse163.org/" title="中国大学MOOC" target="_blank">中国大学MOOC</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://100.163.com/" title="网易100分" target="_blank">网易100分</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#jQuery异步编程之when用法"><span class="nav-number">1.</span> <span class="nav-text">jQuery异步编程之when用法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.1.</span> <span class="nav-text">前言</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刘放</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i> 总访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"brizer"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+  
+  
+</body>
+</html>

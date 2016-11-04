@@ -1,0 +1,714 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="brizer,前端,博客,刘放" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x524D;&amp;#x8A00;&amp;#x4EE5;&amp;#x524D;&amp;#x6574;&amp;#x7406;&amp;#x8FC7;&amp;#x4E00;&amp;#x7BC7;&amp;#x79FB;&amp;#x52A8;&amp;#x7AEF;&amp;#x9002;&amp;#x914D;&amp;#x65B9;&amp;#x6848;&amp;#x7684;&amp;#x6587;&amp;#x7AE0;&amp;#xFF0C;&amp;#x5F53;&amp;#x65F6;&amp;#x662F;&amp;#x5728;&amp;#x90E8;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="移动web适配方案动态计算版">
+<meta property="og:url" content="http://yoursite.com/2016/08/20/移动web适配方案动态计算版/index.html">
+<meta property="og:site_name" content="Brizer's Blog">
+<meta property="og:description" content="&amp;#x524D;&amp;#x8A00;&amp;#x4EE5;&amp;#x524D;&amp;#x6574;&amp;#x7406;&amp;#x8FC7;&amp;#x4E00;&amp;#x7BC7;&amp;#x79FB;&amp;#x52A8;&amp;#x7AEF;&amp;#x9002;&amp;#x914D;&amp;#x65B9;&amp;#x6848;&amp;#x7684;&amp;#x6587;&amp;#x7AE0;&amp;#xFF0C;&amp;#x5F53;&amp;#x65F6;&amp;#x662F;&amp;#x5728;&amp;#x90E8;">
+<meta property="og:updated_time" content="2016-08-20T05:50:28.592Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="移动web适配方案动态计算版">
+<meta name="twitter:description" content="&amp;#x524D;&amp;#x8A00;&amp;#x4EE5;&amp;#x524D;&amp;#x6574;&amp;#x7406;&amp;#x8FC7;&amp;#x4E00;&amp;#x7BC7;&amp;#x79FB;&amp;#x52A8;&amp;#x7AEF;&amp;#x9002;&amp;#x914D;&amp;#x65B9;&amp;#x6848;&amp;#x7684;&amp;#x6587;&amp;#x7AE0;&amp;#xFF0C;&amp;#x5F53;&amp;#x65F6;&amp;#x662F;&amp;#x5728;&amp;#x90E8;">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 移动web适配方案动态计算版 | Brizer's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Brizer's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">刘放 学习笔记</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+  
+    <style type="text/css">
+		#so360{white-space:nowrap;margin:10px auto;}
+		#so360 form{margin:0;padding:0}
+		#so360_keyword{width:157px;height:32px;line-height:32px;font:14px arial;padding:2px 5px;margin-right:5px;
+		border:2px solid #061201;outline:0;vertical-align:middle}
+		#so360_keyword{background:url(https://p.ssl.qhimg.com/t01ab1a3fb05f0ee893.png) no-repeat 236px center}
+		#so360_submit{width:60px;height:40px;border:0;color:#fff;background:#061201;
+		font-weight:bold;font:bold 14px arial;padding:0;padding-top:3px\9;cursor:pointer;
+		vertical-align:middle}
+	</style>
+	<div id="so360">
+	    <form action="http://www.so.com/s" target="_blank" id="so360form">
+	   <input type="text" autocomplete="off" name="q" id="so360_keyword">
+	        <input type="submit" id="so360_submit" value="搜 索">
+	        <input type="hidden" name="ie" value="utf8">
+	        <input type="hidden" name="src" value="zz_brizer.top">
+	        <input type="hidden" name="site" value="brizer.top">
+	        <input type="hidden" name="rg" value="1">
+	    </form>
+	</div> 
+	
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/demo" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            demo
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                移动web适配方案动态计算版
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-20T13:43:47+08:00" content="2016-08-20">
+              2016-08-20
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/web工程/" itemprop="url" rel="index">
+                    <span itemprop="name">web工程</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/20/移动web适配方案动态计算版/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/20/移动web适配方案动态计算版/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+                    
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+              </span>
+                     
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="&#x524D;&#x8A00;"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a><strong>&#x524D;&#x8A00;</strong></h1><p>&#x4EE5;&#x524D;&#x6574;&#x7406;&#x8FC7;&#x4E00;&#x7BC7;&#x79FB;&#x52A8;&#x7AEF;&#x9002;&#x914D;&#x65B9;&#x6848;&#x7684;&#x6587;&#x7AE0;&#xFF0C;&#x5F53;&#x65F6;&#x662F;&#x5728;&#x90E8;&#x95E8;&#x7684;&#x4E13;&#x9898;cms&#x7CFB;&#x7EDF;&#x4E2D;&#x4F7F;&#x7528;&#x3002;<a href="http://brizer.github.io/2016/03/04/Sass%E4%B9%8B%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%80%82%E9%85%8D%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" target="_blank" rel="external">&#x6587;&#x7AE0;&#x5730;&#x5740;</a></p>
+<p>&#x601D;&#x8DEF;&#x5C31;&#x662F;&#x901A;&#x8FC7;&#x5A92;&#x4ECB;&#x67E5;&#x8BE2;&#x6574;&#x7406;&#x51FA;&#x4E00;&#x5957;&#x6839;&#x5B57;&#x4F53;&#x5927;&#x5C0F;&#xFF0C;&#x7136;&#x540E;&#x5404;&#x4E2A;&#x5143;&#x7D20;&#x901A;&#x8FC7;rem&#x5355;&#x4F4D;&#x6765;&#x8FDB;&#x884C;&#x9002;&#x914D;&#x3002;<br>&#x800C;&#x8FD9;&#x6B21;&#x6211;&#x4EEC;&#x7684;&#x6839;&#x5B57;&#x4F53;&#x5927;&#x5C0F;&#x4E0D;&#x518D;&#x662F;&#x901A;&#x8FC7;&#x5A92;&#x4ECB;&#x67E5;&#x8BE2;&#x5F97;&#x5230;&#xFF0C;&#x800C;&#x662F;&#x901A;&#x8FC7;&#x5C4F;&#x5E55;&#x5BBD;&#x5EA6;&#x8FDB;&#x884C;&#x52A8;&#x6001;&#x8BA1;&#x7B97;&#xFF0C;&#x5E76;&#x4E14;&#x8FD8;&#x5177;&#x6709;&#x9AD8;&#x5206;&#x8FA8;&#x7387;&#x5C4F;&#x5E55;&#x7684;&#x517C;&#x5BB9;&#x6027;&#x5904;&#x7406;&#x3002;</p>
+<hr>
+<h1 id="&#x5E9F;&#x8BDD;&#x4E0D;&#x591A;&#x8BF4;&#xFF0C;&#x76F4;&#x63A5;&#x4E0A;&#x6E90;&#x7801;"><a href="#&#x5E9F;&#x8BDD;&#x4E0D;&#x591A;&#x8BF4;&#xFF0C;&#x76F4;&#x63A5;&#x4E0A;&#x6E90;&#x7801;" class="headerlink" title="&#x5E9F;&#x8BDD;&#x4E0D;&#x591A;&#x8BF4;&#xFF0C;&#x76F4;&#x63A5;&#x4E0A;&#x6E90;&#x7801;"></a><strong>&#x5E9F;&#x8BDD;&#x4E0D;&#x591A;&#x8BF4;&#xFF0C;&#x76F4;&#x63A5;&#x4E0A;&#x6E90;&#x7801;</strong></h1><p>&#x597D;&#x7684;&#x77E5;&#x8BC6;&#x5F53;&#x7136;&#x9700;&#x8981;&#x5927;&#x5BB6;&#x4E00;&#x8D77;&#x5171;&#x4EAB;&#x624D;&#x5FEB;&#x4E50;&#x3002;&#x5728;&#x6B64;&#x516C;&#x5F00;&#x6E90;&#x7801;&#xFF0C;&#x65B9;&#x4FBF;&#x5927;&#x5BB6;&#x5171;&#x540C;&#x8FDB;&#x6B65;&#x3002;<br>js&#xFF1A;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br></pre></td><td class="code"><pre><span class="line">;(<span class="function"><span class="keyword">function</span>(<span class="params">win, lib</span>) </span>{</span><br><span class="line">    <span class="keyword">var</span> doc = win.document;</span><br><span class="line">    <span class="keyword">var</span> docEl = doc.documentElement;</span><br><span class="line">    <span class="keyword">var</span> metaEl = doc.querySelector(<span class="string">&apos;meta[name=&quot;viewport&quot;]&apos;</span>);</span><br><span class="line">    <span class="keyword">var</span> flexibleEl = doc.querySelector(<span class="string">&apos;meta[name=&quot;flexible&quot;]&apos;</span>);</span><br><span class="line">    <span class="keyword">var</span> dpr = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> scale = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> tid;</span><br><span class="line">    <span class="keyword">var</span> flexible = lib.flexible || (lib.flexible = {});</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (metaEl) {</span><br><span class="line">        <span class="built_in">console</span>.warn(<span class="string">&apos;&#x5C06;&#x6839;&#x636E;&#x5DF2;&#x6709;&#x7684;meta&#x6807;&#x7B7E;&#x6765;&#x8BBE;&#x7F6E;&#x7F29;&#x653E;&#x6BD4;&#x4F8B;&apos;</span>);</span><br><span class="line">        <span class="keyword">var</span> match = metaEl.getAttribute(<span class="string">&apos;content&apos;</span>).match(<span class="regexp">/initial\-scale=([\d\.]+)/</span>);</span><br><span class="line">        <span class="keyword">if</span> (match) {</span><br><span class="line">            scale = <span class="built_in">parseFloat</span>(match[<span class="number">1</span>]);</span><br><span class="line">            dpr = <span class="built_in">parseInt</span>(<span class="number">1</span> / scale);</span><br><span class="line">        }</span><br><span class="line">    } <span class="keyword">else</span> <span class="keyword">if</span> (flexibleEl) {</span><br><span class="line">        <span class="keyword">var</span> content = flexibleEl.getAttribute(<span class="string">&apos;content&apos;</span>);</span><br><span class="line">        <span class="keyword">if</span> (content) {</span><br><span class="line">            <span class="keyword">var</span> initialDpr = content.match(<span class="regexp">/initial\-dpr=([\d\.]+)/</span>);</span><br><span class="line">            <span class="keyword">var</span> maximumDpr = content.match(<span class="regexp">/maximum\-dpr=([\d\.]+)/</span>);</span><br><span class="line">            <span class="keyword">if</span> (initialDpr) {</span><br><span class="line">                dpr = <span class="built_in">parseFloat</span>(initialDpr[<span class="number">1</span>]);</span><br><span class="line">                scale = <span class="built_in">parseFloat</span>((<span class="number">1</span> / dpr).toFixed(<span class="number">2</span>));    </span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">if</span> (maximumDpr) {</span><br><span class="line">                dpr = <span class="built_in">parseFloat</span>(maximumDpr[<span class="number">1</span>]);</span><br><span class="line">                scale = <span class="built_in">parseFloat</span>((<span class="number">1</span> / dpr).toFixed(<span class="number">2</span>));    </span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!dpr &amp;&amp; !scale) {</span><br><span class="line">        <span class="keyword">var</span> isAndroid = win.navigator.appVersion.match(<span class="regexp">/android/gi</span>);</span><br><span class="line">        <span class="keyword">var</span> isIPhone = win.navigator.appVersion.match(<span class="regexp">/iphone/gi</span>);</span><br><span class="line">        <span class="keyword">var</span> devicePixelRatio = win.devicePixelRatio;</span><br><span class="line">        <span class="keyword">if</span> (isIPhone) {</span><br><span class="line">            <span class="comment">// iOS&#x4E0B;&#xFF0C;&#x5BF9;&#x4E8E;2&#x548C;3&#x7684;&#x5C4F;&#xFF0C;&#x7528;2&#x500D;&#x7684;&#x65B9;&#x6848;&#xFF0C;&#x5176;&#x4F59;&#x7684;&#x7528;1&#x500D;&#x65B9;&#x6848;</span></span><br><span class="line">            <span class="keyword">if</span> (devicePixelRatio &gt;= <span class="number">3</span> &amp;&amp; (!dpr || dpr &gt;= <span class="number">3</span>)) {                </span><br><span class="line">                dpr = <span class="number">3</span>;</span><br><span class="line">            } <span class="keyword">else</span> <span class="keyword">if</span> (devicePixelRatio &gt;= <span class="number">2</span> &amp;&amp; (!dpr || dpr &gt;= <span class="number">2</span>)){</span><br><span class="line">                dpr = <span class="number">2</span>;</span><br><span class="line">            } <span class="keyword">else</span> {</span><br><span class="line">                dpr = <span class="number">1</span>;</span><br><span class="line">            }</span><br><span class="line">        } <span class="keyword">else</span> {</span><br><span class="line">            <span class="comment">// &#x5176;&#x4ED6;&#x8BBE;&#x5907;&#x4E0B;&#xFF0C;&#x4ECD;&#x65E7;&#x4F7F;&#x7528;1&#x500D;&#x7684;&#x65B9;&#x6848;</span></span><br><span class="line">            dpr = <span class="number">1</span>;</span><br><span class="line">        }</span><br><span class="line">        scale = <span class="number">1</span> / dpr;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    docEl.setAttribute(<span class="string">&apos;data-dpr&apos;</span>, dpr);</span><br><span class="line">    <span class="keyword">if</span> (!metaEl) {</span><br><span class="line">        metaEl = doc.createElement(<span class="string">&apos;meta&apos;</span>);</span><br><span class="line">        metaEl.setAttribute(<span class="string">&apos;name&apos;</span>, <span class="string">&apos;viewport&apos;</span>);</span><br><span class="line">        metaEl.setAttribute(<span class="string">&apos;content&apos;</span>, <span class="string">&apos;initial-scale=&apos;</span> + scale + <span class="string">&apos;, maximum-scale=&apos;</span> + scale + <span class="string">&apos;, minimum-scale=&apos;</span> + scale + <span class="string">&apos;, user-scalable=no&apos;</span>);</span><br><span class="line">        <span class="keyword">if</span> (docEl.firstElementChild) {</span><br><span class="line">            docEl.firstElementChild.appendChild(metaEl);</span><br><span class="line">        } <span class="keyword">else</span> {</span><br><span class="line">            <span class="keyword">var</span> wrap = doc.createElement(<span class="string">&apos;div&apos;</span>);</span><br><span class="line">            wrap.appendChild(metaEl);</span><br><span class="line">            doc.write(wrap.innerHTML);</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">refreshRem</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="keyword">var</span> width = docEl.getBoundingClientRect().width;</span><br><span class="line">        <span class="keyword">if</span> (width / dpr &gt; <span class="number">540</span>) {</span><br><span class="line">            width = <span class="number">540</span> * dpr;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">var</span> rem = width / <span class="number">10</span>;</span><br><span class="line">        docEl.style.fontSize = rem + <span class="string">&apos;px&apos;</span>;</span><br><span class="line">        flexible.rem = win.rem = rem;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    win.addEventListener(<span class="string">&apos;resize&apos;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">        clearTimeout(tid);</span><br><span class="line">        tid = setTimeout(refreshRem, <span class="number">300</span>);</span><br><span class="line">    }, <span class="literal">false</span>);</span><br><span class="line">    win.addEventListener(<span class="string">&apos;pageshow&apos;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>{</span><br><span class="line">        <span class="keyword">if</span> (e.persisted) {</span><br><span class="line">            clearTimeout(tid);</span><br><span class="line">            tid = setTimeout(refreshRem, <span class="number">300</span>);</span><br><span class="line">        }</span><br><span class="line">    }, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (doc.readyState === <span class="string">&apos;complete&apos;</span>) {</span><br><span class="line">        doc.body.style.fontSize = <span class="number">12</span> * dpr + <span class="string">&apos;px&apos;</span>;</span><br><span class="line">    } <span class="keyword">else</span> {</span><br><span class="line">        doc.addEventListener(<span class="string">&apos;DOMContentLoaded&apos;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>{</span><br><span class="line">            doc.body.style.fontSize = <span class="number">12</span> * dpr + <span class="string">&apos;px&apos;</span>;</span><br><span class="line">        }, <span class="literal">false</span>);</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    refreshRem();</span><br><span class="line"></span><br><span class="line">    flexible.dpr = win.dpr = dpr;</span><br><span class="line">    flexible.refreshRem = refreshRem;</span><br><span class="line">    flexible.rem2px = <span class="function"><span class="keyword">function</span>(<span class="params">d</span>) </span>{</span><br><span class="line">        <span class="keyword">var</span> val = <span class="built_in">parseFloat</span>(d) * <span class="keyword">this</span>.rem;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> d === <span class="string">&apos;string&apos;</span> &amp;&amp; d.match(<span class="regexp">/rem$/</span>)) {</span><br><span class="line">            val += <span class="string">&apos;px&apos;</span>;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> val;</span><br><span class="line">    }</span><br><span class="line">    flexible.px2rem = <span class="function"><span class="keyword">function</span>(<span class="params">d</span>) </span>{</span><br><span class="line">        <span class="keyword">var</span> val = <span class="built_in">parseFloat</span>(d) / <span class="keyword">this</span>.rem;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> d === <span class="string">&apos;string&apos;</span> &amp;&amp; d.match(<span class="regexp">/px$/</span>)) {</span><br><span class="line">            val += <span class="string">&apos;rem&apos;</span>;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> val;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">})(<span class="built_in">window</span>, <span class="built_in">window</span>[<span class="string">&apos;lib&apos;</span>] || (<span class="built_in">window</span>[<span class="string">&apos;lib&apos;</span>] = {}));</span><br></pre></td></tr></table></figure>
+<p>scss&#x90E8;&#x5206;&#xFF1A;</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* &#x5B57;&#x4F53; */</span></span><br><span class="line"></span><br><span class="line">@<span class="keyword">mixin</span> font-dpr(<span class="variable">$font-size</span>) {</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="variable">$font-size</span>;</span><br><span class="line">    <span class="selector-attr">[data-dpr=&quot;2&quot;]</span> &amp; {</span><br><span class="line">        <span class="attribute">font-size</span>: <span class="variable">$font-size</span> * <span class="number">2</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="selector-attr">[data-dpr=&quot;3&quot;]</span> &amp; {</span><br><span class="line">        <span class="attribute">font-size</span>: <span class="variable">$font-size</span> * <span class="number">3</span>;</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/* rem */</span></span><br><span class="line"><span class="comment">/* &#x6211;&#x4EEC;&#x9879;&#x76EE;&#x7684;&#x89C6;&#x89C9;&#x7A3F;&#x4E3A;750px */</span></span><br><span class="line"><span class="variable">$rem-baseline</span>: <span class="number">75px</span> !default;</span><br><span class="line">@function rem-separator(<span class="variable">$list</span>) {</span><br><span class="line">    @<span class="keyword">if</span> function-exists(<span class="string">&quot;list-separator&quot;</span>)==true {</span><br><span class="line">        @return list-separator(<span class="variable">$list</span>);</span><br><span class="line">    }</span><br><span class="line">    <span class="variable">$test-list</span>: ();</span><br><span class="line">    @<span class="keyword">each</span> <span class="variable">$item</span> in <span class="variable">$list</span> {</span><br><span class="line">        <span class="variable">$test-list</span>: append(<span class="variable">$test-list</span>, <span class="variable">$item</span>, space);</span><br><span class="line">    }</span><br><span class="line">    @return if(<span class="variable">$test-list</span>==<span class="variable">$list</span>, space, comma);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">@<span class="keyword">mixin</span> rem-baseline(<span class="variable">$zoom</span>: 100%) {</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="variable">$zoom</span> / <span class="number">16px</span> * <span class="variable">$rem-baseline</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">@function rem-convert(<span class="variable">$to</span>, <span class="variable">$values</span>...) {</span><br><span class="line">    <span class="variable">$result</span>: ();</span><br><span class="line">    <span class="variable">$separator</span>: rem-separator(<span class="variable">$values</span>);</span><br><span class="line">    @<span class="keyword">each</span> <span class="variable">$value</span> in <span class="variable">$values</span> {</span><br><span class="line">        @<span class="keyword">if</span> type-of(<span class="variable">$value</span>)==<span class="string">&quot;number&quot;</span> and unit(<span class="variable">$value</span>)==<span class="string">&quot;rem&quot;</span> and <span class="variable">$to</span>==<span class="string">&quot;px&quot;</span> {</span><br><span class="line">            <span class="variable">$result</span>: append(<span class="variable">$result</span>, <span class="variable">$value</span> / <span class="number">1rem</span> * <span class="variable">$rem-baseline</span>, <span class="variable">$separator</span>);</span><br><span class="line">        }</span><br><span class="line">        @<span class="keyword">else</span> if type-of(<span class="variable">$value</span>)==<span class="string">&quot;number&quot;</span> and unit(<span class="variable">$value</span>)==<span class="string">&quot;px&quot;</span> and <span class="variable">$to</span>==<span class="string">&quot;rem&quot;</span> {</span><br><span class="line">            <span class="variable">$result</span>: append(<span class="variable">$result</span>, <span class="variable">$value</span> / (<span class="variable">$rem-baseline</span> / <span class="number">1rem</span>), <span class="variable">$separator</span>);</span><br><span class="line">        }</span><br><span class="line">        @<span class="keyword">else</span> if type-of(<span class="variable">$value</span>)==<span class="string">&quot;list&quot;</span> {</span><br><span class="line">            <span class="variable">$result</span>: append(<span class="variable">$result</span>, rem-convert(<span class="variable">$to</span>, <span class="variable">$value</span>...), <span class="variable">$separator</span>);</span><br><span class="line">        }</span><br><span class="line">        @<span class="keyword">else</span> {</span><br><span class="line">            <span class="variable">$result</span>: append(<span class="variable">$result</span>, <span class="variable">$value</span>, <span class="variable">$separator</span>);</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    @return if(length(<span class="variable">$result</span>)==<span class="number">1</span>, nth(<span class="variable">$result</span>, 1), <span class="variable">$result</span>);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">@function px2rem(<span class="variable">$values</span>...) {</span><br><span class="line">    <span class="comment">//@if $rem-px-only {</span></span><br><span class="line">    <span class="comment">//    @return rem-convert(px, $values...);</span></span><br><span class="line">    <span class="comment">//} @else {</span></span><br><span class="line">    @return rem-convert(rem, <span class="variable">$values</span>...);</span><br><span class="line">    <span class="comment">//}</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">@<span class="keyword">mixin</span> px2rem(<span class="variable">$properties</span>, <span class="variable">$values</span>...) {</span><br><span class="line">    @<span class="keyword">if</span> type-of(<span class="variable">$properties</span>)==<span class="string">&quot;map&quot;</span> {</span><br><span class="line">        @<span class="keyword">each</span> <span class="variable">$property</span> in map-keys(<span class="variable">$properties</span>) {</span><br><span class="line">            @<span class="keyword">include</span> px2rem(<span class="variable">$property</span>, map-get(<span class="variable">$properties</span>, <span class="variable">$property</span>));</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    @<span class="keyword">else</span> {</span><br><span class="line">        @<span class="keyword">each</span> <span class="variable">$property</span> in <span class="variable">$properties</span> {</span><br><span class="line">            <span class="comment">//@if $rem-fallback or $rem-px-only {</span></span><br><span class="line">            <span class="comment">//    #{$property}: rem-convert(px, $values...);</span></span><br><span class="line">            <span class="comment">//}</span></span><br><span class="line">            <span class="comment">//@if not $rem-px-only {</span></span><br><span class="line">            #{<span class="variable">$property</span>}: rem-convert(rem, <span class="variable">$values</span>...);</span><br><span class="line">            <span class="comment">//}</span></span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>&#x4F7F;&#x7528;&#x65B9;&#x5F0F;:</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.m-banner</span> {</span><br><span class="line">    <span class="attribute">height</span>: px2rem(<span class="number">640px</span>);    </span><br><span class="line">    &amp;-introduction {      </span><br><span class="line">        <span class="attribute">margin</span>:<span class="number">0</span> auto;</span><br><span class="line">        <span class="attribute">padding</span>:px2rem(<span class="number">110px</span>) <span class="number">0</span> px2rem(<span class="number">40px</span>) <span class="number">0</span>;  </span><br><span class="line">        <span class="attribute">width</span>: px2rem(<span class="number">660px</span>);</span><br><span class="line">        <span class="attribute">font-size</span>: px2rem(<span class="number">66px</span>);</span><br><span class="line">        <span class="attribute">line-height</span>: px2rem(<span class="number">90px</span>);</span><br><span class="line">        <span class="attribute">text-align</span>: center;</span><br><span class="line">    }</span><br><span class="line">    &amp;-detailDescription {</span><br><span class="line">        <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">        <span class="attribute">width</span>: px2rem(<span class="number">660px</span>);</span><br><span class="line">        <span class="attribute">font-size</span>: px2rem(<span class="number">24px</span>);</span><br><span class="line">        <span class="attribute">line-height</span>: px2rem(<span class="number">36px</span>);</span><br><span class="line">        <span class="attribute">text-align</span>: center;</span><br><span class="line">    }</span><br><span class="line">    &amp;-<span class="selector-tag">video</span> {</span><br><span class="line">        <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">        <span class="attribute">margin</span>: px2rem(<span class="number">60px</span>) <span class="number">0</span> <span class="number">0</span> px2rem(-<span class="number">50px</span>);</span><br><span class="line">        <span class="attribute">width</span>: px2rem(<span class="number">100px</span>);</span><br><span class="line">        <span class="attribute">height</span>: px2rem(<span class="number">100px</span>);</span><br><span class="line">        <span class="attribute">background</span>: url(http://nos.netease.com/edu-image/<span class="number">3</span>AB7C15D5AF4FD7C573E34D05535F5F8.png) no-repeat;</span><br><span class="line">        <span class="attribute">background-size</span>: <span class="number">100%</span>;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/12/活动专题页线上调试模式/" rel="next" title="活动专题页调试模式">
+                <i class="fa fa-chevron-left"></i> 活动专题页调试模式
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/24/第一个Regular的UI开发/" rel="prev" title="第一个Regular的UI开发">
+                第一个Regular的UI开发 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/08/20/移动web适配方案动态计算版/"
+     data-title="移动web适配方案动态计算版"
+     data-content=""
+     data-url="http://yoursite.com/2016/08/20/移动web适配方案动态计算版/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/20/移动web适配方案动态计算版/"
+           data-title="移动web适配方案动态计算版" data-url="http://yoursite.com/2016/08/20/移动web适配方案动态计算版/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://nos.netease.com/edu-image/5AA61D30A78B81D8CF5AE7608A1468C2.jpg"
+               alt="刘放" />
+          <p class="site-author-name" itemprop="name">刘放</p>
+          <p class="site-description motion-element" itemprop="description">网易前端开发 brizer@163.com</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">110</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/brizer" target="_blank" title="github">
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/3978835322" target="_blank" title="weibo">
+                  
+                  weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://study.163.com/topics/2016-11sales/#/main" title="云课堂充电节" target="_blank">云课堂充电节</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://study.163.com/" title="网易云课堂" target="_blank">网易云课堂</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.icourse163.org/" title="中国大学MOOC" target="_blank">中国大学MOOC</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://100.163.com/" title="网易100分" target="_blank">网易100分</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#废话不多说，直接上源码"><span class="nav-number">2.</span> <span class="nav-text">废话不多说，直接上源码</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刘放</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i> 总访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"brizer"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+  
+  
+</body>
+</html>

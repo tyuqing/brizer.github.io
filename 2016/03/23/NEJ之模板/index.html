@@ -1,0 +1,812 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="brizer,前端,博客,刘放" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="Nej&amp;#x4E4B;&amp;#x6A21;&amp;#x677F;&amp;#x7CFB;&amp;#x7EDF;
+&amp;#x524D;&amp;#x8A00;&amp;#x6A21;&amp;#x677F;&amp;#x7CFB;&amp;#x7EDF;&amp;#x975E;&amp;#x5E38;&amp;#x5E38;&amp;#x7528;&amp;#xFF0C;Nej&amp;#x4E5F;&amp;#x6709;&amp;#x4E00;&amp;#x5957;&amp;#x81EA;&amp;#x5DF1;&amp;#x7684;&amp;#x6A21;&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NEJ之模板">
+<meta property="og:url" content="http://yoursite.com/2016/03/23/NEJ之模板/index.html">
+<meta property="og:site_name" content="Brizer's Blog">
+<meta property="og:description" content="Nej&amp;#x4E4B;&amp;#x6A21;&amp;#x677F;&amp;#x7CFB;&amp;#x7EDF;
+&amp;#x524D;&amp;#x8A00;&amp;#x6A21;&amp;#x677F;&amp;#x7CFB;&amp;#x7EDF;&amp;#x975E;&amp;#x5E38;&amp;#x5E38;&amp;#x7528;&amp;#xFF0C;Nej&amp;#x4E5F;&amp;#x6709;&amp;#x4E00;&amp;#x5957;&amp;#x81EA;&amp;#x5DF1;&amp;#x7684;&amp;#x6A21;&amp;">
+<meta property="og:image" content="http://yoursite.com/2016/03/23/NEJ之模板/2-1.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/23/NEJ之模板/2-2.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/23/NEJ之模板/2-3.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/23/NEJ之模板/2-4.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/23/NEJ之模板/2-5.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/23/NEJ之模板/2-6.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/23/NEJ之模板/2-7.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/23/NEJ之模板/2-8.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/23/NEJ之模板/2-9.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/23/NEJ之模板/2-10.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/23/NEJ之模板/2-11.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/23/NEJ之模板/2-12.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/23/NEJ之模板/2-13.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/23/NEJ之模板/2-14.jpg">
+<meta property="og:updated_time" content="2016-04-21T00:49:07.391Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="NEJ之模板">
+<meta name="twitter:description" content="Nej&amp;#x4E4B;&amp;#x6A21;&amp;#x677F;&amp;#x7CFB;&amp;#x7EDF;
+&amp;#x524D;&amp;#x8A00;&amp;#x6A21;&amp;#x677F;&amp;#x7CFB;&amp;#x7EDF;&amp;#x975E;&amp;#x5E38;&amp;#x5E38;&amp;#x7528;&amp;#xFF0C;Nej&amp;#x4E5F;&amp;#x6709;&amp;#x4E00;&amp;#x5957;&amp;#x81EA;&amp;#x5DF1;&amp;#x7684;&amp;#x6A21;&amp;">
+<meta name="twitter:image" content="http://yoursite.com/2016/03/23/NEJ之模板/2-1.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> NEJ之模板 | Brizer's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Brizer's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">刘放 学习笔记</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+  
+    <style type="text/css">
+		#so360{white-space:nowrap;margin:10px auto;}
+		#so360 form{margin:0;padding:0}
+		#so360_keyword{width:157px;height:32px;line-height:32px;font:14px arial;padding:2px 5px;margin-right:5px;
+		border:2px solid #061201;outline:0;vertical-align:middle}
+		#so360_keyword{background:url(https://p.ssl.qhimg.com/t01ab1a3fb05f0ee893.png) no-repeat 236px center}
+		#so360_submit{width:60px;height:40px;border:0;color:#fff;background:#061201;
+		font-weight:bold;font:bold 14px arial;padding:0;padding-top:3px\9;cursor:pointer;
+		vertical-align:middle}
+	</style>
+	<div id="so360">
+	    <form action="http://www.so.com/s" target="_blank" id="so360form">
+	   <input type="text" autocomplete="off" name="q" id="so360_keyword">
+	        <input type="submit" id="so360_submit" value="搜 索">
+	        <input type="hidden" name="ie" value="utf8">
+	        <input type="hidden" name="src" value="zz_brizer.top">
+	        <input type="hidden" name="site" value="brizer.top">
+	        <input type="hidden" name="rg" value="1">
+	    </form>
+	</div> 
+	
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/demo" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            demo
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                NEJ之模板
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-23T08:45:12+08:00" content="2016-03-23">
+              2016-03-23
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/nej/" itemprop="url" rel="index">
+                    <span itemprop="name">nej</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/03/23/NEJ之模板/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/23/NEJ之模板/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+                    
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+              </span>
+                     
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Nej&#x4E4B;&#x6A21;&#x677F;&#x7CFB;&#x7EDF;"><a href="#Nej&#x4E4B;&#x6A21;&#x677F;&#x7CFB;&#x7EDF;" class="headerlink" title="Nej&#x4E4B;&#x6A21;&#x677F;&#x7CFB;&#x7EDF;"></a>Nej&#x4E4B;&#x6A21;&#x677F;&#x7CFB;&#x7EDF;</h1><hr>
+<h2 id="&#x524D;&#x8A00;"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a><strong>&#x524D;&#x8A00;</strong></h2><p>&#x6A21;&#x677F;&#x7CFB;&#x7EDF;&#x975E;&#x5E38;&#x5E38;&#x7528;&#xFF0C;Nej&#x4E5F;&#x6709;&#x4E00;&#x5957;&#x81EA;&#x5DF1;&#x7684;&#x6A21;&#x677F;&#x7CFB;&#x7EDF;&#x3002;</p>
+<hr>
+<h2 id="&#x7ED3;&#x6784;"><a href="#&#x7ED3;&#x6784;" class="headerlink" title="&#x7ED3;&#x6784;"></a><strong>&#x7ED3;&#x6784;</strong></h2><p>&#x5148;&#x6765;&#x8BF4;&#x8BF4;&#x6574;&#x4E2A;&#x6A21;&#x677F;&#x7CFB;&#x7EDF;&#x7684;&#x7ED3;&#x6784;&#x3002;</p>
+<p>NEJ&#x6A21;&#x677F;&#x7CFB;&#x7EDF;&#x5305;&#x542B;<strong>&#x57FA;&#x672C;&#x6A21;&#x677F;</strong>(Text&#x6A21;&#x677F;&#x3001;Node&#x3001;Item&#x6A21;&#x677F;&#x3001;JST&#x6A21;&#x677F;)&#x548C;<strong>&#x6269;&#x5C55;&#x6A21;&#x677F;</strong>(CSS&#x6A21;&#x677F;&#x3001;JS&#x6A21;&#x677F;&#x3001;HTML&#x6A21;&#x677F;)&#x3002;</p>
+<p>&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x4E00;&#x822C;&#x4F1A;&#x7528;JST&#x6A21;&#x677F;&#x548C;LIST&#x6A21;&#x677F;&#x3002;</p>
+<p><img src="/2016/03/23/NEJ&#x4E4B;&#x6A21;&#x677F;/2-1.jpg" alt="images"></p>
+<h3 id="parseTemplate"><a href="#parseTemplate" class="headerlink" title="_$parseTemplate"></a><strong>_$parseTemplate</strong></h3><p>&#x9664;&#x4E86;Item&#x6A21;&#x677F;&#x4EE5;&#x5916;&#xFF0C;&#x5176;&#x4ED6;&#x6A21;&#x677F;&#x90FD;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x901A;&#x7528;&#x63A5;&#x53E3;nej.e._$parseTemplate&#x6765;&#x6DFB;&#x52A0;&#x6216;&#x4F7F;&#x7528;&#xFF1A;</p>
+<p><img src="/2016/03/23/NEJ&#x4E4B;&#x6A21;&#x677F;/2-2.jpg" alt="images"></p>
+<p>&#x6A21;&#x677F;&#x5728;&#x6DFB;&#x52A0;&#x7684;&#x65F6;&#x5019;&#x4E0D;&#x4F1A;&#x89E3;&#x6790;&#xFF0C;&#x5728;&#x521D;&#x6B21;&#x4F7F;&#x7528;&#x65F6;&#x624D;&#x4F1A;&#x88AB;&#x89E3;&#x6790;&#xFF0C;&#x5E76;&#x7F13;&#x5B58;&#xFF0C;&#x4ECE;&#x800C;&#x63D0;&#x9AD8;&#x6548;&#x7387;&#x3002;</p>
+<hr>
+<p>&#x63A5;&#x4E0B;&#x6765;&#x4E00;&#x4E00;&#x4ECB;&#x7ECD;&#x5404;&#x4E2A;&#x79CD;&#x7C7B;&#x7684;&#x6A21;&#x677F;&#x3002;</p>
+<h2 id="text&#x6A21;&#x677F;"><a href="#text&#x6A21;&#x677F;" class="headerlink" title="text&#x6A21;&#x677F;"></a><strong>text&#x6A21;&#x677F;</strong></h2><p>text&#x6A21;&#x677F;&#x63D0;&#x4F9B;&#x57FA;&#x672C;&#x7684;<strong>&#x6587;&#x672C;&#x7F13;&#x5B58;&#x529F;&#x80FD;</strong>&#xFF0C;&#x6807;&#x793A;&#x7B26;&#x4E3A;txt&#x3002;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x4E00;&#x822C;&#x4E0D;&#x7528;&#xFF0C;&#x800C;&#x662F;&#x7528;&#x66F4;&#x5F3A;&#x5927;&#x7684;Item&#x6A21;&#x677F;&#x6216;JST&#x6A21;&#x677F;&#x3002;</p>
+<h3 id="nej-e-addTextTemplate"><a href="#nej-e-addTextTemplate" class="headerlink" title="**nej.e._$addTextTemplate"></a>**nej.e._$addTextTemplate</h3><p><img src="/2016/03/23/NEJ&#x4E4B;&#x6A21;&#x677F;/2-3.jpg" alt="images"></p>
+<h3 id="nej-e-getTextTemplate"><a href="#nej-e-getTextTemplate" class="headerlink" title="**nej.e._$getTextTemplate"></a>**nej.e._$getTextTemplate</h3><p><img src="/2016/03/23/NEJ&#x4E4B;&#x6A21;&#x677F;/2-4.jpg" alt="images"></p>
+<h3 id="&#x5B9E;&#x4F8B;"><a href="#&#x5B9E;&#x4F8B;" class="headerlink" title="&#x5B9E;&#x4F8B;"></a><strong>&#x5B9E;&#x4F8B;</strong></h3><p>&#x6211;&#x4EEC;&#x6709;&#x5982;&#x4E0B;&#x573A;&#x666F;&#xFF0C;&#x6BCF;&#x70B9;&#x4E00;&#x6B21;&#x6DFB;&#x52A0;&#x9AD8;&#x4E2D;&#xFF0C;&#x5C31;&#x52A0;&#x4E00;&#x884C;&#x3002;</p>
+<p><img src="/2016/03/23/NEJ&#x4E4B;&#x6A21;&#x677F;/2-5.jpg" alt="images"></p>
+<p>html&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- &#x9AD8;&#x4E2D;&#x6A21;&#x5757; --&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;seniors&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;senior&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">label</span>&gt;</span>&#x9AD8;&#x4E2D;&#xFF1A;<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">select</span>&gt;</span><span class="tag">&lt;<span class="name">option</span>&gt;</span>-&#x9009;&#x62E9;&#x9AD8;&#x4E2D;-<span class="tag">&lt;/<span class="name">option</span>&gt;</span><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">select</span>&gt;</span><span class="tag">&lt;<span class="name">option</span>&gt;</span>&#x5E74;&#x4EFD;<span class="tag">&lt;/<span class="name">option</span>&gt;</span><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span>-<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">select</span>&gt;</span><span class="tag">&lt;<span class="name">option</span>&gt;</span>&#x5E74;&#x4EFD;<span class="tag">&lt;/<span class="name">option</span>&gt;</span><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;javascript:void(0);&quot;</span>&gt;</span>&#x5220;&#x9664;<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- /&#x9AD8;&#x4E2D;&#x6A21;&#x5757; --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- Text&#x6A21;&#x677F; --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">textarea</span> <span class="attr">name</span>=<span class="string">&quot;txt&quot;</span> <span class="attr">id</span>=<span class="string">&quot;seniorTextTemplate&quot;</span> <span class="attr">style</span>=<span class="string">&quot;display:none;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;senior&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">label</span>&gt;</span>&#x9AD8;&#x4E2D;&#xFF1A;<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">select</span>&gt;</span><span class="tag">&lt;<span class="name">option</span>&gt;</span>-&#x9009;&#x62E9;&#x9AD8;&#x4E2D;-<span class="tag">&lt;/<span class="name">option</span>&gt;</span><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">select</span>&gt;</span><span class="tag">&lt;<span class="name">option</span>&gt;</span>&#x5E74;&#x4EFD;<span class="tag">&lt;/<span class="name">option</span>&gt;</span><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span>-<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">select</span>&gt;</span><span class="tag">&lt;<span class="name">option</span>&gt;</span>&#x5E74;&#x4EFD;<span class="tag">&lt;/<span class="name">option</span>&gt;</span><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;javascript:void(0);&quot;</span>&gt;</span>&#x5220;&#x9664;<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- /Text&#x6A21;&#x677F; --&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x6211;&#x4EEC;&#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;id&#x4E3A;seniorTextTemplate&#x7684;Text&#x6A21;&#x677F;&#x3002;</p>
+<p>js&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="comment">// &#x89E3;&#x6790;&#x6A21;&#x677F;</span></span><br><span class="line">e._$parseTemplate(<span class="string">&apos;seniorTextTemplate&apos;</span>);</span><br><span class="line">&#x2026;</span><br><span class="line"><span class="comment">// &#x70B9;&#x51FB;&#x201C;&#x6DFB;&#x52A0;&#x9AD8;&#x4E2D;&#x201D;&#x7684;&#x54CD;&#x5E94;&#x51FD;&#x6570;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">onClickAddSenior</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">var</span> _econtent = e._$get(<span class="string">&apos;seniors&apos;</span>);</span><br><span class="line">    <span class="keyword">var</span> _html = e._$getTextTemplate(<span class="string">&apos;seniorTextTemplate&apos;</span>);</span><br><span class="line">    <span class="keyword">var</span> _node = e._$html2node(_html);</span><br><span class="line">    _econtent.appendChild(_node);</span><br><span class="line">}</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="Node&#x6A21;&#x677F;"><a href="#Node&#x6A21;&#x677F;" class="headerlink" title="Node&#x6A21;&#x677F;"></a><strong>Node&#x6A21;&#x677F;</strong></h2><p>&#x63D0;&#x4F9B;&#x57FA;&#x672C;&#x7684;<strong>&#x8282;&#x70B9;&#x7F13;&#x5B58;</strong>&#x529F;&#x80FD;&#xFF0C;&#x6807;&#x793A;&#x7B26;&#x4E3A;ntp&#x3002;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x6A21;&#x677F;&#x6765;&#x7F13;&#x5B58;DOM&#x8282;&#x70B9;&#xFF0C;&#x4F46;&#x662F;&#x4E00;&#x822C;&#x4E0D;&#x4F1A;&#x7528;&#xFF0C;&#x800C;&#x662F;&#x7528;Item&#x6A21;&#x677F;&#xFF0C;&#x5728;&#x4F7F;&#x7528;Item&#x6A21;&#x677F;&#x65F6;&#xFF0C;&#x4F7F;&#x7528;Node&#x6A21;&#x677F;&#x6765;&#x751F;&#x6210;&#x8282;&#x70B9;&#x3002;</p>
+<h3 id="nej-e-addNodeTemplate"><a href="#nej-e-addNodeTemplate" class="headerlink" title="nej.e._$addNodeTemplate"></a><strong>nej.e._$addNodeTemplate</strong></h3><p><img src="/2016/03/23/NEJ&#x4E4B;&#x6A21;&#x677F;/2-6.jpg" alt="images"></p>
+<p>demo&#xFF1A;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="comment">// &#x4EE5;&#x4E0B;&#x4EE3;&#x7801;&#x5C06;id&#x4E3A;&apos;photoList&apos;&#x7684;&#x8282;&#x70B9;&#x6DFB;&#x52A0;&#x5230;&#x7F13;&#x5B58;&#x4E2D;</span></span><br><span class="line"><span class="keyword">var</span> _key = e._$addNodeTemplate(<span class="string">&apos;photoList&apos;</span>);</span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"> </span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="comment">// &#x4EE5;&#x4E0B;&#x4EE3;&#x7801;&#x5C06;_element&#x8282;&#x70B9;&#x4EE5;&#x8282;&#x70B9;id&#x4E3A;&#x952E;&#x503C;&#x540E;&#x7F00;&#x6DFB;&#x52A0;&#x5230;&#x7F13;&#x5B58;&#x4E2D;</span></span><br><span class="line"><span class="keyword">var</span> _key = e._$addNodeTemplate(_element, _element.id);</span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="nej-e-getNodeTemplate"><a href="#nej-e-getNodeTemplate" class="headerlink" title="nej.e._$getNodeTemplate"></a><strong>nej.e._$getNodeTemplate</strong></h3><p><img src="/2016/03/23/NEJ&#x4E4B;&#x6A21;&#x677F;/2-7.jpg" alt="images"></p>
+<p>demo:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="comment">// &#x4EE5;&#x4E0B;&#x4EE3;&#x7801;&#x5C06;&#x4ECE;&#x7F13;&#x5B58;&#x4E2D;&#x83B7;&#x53D6;&#x952E;&#x503C;&#x4E3A;_key&#x7684;&#x8282;&#x70B9;</span></span><br><span class="line"><span class="keyword">var</span> _node = e._$getNodeTemplate(_key);</span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="Item&#x6A21;&#x677F;"><a href="#Item&#x6A21;&#x677F;" class="headerlink" title="Item&#x6A21;&#x677F;"></a><strong>Item&#x6A21;&#x677F;</strong></h2><p>&#x63D0;&#x4F9B;&#x8282;&#x70B9;+&#x903B;&#x8F91;&#x7F13;&#x5B58;&#x529F;&#x80FD;&#xFF0C;&#x975E;&#x5E38;&#x9002;&#x5408;&#x5E26;&#x6709;&#x903B;&#x8F91;&#x7684;&#x5217;&#x8868;&#x9879;&#x7684;&#x5F00;&#x53D1;&#x3002;</p>
+<h3 id="nej-e-getItemTemplate"><a href="#nej-e-getItemTemplate" class="headerlink" title="nej.e_$getItemTemplate"></a><strong>nej.e_$getItemTemplate</strong></h3><p><img src="/2016/03/23/NEJ&#x4E4B;&#x6A21;&#x677F;/2-8.jpg" alt="images"></p>
+<p>demo:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="comment">// &#x4EE5;&#x4E0B;&#x4EE3;&#x7801;&#x5C06;&#x7528;_friends&#x6570;&#x636E;&#xFF0C;&#x7528;wwq._$$FriendItem&#x6784;&#x9020;&#x51FA;&#x5217;&#x8868;&#x9879;</span></span><br><span class="line"><span class="keyword">var</span> _friends = [{name:<span class="string">&apos;&#x9B4F;&#x6587;&#x5E86;&apos;</span>, gender:<span class="number">1</span>}, {name:<span class="string">&apos;&#x4E25;&#x8DC3;&#x6770;&apos;</span>, gender:<span class="number">1</span>}, {name:<span class="string">&apos;&#x5F20;&#x6653;&#x5BB9;&apos;</span>}];</span><br><span class="line"><span class="keyword">var</span> _friendItems = e._$getItemTemplate(_friends, wwq._$$FriendItem);</span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>Item&#x6A21;&#x677F;&#x4F7F;&#x7528;&#x8303;&#x4F8B;&#xFF1A;</p>
+<p><img src="/2016/03/23/NEJ&#x4E4B;&#x6A21;&#x677F;/2-9.jpg" alt="images"></p>
+<p>html&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">!&#x2014;&#x540D;&#x7247;&#x5217;&#x8868;&#x6A21;&#x5757;</span> <span class="attr">--</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;friends&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- /&#x540D;&#x7247;&#x5217;&#x8868;&#x6A21;&#x5757; --&gt;</span></span><br><span class="line">&#x2026;</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;templates&quot;</span> <span class="attr">style</span>=<span class="string">&quot;display:none;&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- node&#x6A21;&#x677F; --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">textarea</span> <span class="attr">id</span>=<span class="string">&quot;friendNodeTemplate&quot;</span> <span class="attr">name</span>=<span class="string">&quot;ntp&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;m-friend&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">title</span>=<span class="string">&quot;&#x5934;&#x50CF;&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;info&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span>.<span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span>&#xFF0C;<span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;javascript:void(0);&quot;</span> <span class="attr">title</span>=<span class="string">&quot;&#x5220;&#x9664;&quot;</span>&gt;</span>&#xD7;<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- /node&#x6A21;&#x677F; --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- &#x5176;&#x4ED6;&#x6A21;&#x677F; --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- ....... --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- /&#x5176;&#x4ED6;&#x6A21;&#x677F; --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>js&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="comment">// &#x89E3;&#x6790;Node&#x6A21;&#x677F;</span></span><br><span class="line">e._$parseTemplate(<span class="string">&apos;templates&apos;</span>);</span><br><span class="line">&#x2026;</span><br><span class="line"><span class="comment">// &#x6DFB;&#x52A0;&#x540D;&#x7247;&#x5217;&#x8868;&#x903B;&#x8F91;</span></span><br><span class="line"><span class="keyword">var</span> _friends = [{name:<span class="string">&apos;&#x9B4F;&#x6587;&#x5E86;&apos;</span>, gender:<span class="number">1</span>, ava:<span class="string">&apos;../image/0.jpg&apos;</span>},</span><br><span class="line">                         {name:<span class="string">&apos;&#x4E25;&#x8DC3;&#x6770;&apos;</span>, gender:<span class="number">1</span>, ava:<span class="string">&apos;../image/1.jpg&apos;</span>}, </span><br><span class="line">                         {name:<span class="string">&apos;&#x5F20;&#x6653;&#x5BB9;&apos;</span>, ava:<span class="string">&apos;../image/2.jpg&apos;</span>}];</span><br><span class="line">friendItems = e._$getItemTemplate(_friends, wwq._$$FriendItem, {</span><br><span class="line">    parent: <span class="string">&apos;friends&apos;</span>  <span class="comment">// &#x5BB9;&#x5668;&#x8282;&#x70B9;id</span></span><br><span class="line">});</span><br><span class="line">&#x2026;</span><br><span class="line"><span class="comment">// &#x5217;&#x8868;&#x9879;&#x7C7B;wwq._$$FriendItem&#x5B9E;&#x73B0;&#x903B;&#x8F91;</span></span><br><span class="line"><span class="keyword">var</span> wwq = NEJ.P(<span class="string">&apos;wwq&apos;</span>);</span><br><span class="line"><span class="keyword">var</span> pro, supro;</span><br><span class="line"><span class="comment">// &#x597D;&#x53CB;&#x9879;</span></span><br><span class="line">wwq._$$FriendItem = NEJ.C();</span><br><span class="line">pro = wwq._$$FriendItem._$extend(ui._$$Item, !<span class="number">0</span>);</span><br><span class="line">supro = ui._$$Item.prototype;</span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * &#x521D;&#x59CB;&#x5316;&#x8282;&#x70B9;&#xFF0C;&#x5B50;&#x7C7B;&#x91CD;&#x5199;&#x5177;&#x4F53;&#x903B;&#x8F91;</span><br><span class="line"> * @return {Void}</span><br><span class="line"> */</span></span><br><span class="line">pro.__initNode = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">    supro.__initNode.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>);</span><br><span class="line">    <span class="keyword">var</span> _espans = <span class="keyword">this</span>.__body.getElementsByTagName(<span class="string">&apos;span&apos;</span>);</span><br><span class="line">    <span class="keyword">this</span>.__ecb = <span class="keyword">this</span>.__body.getElementsByTagName(<span class="string">&apos;input&apos;</span>)[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">this</span>.__eimg = <span class="keyword">this</span>.__body.getElementsByTagName(<span class="string">&apos;img&apos;</span>)[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">this</span>.__enumber = _espans[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">this</span>.__ename = _espans[<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">this</span>.__egender = _espans[<span class="number">2</span>];</span><br><span class="line">    <span class="keyword">this</span>.__edelete = <span class="keyword">this</span>.__body.getElementsByTagName(<span class="string">&apos;a&apos;</span>)[<span class="number">0</span>];</span><br><span class="line">    v._$addEvent(<span class="keyword">this</span>.__edelete, <span class="string">&apos;click&apos;</span>, <span class="keyword">this</span>.__onClickDelete._$bind(<span class="keyword">this</span>));</span><br><span class="line">    v._$addEvent(<span class="keyword">this</span>.__ecb, <span class="string">&apos;click&apos;</span>, <span class="keyword">this</span>.__onClickCheck._$bind(<span class="keyword">this</span>));</span><br><span class="line">};</span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * &#x521D;&#x59CB;&#x5316;&#x5916;&#x89C2;&#x4FE1;&#x606F;</span><br><span class="line"> * @return {Void}</span><br><span class="line"> */</span></span><br><span class="line">pro.__initXGui = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="comment">// &#x8BBE;&#x7F6E;&#x8282;&#x70B9;&#x6A21;&#x677F;&#x7684;id&#xFF0C;&#x5C06;&#x7ED3;&#x6784;&#x548C;&#x903B;&#x8F91;&#x5173;&#x8054;&#x8D77;&#x6765;</span></span><br><span class="line">    <span class="keyword">this</span>.__seed_html = <span class="string">&apos;friendNodeTemplate&apos;</span>;</span><br><span class="line">};</span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * &#x5237;&#x65B0;&#x9879;,&#x5B50;&#x7C7B;&#x5B9E;&#x73B0;&#x5177;&#x4F53;&#x903B;&#x8F91;</span><br><span class="line"> * @return {Void}</span><br><span class="line"> */</span></span><br><span class="line">pro.__doRefresh = <span class="function"><span class="keyword">function</span>(<span class="params">_data</span>)</span>{</span><br><span class="line">    <span class="keyword">this</span>.__eimg.src = _data.ava;</span><br><span class="line">    <span class="keyword">this</span>.__enumber.innerText = <span class="keyword">this</span>.__index + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">this</span>.__ename.innerText = _data.name;</span><br><span class="line">    <span class="keyword">this</span>.__egender.innerText = _data.gender?<span class="string">&apos;&#x7537;&apos;</span>:<span class="string">&apos;&#x5973;&apos;</span>;</span><br><span class="line">};</span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * &#x70B9;&#x51FB;&#x5220;&#x9664;&#x7684;&#x54CD;&#x5E94;&#x51FD;&#x6570;</span><br><span class="line"> * @param {Object} _event   &#x4E8B;&#x4EF6;&#x5BF9;&#x8C61;</span><br><span class="line"> */</span></span><br><span class="line">pro.__onClickDelete = <span class="function"><span class="keyword">function</span>(<span class="params">_event</span>)</span>{</span><br><span class="line">    <span class="comment">// todo</span></span><br><span class="line">};</span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * &#x70B9;&#x51FB;&#x590D;&#x9009;&#x6846;&#x7684;&#x54CD;&#x5E94;&#x51FD;&#x6570;</span><br><span class="line"> * @param {Object} _event   &#x4E8B;&#x4EF6;&#x5BF9;&#x8C61;</span><br><span class="line"> */</span></span><br><span class="line">pro.__onClickCheck = <span class="function"><span class="keyword">function</span>(<span class="params">_event</span>)</span>{</span><br><span class="line">    <span class="keyword">this</span>.__ecb.checked?e._$addClassName(<span class="keyword">this</span>.__body, <span class="string">&apos;checked&apos;</span>):e._$delClassName(<span class="keyword">this</span>.__body, <span class="string">&apos;checked&apos;</span>);;</span><br><span class="line">};</span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * &#x63A7;&#x4EF6;&#x9500;&#x6BC1;</span><br><span class="line"> * @return {Void}</span><br><span class="line"> */</span></span><br><span class="line">pro.__destroy = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">    supro.__destroy.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>);</span><br><span class="line">    <span class="keyword">this</span>.__eimg.src = <span class="string">&apos;&apos;</span>;</span><br><span class="line">    <span class="keyword">this</span>.__ecb.checked = <span class="literal">false</span>;</span><br><span class="line">    e._$delClassName(<span class="keyword">this</span>.__body, <span class="string">&apos;checked&apos;</span>);</span><br><span class="line">};</span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="JST&#x6A21;&#x677F;"><a href="#JST&#x6A21;&#x677F;" class="headerlink" title="JST&#x6A21;&#x677F;"></a><strong>JST&#x6A21;&#x677F;</strong></h2><p>&#x7528;&#x6765;&#x5408;&#x5E76;&#x6570;&#x636E;&#x548C;html&#x7ED3;&#x6784;&#x3002;</p>
+<h3 id="nej-e-addHtmlTemplate"><a href="#nej-e-addHtmlTemplate" class="headerlink" title="nej.e._$addHtmlTemplate"></a><strong>nej.e._$addHtmlTemplate</strong></h3><p><img src="/2016/03/23/NEJ&#x4E4B;&#x6A21;&#x677F;/2-10.jpg" alt="images"></p>
+<p>demo1&#xFF1A;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="comment">// &#x4EE5;&#x4E0B;&#x4EE3;&#x7801;&#x5C06;jst&#x5B57;&#x7B26;&#x4E32;_workersHtml&#x6DFB;&#x52A0;&#x5230;&#x7F13;&#x5B58;&#x4E2D;</span></span><br><span class="line"><span class="keyword">var</span> _workersHtml = <span class="string">&apos;&lt;table class=&quot;w-table&quot;&gt;\</span><br><span class="line">        &lt;thead&gt;\</span><br><span class="line">            &lt;tr&gt;&lt;th&gt;&#x5E8F;&#x53F7;&lt;/th&gt;&lt;th&gt;&#x59D3;&#x540D;&lt;/th&gt;&lt;th&gt;&#x6027;&#x522B;&lt;/th&gt;&lt;/tr&gt;\</span><br><span class="line">        &lt;/thead&gt;\</span><br><span class="line">        {if !defined(&quot;workers&quot;)}\</span><br><span class="line">            &lt;tr&gt;&lt;td colspan=&quot;3&quot;&gt;&#x6570;&#x636E;&#x52A0;&#x8F7D;&#x5931;&#x8D25;&#xFF0C;&#x8BF7;&#x7A0D;&#x540E;&#x518D;&#x8BD5;&#xFF01;&lt;/td&gt;&lt;/tr&gt;\</span><br><span class="line">        {elseif workers&amp;&amp;workers.length}\</span><br><span class="line">            {list workers as x}\</span><br><span class="line">                &lt;tr{if x_index==x_length-1} class=&quot;last&quot;{/if}&gt;\</span><br><span class="line">&lt;td&gt;${x_index+1}&lt;/td&gt;\</span><br><span class="line">&lt;td&gt;${x.name}&lt;/td&gt;\</span><br><span class="line">&lt;td&gt;{if x.gender==1}&#x7537;{else}&#x5973;{/if}&lt;/td&gt;\</span><br><span class="line">&lt;/tr&gt;\</span><br><span class="line">            {/list}\</span><br><span class="line">        {else}\</span><br><span class="line">            &lt;tr&gt;&lt;td colspan=&quot;3&quot;&gt;&#x6CA1;&#x6709;&#x5DE5;&#x4EBA;&#xFF01;&lt;/td&gt;&lt;/tr&gt;\</span><br><span class="line">        {/if}\</span><br><span class="line">    &lt;/table&gt;&apos;</span></span><br><span class="line"><span class="keyword">var</span> _key = e._$addHtmlTemplate(_workersHtml);</span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>demo2&#xFF1A;<br>html&#xFF1A;</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- jst&#x6A21;&#x677F; --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">textarea</span> <span class="attr">id</span>=<span class="string">&quot;workersJstTemplate&quot;</span> <span class="attr">style</span>=<span class="string">&quot;display:none;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">table</span> <span class="attr">class</span>=<span class="string">&quot;w-table&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">thead</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">tr</span>&gt;</span><span class="tag">&lt;<span class="name">th</span>&gt;</span>&#x5E8F;&#x53F7;<span class="tag">&lt;/<span class="name">th</span>&gt;</span><span class="tag">&lt;<span class="name">th</span>&gt;</span>&#x59D3;&#x540D;<span class="tag">&lt;/<span class="name">th</span>&gt;</span><span class="tag">&lt;<span class="name">th</span>&gt;</span>&#x6027;&#x522B;<span class="tag">&lt;/<span class="name">th</span>&gt;</span><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">thead</span>&gt;</span></span><br><span class="line">        {if !defined(&quot;workers&quot;)}</span><br><span class="line">            <span class="tag">&lt;<span class="name">tr</span>&gt;</span><span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">&quot;3&quot;</span>&gt;</span>&#x6570;&#x636E;&#x52A0;&#x8F7D;&#x5931;&#x8D25;&#xFF0C;&#x8BF7;&#x7A0D;&#x540E;&#x518D;&#x8BD5;&#xFF01;<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">        {elseif workers&amp;&amp;workers.length}</span><br><span class="line">            {list workers as x}</span><br><span class="line">                <span class="tag">&lt;<span class="name">tr{if</span> <span class="attr">x_index</span>==<span class="string">x_length-1}</span> <span class="attr">class</span>=<span class="string">&quot;last&quot;</span>{/<span class="attr">if</span>}&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span>&gt;</span>${x_index+1}<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span>&gt;</span>${x.name}<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span>&gt;</span>{if x.gender==1}&#x7537;{else}&#x5973;{/if}<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">            {/list}</span><br><span class="line">        {else}</span><br><span class="line">            <span class="tag">&lt;<span class="name">tr</span>&gt;</span><span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">&quot;3&quot;</span>&gt;</span>&#x6CA1;&#x6709;&#x5DE5;&#x4EBA;&#xFF01;<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">        {/if}</span><br><span class="line">    <span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- /jst&#x6A21;&#x677F; --&gt;</span></span><br></pre></td></tr></table></figure>
+<p>js&#xFF1A;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="comment">// &#x4EE5;&#x4E0B;&#x4EE3;&#x7801;&#x5C06;id&#x4E3A;&apos;workersJstTemplate&apos;&#x7684;&#x6587;&#x672C;&#x57DF;&#x7684;&#x503C;&#x4F5C;&#x4E3A;jst&#x5B57;&#x7B26;&#x4E32;&#x6DFB;&#x52A0;&#x5230;&#x7F13;&#x5B58;&#x4E2D;</span></span><br><span class="line"><span class="keyword">var</span> _key = e._$addHtmlTemplate(<span class="string">&apos;workersJstTemplate&apos;</span>);</span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure></p>
+<h2 id="nej-e-getHtmlTemplate"><a href="#nej-e-getHtmlTemplate" class="headerlink" title="nej.e._$getHtmlTemplate"></a><strong>nej.e._$getHtmlTemplate</strong></h2><p><img src="/2016/03/23/NEJ&#x4E4B;&#x6A21;&#x677F;/2-11.jpg" alt="images"></p>
+<p>demo1:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="comment">// &#x4EE5;&#x4E0B;&#x4EE3;&#x7801;&#x5C06;&#x6570;&#x636E;_data&#x4E0E;&#x952E;&#x503C;&#x4E3A;_key&#x7684;jst&#x6A21;&#x677F;&#x5408;&#x5E76;</span></span><br><span class="line"><span class="keyword">var</span> _data = {workers: [{name:<span class="string">&apos;&#x9B4F;&#x6587;&#x5E86;&apos;</span>, gender:<span class="number">1</span>}, </span><br><span class="line">                        {name:<span class="string">&apos;&#x4E25;&#x8DC3;&#x6770;&apos;</span>, gender:<span class="number">1</span>}, </span><br><span class="line">                        {name:<span class="string">&apos;&#x5F20;&#x6653;&#x5BB9;&apos;</span>}]};</span><br><span class="line"><span class="keyword">var</span> _html = e._$getHtmlTemplate(_key, _data);</span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>demo2&#xFF1A;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="comment">// &#x4EE5;&#x4E0B;&#x4EE3;&#x7801;&#x5C06;&#x6570;&#x636E;_data&#x4E0E;&#x952E;&#x503C;&#x4E3A;_key&#x7684;jst&#x6A21;&#x677F;&#x5408;&#x5E76;</span></span><br><span class="line"><span class="comment">// &#x6269;&#x5C55;&#x63A5;&#x53E3;&#x4F20;&#x5165;formatGender&#xFF0C;&#x5728;&#x952E;&#x503C;&#x4E3A;_key&#x7684;jst&#x6A21;&#x677F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x8BE5;&#x63A5;&#x53E3;</span></span><br><span class="line"><span class="comment">// &#x6BD4;&#x5982;&#xFF1A;${_worker.gender|formatGender}</span></span><br><span class="line"><span class="keyword">var</span> _data = {workers: [{name:<span class="string">&apos;&#x9B4F;&#x6587;&#x5E86;&apos;</span>, gender:<span class="number">1</span>}, </span><br><span class="line">                        {name:<span class="string">&apos;&#x4E25;&#x8DC3;&#x6770;&apos;</span>, gender:<span class="number">1</span>}, </span><br><span class="line">                        {name:<span class="string">&apos;&#x5F20;&#x6653;&#x5BB9;&apos;</span>}]};</span><br><span class="line"><span class="keyword">var</span> _html = e._$getHtmlTemplate(_key, _data, {formatGender: <span class="function"><span class="keyword">function</span>(<span class="params">_value</span>)</span>{</span><br><span class="line">    <span class="keyword">return</span> _value==<span class="number">1</span>?<span class="string">&apos;&#x7537;&apos;</span>:<span class="string">&apos;&#x5973;&apos;</span>;</span><br><span class="line">}});</span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="nej-e-renderHtmlTemplate"><a href="#nej-e-renderHtmlTemplate" class="headerlink" title="nej.e._$renderHtmlTemplate"></a><strong>nej.e._$renderHtmlTemplate</strong></h3><p><img src="/2016/03/23/NEJ&#x4E4B;&#x6A21;&#x677F;/2-12.jpg" alt="images"></p>
+<p>demo&#xFF1A;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="comment">// &#x4EE5;&#x4E0B;&#x4EE3;&#x7801;&#x5C06;&#x6570;&#x636E;_data&#x4E0E;&#x952E;&#x503C;&#x4E3A;_key&#x7684;jst&#x6A21;&#x677F;&#x5408;&#x5E76;</span></span><br><span class="line"><span class="comment">// &#x5408;&#x5E76;&#x7684;&#x7ED3;&#x679C;&#x8BBE;&#x7F6E;&#x4E3A;id&#x4E3A;content&#x7684;&#x8282;&#x70B9;&#x7684;html</span></span><br><span class="line"><span class="keyword">var</span> _data = {workers: [{name:<span class="string">&apos;&#x9B4F;&#x6587;&#x5E86;&apos;</span>, gender:<span class="number">1</span>}, </span><br><span class="line">                        {name:<span class="string">&apos;&#x4E25;&#x8DC3;&#x6770;&apos;</span>, gender:<span class="number">1</span>}, </span><br><span class="line">                        {name:<span class="string">&apos;&#x5F20;&#x6653;&#x5BB9;&apos;</span>}]};</span><br><span class="line"><span class="keyword">var</span> _html = e._$renderHtmlTemplate(<span class="string">&apos;content&apos;</span>, _key, _data);</span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>JST&#x6A21;&#x677F;&#x5E94;&#x7528;&#x8303;&#x4F8B;&#xFF1A;</p>
+<p><img src="/2016/03/23/NEJ&#x4E4B;&#x6A21;&#x677F;/2-13.jpg" alt="images"></p>
+<p>html&#x5982;&#x4E0B;&#xFF1A;<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- &#x5DE5;&#x4EBA;&#x5217;&#x8868;&#x5BB9;&#x5668;&#x8282;&#x70B9; --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;content&quot;</span>&gt;</span>       </span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- /&#x5DE5;&#x4EBA;&#x5217;&#x8868;&#x5BB9;&#x5668;&#x8282;&#x70B9; --&gt;</span></span><br><span class="line">&#x2026;</span><br><span class="line"><span class="comment">&lt;!-- jst&#x6A21;&#x677F; --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">textarea</span> <span class="attr">id</span>=<span class="string">&quot;workersJstTemplate&quot;</span> <span class="attr">style</span>=<span class="string">&quot;display:none;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">table</span> <span class="attr">class</span>=<span class="string">&quot;w-table&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">thead</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">tr</span>&gt;</span><span class="tag">&lt;<span class="name">th</span>&gt;</span>&#x5E8F;&#x53F7;<span class="tag">&lt;/<span class="name">th</span>&gt;</span><span class="tag">&lt;<span class="name">th</span>&gt;</span>&#x59D3;&#x540D;<span class="tag">&lt;/<span class="name">th</span>&gt;</span><span class="tag">&lt;<span class="name">th</span>&gt;</span>&#x6027;&#x522B;<span class="tag">&lt;/<span class="name">th</span>&gt;</span><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">thead</span>&gt;</span></span><br><span class="line">        {if !defined(&quot;workers&quot;)}</span><br><span class="line">            <span class="tag">&lt;<span class="name">tr</span>&gt;</span><span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">&quot;3&quot;</span>&gt;</span>&#x6570;&#x636E;&#x52A0;&#x8F7D;&#x5931;&#x8D25;&#xFF0C;&#x8BF7;&#x7A0D;&#x540E;&#x518D;&#x8BD5;&#xFF01;<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">        {elseif workers&amp;&amp;workers.length}</span><br><span class="line">            {list workers as x}</span><br><span class="line">                <span class="tag">&lt;<span class="name">tr{if</span> <span class="attr">x_index</span>==<span class="string">x_length-1}</span> <span class="attr">class</span>=<span class="string">&quot;last&quot;</span>{/<span class="attr">if</span>}&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span>&gt;</span>${x_index+1}<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span>&gt;</span>${x.name}<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span>&gt;</span>{if x.gender==1}&#x7537;{else}&#x5973;{/if}<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">            {/list}</span><br><span class="line">        {else}</span><br><span class="line">            <span class="tag">&lt;<span class="name">tr</span>&gt;</span><span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">&quot;3&quot;</span>&gt;</span>&#x6CA1;&#x6709;&#x5DE5;&#x4EBA;&#xFF01;<span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">        {/if}</span><br><span class="line">    <span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- /jst&#x6A21;&#x677F; --&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>js:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="comment">// &#x89E3;&#x6790;JST&#x6A21;&#x677F;</span></span><br><span class="line">e._$parseTemplate(<span class="string">&apos;workersJstTemplate&apos;</span>);</span><br><span class="line">&#x2026;</span><br><span class="line"><span class="comment">// &#x6570;&#x636E;&#x4E0E;&#x6A21;&#x677F;&#x5408;&#x5E76;&#xFF0C;&#x5E76;&#x4E14;&#x663E;&#x793A;&#x5230;&#x9875;&#x9762;&#x4E0A;</span></span><br><span class="line"><span class="keyword">var</span> _data = {workers: [{name:<span class="string">&apos;&#x9B4F;&#x6587;&#x5E86;&apos;</span>, gender:<span class="number">1</span>}, </span><br><span class="line">                        {name:<span class="string">&apos;&#x4E25;&#x8DC3;&#x6770;&apos;</span>, gender:<span class="number">1</span>}, </span><br><span class="line">                        {name:<span class="string">&apos;&#x5F20;&#x6653;&#x5BB9;&apos;</span>}]};</span><br><span class="line">e._$renderHtmlTemplate(<span class="string">&apos;content&apos;</span>, <span class="string">&apos;workersJstTemplate&apos;</span>, _data);</span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="CSS&#x6A21;&#x677F;"><a href="#CSS&#x6A21;&#x677F;" class="headerlink" title="CSS&#x6A21;&#x677F;"></a><strong>CSS&#x6A21;&#x677F;</strong></h2><p>css&#x6A21;&#x677F;&#x63D0;&#x4F9B;css&#x6587;&#x4EF6;&#x5EF6;&#x8FDF;&#x52A0;&#x8F7D;&#x4EE5;&#x53CA;css&#x4EE3;&#x7801;&#x5EF6;&#x8FDF;&#x751F;&#x6548;&#x529F;&#x80FD;&#xFF0C;&#x4E5F;&#x662F;&#x901A;&#x8FC7;nej.e._$parseTemplate&#x6765;&#x8C03;&#x7528;&#x3002;</p>
+<p>demo&#xFF1A;</p>
+<p>html&#xFF1A;</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- CSS&#x6A21;&#x677F; --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">textarea</span> <span class="attr">id</span>=<span class="string">&quot;cssTemplate&quot;</span>  <span class="attr">name</span>=<span class="string">&quot;css&quot;</span> <span class="attr">data-src</span>=<span class="string">&quot;/css/a.css&quot;</span> <span class="attr">style</span>=<span class="string">&quot;display:none;&quot;</span>&gt;</span></span><br><span class="line">    .g-doc{width:auto;}</span><br><span class="line">.m-btns button{margin-right:10px;}</span><br><span class="line">.w-table{margin-top:10px;width:100%;}</span><br><span class="line">.w-table .hint{background-color:#ffe;height:50px; }</span><br><span class="line">.w-table .last{background-color:#ffe;}</span><br><span class="line">.content{height:450px;}</span><br><span class="line"><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- /CSS&#x6A21;&#x677F; --&gt;</span></span><br></pre></td></tr></table></figure>
+<p>js:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="comment">// &#x89E3;&#x6790;JS&#x6A21;&#x677F;</span></span><br><span class="line"><span class="comment">// &#x4EE5;&#x4E0B;&#x4EE3;&#x7801;&#x6267;&#x884C;&#x540E;&#xFF0C;/css/a.css&#x52A0;&#x8F7D;&#x5E76;&#x751F;&#x6548;&#xFF0C;textarea&#x91CC;&#x7684;&#x4EE3;&#x7801;&#x6BB5;&#x4E5F;&#x4F1A;&#x751F;&#x6548;</span></span><br><span class="line">e._$parseTemplate(<span class="string">&apos;cssTemplate&apos;</span>);</span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="JS&#x6A21;&#x677F;"><a href="#JS&#x6A21;&#x677F;" class="headerlink" title="JS&#x6A21;&#x677F;"></a><strong>JS&#x6A21;&#x677F;</strong></h2><p>&#x63D0;&#x4F9B;&#x4E86;js&#x6587;&#x4EF6;&#x5EF6;&#x8FDF;&#x52A0;&#x8F7D;&#x4EE5;&#x53CA;js&#x4EE3;&#x7801;&#x5EF6;&#x8FDF;&#x751F;&#x6548;&#x529F;&#x80FD;&#x3002;</p>
+<p>demo&#xFF1A;</p>
+<p>html&#xFF1A;</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- JS&#x6A21;&#x677F; --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;jsTemplate&quot;</span> <span class="attr">style</span>=<span class="string">&quot;display:none;&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">textarea</span> <span class="attr">name</span>=<span class="string">&quot;js&quot;</span> <span class="attr">data-src</span>=<span class="string">&quot;/js/a.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">textarea</span> <span class="attr">name</span>=<span class="string">&quot;js&quot;</span> <span class="attr">data-src</span>=<span class="string">&quot;/js/b.js&quot;</span>&gt;</span></span><br><span class="line">    var f = function(){</span><br><span class="line">            var e = NEJ.P(&apos;nej.e&apos;);</span><br><span class="line">            e._$get(&apos;common&apos;).disabled = false;</span><br><span class="line">            e._$get(&apos;empty&apos;).disabled = false;</span><br><span class="line">            e._$get(&apos;failed&apos;).disabled = false;</span><br><span class="line">            e._$get(&apos;string&apos;).disabled = false;</span><br><span class="line">};</span><br><span class="line">define([&apos;{lib}base/element.js&apos;], f);</span><br><span class="line"><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- /JS&#x6A21;&#x677F; --&gt;</span></span><br></pre></td></tr></table></figure>
+<p>js:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// &#x89E3;&#x6790;JS&#x6A21;&#x677F;</span></span><br><span class="line"><span class="comment">// &#x4EE5;&#x4E0B;&#x4EE3;&#x7801;&#x6267;&#x884C;&#x540E;&#xFF0C;/js/a.js&#x3001;/js/b.js&#x52A0;&#x8F7D;&#x5E76;&#x751F;&#x6548;&#xFF0C;textarea&#x91CC;&#x7684;&#x4EE3;&#x7801;&#x6BB5;&#x4E5F;&#x4F1A;&#x751F;&#x6548;</span></span><br><span class="line">e._$parseTemplate(<span class="string">&apos;jsTemplate&apos;</span>);</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="HTML&#x6A21;&#x677F;"><a href="#HTML&#x6A21;&#x677F;" class="headerlink" title="HTML&#x6A21;&#x677F;"></a><strong>HTML&#x6A21;&#x677F;</strong></h2><p>&#x8BE5;&#x6A21;&#x677F;&#x63D0;&#x4F9B;&#x4E86;&#x6A21;&#x5757;&#x7684;&#x5EF6;&#x8FDF;&#x52A0;&#x8F7D;&#x529F;&#x80FD;&#x3002;</p>
+<p>demo&#xFF1A;</p>
+<p>&#x7528;&#x6237;&#x8FDB;&#x5165;&#x7F51;&#x6613;&#x535A;&#x5BA2;&#x4E2A;&#x4EBA;&#x4E2D;&#x5FC3;&#x65F6;&#xFF0C;&#x663E;&#x793A;&#x4E2A;&#x4EBA;&#x4E2D;&#x5FC3;&#x9996;&#x9875;&#x3002;&#x7528;&#x6237;&#x70B9;&#x51FB;&#x5DE6;&#x680F;&#x5BFC;&#x822A;&#x7684;&#x201C;&#x597D;&#x53CB;&#x7BA1;&#x7406;&#x201D;&#xFF0C;&#x663E;&#x793A;&#x597D;&#x53CB;&#x7BA1;&#x7406;&#x6A21;&#x5757;&#xFF0C;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#x3002;</p>
+<p><img src="/2016/03/23/NEJ&#x4E4B;&#x6A21;&#x677F;/2-14.jpg" alt="images"></p>
+<p>html:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- html&#x6A21;&#x677F; --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">textarea</span> <span class="attr">id</span>=<span class="string">&quot;htmlTemplate&quot;</span> <span class="attr">name</span>=<span class="string">&quot;html&quot;</span> <span class="attr">data-src</span>=<span class="string">&quot;template.friends.html&quot;</span> <span class="attr">style</span>=<span class="string">&quot;display:none;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- /html&#x6A21;&#x677F; --&gt;</span></span><br><span class="line">&#x597D;&#x53CB;&#x6A21;&#x5757;&#x6A21;&#x677F;html&#x6587;&#x4EF6;template.friends.html&#x5185;&#x5BB9;&#x5982;&#x4E0B;:</span><br><span class="line"><span class="comment">&lt;!-- ie6&#x672A;&#x6307;&#x5B9A;&#x7F16;&#x7801;&#x9ED8;&#x8BA4;&#x4E3A;GBK&#xFF0C;&#x5176;&#x4ED6;&#x6D4F;&#x89C8;&#x5668;&#x4E0E;&#x7236;&#x9875;&#x9762;&#x7F16;&#x7801;&#x76F8;&#x540C; --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- css&#x6A21;&#x677F; --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">textarea</span> <span class="attr">name</span>=<span class="string">&quot;css&quot;</span>&gt;</span></span><br><span class="line">    #friends{margin-left:-20px;overflow:hidden;}</span><br><span class="line">.m-friend{float:left;_display:inline;position:relative;zoom:1;</span><br><span class="line">margin:20px;border:1px solid #eee;}</span><br><span class="line">.m-friend.checked{border-color:red;}</span><br><span class="line">.m-friend img{width:100px;height:100px;margin:3px;}</span><br><span class="line">.m-friend .info{margin-left:3px;}</span><br><span class="line">.m-friend input{position:absolute;left:3px;top:3px;}</span><br><span class="line">.m-friend a{position:absolute;right:4px;top:-1px;line-height:1;</span><br><span class="line">font-size:20px;text-decoration:none;}</span><br><span class="line"><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- /css&#x6A21;&#x677F; --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- node&#x6A21;&#x677F; --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">textarea</span> <span class="attr">id</span>=<span class="string">&quot;friendsNodeTemplate&quot;</span> <span class="attr">name</span>=<span class="string">&quot;ntp&quot;</span> <span class="attr">style</span>=<span class="string">&quot;display:none;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>  <span class="attr">data-module</span>=<span class="string">&quot;friends&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- /node&#x6A21;&#x677F; --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- node&#x6A21;&#x677F; --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">textarea</span> <span class="attr">id</span>=<span class="string">&quot;friendNodeTemplate&quot;</span> <span class="attr">name</span>=<span class="string">&quot;ntp&quot;</span> <span class="attr">style</span>=<span class="string">&quot;display:none;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;m-friend&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">title</span>=<span class="string">&quot;&#x5934;&#x50CF;&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;info&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span>.<span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span>&#xFF0C;<span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;javascript:void(0);&quot;</span> <span class="attr">title</span>=<span class="string">&quot;&#x5220;&#x9664;&quot;</span>&gt;</span>&#xD7;<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- /node&#x6A21;&#x677F; --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- js&#x6A21;&#x677F; --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">textarea</span> <span class="attr">name</span>=<span class="string">&quot;js&quot;</span> <span class="attr">data-src</span>=<span class="string">&quot;../javascript/template.friends.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- /js&#x6A21;&#x677F; --&gt;</span></span><br></pre></td></tr></table></figure>
+<p>js:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="comment">// &#x5EF6;&#x8FDF;&#x52A0;&#x8F7D;&#x6A21;&#x5757;&#x7684;&#x903B;&#x8F91;</span></span><br><span class="line"><span class="comment">// &#x4EE5;&#x4E0B;&#x4EE3;&#x7801;&#x6267;&#x884C;&#x540E;&#xFF0C;&#x597D;&#x53CB;&#x6A21;&#x5757;&#x7684;&#x6A21;&#x677F;template.1.html&#x4F1A;&#x88AB;&#x52A0;&#x8F7D;&#x6267;&#x884C;</span></span><br><span class="line">e._$parseTemplate(<span class="string">&apos;htmlTemplate&apos;</span>);</span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>&#x597D;&#x53CB;&#x6A21;&#x5757;&#x6A21;&#x677F;&#x5F15;&#x7528;js&#xFF1A;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">var</span> wwq = NEJ.P(<span class="string">&apos;wwq&apos;</span>);</span><br><span class="line"><span class="comment">// &#x9875;&#x9762;&#x521D;&#x59CB;&#x5316;&#x63A5;&#x53E3;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">init</span>(<span class="params"></span>)</span>{</span><br><span class="line">    e._$parseTemplate(<span class="string">&apos;friendsNodeTemplate&apos;</span>);</span><br><span class="line">    <span class="keyword">var</span> _efriends = e._$getNodeTemplate(<span class="string">&apos;friendsNodeTemplate&apos;</span>);</span><br><span class="line">    e._$parseTemplate(<span class="string">&apos;friendNodeTemplate&apos;</span>);</span><br><span class="line">    <span class="keyword">var</span> _friends = [{name:<span class="string">&apos;&#x9B4F;&#x6587;&#x5E86;&apos;</span>, gender:<span class="number">1</span>, ava:<span class="string">&apos;../image/0.jpg&apos;</span>},</span><br><span class="line">                             {name:<span class="string">&apos;&#x4E25;&#x8DC3;&#x6770;&apos;</span>, gender:<span class="number">1</span>, ava:<span class="string">&apos;../image/1.jpg&apos;</span>}, </span><br><span class="line">                             {name:<span class="string">&apos;&#x5F20;&#x6653;&#x5BB9;&apos;</span>, ava:<span class="string">&apos;../image/2.jpg&apos;</span>}];</span><br><span class="line">    e._$getItemTemplate(_friends, wwq._$$FriendItem, {</span><br><span class="line">        parent: _efriends,</span><br><span class="line">        key: <span class="string">&apos;friendNodeTemplate&apos;</span></span><br><span class="line">    });</span><br><span class="line">    e._$get(<span class="string">&apos;main&apos;</span>).appendChild(_efriends);</span><br><span class="line">}</span><br><span class="line">init();</span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="JST&#x8BED;&#x6CD5;&#x53C2;&#x8003;"><a href="#JST&#x8BED;&#x6CD5;&#x53C2;&#x8003;" class="headerlink" title="JST&#x8BED;&#x6CD5;&#x53C2;&#x8003;"></a><strong>JST&#x8BED;&#x6CD5;&#x53C2;&#x8003;</strong></h2><p>JST&#x6A21;&#x677F;&#x8BED;&#x6CD5;&#x548C;freemarker&#x7C7B;&#x578B;&#xFF0C;&#x4E0D;&#x505A;&#x8BE6;&#x89E3;&#xFF0C;&#x53EF;&#x4EE5;&#x53C2;&#x8003;&#xFF1A;<a href="http://nej.netease.com/course/topic/template/" target="_blank" rel="external">jst&#x8BED;&#x6CD5;</a></p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/03/22/NEJ之模块化/" rel="next" title="NEJ之模块化">
+                <i class="fa fa-chevron-left"></i> NEJ之模块化
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/03/24/NEJ之文件依赖/" rel="prev" title="NEJ之文件依赖">
+                NEJ之文件依赖 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/03/23/NEJ之模板/"
+     data-title="NEJ之模板"
+     data-content=""
+     data-url="http://yoursite.com/2016/03/23/NEJ之模板/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/03/23/NEJ之模板/"
+           data-title="NEJ之模板" data-url="http://yoursite.com/2016/03/23/NEJ之模板/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://nos.netease.com/edu-image/5AA61D30A78B81D8CF5AE7608A1468C2.jpg"
+               alt="刘放" />
+          <p class="site-author-name" itemprop="name">刘放</p>
+          <p class="site-description motion-element" itemprop="description">网易前端开发 brizer@163.com</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">110</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/brizer" target="_blank" title="github">
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/3978835322" target="_blank" title="weibo">
+                  
+                  weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://study.163.com/topics/2016-11sales/#/main" title="云课堂充电节" target="_blank">云课堂充电节</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://study.163.com/" title="网易云课堂" target="_blank">网易云课堂</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.icourse163.org/" title="中国大学MOOC" target="_blank">中国大学MOOC</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://100.163.com/" title="网易100分" target="_blank">网易100分</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Nej之模板系统"><span class="nav-number">1.</span> <span class="nav-text">Nej之模板系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结构"><span class="nav-number">1.2.</span> <span class="nav-text">结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#parseTemplate"><span class="nav-number">1.2.1.</span> <span class="nav-text">_$parseTemplate</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#text模板"><span class="nav-number">1.3.</span> <span class="nav-text">text模板</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#nej-e-addTextTemplate"><span class="nav-number">1.3.1.</span> <span class="nav-text">**nej.e._$addTextTemplate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nej-e-getTextTemplate"><span class="nav-number">1.3.2.</span> <span class="nav-text">**nej.e._$getTextTemplate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例"><span class="nav-number">1.3.3.</span> <span class="nav-text">实例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node模板"><span class="nav-number">1.4.</span> <span class="nav-text">Node模板</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#nej-e-addNodeTemplate"><span class="nav-number">1.4.1.</span> <span class="nav-text">nej.e._$addNodeTemplate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nej-e-getNodeTemplate"><span class="nav-number">1.4.2.</span> <span class="nav-text">nej.e._$getNodeTemplate</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Item模板"><span class="nav-number">1.5.</span> <span class="nav-text">Item模板</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#nej-e-getItemTemplate"><span class="nav-number">1.5.1.</span> <span class="nav-text">nej.e_$getItemTemplate</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JST模板"><span class="nav-number">1.6.</span> <span class="nav-text">JST模板</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#nej-e-addHtmlTemplate"><span class="nav-number">1.6.1.</span> <span class="nav-text">nej.e._$addHtmlTemplate</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nej-e-getHtmlTemplate"><span class="nav-number">1.7.</span> <span class="nav-text">nej.e._$getHtmlTemplate</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#nej-e-renderHtmlTemplate"><span class="nav-number">1.7.1.</span> <span class="nav-text">nej.e._$renderHtmlTemplate</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS模板"><span class="nav-number">1.8.</span> <span class="nav-text">CSS模板</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS模板"><span class="nav-number">1.9.</span> <span class="nav-text">JS模板</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML模板"><span class="nav-number">1.10.</span> <span class="nav-text">HTML模板</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JST语法参考"><span class="nav-number">1.11.</span> <span class="nav-text">JST语法参考</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刘放</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i> 总访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"brizer"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+  
+  
+</body>
+</html>

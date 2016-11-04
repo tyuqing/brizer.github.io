@@ -1,0 +1,818 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="brizer,前端,博客,刘放" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="NEJ&amp;#x4E4B;&amp;#x7EC4;&amp;#x4EF6;&amp;#x5316;&amp;#x5F00;&amp;#x53D1;&amp;#x524D;&amp;#x8A00;&amp;#x7EC4;&amp;#x4EF6;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x53EF;&amp;#x4EE5;&amp;#x72EC;&amp;#x7ACB;&amp;#x8FD0;&amp;#x884C;&amp;#x7684;&amp;#x7CFB;&amp;#x7EDF;&amp;#x6216;&amp;#x6A21;&amp;#x57">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NEJ之组件化开发">
+<meta property="og:url" content="http://yoursite.com/2016/03/29/NEJ之组件化开发/index.html">
+<meta property="og:site_name" content="Brizer's Blog">
+<meta property="og:description" content="NEJ&amp;#x4E4B;&amp;#x7EC4;&amp;#x4EF6;&amp;#x5316;&amp;#x5F00;&amp;#x53D1;&amp;#x524D;&amp;#x8A00;&amp;#x7EC4;&amp;#x4EF6;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x53EF;&amp;#x4EE5;&amp;#x72EC;&amp;#x7ACB;&amp;#x8FD0;&amp;#x884C;&amp;#x7684;&amp;#x7CFB;&amp;#x7EDF;&amp;#x6216;&amp;#x6A21;&amp;#x57">
+<meta property="og:image" content="http://yoursite.com/2016/03/29/NEJ之组件化开发/4-1.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/29/NEJ之组件化开发/4-2.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/29/NEJ之组件化开发/4-3.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/29/NEJ之组件化开发/4-4.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/29/NEJ之组件化开发/4-5.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/29/NEJ之组件化开发/4-6.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/29/NEJ之组件化开发/4-7.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/29/NEJ之组件化开发/4-8.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/29/NEJ之组件化开发/4-9.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/29/NEJ之组件化开发/4-10.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/29/NEJ之组件化开发/1.png">
+<meta property="og:image" content="http://yoursite.com/2016/03/29/NEJ之组件化开发/2.png">
+<meta property="og:image" content="http://yoursite.com/2016/03/29/NEJ之组件化开发/4-11.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/29/NEJ之组件化开发/4-12.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/29/NEJ之组件化开发/4-13.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/29/NEJ之组件化开发/4-14.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/29/NEJ之组件化开发/3.png">
+<meta property="og:image" content="http://yoursite.com/2016/03/29/NEJ之组件化开发/4-15.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/29/NEJ之组件化开发/4-16.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/29/NEJ之组件化开发/4-17.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/29/NEJ之组件化开发/4-18.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/29/NEJ之组件化开发/4-19.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/29/NEJ之组件化开发/4-20.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/29/NEJ之组件化开发/4-21.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/29/NEJ之组件化开发/4-22.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/29/NEJ之组件化开发/4-23.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/29/NEJ之组件化开发/4-24.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/29/NEJ之组件化开发/4-25.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/29/NEJ之组件化开发/4-26.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/29/NEJ之组件化开发/4-27.jpg">
+<meta property="og:image" content="http://yoursite.com/2016/03/29/NEJ之组件化开发/4-28.jpg">
+<meta property="og:updated_time" content="2016-08-03T11:47:07.104Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="NEJ之组件化开发">
+<meta name="twitter:description" content="NEJ&amp;#x4E4B;&amp;#x7EC4;&amp;#x4EF6;&amp;#x5316;&amp;#x5F00;&amp;#x53D1;&amp;#x524D;&amp;#x8A00;&amp;#x7EC4;&amp;#x4EF6;&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x53EF;&amp;#x4EE5;&amp;#x72EC;&amp;#x7ACB;&amp;#x8FD0;&amp;#x884C;&amp;#x7684;&amp;#x7CFB;&amp;#x7EDF;&amp;#x6216;&amp;#x6A21;&amp;#x57">
+<meta name="twitter:image" content="http://yoursite.com/2016/03/29/NEJ之组件化开发/4-1.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> NEJ之组件化开发 | Brizer's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Brizer's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">刘放 学习笔记</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+  
+    <style type="text/css">
+		#so360{white-space:nowrap;margin:10px auto;}
+		#so360 form{margin:0;padding:0}
+		#so360_keyword{width:157px;height:32px;line-height:32px;font:14px arial;padding:2px 5px;margin-right:5px;
+		border:2px solid #061201;outline:0;vertical-align:middle}
+		#so360_keyword{background:url(https://p.ssl.qhimg.com/t01ab1a3fb05f0ee893.png) no-repeat 236px center}
+		#so360_submit{width:60px;height:40px;border:0;color:#fff;background:#061201;
+		font-weight:bold;font:bold 14px arial;padding:0;padding-top:3px\9;cursor:pointer;
+		vertical-align:middle}
+	</style>
+	<div id="so360">
+	    <form action="http://www.so.com/s" target="_blank" id="so360form">
+	   <input type="text" autocomplete="off" name="q" id="so360_keyword">
+	        <input type="submit" id="so360_submit" value="搜 索">
+	        <input type="hidden" name="ie" value="utf8">
+	        <input type="hidden" name="src" value="zz_brizer.top">
+	        <input type="hidden" name="site" value="brizer.top">
+	        <input type="hidden" name="rg" value="1">
+	    </form>
+	</div> 
+	
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/demo" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            demo
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                NEJ之组件化开发
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-29T08:35:29+08:00" content="2016-03-29">
+              2016-03-29
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/nej/" itemprop="url" rel="index">
+                    <span itemprop="name">nej</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/03/29/NEJ之组件化开发/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/29/NEJ之组件化开发/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+                    
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+              </span>
+                     
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="NEJ&#x4E4B;&#x7EC4;&#x4EF6;&#x5316;&#x5F00;&#x53D1;"><a href="#NEJ&#x4E4B;&#x7EC4;&#x4EF6;&#x5316;&#x5F00;&#x53D1;" class="headerlink" title="NEJ&#x4E4B;&#x7EC4;&#x4EF6;&#x5316;&#x5F00;&#x53D1;"></a><strong>NEJ&#x4E4B;&#x7EC4;&#x4EF6;&#x5316;&#x5F00;&#x53D1;</strong></h1><h2 id="&#x524D;&#x8A00;"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a><strong>&#x524D;&#x8A00;</strong></h2><p>&#x7EC4;&#x4EF6;&#x662F;&#x4E00;&#x4E2A;&#x53EF;&#x4EE5;&#x72EC;&#x7ACB;&#x8FD0;&#x884C;&#x7684;&#x7CFB;&#x7EDF;&#x6216;&#x6A21;&#x5757;&#xFF0C;&#x5176;&#x76EE;&#x7684;&#x662F;&#x4E3A;&#x4E86;&#x5C06;&#x7A0B;&#x5E8F;&#x6A21;&#x5757;&#x5316;&#xFF0C;&#x5B9E;&#x73B0;&#x91CD;&#x7528;&#x3002;&#x672C;&#x6587;&#x4E3B;&#x8981;&#x662F;&#x5BF9;NEJ&#x7684;&#x7EC4;&#x4EF6;&#x5316;&#x5F00;&#x53D1;&#x65B9;&#x5F0F;&#x8FDB;&#x884C;&#x5B66;&#x4E60;&#x3002;</p>
+<hr>
+<h2 id="&#x7C7B;&#x6A21;&#x578B;"><a href="#&#x7C7B;&#x6A21;&#x578B;" class="headerlink" title="&#x7C7B;&#x6A21;&#x578B;"></a><strong>&#x7C7B;&#x6A21;&#x578B;</strong></h2><h3 id="&#x5B9A;&#x4E49;NEJ-C"><a href="#&#x5B9A;&#x4E49;NEJ-C" class="headerlink" title="&#x5B9A;&#x4E49;NEJ.C"></a><strong>&#x5B9A;&#x4E49;NEJ.C</strong></h3><p>&#x4F7F;&#x7528;NEJ.C&#x65B9;&#x6CD5;&#x6765;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x7C7B;&#xFF1A;</p>
+<p><img src="/2016/03/29/NEJ&#x4E4B;&#x7EC4;&#x4EF6;&#x5316;&#x5F00;&#x53D1;/4-1.jpg" alt="images"></p>
+<p>&#x901A;&#x8FC7;&#x6B64;&#x65B9;&#x6CD5;&#x5B9A;&#x4E49;&#x7684;&#x7C7B;&#x5177;&#x6709;&#x4EE5;&#x4E0B;&#x7279;&#x6027;&#xFF1A;</p>
+<ol>
+<li>&#x5177;&#x6709;&#x9759;&#x6001;&#x65B9;&#x6CD5;_$extend&#xFF0C;&#x53EF;&#x4EE5;&#x4ECE;&#x5176;&#x4ED6;&#x7C7B;&#x7EE7;&#x627F;</li>
+<li>&#x5B9E;&#x4F8B;&#x5177;&#x6709;<code>init</code>&#x65B9;&#x6CD5;&#x7528;&#x6765;&#x521D;&#x59CB;&#x5316;&#x7EC4;&#x4EF6;&#xFF0C;&#x8BE5;&#x65B9;&#x6CD5;&#x4E2D;&#x901A;&#x8FC7;<code>supInit</code>&#x8C03;&#x7528;&#x7236;&#x7C7B;<code>__init</code>&#x65B9;&#x6CD5;&#x3002;</li>
+</ol>
+<h3 id="&#x7EE7;&#x627F;-extend"><a href="#&#x7EE7;&#x627F;-extend" class="headerlink" title="&#x7EE7;&#x627F;_$extend"></a><strong>&#x7EE7;&#x627F;_$extend</strong></h3><p>&#x901A;&#x8FC7;NEJ.C&#x5B9A;&#x4E49;&#x7684;&#x7C7B;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<code>_$extend</code>&#x65B9;&#x6CD5;&#x6765;&#x7EE7;&#x627F;&#xFF1A;</p>
+<p><img src="/2016/03/29/NEJ&#x4E4B;&#x7EC4;&#x4EF6;&#x5316;&#x5F00;&#x53D1;/4-2.jpg" alt="images"></p>
+<p><img src="/2016/03/29/NEJ&#x4E4B;&#x7EC4;&#x4EF6;&#x5316;&#x5F00;&#x53D1;/4-3.jpg" alt="images"></p>
+<h3 id="&#x5B9E;&#x73B0;init"><a href="#&#x5B9E;&#x73B0;init" class="headerlink" title="&#x5B9E;&#x73B0;init"></a><strong>&#x5B9E;&#x73B0;init</strong></h3><p>&#x901A;&#x8FC7;NEJ.C&#x5B9A;&#x4E49;&#x7684;&#x7C7B;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>init</code>&#x6765;&#x521D;&#x59CB;&#x5316;&#x7C7B;&#xFF1A;</p>
+<p>__init</p>
+<p><img src="/2016/03/29/NEJ&#x4E4B;&#x7EC4;&#x4EF6;&#x5316;&#x5F00;&#x53D1;/4-4.jpg" alt="images"></p>
+<p><img src="/2016/03/29/NEJ&#x4E4B;&#x7EC4;&#x4EF6;&#x5316;&#x5F00;&#x53D1;/4-5.jpg" alt="images"></p>
+<hr>
+<h2 id="&#x7EC4;&#x4EF6;&#x4F53;&#x7CFB;"><a href="#&#x7EC4;&#x4EF6;&#x4F53;&#x7CFB;" class="headerlink" title="&#x7EC4;&#x4EF6;&#x4F53;&#x7CFB;"></a><strong>&#x7EC4;&#x4EF6;&#x4F53;&#x7CFB;</strong></h2><p>&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><img src="/2016/03/29/NEJ&#x4E4B;&#x7EC4;&#x4EF6;&#x5316;&#x5F00;&#x53D1;/4-6.jpg" alt="images"></p>
+<p>&#x5E95;&#x5C42;&#x90FD;&#x662F;&#x4E8B;&#x4EF6;&#x9A71;&#x52A8;&#xFF0C;&#x5206;&#x4E3A;Util&#x548C;UI&#x7EC4;&#x4EF6;&#x3002;</p>
+<p>Util&#x4E3B;&#x8981;&#x662F;<strong>&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x7684;&#x5B9E;&#x73B0;</strong>&#xFF0C;UI&#x4E3B;&#x8981;&#x662F;&#x5BF9;<strong>&#x7EC4;&#x4EF6;&#x7684;&#x89C6;&#x89C9;&#x5916;&#x89C2;&#x4EE5;&#x53CA;&#x7ED3;&#x6784;</strong>&#x7684;&#x5B9E;&#x73B0;&#x3002;</p>
+<p>&#x7531;&#x4E8E;UI&#x662F;&#x7D27;&#x8026;&#x5408;&#xFF0C;&#x6240;&#x4EE5;<strong>Util&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x91CD;&#x7528;</strong>&#xFF0C;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x5730;&#x65B9;<strong>&#x53EA;&#x9700;&#x8981;&#x8C03;&#x6574;&#x5BF9;&#x5E94;&#x7684;UI</strong>&#x5373;&#x53EF;&#x3002;</p>
+<hr>
+<h2 id="Util&#x7EC4;&#x4EF6;"><a href="#Util&#x7EC4;&#x4EF6;" class="headerlink" title="Util&#x7EC4;&#x4EF6;"></a><strong>Util&#x7EC4;&#x4EF6;</strong></h2><p>NEJ&#x4E2D;&#x6240;&#x6709;&#x7EC4;&#x4EF6;&#x90FD;&#x7EE7;&#x627F;&#x81EA;nej.ut._$$Event&#x7C7B;&#xFF0C;&#x8BE5;&#x7C7B;&#x4E3B;&#x8981;&#x5B9E;&#x73B0;&#x7EC4;&#x4EF6;&#x5206;&#x914D;&#x56DE;&#x6536;&#x7684;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x53CA;&#x5BF9;&#x4E8B;&#x4EF6;&#x9A71;&#x52A8;&#x7684;&#x652F;&#x6301;,&#x6B64;&#x7C7B;&#x63A7;&#x4EF6;&#x5173;&#x6CE8;&#x529F;&#x80FD;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x4E0D;&#x5173;&#x6CE8;&#x89C6;&#x89C9;&#x6548;&#x679C;&#x3002;&#x4E00;&#x822C;&#x7531;NEJ&#x6846;&#x67B6;&#x6765;&#x8FDB;&#x884C;&#x7EDF;&#x4E00;&#x7EF4;&#x62A4;&#x3002;</p>
+<p><img src="/2016/03/29/NEJ&#x4E4B;&#x7EC4;&#x4EF6;&#x5316;&#x5F00;&#x53D1;/4-7.jpg" alt="images"></p>
+<p>&#x63A7;&#x4EF6;&#x91C7;&#x7528;&#x5206;&#x914D;&#x56DE;&#x6536;&#x91CD;&#x7528;&#x673A;&#x5236;&#xFF0C;&#x56E0;&#x6B64;&#x63A7;&#x4EF6;&#x9700;&#x5B9E;&#x73B0;<strong>init&#x3001;</strong>reset&#x3001;__destroy&#x63A5;&#x53E3;&#xFF0C;&#x5176;&#x4ED6;&#x6269;&#x5C55;&#x7684;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x6839;&#x636E;&#x63A7;&#x4EF6;&#x5B9E;&#x9645;&#x9700;&#x6C42;&#x5B9E;&#x73B0;&#xFF1A;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">NEJ.define([</span><br><span class="line">    <span class="string">&apos;base/klass&apos;</span>,</span><br><span class="line">    <span class="string">&apos;util/event&apos;</span></span><br><span class="line">],<span class="function"><span class="keyword">function</span>(<span class="params">_k,_t,_p</span>)</span>{</span><br><span class="line">    <span class="keyword">var</span> _pro;</span><br><span class="line">    <span class="comment">// &#x5B9A;&#x4E49;&#x63A7;&#x4EF6;</span></span><br><span class="line">    _p._$$Widget = _k._$klass();</span><br><span class="line">    <span class="comment">// &#x7EE7;&#x627F;_$$EventTarget</span></span><br><span class="line">    _pro = _p._$$Widget._$extend(_t._$$EventTarget);</span><br><span class="line">    <span class="comment">// &#x63A7;&#x4EF6;&#x9996;&#x6B21;&#x521B;&#x5EFA;&#x6784;&#x9020;&#x8FC7;&#x7A0B;</span></span><br><span class="line">    _pro.__init = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="keyword">this</span>.__super();</span><br><span class="line">        <span class="comment">// TODO</span></span><br><span class="line">    };</span><br><span class="line">    <span class="comment">// &#x63A7;&#x4EF6;&#x91CD;&#x590D;&#x4F7F;&#x7528;&#x91CD;&#x7F6E;&#x8FC7;&#x7A0B;</span></span><br><span class="line">    <span class="comment">// &#x91CD;&#x7F6E;&#x8FC7;&#x7A0B;&#x53EF;&#x4EE5;&#x63A5;&#x53D7;&#x5230;&#x5206;&#x914D;&#x63A7;&#x4EF6;&#x65F6;&#x8F93;&#x5165;&#x7684;&#x914D;&#x7F6E;&#x4FE1;&#x606F;</span></span><br><span class="line">    _pro.__reset = <span class="function"><span class="keyword">function</span>(<span class="params">_options</span>)</span>{</span><br><span class="line">        <span class="keyword">this</span>.__super(_options);</span><br><span class="line">        <span class="comment">// TODO</span></span><br><span class="line">    };</span><br><span class="line">    <span class="comment">// &#x63A7;&#x4EF6;&#x56DE;&#x6536;&#x9500;&#x6BC1;&#x8FC7;&#x7A0B;</span></span><br><span class="line">    _pro.__destroy = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="keyword">this</span>.__super();</span><br><span class="line">        <span class="comment">// TODO</span></span><br><span class="line">    };</span><br><span class="line"></span><br><span class="line">    <span class="comment">// &#x6269;&#x5C55;&#x79C1;&#x6709;&#x63A5;&#x53E3;</span></span><br><span class="line">    _pro._myPrivateMethod = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="comment">// TODO</span></span><br><span class="line">    };</span><br><span class="line">    <span class="comment">// &#x6269;&#x5C55;&#x4FDD;&#x62A4;&#x63A5;&#x53E3;</span></span><br><span class="line">    _pro.__myProtectedMethod = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="comment">// TODO</span></span><br><span class="line">    };</span><br><span class="line">    <span class="comment">// &#x6269;&#x5C55;&#x5BF9;&#x5916;&#x63A5;&#x53E3;</span></span><br><span class="line">    _pro._$myPublicMethod = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="comment">// TODO</span></span><br><span class="line">    };</span><br><span class="line"></span><br><span class="line">    <span class="comment">// TODO</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> _p;</span><br><span class="line">});</span><br></pre></td></tr></table></figure>
+<p>&#x7C7B;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<h3 id="allocate"><a href="#allocate" class="headerlink" title="_$allocate"></a><strong>_$allocate</strong></h3><h3 id="recycle"><a href="#recycle" class="headerlink" title="_$recycle"></a><strong>_$recycle</strong></h3><p>&#x7EC4;&#x4EF6;&#x4F7F;&#x7528;&#x5206;&#x914D;&#x56DE;&#x6536;&#x673A;&#x5236;&#xFF0C;&#x800C;&#x4E0D;&#x662F;new&#x673A;&#x5236;&#x3002;</p>
+<p><img src="/2016/03/29/NEJ&#x4E4B;&#x7EC4;&#x4EF6;&#x5316;&#x5F00;&#x53D1;/4-8.jpg" alt="images"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">NEJ.define([</span><br><span class="line">    <span class="string">&apos;/path/to/widget.js&apos;</span></span><br><span class="line">],<span class="function"><span class="keyword">function</span>(<span class="params">_t</span>)</span>{</span><br><span class="line">    <span class="comment">// &#x5206;&#x914D;&#x63A7;&#x4EF6;</span></span><br><span class="line">    <span class="keyword">var</span> _widget = _t._$$Widget._$allocate({</span><br><span class="line">        a:<span class="string">&apos;aaaaaaaa&apos;</span>,</span><br><span class="line">        b:<span class="string">&apos;bbbbbbbbbbb&apos;</span>,</span><br><span class="line">        c:<span class="string">&apos;ccccccccccccc&apos;</span>,</span><br><span class="line">        onchange:<span class="function"><span class="keyword">function</span>(<span class="params">_event</span>)</span>{</span><br><span class="line">            <span class="comment">// &#x63A7;&#x4EF6;&#x652F;&#x6301;&#x7684;&#x4E8B;&#x4EF6;</span></span><br><span class="line">            <span class="comment">// _event.x</span></span><br><span class="line">            <span class="comment">// _event.y</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// TODO</span></span><br><span class="line">        },</span><br><span class="line">        onupdate:<span class="function"><span class="keyword">function</span>(<span class="params">_event</span>)</span>{</span><br><span class="line">            <span class="comment">// &#x63A7;&#x4EF6;&#x652F;&#x6301;&#x7684;&#x4E8B;&#x4EF6;</span></span><br><span class="line">            <span class="comment">// _event.a</span></span><br><span class="line">            <span class="comment">// _event.b</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// TODO</span></span><br><span class="line">        }</span><br><span class="line">    });</span><br><span class="line"></span><br><span class="line">    <span class="comment">// &#x5916;&#x754C;&#x53EF;&#x4EE5;&#x8C03;&#x7528;&#x63A7;&#x4EF6;&#x7684;public&#x65B9;&#x6CD5;</span></span><br><span class="line">    _widget._$myPublicMethod();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// &#x56DE;&#x6536;&#x63A7;&#x4EF6;</span></span><br><span class="line">    <span class="comment">// &#x6CE8;&#x610F;&#x8FD9;&#x91CC;&#x5FC5;&#x987B;&#x5C06;&#x539F;&#x63A7;&#x4EF6;&#x6301;&#x6709;&#x7684;&#x5F15;&#x7528;&#x7F6E;&#x7A7A;</span></span><br><span class="line">    _widget = _widget._$recycle();</span><br><span class="line">    <span class="comment">// &#x6216;&#x8005;</span></span><br><span class="line">    _widget._$recycle();</span><br><span class="line">    _widget = <span class="literal">null</span>;</span><br><span class="line">});</span><br></pre></td></tr></table></figure>
+<h3 id="getInstance"><a href="#getInstance" class="headerlink" title="_$getInstance"></a><strong>_$getInstance</strong></h3><p><img src="/2016/03/29/NEJ&#x4E4B;&#x7EC4;&#x4EF6;&#x5316;&#x5F00;&#x53D1;/4-9.jpg" alt="images"></p>
+<p>&#x5B9E;&#x4F8B;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<h3 id="reset"><a href="#reset" class="headerlink" title="__reset"></a><strong>__reset</strong></h3><p><img src="/2016/03/29/NEJ&#x4E4B;&#x7EC4;&#x4EF6;&#x5316;&#x5F00;&#x53D1;/4-10.jpg" alt="images"></p>
+<p>&#x8BE5;&#x65B9;&#x5F0F;&#x662F;&#x63A7;&#x4EF6;&#x91CD;&#x7F6E;&#x65F6;&#x89E6;&#x53D1;&#x7684;&#xFF0C;&#x7236;&#x5BB9;&#x5668;&#x548C;&#x5B50;&#x7EC4;&#x4EF6;&#x901A;&#x4FE1;&#x65F6;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4F20;&#x9012;&#x53C2;&#x6570;&#xFF0C;&#x7136;&#x540E;&#x5B50;&#x7EC4;&#x4EF6;&#x5728;&#x8BE5;&#x9636;&#x6BB5;&#x63A5;&#x6536;&#x53C2;&#x6570;.<br>&#x770B;&#x4E00;&#x4E2A;demo&#xFF0C;&#x7236;&#x5BB9;&#x5668;&#x4E2D;&#x901A;&#x8FC7;allocate&#x8C03;&#x7528;&#x5B50;&#x7EC4;&#x4EF6;&#x65F6;&#x4F20;&#x5165;&#x53C2;&#x6570;codeType&#xFF1A;</p>
+<p><img src="/2016/03/29/NEJ&#x4E4B;&#x7EC4;&#x4EF6;&#x5316;&#x5F00;&#x53D1;/1.png" alt="images"></p>
+<p>&#x5B50;&#x7EC4;&#x4EF6;&#x5728;reset&#x65F6;&#x63A5;&#x6536;&#x53C2;&#x6570;&#xFF0C;&#x901A;&#x8FC7;options&#x7EDF;&#x4E00;&#x7BA1;&#x7406;&#x53C2;&#x6570;&#xFF1A;</p>
+<p><img src="/2016/03/29/NEJ&#x4E4B;&#x7EC4;&#x4EF6;&#x5316;&#x5F00;&#x53D1;/2.png" alt="images"></p>
+<h3 id="supReset"><a href="#supReset" class="headerlink" title="__supReset"></a><strong>__supReset</strong></h3><p><img src="/2016/03/29/NEJ&#x4E4B;&#x7EC4;&#x4EF6;&#x5316;&#x5F00;&#x53D1;/4-11.jpg" alt="images"></p>
+<h3 id="destroy"><a href="#destroy" class="headerlink" title="__destroy"></a><strong>__destroy</strong></h3><p><img src="/2016/03/29/NEJ&#x4E4B;&#x7EC4;&#x4EF6;&#x5316;&#x5F00;&#x53D1;/4-12.jpg" alt="images"></p>
+<h3 id="supDestroy"><a href="#supDestroy" class="headerlink" title="__supDestroy"></a><strong>__supDestroy</strong></h3><p><img src="/2016/03/29/NEJ&#x4E4B;&#x7EC4;&#x4EF6;&#x5316;&#x5F00;&#x53D1;/4-13.jpg" alt="images"></p>
+<h3 id="doInitDomEvent"><a href="#doInitDomEvent" class="headerlink" title="__doInitDomEvent"></a><strong>__doInitDomEvent</strong></h3><p><img src="/2016/03/29/NEJ&#x4E4B;&#x7EC4;&#x4EF6;&#x5316;&#x5F00;&#x53D1;/4-14.jpg" alt="images"></p>
+<p>&#x5F53;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x7ED9;&#x4E00;&#x7FA4;&#x8282;&#x70B9;&#x7ED1;&#x5B9A;&#x4E8B;&#x4EF6;&#x65F6;&#xFF0C;&#x9700;&#x8981;&#x901A;&#x8FC7;forEach&#x548C;&#x8BE5;&#x65B9;&#x6CD5;&#x914D;&#x5408;&#x6765;&#x7ED1;&#x5B9A;&#x4E8B;&#x4EF6;&#x3002;<br>&#x770B;&#x4E00;&#x4E2A;demo&#xFF1A;</p>
+<p><img src="/2016/03/29/NEJ&#x4E4B;&#x7EC4;&#x4EF6;&#x5316;&#x5F00;&#x53D1;/3.png" alt="images"></p>
+<p>&#x5982;&#x679C;&#x9700;&#x8981;&#x7ED1;&#x5B9A;&#x7684;&#x8282;&#x70B9;&#x8F83;&#x591A;&#xFF0C;&#x6211;&#x4EEC;&#x4E5F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;NEJ&#x7248;&#x7684;&#x4E8B;&#x4EF6;&#x59D4;&#x6258;&#x6765;&#x5904;&#x7406;&#xFF1A;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">v._$addEvent(<span class="keyword">this</span>.__validRdosNodes,<span class="string">&apos;click&apos;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">_event</span>)</span>{    </span><br><span class="line">    <span class="keyword">var</span> _node = v._$getElement(_event,<span class="string">&apos;c:j-validTypeRdo&apos;</span>);       </span><br><span class="line">    <span class="keyword">if</span>(!!_node){</span><br><span class="line">        <span class="keyword">switch</span>(e._$id(_node)){</span><br><span class="line">            <span class="keyword">case</span> <span class="string">&apos;validTypeRdo-1&apos;</span> : </span><br><span class="line">                eu._$showNode(<span class="keyword">this</span>.__validDateNode);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="string">&apos;validTypeRdo-2&apos;</span> :</span><br><span class="line">                eu._$hiddenNode(<span class="keyword">this</span>.__validDateNode);                      </span><br><span class="line">                <span class="keyword">break</span>;            </span><br><span class="line">            <span class="keyword">default</span> :</span><br><span class="line">                <span class="keyword">break</span>;    </span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}._$bind(<span class="keyword">this</span>));</span><br></pre></td></tr></table></figure>
+<h3 id="recycle-1"><a href="#recycle-1" class="headerlink" title="_$recycle"></a><strong>_$recycle</strong></h3><p><img src="/2016/03/29/NEJ&#x4E4B;&#x7EC4;&#x4EF6;&#x5316;&#x5F00;&#x53D1;/4-15.jpg" alt="images"></p>
+<p>&#x4E8B;&#x4EF6;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<h3 id="setEvent"><a href="#setEvent" class="headerlink" title="_$setEvent"></a><strong>_$setEvent</strong></h3><p><img src="/2016/03/29/NEJ&#x4E4B;&#x7EC4;&#x4EF6;&#x5316;&#x5F00;&#x53D1;/4-16.jpg" alt="images"></p>
+<h3 id="batEvent"><a href="#batEvent" class="headerlink" title="_$batEvent"></a><strong>_$batEvent</strong></h3><p><img src="/2016/03/29/NEJ&#x4E4B;&#x7EC4;&#x4EF6;&#x5316;&#x5F00;&#x53D1;/4-17.jpg" alt="images"></p>
+<h3 id="hasEvent"><a href="#hasEvent" class="headerlink" title="_$hasEvent"></a><strong>_$hasEvent</strong></h3><p><img src="/2016/03/29/NEJ&#x4E4B;&#x7EC4;&#x4EF6;&#x5316;&#x5F00;&#x53D1;/4-18.jpg" alt="images"></p>
+<h3 id="clearEvent"><a href="#clearEvent" class="headerlink" title="_$clearEvent"></a><strong>_$clearEvent</strong></h3><p><img src="/2016/03/29/NEJ&#x4E4B;&#x7EC4;&#x4EF6;&#x5316;&#x5F00;&#x53D1;/4-19.jpg" alt="images"></p>
+<h3 id="appendEvent"><a href="#appendEvent" class="headerlink" title="_$appendEvent"></a><strong>_$appendEvent</strong></h3><p><img src="/2016/03/29/NEJ&#x4E4B;&#x7EC4;&#x4EF6;&#x5316;&#x5F00;&#x53D1;/4-20.jpg" alt="images"></p>
+<h3 id="dispatchEvent"><a href="#dispatchEvent" class="headerlink" title="_dispatchEvent"></a><strong>_dispatchEvent</strong></h3><p>&#x901A;&#x8FC7;&#x81EA;&#x5B9A;&#x4E49;&#x4E8B;&#x4EF6;&#x7684;&#x89E6;&#x53D1;&#x6765;&#x8FDB;&#x884C;&#x901A;&#x4FE1;&#x3002;</p>
+<p><img src="/2016/03/29/NEJ&#x4E4B;&#x7EC4;&#x4EF6;&#x5316;&#x5F00;&#x53D1;/4-21.jpg" alt="images"></p>
+<p>&#x8FD9;&#x91CC;&#x770B;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#xFF1A;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">NEJ.define([</span><br><span class="line">    <span class="string">&apos;base/klass&apos;</span>,</span><br><span class="line">    <span class="string">&apos;util/event&apos;</span></span><br><span class="line">],<span class="function"><span class="keyword">function</span>(<span class="params">_k,_t,_p</span>)</span>{</span><br><span class="line">    <span class="keyword">var</span> _pro;</span><br><span class="line">    <span class="comment">// &#x5B9A;&#x4E49;&#x63A7;&#x4EF6;</span></span><br><span class="line">    _p._$$Widget = _k._$klass();</span><br><span class="line">    <span class="comment">// &#x7EE7;&#x627F;_$$EventTarget</span></span><br><span class="line">    _pro = _p._$$Widget._$extend(_t._$$EventTarget);</span><br><span class="line">    <span class="comment">// &#x63A7;&#x4EF6;&#x9996;&#x6B21;&#x521B;&#x5EFA;&#x6784;&#x9020;&#x8FC7;&#x7A0B;</span></span><br><span class="line">    _pro.__init = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="keyword">this</span>.__super();</span><br><span class="line">        <span class="comment">// TODO</span></span><br><span class="line">    };</span><br><span class="line">    <span class="comment">// &#x63A7;&#x4EF6;&#x91CD;&#x590D;&#x4F7F;&#x7528;&#x91CD;&#x7F6E;&#x8FC7;&#x7A0B;</span></span><br><span class="line">    <span class="comment">// &#x91CD;&#x7F6E;&#x8FC7;&#x7A0B;&#x53EF;&#x4EE5;&#x63A5;&#x53D7;&#x5230;&#x5206;&#x914D;&#x63A7;&#x4EF6;&#x65F6;&#x8F93;&#x5165;&#x7684;&#x914D;&#x7F6E;&#x4FE1;&#x606F;</span></span><br><span class="line">    _pro.__reset = <span class="function"><span class="keyword">function</span>(<span class="params">_options</span>)</span>{</span><br><span class="line">        <span class="keyword">this</span>.__super(_options);</span><br><span class="line">        <span class="comment">// TODO</span></span><br><span class="line">    };</span><br><span class="line">    <span class="comment">// &#x63A7;&#x4EF6;&#x56DE;&#x6536;&#x9500;&#x6BC1;&#x8FC7;&#x7A0B;</span></span><br><span class="line">    _pro.__destroy = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="keyword">this</span>.__super();</span><br><span class="line">        <span class="comment">// TODO</span></span><br><span class="line">    };</span><br><span class="line"></span><br><span class="line">    <span class="comment">// &#x6269;&#x5C55;&#x79C1;&#x6709;&#x63A5;&#x53E3;</span></span><br><span class="line">    _pro._myPrivateMethod = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="comment">// TODO</span></span><br><span class="line">        <span class="comment">// &#x89E6;&#x53D1;&#x81EA;&#x5B9A;&#x4E49;&#x7684;onchange&#x4E8B;&#x4EF6;</span></span><br><span class="line">        <span class="keyword">this</span>._$dispatchEvent(</span><br><span class="line">            <span class="string">&apos;onchange&apos;</span>,{</span><br><span class="line">                x:<span class="string">&apos;xxxxx&apos;</span>,</span><br><span class="line">                y:<span class="string">&apos;yyyyyyy&apos;</span></span><br><span class="line">            }</span><br><span class="line">        );</span><br><span class="line">    };</span><br><span class="line">    <span class="comment">// &#x6269;&#x5C55;&#x4FDD;&#x62A4;&#x63A5;&#x53E3;</span></span><br><span class="line">    _pro.__myProtectedMethod = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="comment">// TODO</span></span><br><span class="line">        <span class="comment">// &#x89E6;&#x53D1;&#x81EA;&#x5B9A;&#x4E49;&#x7684;onupdate&#x4E8B;&#x4EF6;</span></span><br><span class="line">        <span class="keyword">this</span>._$dispatchEvent(</span><br><span class="line">            <span class="string">&apos;onupdate&apos;</span>,{</span><br><span class="line">                a:<span class="string">&apos;aaaa&apos;</span>,</span><br><span class="line">                b:<span class="string">&apos;bbbbbbb&apos;</span></span><br><span class="line">            }</span><br><span class="line">        );</span><br><span class="line">    };</span><br><span class="line">    <span class="comment">// &#x6269;&#x5C55;&#x5BF9;&#x5916;&#x63A5;&#x53E3;</span></span><br><span class="line">    _pro._$myPublicMethod = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="comment">// TODO</span></span><br><span class="line">    };</span><br><span class="line"></span><br><span class="line">    <span class="comment">// TODO</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> _p;</span><br><span class="line">});</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="UI&#x7EC4;&#x4EF6;"><a href="#UI&#x7EC4;&#x4EF6;" class="headerlink" title="UI&#x7EC4;&#x4EF6;"></a><strong>UI&#x7EC4;&#x4EF6;</strong></h2><p>UI&#x7EE7;&#x627F;&#x81EA;Util&#xFF0C;&#x56E0;&#x6B64;&#x5177;&#x6709;Util&#x7684;&#x57FA;&#x672C;&#x884C;&#x4E3A;&#x3002;&#x5B9E;&#x9645;&#x5F00;&#x53D1;&#x9879;&#x76EE;&#x4E2D;&#xFF0C;&#x5F00;&#x53D1;&#x8005;&#x5F80;&#x5F80;&#x81EA;&#x5DF1;&#x5B9A;&#x4E49;UI&#x7EC4;&#x4EF6;&#x3002;</p>
+<p><img src="/2016/03/29/NEJ&#x4E4B;&#x7EC4;&#x4EF6;&#x5316;&#x5F00;&#x53D1;/4-22.jpg" alt="images"></p>
+<h3 id="initXGui"><a href="#initXGui" class="headerlink" title="__initXGui"></a><strong>__initXGui</strong></h3><p>&#x7528;&#x6765;&#x521D;&#x59CB;&#x5316;&#x5916;&#x89C2;&#xFF0C;&#x6B64;&#x8FC7;&#x7A0B;&#x53EA;&#x4F1A;&#x5728;&#x7EC4;&#x4EF6;&#x7B2C;&#x4E00;&#x6B21;&#x521B;&#x5EFA;&#x65F6;&#x8FDB;&#x5165;&#x3002;</p>
+<p><img src="/2016/03/29/NEJ&#x4E4B;&#x7EC4;&#x4EF6;&#x5316;&#x5F00;&#x53D1;/4-23.jpg" alt="images"></p>
+<p>&#x8FD9;&#x91CC;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x4E00;&#x70B9;&#xFF0C;&#x5C31;&#x662F;<strong>&#x8FD9;&#x91CC;&#x662F;&#x4FDD;&#x5B58;&#x5404;&#x4E2A;util&#x7EC4;&#x4EF6;&#x7684;&#x7ED3;&#x6784;&#x5230;&#x5185;&#x5B58;&#x4E2D;&#xFF0C;&#x4ECE;&#x800C;&#x4F18;&#x5316;&#x6027;&#x80FD;</strong>&#x3002;&#x6240;&#x4EE5;&#x8BF4;&#x5728;&#x7EC4;&#x4EF6;&#x5185;&#x90E8;&#x5982;&#x679C;&#x9700;&#x8981;&#x6839;&#x636E;&#x4E0D;&#x540C;&#x7684;&#x72B6;&#x6001;&#x663E;&#x793A;&#x4E0D;&#x540C;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x9700;&#x8981;&#x5728;&#x5185;&#x90E8;&#x7684;&#x903B;&#x8F91;&#x4E2D;<strong>&#x52A8;&#x6001;&#x4FEE;&#x6539;&#x6A21;&#x677F;&#x7684;&#x7ED3;&#x6784;</strong>&#xFF0C;&#x800C;&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x901A;&#x8FC7;display:none&#x8FD9;&#x6837;&#x7684;&#x65B9;&#x6CD5;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x5FC5;&#x987B;&#x5F15;&#x8D77;&#x91CD;&#x6392;&#xFF0C;&#x7ED3;&#x6784;&#x624D;&#x4F1A;&#x771F;&#x6B63;&#x7684;&#x5237;&#x65B0;&#xFF0C;<strong>&#x5426;&#x5219;&#x4F1A;&#x51FA;&#x73B0;&#x6570;&#x636E;&#x548C;&#x72B6;&#x6001;&#x7684;&#x6DF7;&#x4E71;</strong>&#x3002;[&#x8E29;&#x8FC7;&#x7684;&#x5751;&#xFF01;&#xFF01;]</p>
+<p>&#x770B;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;&#xFF1A;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">NEJ.define([</span><br><span class="line">    <span class="string">&apos;base/klass&apos;</span>,</span><br><span class="line">    <span class="string">&apos;base/element&apos;</span>,</span><br><span class="line">    <span class="string">&apos;util/template/tpl&apos;</span>,</span><br><span class="line">    <span class="string">&apos;ui/base&apos;</span>,</span><br><span class="line">    <span class="string">&apos;text!./widget.css&apos;</span>,</span><br><span class="line">    <span class="string">&apos;text!./widget.html&apos;</span></span><br><span class="line">],<span class="function"><span class="keyword">function</span>(<span class="params">_k,_e,_t,_i,_css,_html,_p</span>)</span>{</span><br><span class="line">    <span class="keyword">var</span> _pro;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// &#x5B9A;&#x4E49;UI&#x63A7;&#x4EF6;</span></span><br><span class="line">    _p._$$UIWidget = _k._$klass();</span><br><span class="line">    _pro = _p._$$UIWidget._$extend(_i._$$Abstract);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// &#x6309;&#x9700;&#x5B8C;&#x6210;&#x901A;&#x7528;&#x63A7;&#x4EF6;&#x63A5;&#x53E3;&#x91CD;&#x5199;</span></span><br><span class="line">    <span class="comment">// _pro.__init ...</span></span><br><span class="line">    <span class="comment">// _pro.__reset ...</span></span><br><span class="line">    <span class="comment">// _pro.__destroy ...</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// &#x521D;&#x59CB;&#x5316;&#x5916;&#x89C2;</span></span><br><span class="line">    <span class="comment">// &#x6B64;&#x8FC7;&#x7A0B;&#x53EA;&#x4F1A;&#x5728;&#x63A7;&#x4EF6;&#x7B2C;&#x4E00;&#x6B21;&#x521B;&#x5EFA;&#x65F6;&#x8FDB;&#x5165;</span></span><br><span class="line">    _pro.__initXGui = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="comment">// &#x5C06;&#x6CE8;&#x5165;&#x7684;&#x6837;&#x5F0F;/&#x7ED3;&#x6784;&#x505A;&#x9884;&#x5904;&#x7406;&#x540E;&#x7F13;&#x5B58;</span></span><br><span class="line">        <span class="keyword">var</span> _seed_css = _e._$pushCSSText(_css),</span><br><span class="line">            _seed_html = _t._$addNodeTemplate(_html);</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">            <span class="keyword">this</span>.__seed_css = _seed_css;</span><br><span class="line">            <span class="keyword">this</span>.__seed_html = _seed_html;</span><br><span class="line">        };</span><br><span class="line">    })();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// TODO</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> _p;</span><br><span class="line">});</span><br></pre></td></tr></table></figure></p>
+<h3 id="initNode"><a href="#initNode" class="headerlink" title="__initNode"></a><strong>__initNode</strong></h3><p>&#x7528;&#x6765;&#x521D;&#x59CB;&#x5316;&#x7ED3;&#x6784;&#xFF0C;&#x6B64;&#x8FC7;&#x7A0B;&#x4E5F;&#x662F;&#x53EA;&#x4F1A;&#x51FA;&#x73B0;&#x5728;&#x7EC4;&#x4EF6;&#x7B2C;&#x4E00;&#x6B21;&#x521B;&#x5EFA;&#x65F6;</p>
+<p><img src="/2016/03/29/NEJ&#x4E4B;&#x7EC4;&#x4EF6;&#x5316;&#x5F00;&#x53D1;/4-24.jpg" alt="images"></p>
+<p>&#x770B;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#xFF1A;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">NEJ.define([</span><br><span class="line">    <span class="string">&apos;base/klass&apos;</span>,</span><br><span class="line">    <span class="string">&apos;base/element&apos;</span>,</span><br><span class="line">    <span class="string">&apos;util/template/tpl&apos;</span>,</span><br><span class="line">    <span class="string">&apos;ui/base&apos;</span>,</span><br><span class="line">    <span class="string">&apos;text!./widget.css&apos;</span>,</span><br><span class="line">    <span class="string">&apos;text!./widget.html&apos;</span></span><br><span class="line">],<span class="function"><span class="keyword">function</span>(<span class="params">_k,_e,_t,_i,_css,_html,_p</span>)</span>{</span><br><span class="line">    <span class="keyword">var</span> _pro;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// &#x5B9A;&#x4E49;UI&#x63A7;&#x4EF6;</span></span><br><span class="line">    _p._$$UIWidget = _k._$klass();</span><br><span class="line">    _pro = _p._$$UIWidget._$extend(_i._$$Abstract);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// &#x6309;&#x9700;&#x5B8C;&#x6210;&#x901A;&#x7528;&#x63A7;&#x4EF6;&#x63A5;&#x53E3;&#x91CD;&#x5199;</span></span><br><span class="line">    <span class="comment">// _pro.__init ...</span></span><br><span class="line">    <span class="comment">// _pro.__reset ...</span></span><br><span class="line">    <span class="comment">// _pro.__destroy ...</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// &#x521D;&#x59CB;&#x5316;&#x5916;&#x89C2;</span></span><br><span class="line">    <span class="comment">// &#x6B64;&#x8FC7;&#x7A0B;&#x53EA;&#x4F1A;&#x5728;&#x63A7;&#x4EF6;&#x7B2C;&#x4E00;&#x6B21;&#x521B;&#x5EFA;&#x65F6;&#x8FDB;&#x5165;</span></span><br><span class="line">    _pro.__initXGui = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="comment">// &#x5C06;&#x6CE8;&#x5165;&#x7684;&#x6837;&#x5F0F;/&#x7ED3;&#x6784;&#x505A;&#x9884;&#x5904;&#x7406;&#x540E;&#x7F13;&#x5B58;</span></span><br><span class="line">        <span class="keyword">var</span> _seed_css = _e._$pushCSSText(_css),</span><br><span class="line">            _seed_html = _t._$addNodeTemplate(_html);</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">            <span class="keyword">this</span>.__seed_css = _seed_css;</span><br><span class="line">            <span class="keyword">this</span>.__seed_html = _seed_html;</span><br><span class="line">        };</span><br><span class="line">    })();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// &#x521D;&#x59CB;&#x5316;&#x7ED3;&#x6784;</span></span><br><span class="line">    <span class="comment">// &#x6B64;&#x8FC7;&#x7A0B;&#x53EA;&#x4F1A;&#x5728;&#x63A7;&#x4EF6;&#x7B2C;&#x4E00;&#x6B21;&#x521B;&#x5EFA;&#x65F6;&#x8FDB;&#x5165;</span></span><br><span class="line">    _pro.__initNode = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="comment">// &#x8C03;&#x7528;&#x7236;&#x7C7B;&#x63A5;&#x53E3;&#x901A;&#x8FC7;&#x63D0;&#x4F9B;&#x7684;__seed_html&#x6784;&#x5EFA;&#x63A7;&#x4EF6;&#x7ED3;&#x6784;</span></span><br><span class="line">        <span class="comment">// &#x6784;&#x5EFA;&#x597D;&#x7684;&#x63A7;&#x4EF6;&#x7ED3;&#x6784;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;this.__body&#x8BBF;&#x95EE;</span></span><br><span class="line">        <span class="keyword">this</span>.__super();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// TODO</span></span><br><span class="line">    };</span><br><span class="line"></span><br><span class="line">    <span class="comment">// TODO</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> _p;</span><br><span class="line">});</span><br></pre></td></tr></table></figure></p>
+<h3 id="supInitNode"><a href="#supInitNode" class="headerlink" title="__supInitNode"></a><strong>__supInitNode</strong></h3><p><img src="/2016/03/29/NEJ&#x4E4B;&#x7EC4;&#x4EF6;&#x5316;&#x5F00;&#x53D1;/4-25.jpg" alt="images"></p>
+<h3 id="initNodeTemplate"><a href="#initNodeTemplate" class="headerlink" title="__initNodeTemplate"></a><strong>__initNodeTemplate</strong></h3><p><img src="/2016/03/29/NEJ&#x4E4B;&#x7EC4;&#x4EF6;&#x5316;&#x5F00;&#x53D1;/4-26.jpg" alt="images"></p>
+<h3 id="UI&#x63A7;&#x4EF6;&#x7684;&#x4F7F;&#x7528;"><a href="#UI&#x63A7;&#x4EF6;&#x7684;&#x4F7F;&#x7528;" class="headerlink" title="UI&#x63A7;&#x4EF6;&#x7684;&#x4F7F;&#x7528;"></a><strong>UI&#x63A7;&#x4EF6;&#x7684;&#x4F7F;&#x7528;</strong></h3><p>&#x6CE8;&#x610F;&#x4E00;&#x70B9;&#xFF0C;UI&#x7EC4;&#x4EF6;&#x9700;&#x8981;&#x8F93;&#x5165;parent&#x914D;&#x7F6E;&#x53C2;&#x6570;&#x624D;&#x80FD;&#x5728;&#x9875;&#x9762;&#x4E0A;&#x6E32;&#x67D3;&#x51FA;&#x6765;&#xFF0C;&#x5426;&#x5219;&#x53EA;&#x4F1A;&#x5B58;&#x5728;&#x4E8E;&#x5185;&#x5BB9;&#x4E2D;&#xFF0C;&#x9875;&#x9762;&#x4E0A;&#x65E0;&#x6CD5;&#x770B;&#x5230;&#xFF1A;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">NEJ.define([</span><br><span class="line">    <span class="string">&apos;/path/to/ui/widget.js&apos;</span></span><br><span class="line">],<span class="function"><span class="keyword">function</span>(<span class="params">_i</span>)</span>{</span><br><span class="line">    <span class="comment">// &#x5206;&#x914D;&#x63A7;&#x4EF6;</span></span><br><span class="line">    <span class="keyword">var</span> _uiwidget = _i._$$UIWidget._$allocate({</span><br><span class="line">        parent:<span class="built_in">document</span>.body,  <span class="comment">// &#x6CE8;&#x610F;&#x8FD9;&#x91CC;&#x8F93;&#x5165;parent</span></span><br><span class="line">        clazz:<span class="string">&apos;m-ui-widget&apos;</span></span><br><span class="line">    });</span><br><span class="line"></span><br><span class="line">    <span class="comment">// &#x56DE;&#x6536;&#x63A7;&#x4EF6;</span></span><br><span class="line">    _uiwidget = _uiwidget._$recycle();</span><br><span class="line">});</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="&#x63A7;&#x4EF6;&#x6A21;&#x677F;"><a href="#&#x63A7;&#x4EF6;&#x6A21;&#x677F;" class="headerlink" title="&#x63A7;&#x4EF6;&#x6A21;&#x677F;"></a><strong>&#x63A7;&#x4EF6;&#x6A21;&#x677F;</strong></h2><p>Util&#xFF1A;</p>
+<p><img src="/2016/03/29/NEJ&#x4E4B;&#x7EC4;&#x4EF6;&#x5316;&#x5F00;&#x53D1;/4-27.jpg" alt="images"></p>
+<p>UI&#xFF1A;</p>
+<p><img src="/2016/03/29/NEJ&#x4E4B;&#x7EC4;&#x4EF6;&#x5316;&#x5F00;&#x53D1;/4-28.jpg" alt="images"></p>
+<hr>
+<h2 id="&#x5B9E;&#x4F8B;"><a href="#&#x5B9E;&#x4F8B;" class="headerlink" title="&#x5B9E;&#x4F8B;"></a><strong>&#x5B9E;&#x4F8B;</strong></h2><p>UI&#x63A7;&#x4EF6;&#xFF0C;&#x8FD9;&#x91CC;&#x5C06;&#x9879;&#x76EE;&#x4E2D;&#x4E00;&#x4E2A;NEJ&#x7684;UI&#x81EA;&#x5B9A;&#x4E49;&#x7EC4;&#x4EF6;&#x4EE3;&#x7801;&#x5C55;&#x793A;&#xFF0C;&#x4E3B;&#x8981;&#x901A;&#x8FC7;&#x540E;&#x53F0;&#x63A5;&#x53E3;&#x83B7;&#x53D6;&#x6570;&#x636E;&#x518D;&#x914D;&#x5408;JST&#x6A21;&#x677F;&#x8FDB;&#x884C;&#x6570;&#x636E;&#x586B;&#x5145;&#xFF0C;&#x5E76;&#x65E0;&#x590D;&#x6742;&#x7684;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#xFF1A;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * ----------------------------------------------------------------</span><br><span class="line"> * &#x6240;&#x5C5E;&#x7CFB;&#x5217;&#x8BFE;&#x7A0B;</span><br><span class="line"> * @version  1.0</span><br><span class="line"> * @author   hzgaojie(hzgaojie@corp.netease.com)</span><br><span class="line"> * ----------------------------------------------------------------</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">var</span> g = <span class="built_in">window</span>,</span><br><span class="line">        o = NEJ.O,</span><br><span class="line">        f = NEJ.F,</span><br><span class="line">        e = NEJ.P(<span class="string">&apos;nej.e&apos;</span>),</span><br><span class="line">        v = NEJ.P(<span class="string">&apos;nej.v&apos;</span>),</span><br><span class="line">        p = NEJ.P(<span class="string">&apos;edu.m&apos;</span>),</span><br><span class="line">        d = NEJ.P(<span class="string">&apos;edu.d&apos;</span>),</span><br><span class="line">        u = NEJ.P(<span class="string">&apos;nej.u&apos;</span>),</span><br><span class="line">        eu= NEJ.P(<span class="string">&apos;edu.u&apos;</span>),</span><br><span class="line">        _proLiveInfo,</span><br><span class="line"> </span><br><span class="line">        _liveInfoHtmlTpl = e._$addHtmlTemplate(</span><br><span class="line">                <span class="string">&apos;{list dt as item}\</span><br><span class="line">                    &lt;a target=&quot;_blank&quot; href=&quot;${item.link}&quot; class=&quot;f-cb&quot;&gt;\</span><br><span class="line">                        &lt;p class=&quot;f-fl&quot;&gt;\</span><br><span class="line">                            &lt;span class=&quot;status living living-${item.state}&quot;&gt;\</span><br><span class="line">                                {if item.state == 0}\</span><br><span class="line">                                    &#x6B63;&#x5728;&#x76F4;&#x64AD;\</span><br><span class="line">                                {elseif item.state == 1}\</span><br><span class="line">                                    &#x76F4;&#x64AD;&#x5DF2;&#x7ED3;&#x675F;\</span><br><span class="line">                                {elseif item.state == 2}\</span><br><span class="line">                                    &#x76F4;&#x64AD;&#x672A;&#x5F00;&#x59CB;\</span><br><span class="line">                                {/if}\</span><br><span class="line">                            &lt;/span&gt;\</span><br><span class="line">                            &lt;span class=&quot;title&quot;&gt;${item.name}&lt;/span&gt;\</span><br><span class="line">                            &lt;span class=&quot;time&quot;&gt;${item.time}&lt;/span&gt;\</span><br><span class="line">                            &lt;span class=&quot;teacher&quot;&gt;&#x8BB2;&#x5E08;:${item.teacher}&lt;/span&gt;\</span><br><span class="line">                        &lt;/p&gt;\</span><br><span class="line">                        &lt;i class=&quot;f-fr&quot;&gt;&#x8FDB;&#x5165;&#x76F4;&#x64AD;&#x95F4;&gt;&lt;/i&gt;\</span><br><span class="line">                    &lt;/a&gt;\</span><br><span class="line">                {/list}&apos;</span>);       </span><br><span class="line">        </span><br><span class="line">        <span class="comment">/**</span><br><span class="line">         *</span><br><span class="line">         * @extends</span><br><span class="line">         * @param</span><br><span class="line">         */</span></span><br><span class="line"> </span><br><span class="line">        eu._$$LiveInfoUI = NEJ.C();</span><br><span class="line">        _proLiveInfo = eu._$$LiveInfoUI._$extend(eu._$$UIBase, <span class="literal">true</span>);</span><br><span class="line"> </span><br><span class="line">        <span class="comment">/**</span><br><span class="line">         * &#x521D;&#x59CB;&#x5316;&#x5916;&#x89C2;&#x4FE1;&#x606F;</span><br><span class="line">         *</span><br><span class="line">         */</span></span><br><span class="line">        _proLiveInfo.__initXGui = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">            <span class="keyword">this</span>.__seed_html = <span class="keyword">this</span>.__body;</span><br><span class="line">        };</span><br><span class="line">        <span class="comment">/**</span><br><span class="line">         * &#x521D;&#x59CB;&#x5316;&#x8282;&#x70B9;</span><br><span class="line">         *</span><br><span class="line">         * @return {Void}</span><br><span class="line">         */</span></span><br><span class="line">        _proLiveInfo.__initNode = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">            <span class="keyword">this</span>.__supInitNode();</span><br><span class="line">        };</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">        <span class="comment">/**</span><br><span class="line">         * &#x91CD;&#x7F6E;&#x63A7;&#x4EF6;</span><br><span class="line">         *</span><br><span class="line">         * @param {Object}</span><br><span class="line">         */</span></span><br><span class="line">        _proLiveInfo.__reset = <span class="function"><span class="keyword">function</span>(<span class="params">_options</span>)</span>{</span><br><span class="line">            <span class="keyword">this</span>.__supReset(_options);</span><br><span class="line">            <span class="keyword">this</span>.__uiTpl = _liveInfoHtmlTpl;</span><br><span class="line"> </span><br><span class="line">            <span class="keyword">var</span> _data = <span class="built_in">JSON</span>.parse(_options.liveInfoList);</span><br><span class="line">            <span class="keyword">var</span> len = _data.length;</span><br><span class="line">            <span class="keyword">var</span> newData = [];</span><br><span class="line"> </span><br><span class="line">            <span class="comment">//&#x6A21;&#x677F;&#x65B9;&#x6CD5;&#x4E0D;&#x63A5;&#x6536;&#x590D;&#x6742;&#x5BF9;&#x8C61; &#x53EA;&#x63A5;&#x6536;{name:&apos;jack&apos;}&#x7B80;&#x5355;&#x5BF9;&#x8C61;</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; len; ++i ) {</span><br><span class="line">                newData.push(</span><br><span class="line">                    {</span><br><span class="line">                        link : _data[i].link,</span><br><span class="line">                        name : _data[i].name,</span><br><span class="line">                        state : _data[i].state,</span><br><span class="line">                        teacher : _data[i].teacher,</span><br><span class="line">                        time : eu._$formatCommonTime(_data[i].time)</span><br><span class="line">                    }</span><br><span class="line">                );</span><br><span class="line">            }   </span><br><span class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>.__uiTpl);</span><br><span class="line"> </span><br><span class="line">            <span class="keyword">this</span>.__uiTpl = e._$getHtmlTemplate(<span class="keyword">this</span>.__uiTpl,{dt:newData});</span><br><span class="line"> </span><br><span class="line">            <span class="keyword">this</span>.__body.innerHTML = <span class="keyword">this</span>.__uiTpl;</span><br><span class="line"> </span><br><span class="line">        }</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span><br><span class="line">         * &#x63A7;&#x4EF6;&#x9500;&#x6BC1;</span><br><span class="line">         * @return {Void}</span><br><span class="line">         */</span></span><br><span class="line">        _proLiveInfo.__destroy = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line"> </span><br><span class="line">            <span class="comment">//&#x8C03;&#x7528;&#x5B50;&#x7C7B;&#x7684;&#x9500;&#x6BC1;&#x51FD;&#x6570;</span></span><br><span class="line">            <span class="keyword">this</span>.__supDestroy();</span><br><span class="line">        }</span><br><span class="line"> </span><br><span class="line">}</span><br><span class="line">define(<span class="string">&apos;{pro}ui/smartSpec/LiveInfoUI.js&apos;</span>,</span><br><span class="line">        [<span class="string">&apos;{core}ui/baseui/uibase.js&apos;</span>,</span><br><span class="line">         <span class="string">&apos;{pro}util/util.js&apos;</span>], f);</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="&#x611F;&#x609F;"><a href="#&#x611F;&#x609F;" class="headerlink" title="&#x611F;&#x609F;"></a><strong>&#x611F;&#x609F;</strong></h2><p>NEJ&#x7684;&#x7EC4;&#x4EF6;&#x5316;&#x5F00;&#x53D1;&#x601D;&#x60F3;&#x633A;&#x4E0D;&#x9519;&#x7684;&#xFF0C;&#x5176;&#x4E2D;Util&#x548C;UI&#x7684;&#x533A;&#x5206;&#xFF0C;&#x628A;&#x63E1;&#x5F97;&#x5F88;&#x597D;&#xFF0C;&#x5F88;&#x591A;&#x7EC4;&#x4EF6;&#x90FD;&#x662F;&#x5916;&#x89C2;&#x7684;&#x53D8;&#x5316;&#xFF0C;&#x5176;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x90FD;&#x662F;&#x5DEE;&#x4E0D;&#x591A;&#x7684;&#xFF0C;&#x5C06;&#x903B;&#x8F91;&#x62BD;&#x51FA;&#x6765;&#x91CD;&#x7528;&#xFF0C;&#x518D;&#x8C03;&#x6574;&#x5916;&#x89C2;&#xFF0C;&#x662F;&#x4E00;&#x79CD;&#x4E0D;&#x9519;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x3002;</p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/03/25/XHR基础/" rel="next" title="XHR基础-AngularJS权威指南第十五章">
+                <i class="fa fa-chevron-left"></i> XHR基础-AngularJS权威指南第十五章
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/04/01/jQuery幻灯片组件Swiper/" rel="prev" title="jQuery幻灯片组件Swiper">
+                jQuery幻灯片组件Swiper <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/03/29/NEJ之组件化开发/"
+     data-title="NEJ之组件化开发"
+     data-content=""
+     data-url="http://yoursite.com/2016/03/29/NEJ之组件化开发/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/03/29/NEJ之组件化开发/"
+           data-title="NEJ之组件化开发" data-url="http://yoursite.com/2016/03/29/NEJ之组件化开发/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://nos.netease.com/edu-image/5AA61D30A78B81D8CF5AE7608A1468C2.jpg"
+               alt="刘放" />
+          <p class="site-author-name" itemprop="name">刘放</p>
+          <p class="site-description motion-element" itemprop="description">网易前端开发 brizer@163.com</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">110</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/brizer" target="_blank" title="github">
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/3978835322" target="_blank" title="weibo">
+                  
+                  weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://study.163.com/topics/2016-11sales/#/main" title="云课堂充电节" target="_blank">云课堂充电节</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://study.163.com/" title="网易云课堂" target="_blank">网易云课堂</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.icourse163.org/" title="中国大学MOOC" target="_blank">中国大学MOOC</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://100.163.com/" title="网易100分" target="_blank">网易100分</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#NEJ之组件化开发"><span class="nav-number">1.</span> <span class="nav-text">NEJ之组件化开发</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类模型"><span class="nav-number">1.2.</span> <span class="nav-text">类模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义NEJ-C"><span class="nav-number">1.2.1.</span> <span class="nav-text">定义NEJ.C</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承-extend"><span class="nav-number">1.2.2.</span> <span class="nav-text">继承_$extend</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现init"><span class="nav-number">1.2.3.</span> <span class="nav-text">实现init</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组件体系"><span class="nav-number">1.3.</span> <span class="nav-text">组件体系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Util组件"><span class="nav-number">1.4.</span> <span class="nav-text">Util组件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#allocate"><span class="nav-number">1.4.1.</span> <span class="nav-text">_$allocate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#recycle"><span class="nav-number">1.4.2.</span> <span class="nav-text">_$recycle</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#getInstance"><span class="nav-number">1.4.3.</span> <span class="nav-text">_$getInstance</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reset"><span class="nav-number">1.4.4.</span> <span class="nav-text">__reset</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#supReset"><span class="nav-number">1.4.5.</span> <span class="nav-text">__supReset</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#destroy"><span class="nav-number">1.4.6.</span> <span class="nav-text">__destroy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#supDestroy"><span class="nav-number">1.4.7.</span> <span class="nav-text">__supDestroy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#doInitDomEvent"><span class="nav-number">1.4.8.</span> <span class="nav-text">__doInitDomEvent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#recycle-1"><span class="nav-number">1.4.9.</span> <span class="nav-text">_$recycle</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#setEvent"><span class="nav-number">1.4.10.</span> <span class="nav-text">_$setEvent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#batEvent"><span class="nav-number">1.4.11.</span> <span class="nav-text">_$batEvent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hasEvent"><span class="nav-number">1.4.12.</span> <span class="nav-text">_$hasEvent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#clearEvent"><span class="nav-number">1.4.13.</span> <span class="nav-text">_$clearEvent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#appendEvent"><span class="nav-number">1.4.14.</span> <span class="nav-text">_$appendEvent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dispatchEvent"><span class="nav-number">1.4.15.</span> <span class="nav-text">_dispatchEvent</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UI组件"><span class="nav-number">1.5.</span> <span class="nav-text">UI组件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#initXGui"><span class="nav-number">1.5.1.</span> <span class="nav-text">__initXGui</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#initNode"><span class="nav-number">1.5.2.</span> <span class="nav-text">__initNode</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#supInitNode"><span class="nav-number">1.5.3.</span> <span class="nav-text">__supInitNode</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#initNodeTemplate"><span class="nav-number">1.5.4.</span> <span class="nav-text">__initNodeTemplate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UI控件的使用"><span class="nav-number">1.5.5.</span> <span class="nav-text">UI控件的使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#控件模板"><span class="nav-number">1.6.</span> <span class="nav-text">控件模板</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例"><span class="nav-number">1.7.</span> <span class="nav-text">实例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#感悟"><span class="nav-number">1.8.</span> <span class="nav-text">感悟</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刘放</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i> 总访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"brizer"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+  
+  
+</body>
+</html>

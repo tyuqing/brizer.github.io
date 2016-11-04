@@ -1,0 +1,723 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="brizer,前端,博客,刘放" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="CSS&amp;#x52A8;&amp;#x753B;&amp;#x56DE;&amp;#x8C03;
+&amp;#x524D;&amp;#x8A00;&amp;#x4F20;&amp;#x9012;&amp;#x7684;javascript&amp;#x5F0F;&amp;#x52A8;&amp;#x753B;&amp;#xFF0C;&amp;#x53EF;&amp;#x4EE5;&amp;#x5F88;&amp;#x5BB9;&amp;#x6613;&amp;#x5730;&amp;#x901A;&amp;#x8FC7;&amp;#x56DE;&amp;#x8C03;&amp;#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css动画回调">
+<meta property="og:url" content="http://yoursite.com/2016/02/16/css动画回调/index.html">
+<meta property="og:site_name" content="Brizer's Blog">
+<meta property="og:description" content="CSS&amp;#x52A8;&amp;#x753B;&amp;#x56DE;&amp;#x8C03;
+&amp;#x524D;&amp;#x8A00;&amp;#x4F20;&amp;#x9012;&amp;#x7684;javascript&amp;#x5F0F;&amp;#x52A8;&amp;#x753B;&amp;#xFF0C;&amp;#x53EF;&amp;#x4EE5;&amp;#x5F88;&amp;#x5BB9;&amp;#x6613;&amp;#x5730;&amp;#x901A;&amp;#x8FC7;&amp;#x56DE;&amp;#x8C03;&amp;#">
+<meta property="og:updated_time" content="2016-04-20T12:45:45.144Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="css动画回调">
+<meta name="twitter:description" content="CSS&amp;#x52A8;&amp;#x753B;&amp;#x56DE;&amp;#x8C03;
+&amp;#x524D;&amp;#x8A00;&amp;#x4F20;&amp;#x9012;&amp;#x7684;javascript&amp;#x5F0F;&amp;#x52A8;&amp;#x753B;&amp;#xFF0C;&amp;#x53EF;&amp;#x4EE5;&amp;#x5F88;&amp;#x5BB9;&amp;#x6613;&amp;#x5730;&amp;#x901A;&amp;#x8FC7;&amp;#x56DE;&amp;#x8C03;&amp;#">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> css动画回调 | Brizer's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Brizer's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">刘放 学习笔记</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+  
+    <style type="text/css">
+		#so360{white-space:nowrap;margin:10px auto;}
+		#so360 form{margin:0;padding:0}
+		#so360_keyword{width:157px;height:32px;line-height:32px;font:14px arial;padding:2px 5px;margin-right:5px;
+		border:2px solid #061201;outline:0;vertical-align:middle}
+		#so360_keyword{background:url(https://p.ssl.qhimg.com/t01ab1a3fb05f0ee893.png) no-repeat 236px center}
+		#so360_submit{width:60px;height:40px;border:0;color:#fff;background:#061201;
+		font-weight:bold;font:bold 14px arial;padding:0;padding-top:3px\9;cursor:pointer;
+		vertical-align:middle}
+	</style>
+	<div id="so360">
+	    <form action="http://www.so.com/s" target="_blank" id="so360form">
+	   <input type="text" autocomplete="off" name="q" id="so360_keyword">
+	        <input type="submit" id="so360_submit" value="搜 索">
+	        <input type="hidden" name="ie" value="utf8">
+	        <input type="hidden" name="src" value="zz_brizer.top">
+	        <input type="hidden" name="site" value="brizer.top">
+	        <input type="hidden" name="rg" value="1">
+	    </form>
+	</div> 
+	
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/demo" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            demo
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                css动画回调
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-02-16T20:44:30+08:00" content="2016-02-16">
+              2016-02-16
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/css/" itemprop="url" rel="index">
+                    <span itemprop="name">css</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/02/16/css动画回调/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/16/css动画回调/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+                    
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+              </span>
+                     
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="CSS&#x52A8;&#x753B;&#x56DE;&#x8C03;"><a href="#CSS&#x52A8;&#x753B;&#x56DE;&#x8C03;" class="headerlink" title="CSS&#x52A8;&#x753B;&#x56DE;&#x8C03;"></a>CSS&#x52A8;&#x753B;&#x56DE;&#x8C03;</h1><hr>
+<h2 id="&#x524D;&#x8A00;"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a><strong>&#x524D;&#x8A00;</strong></h2><p>&#x4F20;&#x9012;&#x7684;javascript&#x5F0F;&#x52A8;&#x753B;&#xFF0C;&#x53EF;&#x4EE5;&#x5F88;&#x5BB9;&#x6613;&#x5730;&#x901A;&#x8FC7;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x6765;&#x5B9E;&#x73B0;&#x52A8;&#x753B;&#x5B8C;&#x6210;&#x540E;&#x505A;&#x4EC0;&#x4E48;&#xFF0C;&#x800C;css3&#x52A8;&#x753B;&#x5219;&#x4E0D;&#x597D;&#x901A;&#x8FC7;javascript&#x6765;&#x56DE;&#x8C03;&#x3002;&#x5982;&#x4F55;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x5462;&#xFF1F;</p>
+<hr>
+<h2 id="css&#x52A8;&#x753B;"><a href="#css&#x52A8;&#x753B;" class="headerlink" title="css&#x52A8;&#x753B;"></a><strong>css&#x52A8;&#x753B;</strong></h2><p>css&#x52A8;&#x753B;&#x6211;<a href="http://blog.csdn.net/mevicky/article/details/49227665" target="_blank" rel="external">&#x4EE5;&#x524D;&#x5728;&#x6587;&#x7AE0;&#x4E2D;</a>&#x63D0;&#x5230;&#x8FC7;&#x3002;&#x8FD9;&#x91CC;&#x5199;&#x51E0;&#x4E2A;&#x57FA;&#x672C;&#x7528;&#x6CD5;&#xFF0C;&#x7B2C;&#x4E00;&#x79CD;&#x662F;&#x7B80;&#x5355;&#x7684;&#x53D8;&#x6362;&#xFF0C;&#x4F7F;&#x7528;transform&#x5373;&#x53EF;&#xFF1A;<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.mydiv</span> {</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background</span>:red;</span><br><span class="line">    <span class="attribute">-webkit-transition</span>: all <span class="number">2s</span>;</span><br><span class="line">}</span><br><span class="line"><span class="selector-class">.newClass</span> {</span><br><span class="line">    <span class="attribute">-webkit-transform</span>: <span class="built_in">translateY</span>(100px)</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<p>&#x7B2C;&#x4E8C;&#x79CD;&#x662F;&#x590D;&#x6742;&#x4E00;&#x70B9;&#xFF0C;&#x9700;&#x8981;&#x81EA;&#x5DF1;&#x5B9A;&#x4E49;&#x5E27;&#x7684;&#x72B6;&#x6001;&#xFF1A;<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@-<span class="keyword">webkit</span>-<span class="keyword">keyframes</span> mymove {</span><br><span class="line">    <span class="selector-tag">from</span> {<span class="attribute">top</span>:<span class="number">0px</span>;}</span><br><span class="line">    <span class="selector-tag">to</span> {<span class="attribute">top</span>:<span class="number">200px</span>;}</span><br><span class="line">}</span><br><span class="line"><span class="selector-class">.mydiv</span> {</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background</span>:red;</span><br><span class="line">    <span class="attribute">position</span>:relative;</span><br><span class="line">    <span class="attribute">-webkit-animation</span>:mymove <span class="number">2s</span> forwards; <span class="comment">/* Safari and Chrome */</span></span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="&#x5982;&#x4F55;&#x56DE;&#x8C03;css&#x52A8;&#x753B;"><a href="#&#x5982;&#x4F55;&#x56DE;&#x8C03;css&#x52A8;&#x753B;" class="headerlink" title="&#x5982;&#x4F55;&#x56DE;&#x8C03;css&#x52A8;&#x753B;"></a><strong>&#x5982;&#x4F55;&#x56DE;&#x8C03;css&#x52A8;&#x753B;</strong></h2><p>&#x56DE;&#x5230;&#x4E00;&#x5F00;&#x59CB;&#x63D0;&#x51FA;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x6211;&#x4EEC;&#x5982;&#x4F55;&#x56DE;&#x8C03;&#x3002;<br>&#x4E00;&#x79CD;&#x6700;&#x57FA;&#x672C;&#x7684;&#x60F3;&#x6CD5;&#x5C31;&#x662F;&#x6211;&#x4EEC;&#x77E5;&#x9053;&#x4E86;&#x52A8;&#x753B;&#x7684;&#x65F6;&#x95F4;&#xFF0C;&#x90A3;&#x4E48;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5EF6;&#x65F6;&#x6765;&#x6A21;&#x62DF;&#x56DE;&#x8C03;&#xFF1A;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//css&#x4E2D;&#x4EE3;&#x7801;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x52A8;&#x753B;&#x6301;&#x7EED;2s</span></span><br><span class="line"><span class="keyword">var</span> delay = <span class="number">2000</span>;</span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">    dosomething()</span><br><span class="line">}, delay);</span><br></pre></td></tr></table></figure></p>
+<p>&#x4F46;&#x662F;&#x53EA;&#x8981;&#x6DF1;&#x5165;&#x7406;&#x89E3;&#x4E00;&#x70B9;&#x5C31;&#x77E5;&#x9053;setTimeout&#x5E76;&#x4E0D;&#x53EF;&#x9760;&#xFF0C;&#x800C;&#x4E14;&#x8FD9;&#x4E48;&#x5199;&#x53EF;&#x62D3;&#x5C55;&#x6027;&#x4E5F;&#x592A;&#x5DEE;&#x4E86;&#x3002;</p>
+<p>&#x90A3;&#x4E48;&#x89E3;&#x51B3;&#x529E;&#x6CD5;&#x5C31;&#x662F;&#x901A;&#x8FC7;&#x65B0;&#x7684;&#x4E8B;&#x4EF6;transitionEnd&#x548C;animationend&#xFF1A;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">&apos;my&apos;</span>).addEventListener(<span class="string">&apos;transitionEnd&apos;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">    alert(<span class="string">&apos;Transform animation has done!&apos;</span>);</span><br><span class="line">});</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">&apos;my&apos;</span>).addEventListener(<span class="string">&apos;animationend&apos;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">    alert(<span class="string">&apos;Animation has done!....&apos;</span>);</span><br><span class="line">});</span><br></pre></td></tr></table></figure></p>
+<p>&#x8FD9;&#x6837;&#x5C31;&#x7B80;&#x5355;&#x4E86;&#x3002;&#x5F53;&#x7136;<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/AnimationEvent/AnimationEvent" target="_blank" rel="external">&#x8FD8;&#x6709;animationstart,animationiteration</a>&#x7B49;&#x4E8B;&#x4EF6;&#xFF0C;&#x8FD9;&#x91CC;&#x5C31;&#x4E0D;&#x4E00;&#x4E00;&#x4ECB;&#x7ECD;&#x4E86;&#x3002;</p>
+<hr>
+<h2 id="&#x53C2;&#x8003;"><a href="#&#x53C2;&#x8003;" class="headerlink" title="&#x53C2;&#x8003;"></a><strong>&#x53C2;&#x8003;</strong></h2><p><a href="http://blog.csdn.net/mevicky/article/details/49227665" target="_blank" rel="external">css3&#x52A8;&#x753B;</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzAxODE2MjM1MA==&amp;mid=401718037&amp;idx=2&amp;sn=517ca208992563a120a8dcd3a728ba8a&amp;scene=0" target="_blank" rel="external">css&#x52A8;&#x753B;&#x7684;&#x56DE;&#x8C03;</a></p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/AnimationEvent/AnimationEvent" target="_blank" rel="external">AnimationEvent</a></p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/02/16/深入组件实现-React官网/" rel="next" title="深入组件实现-React官网">
+                <i class="fa fa-chevron-left"></i> 深入组件实现-React官网
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/02/20/简介-WebPack官网/" rel="prev" title="简介-WebPack官网">
+                简介-WebPack官网 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/02/16/css动画回调/"
+     data-title="css动画回调"
+     data-content=""
+     data-url="http://yoursite.com/2016/02/16/css动画回调/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/02/16/css动画回调/"
+           data-title="css动画回调" data-url="http://yoursite.com/2016/02/16/css动画回调/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://nos.netease.com/edu-image/5AA61D30A78B81D8CF5AE7608A1468C2.jpg"
+               alt="刘放" />
+          <p class="site-author-name" itemprop="name">刘放</p>
+          <p class="site-description motion-element" itemprop="description">网易前端开发 brizer@163.com</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">110</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/brizer" target="_blank" title="github">
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/3978835322" target="_blank" title="weibo">
+                  
+                  weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://study.163.com/topics/2016-11sales/#/main" title="云课堂充电节" target="_blank">云课堂充电节</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://study.163.com/" title="网易云课堂" target="_blank">网易云课堂</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.icourse163.org/" title="中国大学MOOC" target="_blank">中国大学MOOC</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://100.163.com/" title="网易100分" target="_blank">网易100分</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS动画回调"><span class="nav-number">1.</span> <span class="nav-text">CSS动画回调</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#css动画"><span class="nav-number">1.2.</span> <span class="nav-text">css动画</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何回调css动画"><span class="nav-number">1.3.</span> <span class="nav-text">如何回调css动画</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">1.4.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刘放</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i> 总访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"brizer"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+  
+  
+</body>
+</html>

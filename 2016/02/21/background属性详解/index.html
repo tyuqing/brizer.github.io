@@ -1,0 +1,756 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="brizer,前端,博客,刘放" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="css&amp;#x5C5E;&amp;#x6027;&amp;#x4E4B;background
+&amp;#x524D;&amp;#x8A00;background&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x6BD4;&amp;#x8F83;&amp;#x5E38;&amp;#x7528;&amp;#x7684;css&amp;#x5C5E;&amp;#x6027;&amp;#xFF0C;&amp;#x4E4B;&amp;#x524D;&amp;#x4E00;&amp;#x76F4;&amp;#x6CA1;&amp;#x67">
+<meta property="og:type" content="article">
+<meta property="og:title" content="background属性详解">
+<meta property="og:url" content="http://yoursite.com/2016/02/21/background属性详解/index.html">
+<meta property="og:site_name" content="Brizer's Blog">
+<meta property="og:description" content="css&amp;#x5C5E;&amp;#x6027;&amp;#x4E4B;background
+&amp;#x524D;&amp;#x8A00;background&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x6BD4;&amp;#x8F83;&amp;#x5E38;&amp;#x7528;&amp;#x7684;css&amp;#x5C5E;&amp;#x6027;&amp;#xFF0C;&amp;#x4E4B;&amp;#x524D;&amp;#x4E00;&amp;#x76F4;&amp;#x6CA1;&amp;#x67">
+<meta property="og:updated_time" content="2016-06-13T06:56:45.622Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="background属性详解">
+<meta name="twitter:description" content="css&amp;#x5C5E;&amp;#x6027;&amp;#x4E4B;background
+&amp;#x524D;&amp;#x8A00;background&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x6BD4;&amp;#x8F83;&amp;#x5E38;&amp;#x7528;&amp;#x7684;css&amp;#x5C5E;&amp;#x6027;&amp;#xFF0C;&amp;#x4E4B;&amp;#x524D;&amp;#x4E00;&amp;#x76F4;&amp;#x6CA1;&amp;#x67">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> background属性详解 | Brizer's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Brizer's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">刘放 学习笔记</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+  
+    <style type="text/css">
+		#so360{white-space:nowrap;margin:10px auto;}
+		#so360 form{margin:0;padding:0}
+		#so360_keyword{width:157px;height:32px;line-height:32px;font:14px arial;padding:2px 5px;margin-right:5px;
+		border:2px solid #061201;outline:0;vertical-align:middle}
+		#so360_keyword{background:url(https://p.ssl.qhimg.com/t01ab1a3fb05f0ee893.png) no-repeat 236px center}
+		#so360_submit{width:60px;height:40px;border:0;color:#fff;background:#061201;
+		font-weight:bold;font:bold 14px arial;padding:0;padding-top:3px\9;cursor:pointer;
+		vertical-align:middle}
+	</style>
+	<div id="so360">
+	    <form action="http://www.so.com/s" target="_blank" id="so360form">
+	   <input type="text" autocomplete="off" name="q" id="so360_keyword">
+	        <input type="submit" id="so360_submit" value="搜 索">
+	        <input type="hidden" name="ie" value="utf8">
+	        <input type="hidden" name="src" value="zz_brizer.top">
+	        <input type="hidden" name="site" value="brizer.top">
+	        <input type="hidden" name="rg" value="1">
+	    </form>
+	</div> 
+	
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/demo" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            demo
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                background属性详解
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-02-21T20:39:46+08:00" content="2016-02-21">
+              2016-02-21
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/css/" itemprop="url" rel="index">
+                    <span itemprop="name">css</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/02/21/background属性详解/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/21/background属性详解/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+                    
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+              </span>
+                     
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="css&#x5C5E;&#x6027;&#x4E4B;background"><a href="#css&#x5C5E;&#x6027;&#x4E4B;background" class="headerlink" title="css&#x5C5E;&#x6027;&#x4E4B;background"></a>css&#x5C5E;&#x6027;&#x4E4B;background</h1><hr>
+<h2 id="&#x524D;&#x8A00;"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a><strong>&#x524D;&#x8A00;</strong></h2><p>background&#x662F;&#x4E00;&#x4E2A;&#x6BD4;&#x8F83;&#x5E38;&#x7528;&#x7684;css&#x5C5E;&#x6027;&#xFF0C;&#x4E4B;&#x524D;&#x4E00;&#x76F4;&#x6CA1;&#x6709;&#x5B8C;&#x5168;&#x7684;&#x5B66;&#x4E60;&#x7EC6;&#x8282;&#xFF0C;&#x4ECA;&#x5929;&#x6765;&#x6574;&#x7406;&#x4E00;&#x4E0B;&#x3002;</p>
+<hr>
+<h2 id="background"><a href="#background" class="headerlink" title="background"></a><strong>background</strong></h2><p>&#x662F;&#x4E00;&#x4E2A;&#x7EC4;&#x5408;&#x5C5E;&#x6027;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x5176;&#x4E2D;&#x8BBE;&#x7F6E;&#x6240;&#x6709;&#x7684;&#x80CC;&#x666F;&#x5C5E;&#x6027;&#xFF1A;<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span></span><br><span class="line">  { </span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#00FF00</span> <span class="built_in">url</span>(bgimage.gif) no-repeat fixed top;</span><br><span class="line">  }</span><br></pre></td></tr></table></figure></p>
+<p>&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x5982;&#x4E0B;&#x5C5E;&#x6027;&#xFF1A;</p>
+<p>background-color<br>background-position<br>background-size<br>background-repeat<br>background-origin<br>background-clip<br>background-attachment<br>background-image</p>
+<p>&#x5982;&#x679C;&#x4E0D;&#x8BBE;&#x7F6E;&#x5176;&#x4E2D;&#x7684;&#x67D0;&#x4E2A;&#x503C;&#xFF0C;&#x4E5F;&#x4E0D;&#x4F1A;&#x51FA;&#x73B0;&#x95EE;&#x9898;&#x3002;<br>&#x6211;&#x4EEC;&#x5148;&#x770B;<a href="http://www.w3school.com.cn/tiy/t.asp?f=csse_background" target="_blank" rel="external">&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;</a>&#x3002;</p>
+<p>&#x53EF;&#x4EE5;&#x7F29;&#x5199;&#x5982;&#x4E0B;&#xFF1A;</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">background: #ff0000 url(/i/eg_bg_03.gif) no-repeat fixed center / 10px 10px;</span><br></pre></td></tr></table></figure>
+<p>&#x5176;&#x4E2D;&#x659C;&#x6760;&#x524D;&#x4E3A;background-position,&#x659C;&#x6760;&#x540E;&#x4E3A;background-size&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x770B;&#x770B;&#x6BCF;&#x4E2A;&#x5C5E;&#x6027;&#x7684;&#x7528;&#x6CD5;&#x3002;</p>
+<hr>
+<h2 id="background-color"><a href="#background-color" class="headerlink" title="background-color"></a><strong>background-color</strong></h2><p>&#x987E;&#x540D;&#x601D;&#x4E49;&#xFF0C;&#x662F;&#x7528;&#x6765;&#x8BBE;&#x7F6E;&#x80CC;&#x666F;&#x989C;&#x8272;&#x7684;&#x3002;<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span></span><br><span class="line">  {</span><br><span class="line">  <span class="attribute">background-color</span>:yellow;</span><br><span class="line">  }</span><br><span class="line"><span class="selector-tag">h1</span></span><br><span class="line">  {</span><br><span class="line">  <span class="attribute">background-color</span>:<span class="number">#00ff00</span>;</span><br><span class="line">  }</span><br><span class="line"><span class="selector-tag">p</span></span><br><span class="line">  {</span><br><span class="line">  <span class="attribute">background-color</span>:<span class="built_in">rgb</span>(255,0,255);</span><br><span class="line">  }</span><br></pre></td></tr></table></figure></p>
+<p>&#x8BBE;&#x7F6E;&#x989C;&#x8272;&#x65F6;&#x53EF;&#x4EE5;&#x5C3D;&#x91CF;&#x4F7F;&#x7528;<a href="http://www.w3school.com.cn/cssref/css_colors.asp" target="_blank" rel="external">&#x7F51;&#x7EDC;&#x5B89;&#x5168;&#x8272;</a>&#x3002;</p>
+<hr>
+<h2 id="background-position"><a href="#background-position" class="headerlink" title="background-position"></a><strong>background-position</strong></h2><p>&#x8BBE;&#x7F6E;&#x80CC;&#x666F;&#x56FE;&#x7247;&#x7684;&#x8D77;&#x59CB;&#x4F4D;&#x7F6E;&#x3002;</p>
+<table><br><tbody><tr><br><th>&#x503C;</th><br><th>&#x63CF;&#x8FF0;</th><br></tr><br><br><tr><br><td><br><ul><br><li>top left</li><br><li>top center</li><br><li>top right</li><br><li>center left</li><br><li>center center</li><br><li>center right</li><br><li>bottom left</li><br><li>bottom center</li><br><li>bottom right</li><br></ul><br></td><br><td><br><p>&#x5982;&#x679C;&#x60A8;&#x4EC5;&#x89C4;&#x5B9A;&#x4E86;&#x4E00;&#x4E2A;&#x5173;&#x952E;&#x8BCD;&#xFF0C;&#x90A3;&#x4E48;&#x7B2C;&#x4E8C;&#x4E2A;&#x503C;&#x5C06;&#x662F;&#x201D;center&#x201D;&#x3002;</p><br><p>&#x9ED8;&#x8BA4;&#x503C;&#xFF1A;0% 0%&#x3002;</p><br></td><br></tr><br><br><tr><br><td>x% y%</td><br><td><br><p>&#x7B2C;&#x4E00;&#x4E2A;&#x503C;&#x662F;&#x6C34;&#x5E73;&#x4F4D;&#x7F6E;&#xFF0C;&#x7B2C;&#x4E8C;&#x4E2A;&#x503C;&#x662F;&#x5782;&#x76F4;&#x4F4D;&#x7F6E;&#x3002;</p><br><p>&#x5DE6;&#x4E0A;&#x89D2;&#x662F; 0% 0%&#x3002;&#x53F3;&#x4E0B;&#x89D2;&#x662F; 100% 100%&#x3002;</p><br><p>&#x5982;&#x679C;&#x60A8;&#x4EC5;&#x89C4;&#x5B9A;&#x4E86;&#x4E00;&#x4E2A;&#x503C;&#xFF0C;&#x53E6;&#x4E00;&#x4E2A;&#x503C;&#x5C06;&#x662F; 50%&#x3002;</p><br></td><br></tr><br><br><tr><br><td>xpos ypos</td><br><td><br><p>&#x7B2C;&#x4E00;&#x4E2A;&#x503C;&#x662F;&#x6C34;&#x5E73;&#x4F4D;&#x7F6E;&#xFF0C;&#x7B2C;&#x4E8C;&#x4E2A;&#x503C;&#x662F;&#x5782;&#x76F4;&#x4F4D;&#x7F6E;&#x3002;</p><br><p>&#x5DE6;&#x4E0A;&#x89D2;&#x662F; 0 0&#x3002;&#x5355;&#x4F4D;&#x662F;&#x50CF;&#x7D20; (0px 0px) &#x6216;&#x4EFB;&#x4F55;&#x5176;&#x4ED6;&#x7684; CSS &#x5355;&#x4F4D;&#x3002;</p><br><p>&#x5982;&#x679C;&#x60A8;&#x4EC5;&#x89C4;&#x5B9A;&#x4E86;&#x4E00;&#x4E2A;&#x503C;&#xFF0C;&#x53E6;&#x4E00;&#x4E2A;&#x503C;&#x5C06;&#x662F;50%&#x3002;</p><br><p>&#x60A8;&#x53EF;&#x4EE5;&#x6DF7;&#x5408;&#x4F7F;&#x7528; % &#x548C; position &#x503C;&#x3002;</p><br></td><br></tr><br></tbody></table>
+
+<p>&#x6211;&#x4EEC;&#x770B;&#x770B;<a href="http://www.w3school.com.cn/tiy/t.asp?f=csse_background-position_pixel" target="_blank" rel="external">&#x5229;&#x7528;&#x50CF;&#x7D20;&#x5B9A;&#x4E49;&#x80CC;&#x666F;&#x56FE;&#x7247;&#x4F4D;&#x7F6E;&#x7684;demo</a>&#x3002;&#x4ECE;&#x5DE6;&#x4E0A;&#x89D2;&#x5F00;&#x59CB;&#x7B97;&#x8D77;&#x3002;</p>
+<hr>
+<h2 id="background-size"><a href="#background-size" class="headerlink" title="background-size"></a><strong>background-size</strong></h2><p>&#x89C4;&#x5B9A;&#x80CC;&#x666F;&#x56FE;&#x7247;&#x7684;&#x5C3A;&#x5BF8;&#xFF1A;<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span></span><br><span class="line">{</span><br><span class="line">  <span class="attribute">background</span>:<span class="built_in">url</span>(img_flwr.gif);</span><br><span class="line">  <span class="attribute">background-size</span>:<span class="number">80px</span> <span class="number">60px</span>;</span><br><span class="line">  <span class="attribute">background-repeat</span>:no-repeat;</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
+<p>&#x8BED;&#x6CD5;&#xFF1A;<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">background-size: length|percentage|cover|contain;</span><br></pre></td></tr></table></figure></p>
+<table class="dataintable"><br><tbody><tr><br><th style="width:25%;">&#x503C;</th><br><th>&#x63CF;&#x8FF0;</th><br><th style="width:8%;">&#x6D4B;&#x8BD5;</th><br></tr><br><br><tr><br><td><i>length</i></td><br><td><br>    <p>&#x8BBE;&#x7F6E;&#x80CC;&#x666F;&#x56FE;&#x50CF;&#x7684;&#x9AD8;&#x5EA6;&#x548C;&#x5BBD;&#x5EA6;&#x3002;</p><br>    <p>&#x7B2C;&#x4E00;&#x4E2A;&#x503C;&#x8BBE;&#x7F6E;&#x5BBD;&#x5EA6;&#xFF0C;&#x7B2C;&#x4E8C;&#x4E2A;&#x503C;&#x8BBE;&#x7F6E;&#x9AD8;&#x5EA6;&#x3002;</p><br>    <p>&#x5982;&#x679C;&#x53EA;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x503C;&#xFF0C;&#x5219;&#x7B2C;&#x4E8C;&#x4E2A;&#x503C;&#x4F1A;&#x88AB;&#x8BBE;&#x7F6E;&#x4E3A; &#x201C;auto&#x201D;&#x3002;</p><br></td><br><td><a target="_blank" href="/tiy/c.asp?f=css_background-size">&#x6D4B;&#x8BD5;</a></td><br></tr><br><br><tr><br><td><i>percentage</i></td><br><td><br>    <p>&#x4EE5;&#x7236;&#x5143;&#x7D20;&#x7684;&#x767E;&#x5206;&#x6BD4;&#x6765;&#x8BBE;&#x7F6E;&#x80CC;&#x666F;&#x56FE;&#x50CF;&#x7684;&#x5BBD;&#x5EA6;&#x548C;&#x9AD8;&#x5EA6;&#x3002;</p><br>    <p>&#x7B2C;&#x4E00;&#x4E2A;&#x503C;&#x8BBE;&#x7F6E;&#x5BBD;&#x5EA6;&#xFF0C;&#x7B2C;&#x4E8C;&#x4E2A;&#x503C;&#x8BBE;&#x7F6E;&#x9AD8;&#x5EA6;&#x3002;</p><br>    <p>&#x5982;&#x679C;&#x53EA;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x503C;&#xFF0C;&#x5219;&#x7B2C;&#x4E8C;&#x4E2A;&#x503C;&#x4F1A;&#x88AB;&#x8BBE;&#x7F6E;&#x4E3A; &#x201C;auto&#x201D;&#x3002;</p><br></td><br><td><a target="_blank" href="/tiy/c.asp?f=css_background-size&amp;p=5">&#x6D4B;&#x8BD5;</a></td><br></tr><br><br><tr><br><td>cover</td><br><td><br>    <p>&#x628A;&#x80CC;&#x666F;&#x56FE;&#x50CF;&#x6269;&#x5C55;&#x81F3;&#x8DB3;&#x591F;&#x5927;&#xFF0C;&#x4EE5;&#x4F7F;&#x80CC;&#x666F;&#x56FE;&#x50CF;&#x5B8C;&#x5168;&#x8986;&#x76D6;&#x80CC;&#x666F;&#x533A;&#x57DF;&#x3002;</p><br>    <p>&#x80CC;&#x666F;&#x56FE;&#x50CF;&#x7684;&#x67D0;&#x4E9B;&#x90E8;&#x5206;&#x4E5F;&#x8BB8;&#x65E0;&#x6CD5;&#x663E;&#x793A;&#x5728;&#x80CC;&#x666F;&#x5B9A;&#x4F4D;&#x533A;&#x57DF;&#x4E2D;&#x3002;</p><br></td><br><td><a target="_blank" href="/tiy/c.asp?f=css_background-size&amp;p=7">&#x6D4B;&#x8BD5;</a></td><br></tr><br><br><tr><br><td>contain</td><br><td>&#x628A;&#x56FE;&#x50CF;&#x56FE;&#x50CF;&#x6269;&#x5C55;&#x81F3;&#x6700;&#x5927;&#x5C3A;&#x5BF8;&#xFF0C;&#x4EE5;&#x4F7F;&#x5176;&#x5BBD;&#x5EA6;&#x548C;&#x9AD8;&#x5EA6;&#x5B8C;&#x5168;&#x9002;&#x5E94;&#x5185;&#x5BB9;&#x533A;&#x57DF;&#x3002;</td><br><td><a target="_blank" href="/tiy/c.asp?f=css_background-size&amp;p=8">&#x6D4B;&#x8BD5;</a></td><br></tr><br></tbody></table>
+
+<p>&#x53EF;&#x4EE5;&#x770B;&#x770B;<a href="http://www.w3school.com.cn/cssref/pr_background-size.asp" target="_blank" rel="external">&#x5BF9;&#x5E94;demo</a></p>
+<hr>
+<h2 id="background-repeat"><a href="#background-repeat" class="headerlink" title="background-repeat"></a><strong>background-repeat</strong></h2><p>&#x8BBE;&#x7F6E;&#x5982;&#x4F55;&#x91CD;&#x590D;&#x80CC;&#x666F;&#x56FE;&#x50CF;&#x3002;<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span></span><br><span class="line">  {</span><br><span class="line">  <span class="attribute">background-image</span>: <span class="built_in">url</span>(stars.gif);</span><br><span class="line">  <span class="attribute">background-repeat</span>: repeat-y;</span><br><span class="line">  }</span><br></pre></td></tr></table></figure></p>
+<table><br><tbody><tr><br><th>&#x503C;</th><br><th>&#x63CF;&#x8FF0;</th><br></tr><br><br><tr><br><td>repeat</td><br><td>&#x9ED8;&#x8BA4;&#x3002;&#x80CC;&#x666F;&#x56FE;&#x50CF;&#x5C06;&#x5728;&#x5782;&#x76F4;&#x65B9;&#x5411;&#x548C;&#x6C34;&#x5E73;&#x65B9;&#x5411;&#x91CD;&#x590D;&#x3002;</td><br></tr><br><br><tr><br><td>repeat-x</td><br><td>&#x80CC;&#x666F;&#x56FE;&#x50CF;&#x5C06;&#x5728;&#x6C34;&#x5E73;&#x65B9;&#x5411;&#x91CD;&#x590D;&#x3002;</td><br></tr><br><br><tr><br><td>repeat-y</td><br><td>&#x80CC;&#x666F;&#x56FE;&#x50CF;&#x5C06;&#x5728;&#x5782;&#x76F4;&#x65B9;&#x5411;&#x91CD;&#x590D;&#x3002;</td><br></tr><br><br><tr><br><td>no-repeat</td><br><td>&#x80CC;&#x666F;&#x56FE;&#x50CF;&#x5C06;&#x4EC5;&#x663E;&#x793A;&#x4E00;&#x6B21;&#x3002;</td><br></tr><br><br><tr><br><td>inherit</td><br><td>&#x89C4;&#x5B9A;&#x5E94;&#x8BE5;&#x4ECE;&#x7236;&#x5143;&#x7D20;&#x7EE7;&#x627F; background-repeat &#x5C5E;&#x6027;&#x7684;&#x8BBE;&#x7F6E;&#x3002;</td><br></tr><br></tbody></table>
+
+<p><a href="http://www.w3school.com.cn/cssref/pr_background-repeat.asp" target="_blank" rel="external">&#x5BF9;&#x5E94;demo</a></p>
+<p>&#x901A;&#x5E38;no-repeat&#x4E5F;&#x5C31;&#x662F;&#x80CC;&#x666F;&#x56FE;&#x7247;&#x4EC5;&#x663E;&#x793A;&#x4E00;&#x6B21;&#xFF0C;&#x6BD4;&#x8F83;&#x5E38;&#x7528;&#x3002;</p>
+<hr>
+<h2 id="background-origin"><a href="#background-origin" class="headerlink" title="background-origin"></a><strong>background-origin</strong></h2><p>&#x8BE5;&#x5C5E;&#x6027;&#x89C4;&#x5B9A;background-position&#x5C5E;&#x6027;&#x76F8;&#x5BF9;&#x4E8E;&#x4EC0;&#x4E48;&#x4F4D;&#x7F6E;&#x6765;&#x5B9A;&#x4F4D;&#x3002;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;css3&#x5C5E;&#x6027;&#x3002;</p>
+<table class="dataintable"><br><tbody><tr><br><th style="width:25%;">&#x503C;</th><br><th>&#x63CF;&#x8FF0;</th><br><th style="width:8%;">&#x6D4B;&#x8BD5;</th><br></tr><br><br><tr><br><td>padding-box</td><br><td>&#x9ED8;&#x8BA4;&#x503C;&#xFF0C;&#x80CC;&#x666F;&#x56FE;&#x50CF;&#x76F8;&#x5BF9;&#x4E8E;&#x5185;&#x8FB9;&#x8DDD;&#x6846;&#x6765;&#x5B9A;&#x4F4D;&#x3002;</td><br><td><a target="_blank" href="/tiy/c.asp?f=css_background-origin">&#x6D4B;&#x8BD5;</a></td><br></tr><br><br><tr><br><td>border-box</td><br><td>&#x80CC;&#x666F;&#x56FE;&#x50CF;&#x76F8;&#x5BF9;&#x4E8E;&#x8FB9;&#x6846;&#x76D2;&#x6765;&#x5B9A;&#x4F4D;&#x3002;</td><br><td><a target="_blank" href="/tiy/c.asp?f=css_background-origin&amp;p=2">&#x6D4B;&#x8BD5;</a></td><br></tr><br><br><tr><br><td>content-box</td><br><td>&#x80CC;&#x666F;&#x56FE;&#x50CF;&#x76F8;&#x5BF9;&#x4E8E;&#x5185;&#x5BB9;&#x6846;&#x6765;&#x5B9A;&#x4F4D;&#x3002;</td><br><td><a target="_blank" href="/tiy/c.asp?f=css_background-origin&amp;p=3">&#x6D4B;&#x8BD5;</a></td><br></tr><br></tbody></table>
+
+<p>&#x6709;&#x4E9B;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x80CC;&#x666F;&#x56FE;&#x5728;&#x53F3;&#x4E0B;&#x89D2;&#x51FA;&#x73B0;&#xFF0C;&#x4F46;&#x662F;&#x53C8;&#x4E0D;&#x60F3;&#x662F;&#x7D27;&#x6328;&#x8FB9;&#x7F18;&#x3002;&#x5982;&#x679C;&#x4F7F;&#x7528;<code>background-position:bottom right;</code>&#x7684;&#x8BDD;&#xFF0C;&#x4F1A;&#x7D27;&#x6328;&#x7740;&#x8FB9;&#x7F18;&#x3002;<br>&#x6240;&#x4EE5;&#x53EF;&#x4EE5;&#x914D;&#x5408;&#x8BE5;&#x5C5E;&#x6027;&#x4F7F;&#x7528;&#xFF1A;<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">padding:10px;</span><br><span class="line">background-position:bottom right;</span><br><span class="line">background-origin:content-box;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="background-clip"><a href="#background-clip" class="headerlink" title="background-clip"></a><strong>background-clip</strong></h2><p>&#x8BE5;&#x5C5E;&#x6027;&#x89C4;&#x5B9A;&#x80CC;&#x666F;&#x7684;&#x7ED8;&#x5236;&#x533A;&#x57DF;&#xFF0C;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;css3&#x5C5E;&#x6027;&#x3002;</p>
+<table class="dataintable"><br><tbody><tr><br><th style="width:25%;">&#x503C;</th><br><th>&#x63CF;&#x8FF0;</th><br><th style="width:8%;">&#x6D4B;&#x8BD5;</th><br></tr><br><br><tr><br><td>border-box</td><br><td>&#x9ED8;&#x8BA4;&#x503C;&#xFF0C;&#x80CC;&#x666F;&#x88AB;&#x88C1;&#x526A;&#x5230;&#x8FB9;&#x6846;&#x76D2;&#x3002;</td><br><td><a target="_blank" href="/tiy/c.asp?f=css_background-clip">&#x6D4B;&#x8BD5;</a></td><br></tr><br><br><tr><br><td>padding-box</td><br><td>&#x80CC;&#x666F;&#x88AB;&#x88C1;&#x526A;&#x5230;&#x5185;&#x8FB9;&#x8DDD;&#x6846;&#x3002;</td><br><td><a target="_blank" href="/tiy/c.asp?f=css_background-clip&amp;p=2">&#x6D4B;&#x8BD5;</a></td><br></tr><br><br><tr><br><td>content-box</td><br><td>&#x80CC;&#x666F;&#x88AB;&#x88C1;&#x526A;&#x5230;&#x5185;&#x5BB9;&#x6846;&#x3002;</td><br><td><a target="_blank" href="/tiy/c.asp?f=css_background-clip&amp;p=3">&#x6D4B;&#x8BD5;</a></td><br></tr><br></tbody></table>
+
+<p><a href="http://www.w3school.com.cn/tiy/t.asp?f=css3_background-clip" target="_blank" rel="external">&#x76F8;&#x5173;demo</a></p>
+<hr>
+<h2 id="background-attachment"><a href="#background-attachment" class="headerlink" title="background-attachment"></a><strong>background-attachment</strong></h2><p>&#x8BE5;&#x5C5E;&#x6027;&#x8BBE;&#x7F6E;&#x80CC;&#x666F;&#x56FE;&#x50CF;&#x662F;&#x5426;&#x56FA;&#x5B9A;&#x6216;&#x8005;&#x968F;&#x7740;&#x9875;&#x9762;&#x7684;&#x5176;&#x4F59;&#x90E8;&#x5206;&#x6EDA;&#x52A8;&#x3002;</p>
+<table class="dataintable"><br><tbody><tr><br><th>&#x503C;</th><br><th>&#x63CF;&#x8FF0;</th><br></tr><br><br><tr><br><td>scroll</td><br><td>&#x9ED8;&#x8BA4;&#x503C;&#x3002;&#x80CC;&#x666F;&#x56FE;&#x50CF;&#x4F1A;&#x968F;&#x7740;&#x9875;&#x9762;&#x5176;&#x4F59;&#x90E8;&#x5206;&#x7684;&#x6EDA;&#x52A8;&#x800C;&#x79FB;&#x52A8;&#x3002;</td><br></tr><br><br><tr><br><td>fixed</td><br><td>&#x5F53;&#x9875;&#x9762;&#x7684;&#x5176;&#x4F59;&#x90E8;&#x5206;&#x6EDA;&#x52A8;&#x65F6;&#xFF0C;&#x80CC;&#x666F;&#x56FE;&#x50CF;&#x4E0D;&#x4F1A;&#x79FB;&#x52A8;&#x3002;</td><br></tr><br><br><tr><br><td>inherit</td><br><td>&#x89C4;&#x5B9A;&#x5E94;&#x8BE5;&#x4ECE;&#x7236;&#x5143;&#x7D20;&#x7EE7;&#x627F; background-attachment &#x5C5E;&#x6027;&#x7684;&#x8BBE;&#x7F6E;&#x3002;</td><br></tr><br></tbody></table>
+
+<hr>
+<h2 id="background-image"><a href="#background-image" class="headerlink" title="background-image"></a><strong>background-image</strong></h2><p>&#x8BE5;&#x5C5E;&#x6027;&#x4E3A;&#x5143;&#x7D20;&#x8BBE;&#x7F6E;&#x80CC;&#x666F;&#x56FE;&#x50CF;&#x3002;<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> {<span class="attribute">background-image</span>:<span class="built_in">url</span>(/i/eg_bg_04.gif);}</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/02/20/入门教程-WebPack官网/" rel="next" title="入门教程-WebPack官网">
+                <i class="fa fa-chevron-left"></i> 入门教程-WebPack官网
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/02/25/深入教程-WebPack官网/" rel="prev" title="深入教程-WebPack官网">
+                深入教程-WebPack官网 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/02/21/background属性详解/"
+     data-title="background属性详解"
+     data-content=""
+     data-url="http://yoursite.com/2016/02/21/background属性详解/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/02/21/background属性详解/"
+           data-title="background属性详解" data-url="http://yoursite.com/2016/02/21/background属性详解/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://nos.netease.com/edu-image/5AA61D30A78B81D8CF5AE7608A1468C2.jpg"
+               alt="刘放" />
+          <p class="site-author-name" itemprop="name">刘放</p>
+          <p class="site-description motion-element" itemprop="description">网易前端开发 brizer@163.com</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">110</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/brizer" target="_blank" title="github">
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/3978835322" target="_blank" title="weibo">
+                  
+                  weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://study.163.com/topics/2016-11sales/#/main" title="云课堂充电节" target="_blank">云课堂充电节</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://study.163.com/" title="网易云课堂" target="_blank">网易云课堂</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.icourse163.org/" title="中国大学MOOC" target="_blank">中国大学MOOC</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://100.163.com/" title="网易100分" target="_blank">网易100分</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#css属性之background"><span class="nav-number">1.</span> <span class="nav-text">css属性之background</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#background"><span class="nav-number">1.2.</span> <span class="nav-text">background</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#background-color"><span class="nav-number">1.3.</span> <span class="nav-text">background-color</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#background-position"><span class="nav-number">1.4.</span> <span class="nav-text">background-position</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#background-size"><span class="nav-number">1.5.</span> <span class="nav-text">background-size</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#background-repeat"><span class="nav-number">1.6.</span> <span class="nav-text">background-repeat</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#background-origin"><span class="nav-number">1.7.</span> <span class="nav-text">background-origin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#background-clip"><span class="nav-number">1.8.</span> <span class="nav-text">background-clip</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#background-attachment"><span class="nav-number">1.9.</span> <span class="nav-text">background-attachment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#background-image"><span class="nav-number">1.10.</span> <span class="nav-text">background-image</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刘放</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i> 总访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"brizer"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+  
+  
+</body>
+</html>
