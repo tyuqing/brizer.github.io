@@ -84,19 +84,19 @@
 &amp;#x524D;&amp;#x8A00;&amp;#x524D;&amp;#x9762;&amp;#x6211;&amp;#x4EEC;&amp;#x5B66;&amp;#x4E60;&amp;#x4E86;WebPack&amp;#x7684;&amp;#x5B89;&amp;#x88C5;&amp;#x548C;&amp;#x5165;&amp;#x95E8;&amp;#x6559;&amp;#x7A0B;&amp;#xFF0C;&amp;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深入教程-WebPack官网">
-<meta property="og:url" content="http://yoursite.com/2016/02/25/深入教程-WebPack官网/index.html">
+<meta property="og:url" content="http://http://brizer.top/2016/02/25/深入教程-WebPack官网/index.html">
 <meta property="og:site_name" content="Brizer's Blog">
 <meta property="og:description" content="Webpack&amp;#x4E4B;&amp;#x6DF1;&amp;#x5165;&amp;#x6559;&amp;#x7A0B;
 &amp;#x524D;&amp;#x8A00;&amp;#x524D;&amp;#x9762;&amp;#x6211;&amp;#x4EEC;&amp;#x5B66;&amp;#x4E60;&amp;#x4E86;WebPack&amp;#x7684;&amp;#x5B89;&amp;#x88C5;&amp;#x548C;&amp;#x5165;&amp;#x95E8;&amp;#x6559;&amp;#x7A0B;&amp;#xFF0C;&amp;">
-<meta property="og:image" content="http://yoursite.com/2016/02/25/深入教程-WebPack官网/3-1.png">
-<meta property="og:image" content="http://yoursite.com/2016/02/25/深入教程-WebPack官网/3-2.png">
-<meta property="og:image" content="http://yoursite.com/2016/02/25/深入教程-WebPack官网/3-3.png">
+<meta property="og:image" content="http://http://brizer.top//brizer.top/2016/02/25/深入教程-WebPack官网/3-1.png">
+<meta property="og:image" content="http://http://brizer.top//brizer.top/2016/02/25/深入教程-WebPack官网/3-2.png">
+<meta property="og:image" content="http://http://brizer.top//brizer.top/2016/02/25/深入教程-WebPack官网/3-3.png">
 <meta property="og:updated_time" content="2016-04-23T11:39:57.844Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入教程-WebPack官网">
 <meta name="twitter:description" content="Webpack&amp;#x4E4B;&amp;#x6DF1;&amp;#x5165;&amp;#x6559;&amp;#x7A0B;
 &amp;#x524D;&amp;#x8A00;&amp;#x524D;&amp;#x9762;&amp;#x6211;&amp;#x4EEC;&amp;#x5B66;&amp;#x4E60;&amp;#x4E86;WebPack&amp;#x7684;&amp;#x5B89;&amp;#x88C5;&amp;#x548C;&amp;#x5165;&amp;#x95E8;&amp;#x6559;&amp;#x7A0B;&amp;#xFF0C;&amp;">
-<meta name="twitter:image" content="http://yoursite.com/2016/02/25/深入教程-WebPack官网/3-1.png">
+<meta name="twitter:image" content="http://http://brizer.top//brizer.top/2016/02/25/深入教程-WebPack官网/3-1.png">
 
 
 
@@ -341,20 +341,20 @@
 <h2 id="&#x5F15;&#x7528;"><a href="#&#x5F15;&#x7528;" class="headerlink" title="&#x5F15;&#x7528;"></a><strong>&#x5F15;&#x7528;</strong></h2><p>&#x9996;&#x5148;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;&#x7A7A;&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x683C;&#x5F0F;&#x5982;&#x4E0B;&#xFF1A;</p>
 <p>/app<br>&#x2013;main.js<br>&#x2013;component.js<br>/build<br>&#x2013;bundle.js (&#x81EA;&#x52A8;&#x521B;&#x5EFA;)<br>&#x2013;index.html<br>package.json<br>webpack.config.js</p>
 <p>&#x5728;&#x8BE5;&#x76EE;&#x5F55;&#x8FD0;&#x884C;<code>npm init</code>,&#x5B8C;&#x6210;&#x57FA;&#x672C;&#x914D;&#x7F6E;&#x9879;&#xFF1A;</p>
-<p><img src="/2016/02/25/&#x6DF1;&#x5165;&#x6559;&#x7A0B;-WebPack&#x5B98;&#x7F51;/3-1.png" alt="images"></p>
+<p><img src="//brizer.top/2016/02/25/&#x6DF1;&#x5165;&#x6559;&#x7A0B;-WebPack&#x5B98;&#x7F51;/3-1.png" alt="images"></p>
 <p>&#x7136;&#x540E;&#x6211;&#x4EEC;&#x914D;&#x7F6E;webpack.config.js&#x6587;&#x4EF6;&#x5982;&#x4E0B;&#xFF1A;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> path=<span class="built_in">require</span>(<span class="string">&quot;path&quot;</span>);</span><br><span class="line"><span class="built_in">module</span>.exports = {</span><br><span class="line">  entry:path.resolve(__dirname,<span class="string">&quot;app/main.js&quot;</span>),</span><br><span class="line">  output:{</span><br><span class="line">    path:path.resolve(__dirname,<span class="string">&quot;build&quot;</span>),</span><br><span class="line">    filename:<span class="string">&quot;bundle.js&quot;</span>,</span><br><span class="line">  },</span><br><span class="line">};</span><br></pre></td></tr></table></figure></p>
 <p>&#x5C06;&#x5165;&#x53E3;&#x548C;&#x8F93;&#x51FA;&#x6307;&#x5B9A;&#x597D;&#x3002;</p>
 <p>&#x63A5;&#x4E0B;&#x6765;&#x6211;&#x4EEC;&#x7F16;&#x5199;app/component.js&#x6587;&#x4EF6;&#xFF1A;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&apos;use strict&apos;</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">  <span class="keyword">var</span> element = <span class="built_in">document</span>.createElement(<span class="string">&quot;h1&quot;</span>);</span><br><span class="line">  element.innerHTML = <span class="string">&quot;Hello world&quot;</span>;</span><br><span class="line">  <span class="keyword">return</span> element;</span><br><span class="line">};</span><br></pre></td></tr></table></figure></p>
 <p>&#x8FD8;&#x6709;app/main.js:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&apos;use strict&apos;</span></span><br><span class="line"><span class="keyword">var</span> component = <span class="built_in">require</span>(<span class="string">&quot;./component.js&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.body.appendChild(component());</span><br></pre></td></tr></table></figure></p>
 <p>&#x63A5;&#x4E0B;&#x6765;&#x8FD0;&#x884C;webpack&#x547D;&#x4EE4;&#xFF1A;</p>
-<p><img src="/2016/02/25/&#x6DF1;&#x5165;&#x6559;&#x7A0B;-WebPack&#x5B98;&#x7F51;/3-2.png" alt="images"></p>
+<p><img src="//brizer.top/2016/02/25/&#x6DF1;&#x5165;&#x6559;&#x7A0B;-WebPack&#x5B98;&#x7F51;/3-2.png" alt="images"></p>
 <p>&#x4F1A;&#x53D1;&#x73B0;bundle.js&#x6587;&#x4EF6;&#x5DF2;&#x7ECF;&#x81EA;&#x52A8;&#x751F;&#x6210;&#x4E86;&#x3002;&#x5176;&#x4F5C;&#x7528;&#x5C31;&#x662F;&#x7ED1;&#x5B9A;&#x548C;&#x5BF9;&#x5E94;webpack.config.js&#x4E2D;&#x7684;&#x5165;&#x53E3;&#x548C;&#x8F93;&#x51FA;&#xFF0C;&#x8FD9;&#x4E00;&#x70B9;&#x6211;&#x4EEC;&#x5728;&#x524D;&#x9762;&#x7684;&#x6587;&#x7AE0;&#x4E2D;&#x4E5F;&#x8BF4;&#x8FC7;&#x3002;</p>
 <p>&#x6700;&#x540E;&#x662F;index.html&#xFF1A;<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!doctype html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;bundle.js&quot;</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x8BBF;&#x95EE;index.html&#x5C31;&#x53EF;&#x4EE5;&#x5F97;&#x5230;hello world&#x4E86;&#x3002;</p>
 <hr>
 <h2 id="&#x81EA;&#x5B9A;&#x4E49;&#x547D;&#x4EE4;"><a href="#&#x81EA;&#x5B9A;&#x4E49;&#x547D;&#x4EE4;" class="headerlink" title="&#x81EA;&#x5B9A;&#x4E49;&#x547D;&#x4EE4;"></a><strong>&#x81EA;&#x5B9A;&#x4E49;&#x547D;&#x4EE4;</strong></h2><p>&#x4E4B;&#x524D;&#x6211;&#x4EEC;&#x662F;&#x901A;&#x8FC7;<code>webpack</code>&#x547D;&#x4EE4;&#x6765;&#x8FDB;&#x884C;&#x7F16;&#x8BD1;&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#x6211;&#x4EEC;&#x901A;&#x8FC7;&#x5728;package.json&#x4E2D;&#x81EA;&#x5B9A;&#x4E49;&#x547D;&#x4EE4;build&#x6765;&#x6267;&#x884C;webpack&#xFF1A;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">  <span class="string">&quot;name&quot;</span>: <span class="string">&quot;webpacktest&quot;</span>,</span><br><span class="line">  <span class="string">&quot;version&quot;</span>: <span class="string">&quot;1.0.0&quot;</span>,</span><br><span class="line">  <span class="string">&quot;description&quot;</span>: <span class="string">&quot;webpack&quot;</span>,</span><br><span class="line">  <span class="string">&quot;main&quot;</span>: <span class="string">&quot;index.js&quot;</span>,</span><br><span class="line">  <span class="string">&quot;scripts&quot;</span>: {</span><br><span class="line">    <span class="string">&quot;test&quot;</span>: <span class="string">&quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span>,</span><br><span class="line">    <span class="string">&quot;build&quot;</span>:<span class="string">&quot;webpack&quot;</span></span><br><span class="line">  },</span><br><span class="line">  <span class="string">&quot;author&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">  <span class="string">&quot;license&quot;</span>: <span class="string">&quot;ISC&quot;</span></span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
 <p>&#x7136;&#x540E;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x6267;&#x884C;<code>npm run build</code> &#x6765;&#x8FDB;&#x884C;&#x7F16;&#x8BD1;&#x4E86;&#xFF1A;</p>
-<p><img src="/2016/02/25/&#x6DF1;&#x5165;&#x6559;&#x7A0B;-WebPack&#x5B98;&#x7F51;/3-3.png" alt="images"></p>
+<p><img src="//brizer.top/2016/02/25/&#x6DF1;&#x5165;&#x6559;&#x7A0B;-WebPack&#x5B98;&#x7F51;/3-3.png" alt="images"></p>
 <p>&#x5F53;&#x6211;&#x4EEC;&#x7684;&#x9879;&#x76EE;&#x975E;&#x5E38;&#x590D;&#x6742;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8FD9;&#x79CD;&#x81EA;&#x5B9A;&#x4E49;<code>scripts</code>&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x4FDD;&#x5B58;&#x754C;&#x9762;&#x7684;&#x7B80;&#x6D01;&#x3002;</p>
 <hr>
 <h2 id="&#x914D;&#x7F6E;&#x670D;&#x52A1;&#x5668;"><a href="#&#x914D;&#x7F6E;&#x670D;&#x52A1;&#x5668;" class="headerlink" title="&#x914D;&#x7F6E;&#x670D;&#x52A1;&#x5668;"></a><strong>&#x914D;&#x7F6E;&#x670D;&#x52A1;&#x5668;</strong></h2><p>&#x6211;&#x4EEC;&#x6BCF;&#x6B21;&#x90FD;&#x901A;&#x8FC7;<code>npm run build</code> &#x7136;&#x540E;&#x5237;&#x65B0;&#x6709;&#x70B9;&#x4E0D;&#x592A;&#x65B9;&#x4FBF;&#x3002;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8BBE;&#x7F6E;<code>webpack-dev-server</code>&#x6765;&#x5B8C;&#x6210;&#x81EA;&#x52A8;&#x5237;&#x65B0;&#x3002;</p>
@@ -433,7 +433,7 @@
         <div class="ds-share flat" data-thread-key="2016/02/25/深入教程-WebPack官网/"
      data-title="深入教程-WebPack官网"
      data-content=""
-     data-url="http://yoursite.com/2016/02/25/深入教程-WebPack官网/">
+     data-url="http://http://brizer.top/2016/02/25/深入教程-WebPack官网/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -461,7 +461,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2016/02/25/深入教程-WebPack官网/"
-           data-title="深入教程-WebPack官网" data-url="http://yoursite.com/2016/02/25/深入教程-WebPack官网/">
+           data-title="深入教程-WebPack官网" data-url="http://http://brizer.top/2016/02/25/深入教程-WebPack官网/">
       </div>
     
   </div>
