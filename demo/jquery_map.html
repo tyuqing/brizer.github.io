@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.9.0/jquery.js"></script> 	
+<script>
+var data = {
+    "key_0": [
+        {
+            "productId": 1002996021,
+            "productName": "和秋叶一起学PPT",
+            "productType": 0,
+            "productCnt": null,
+        },
+        {
+            "productId": 940019,
+            "productName": "课程的名称很长会怎么样呢课程的名称很长会怎么样呢",
+            "productType": 0,
+            "productCnt": null,
+        },
+        {
+            "productId": 940019,
+            "productName": "课程1",
+            "productType": 0,
+            "productCnt": 3,
+        }              
+    ],
+    "key_1": [   
+        {
+            "productId": 1002996021,
+            "productName": "和秋叶一起学PPT",
+            "productType": 0,
+            "productCnt": null,
+        },
+        {
+            "productId": 940019,
+            "productName": "课程的名称很长会怎么样呢课程的名称很长会怎么样呢",
+            "productType": 0,
+            "productCnt": null,
+        },
+        {
+            "productId": 940019,
+            "productName": "课程1",
+            "productType": 0,
+            "productCnt": 3,
+        }              
+    ]         
+}
+
+$.map(data,function(val,key){    
+   document.writeln(key+'<br/>');
+   document.writeln(JSON.stringify(val)+'<br/>');        
+});	
+</script>
+</body>
+</html>

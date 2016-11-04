@@ -1,0 +1,2 @@
+cant read file g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/javascript/web/module/m/index.js for utf-8, cause:
+{"errno":-4058,"code":"ENOENT","syscall":"open","path":"g:\\Hexo\\public\\demo\\NetEaseDemo\\demo\\NetEaseDemo\\src\\javascript\\web\\module\\m\\index.js"}

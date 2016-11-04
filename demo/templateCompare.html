@@ -1,0 +1,278 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>template test</title>
+<script src="js/jquery-1.7.2.min.js"></script>
+<script src="js/highcharts.js"></script>
+
+
+<script src="templateCompare/doT.js"></script>
+<script src="templateCompare/mustache.js"></script>
+<script src="templateCompare/regular.js"></script>
+<script src="templateCompare/angular.js"></script>
+<script src="templateCompare/vue.js"></script>
+<script src="templateCompare/kissy.js"></script>
+
+<script>
+// 数据量
+var length = 1000;
+// 渲染次数
+var number = 200;
+
+var data = {
+    list: []
+};
+
+for (var i = 0; i < length; i ++) {
+    data.list.push({
+        index: i,
+        user: '<strong style="color:red">刘放</strong>',
+        site: 'brizer.github.io'
+    });
+};
+
+
+// 待测试的引擎列表
+var testList = [
+
+	{
+		name:'regular',
+		tester:function(){
+			var source = document.getElementById('regular').innerHTML;
+			var component = new Regular({
+			  template:source,
+			  data: data
+			});				
+		}
+	},
+
+    {
+        name: 'doT',
+        tester: function () {
+            var source = document.getElementById('doT').innerHTML;
+            var doTtmpl = doT.template(source);
+            for (var i = 0; i < number; i ++) {
+                doTtmpl(data);
+            }
+        }
+    },
+    {
+        name: 'Mustache',
+        tester: function () {
+            var source = document.getElementById('Mustache').innerHTML;
+            var fn = Mustache.compile(source);
+            for (var i = 0; i < number; i ++) {
+                fn(data);
+            }
+        }
+    },
+	{
+		name:'Vue',
+		tester:function(){
+			var source = document.getElementById('Vue').innerHTML;
+			for(var i=0;i<number;i++){
+				new Vue({
+					el:'#Vue',
+					data:data
+				})
+			}
+		}
+	},    
+
+];
+KISSY.use('template',function(S,T) {
+    testList.push({
+        name: 'Kissy',
+        tester: function () {
+            var source= document.getElementById('kissy').innerHTML;
+            var fn = T(source);
+
+            for (var i = 0; i < number; i ++) {
+                fn.render(data);
+            }
+        }
+    });
+});
+
+var startTest = function () {
+
+    var Timer = function (){
+        this.startTime = + new Date;
+    };
+
+    Timer.prototype.stop = function(){
+        return + new Date - this.startTime;
+    };
+
+    var colors = Highcharts.getOptions().colors;
+    var categories = [];
+
+    for (var i = 0; i < testList.length; i ++) {
+        categories.push(testList[i].name);
+    }
+
+    var chart = new Highcharts.Chart({
+        chart: {
+            renderTo: 'container',
+            height: 300,
+            type: 'bar'
+        },
+
+        title: {
+            text: 'JavaScript 模板引擎负荷测试'
+        },
+
+        subtitle: {
+            text: length + ' 条数据 × ' + number + ' 次渲染'
+        },
+
+        xAxis: {
+            categories: categories,
+            labels: {
+                align: 'right',
+                style: {
+                    fontSize: '12px',
+                    fontFamily: 'Verdana, sans-serif'
+                }
+            }
+        },
+
+        yAxis: {
+            min: 0,
+            title: {
+                text: '耗时(毫秒)'
+            }
+        },
+
+        legend: {
+            enabled: false
+        },
+
+        tooltip: {
+            formatter: function() {
+                return '<b>'+ this.x +'</b><br/>'+
+                    this.y + '毫秒';
+            }
+
+        },
+
+        credits: {
+            enabled: false
+        },
+        plotOptions: {
+            bar: {
+                dataLabels: {
+                    enabled: true,
+                    formatter: function () {
+                        return this.y + 'ms';
+                    }
+                }
+            }
+        },
+        series: [{
+            data : []
+        }]
+
+    });
+
+    var log = function (message) {
+        document.getElementById('log').innerHTML = message;
+    };
+
+    var tester = function (target) {
+
+
+        var time = new Timer;
+        target.tester();
+        var endTime = time.stop();
+
+        chart.series[0].addPoint({
+            color: colors.shift(),
+            y: endTime
+        });
+
+
+        if (!testList.length) {
+            log('测试已完成，请不要迷恋速度');
+            return;
+        }
+
+        target = testList.shift();
+
+        log('正在测试: ' + target.name + '..');
+
+        setTimeout(function () {
+            tester(target);
+        }, 500);
+
+    };
+
+    var target = testList.shift();
+    log('正在测试: ' + target.name + '..');
+    tester(target);
+
+};
+</script>
+
+
+
+
+<!--Regular的模板-->
+<script id="regular" type="text/tmpl">
+<ul>
+	{#list list as item}
+		<li>用户: {item.user}/ 网站：{item.site}</li>
+	{/list}	
+</ul>
+
+</script>
+
+
+<!-- doT 的模板 -->
+<script id="doT" type="text/tmpl">
+<ul>
+    {{ for (var val, i = 0, l = it.list.length; i < l; i ++) { }}
+        {{ val = it.list; }}
+        <li>用户: {{=val[i].user}}/ 网站：{{=val[i].site}}</li>
+    {{ } }}
+</ul>
+</script>
+
+<!--Mustache 的模板 -->
+<script id="Mustache" type="text/tmpl">
+<ul>
+    {{#list}}
+        <li>用户: {{{user}}}/ 网站：{{{site}}}</li>
+    {{/list}}
+</ul>
+</script>
+
+<!--Vue 的模板 -->
+<script id="Vue" type="text/tmpl">
+<ul>
+    <li v-for="item in list">
+      {{item.user}}/ 网站：{{item.site}}
+    </li>
+</ul>
+</script>
+
+<!--kissy 的模板 -->
+<script id="kissy" type="text/tmpl">
+<ul>
+    {{#each list as val}}
+        <li>用户: {{val.user}}/ 网站：{{val.site}}</li>
+    {{/each}}
+</ul>
+</script>
+
+</head>
+
+<body>
+<h1>引擎渲染速度测试</h1>
+<p><strong><script>document.write(length)</script></strong> 条数据 × <strong><script>document.write(number)</script></strong> 次渲染测试 [escape:false, cache:true]</p>
+<p><em>建议在拥有 v8 javascript 引擎的 chrome 浏览器上进行测试，避免浏览器停止响应</em></p>
+<p><button id="button-test" onclick="this.disabled=true;startTest()" style="padding: 5px;">开始测试&raquo;</button> <span id="log" style="font-size:12px"><script>for (var i = 0; i < testList.length; i ++) {document.write(testList[i].name + '; ')}</script></span></p>
+<div id="container" style="min-width: 400px; margin: 0 auto"></div>
+</body>
+</html>

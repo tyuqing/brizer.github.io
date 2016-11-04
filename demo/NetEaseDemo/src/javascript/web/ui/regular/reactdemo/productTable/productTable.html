@@ -1,0 +1,20 @@
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <div r-hide="{true}">{inStockOnly}</div>
+        {#list this.getProducts() as product}
+            {#if (product.name.toLowerCase().indexOf(filterText)!=-1)}
+                {#if product.category!=lastCategory}
+                    <productcategoryrow category={product.category} key={product.category}></productcategoryrow>                
+                {/if}
+                <productrow product={product} key={product.name}></productrow>
+                <div r-hide="{true}">{lastCategory=product.category}</div>
+            {/if}
+        {/list}
+    </tbody>
+</table>

@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>todomvc</title>
+<!--引入todomvc.css-->
+ <link rel="stylesheet" href="https://rawgit.com/tastejs/todomvc-common/v0.1.11/base.css">		
+</head>
+<body>
+<div id="todoapp"></div>
+
+<footer id="info">
+  <p>Double-click to edit a todo</p>
+  <p>Created by brizer</p>
+  <p>
+    Part of
+    <a href="http://todomvc.com">TodoMVC</a>
+  </p>
+</footer>
+<!-- 模板 -->
+<script type='template/regular' id='todo'>
+<li  r-class={{'completed': todo.completed, 'editing': todo.editing}}>
+  <div class="view">
+    <input class="toggle" type="checkbox" r-model={ todo.completed }>  
+    <label on-dblclick={todo.editing = true}>{ todo.description }</label> 
+    <button on-click="remove" class="destroy"></button>
+  </div>
+  <input id="edit" class="edit" on-enter={ todo.editing = false } r-model={todo.description} autofocus>
+</li>
+</script>
+<!-- 模板 -->
+<script type='template/regular' id='todomvc'>
+<div>
+  <h1>regular-todo</h1>
+  <input id="new-todo" on-enter={ this.newTodo(editTodo) } placeholder="What needs to be done?" r-model={ editTodo }>
+</div>
+  
+{#if !!todos.length}
+<section id="main">
+
+  <input id="toggle-all" type="checkbox" name='toggle' r-model='allCompleted'>
+  <label for="toggle-all">Mark all as complete</label>
+  <ul id="todo-list">
+    {#list this.getList(filter) as todo}
+    <todo todo={todo} on-remove={todos.splice(todo_index,1)} ></todo>
+    {/list}
+  </ul>
+</section>
+<footer id="footer">
+  <span id="todo-count"> <strong>{ activeLength }</strong>
+    { activeLength === 1 ? 'item' : 'items' } left
+  </span>
+  <ul id="filters">
+    <li>
+      <a class="{ filter === 'all'? 'selected' : '' }"  href="javascript:;" on-click={filter='all'}>All</a>
+    </li>
+    <li>
+      <a class="{ filter === 'active'? 'selected' : '' }" href='javascript:;' on-click={filter = 'active'}>Active</a>
+    </li>
+    <li>
+      <a class="{ filter === 'completed'? 'selected' : '' }" href="javascript:;" on-click={filter = 'completed'}>Completed</a>
+    </li>
+  </ul>
+  {#if completedLength}
+  <button id="clear-completed" on-click={this.clearCompleted()} >Clear completed ({ completedLength })</button>
+  {/if}
+</footer>
+{/if}
+</script>
+<!-- 引入regularjs -->
+<script src="https://rawgit.com/regularjs/regular/master/dist/regular.min.js"></script>
+
+<script>
+//自定义事件，指定什么情况下触发
+Regular.event('enter', function(element, fire){
+  Regular.dom.on(element, 'keypress', function(ev){
+  
+    if(ev.which === 13) fire(ev)
+  })
+})
+/*注册子组件*/
+var Todo = Regular.extend({
+  name: "todo",
+  template: "#todo"
+});
+
+var TodoMVC = Regular.extend({
+/*这里可以选择字符串变量，也可以像上面方式声明模板*/	
+    template: '#todomvc', // id | template string | preparsed ast
+    // get the list;
+      computed: {
+      completedLength: "this.getList('completed').length",
+      activeLength: "this.getList('active').length",
+      allCompleted: {
+        get: function(){
+          return this.data.todos.length === this.getList('completed').length
+        },
+        set: function(sign){
+          this.data.todos.forEach(function(item){
+            item.completed = sign;
+          })
+        }
+      }
+    },
+    getList: function(filter){
+      if(!filter || filter === 'all') return this.data.todos;
+      else return this.data.todos.filter(function(item){
+        return filter === 'completed'? item.completed : !item.completed;
+      });
+    },
+    // toggle all todo's completed state
+    toggleAll: function(sign){
+      this.data.todos.forEach(function(item){
+        return item.completed = !sign;
+      });
+    },
+    // clear all compleled
+    clearCompleted: function(){
+      this.data.todos = this.data.todos.filter(function(item){
+        return !item.completed
+      });
+    },
+    // create a new todo
+    newTodo: function(editTodo){
+      var data = this.data;
+      data.todos.unshift({description: editTodo});
+      data.editTodo = "";
+    }
+})
+var todos = [
+    {completed: true, description: "sleep" },
+    {completed: false, description: "work" }
+]
+/*实例化时传入数据*/
+var app = new TodoMVC({
+    data: {todos: todos}
+}).$inject("#todoapp");	
+</script>
+</body>
+</html>

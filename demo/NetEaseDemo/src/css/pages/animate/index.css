@@ -1,0 +1,30 @@
+#anim {
+	position: relative;
+	height: 50px;
+	width: 800px;
+	margin: 5px 0;
+	border: 1px solid #696969;
+}
+
+#bnt2 {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 50px;
+	height: 50px;
+	background-color: #FFE4C4;
+	font-size: 12px;
+	line-height: 50px;
+	text-align: center;
+	cursor: pointer;
+}
+
+#ball {
+	position: absolute;
+	top: 20px;
+	left: 70px;
+	width: 10px;
+	height: 10px;
+	background-color: black;
+	border-radius: 10px;
+}

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>观察者</title>		
+<script type="text/javascript" src="./js/util.js"></script>   
+</head>
+<body>
+</body>
+<script>
+/*先实现一个通用的观察者模式*/
+var Event = (function(){
+    var clientList = {};//订阅者列表
+    //添加自定义事件监听
+    var listen = function(key,fn){
+        if(!clientList[key]){
+            clientList[key] = [];
+        }
+        clientList[key].push(fn);
+    };
+    //触发自定义事件
+    var trigger = function(){
+        var key = Array.prototype.shift.call(arguments);
+        var fns = clientList[key];
+        //如果没有该自定义事件，则不触发
+        if(!fns || fns.length === 0){
+            return false;
+        }
+        //如果有，则触发函数，并传入参数
+        for(var i=0,fn;fn=fns[i++];){
+            fn.apply(this,arguments);
+        }
+    };
+    //移除自定义事件
+    var remove = function(key,fn){
+        var fns = clientList[key];
+        if(!fns){
+            return false;
+        }
+        if(!fn){
+            //如果未指定具体函数，则全部移除
+            fns && (fns.length = 0);
+        } else {
+            //依次遍历，找打指定函数并删除
+            for(var l = fns.length - 1; l>=0;l--){
+                var _fn = fns[l];
+                if(_fn === fn){
+                    fns.splice(l,1);
+                }
+            }
+        }
+    };
+    return {
+        listen:listen,
+        trigger:trigger,
+        remove:remove
+    }
+})();	
+/*随机触发20次事件，给两个watcher*/
+Event.listen('WatcherA',function(a){
+    Util.dw('发送给WatcherA的：'+a);
+});
+Event.listen('WatcherB',function(a){
+    Util.dw('发送给WatcherB的：'+a);
+});  
+    
+var i = 0;
+var inter = setInterval(function(){
+	i++;
+	if(i>=21){
+		clearInterval(inter);
+		return;  
+	}
+	var _random = Math.random();   
+	if(_random>0.5){
+		Event.trigger('WatcherA',i);
+	} else {
+		Event.trigger('WatcherB',i);
+	}
+},500);
+
+</script>
+</html>

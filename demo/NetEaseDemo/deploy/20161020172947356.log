@@ -1,0 +1,123 @@
+[I] 2016-10-20 17:29:47.328 - node version is v5.9.1, toolkit version is 1.5.6
+[I] 2016-10-20 17:29:47.336 - parse config file g:/Hexo/public/demo/NetEaseDemo/deploy/release.conf
+[W] 2016-10-20 17:29:47.346 - DIR_STATIC[g:/Hexo/public/demo/NetEaseDemo/res/] not exist
+[D] 2016-10-20 17:29:47.356 - config result -> {"DIR_CONFIG":"g:/Hexo/public/demo/NetEaseDemo/deploy/","DIR_WEBROOT":"g:/Hexo/public/demo/NetEaseDemo/","DIR_SOURCE":"g:/Hexo/public/demo/NetEaseDemo/src/html/","DIR_OUTPUT":"g:/Hexo/public/demo/NetEaseDemo/","DIR_OUTPUT_TP":"g:/Hexo/public/demo/NetEaseDemo/","DIR_OUTPUT_STATIC":"g:/Hexo/public/demo/NetEaseDemo/","DIR_STATIC":"g:/Hexo/public/demo/NetEaseDemo/res/","ALIAS_MATCH":{},"ALIAS_DICTIONARY":{},"DM_STATIC":[],"DM_STATIC_CS":[],"DM_STATIC_JS":[],"DM_STATIC_RS":[],"FILE_FILTER":{},"FILE_CHARSET":"utf-8","VERSION_MODE":0,"VERSION_STATIC":false,"VERSION_STATIC_MODE":0,"CORE_MERGE_FLAG":0,"CORE_NOPARSE_FLAG":0,"WRP_INLINE_SOURCE":"%s","CPRS_FLAG":0,"CPRS_KEEP_COMMENT":false,"NEJ_DIR":"g:/Hexo/public/demo/NetEaseDemo/src/javascript/lib/nej/src/","NEJ_CONFIG":{},"NEJ_REGULAR":"g:/Hexo/public/demo/NetEaseDemo/src/javascript/lib/regularjs/dist/regular.js","NEJ_PLATFORM":"","NEJ_PROCESSOR":{},"NEJ_INJECTOR":"I$","NEI_PROJECT_ID":0,"OPT_IMAGE_FLAG":false,"OPT_IMAGE_QUALITY":100,"OPT_IMAGE_BASE64":0,"MANIFEST_OUTPUT":"g:/Hexo/public/demo/NetEaseDemo/cache.manifest","MANIFEST_TEMPLATE":"CACHE MANIFEST\n#VERSION = #<VERSION>\n\nCACHE:\n#<CACHE_LIST>\n\nNETWORK:\n*\n\nFALLBACK:\n","OBF_LEVEL":0,"OBF_NAME_BAGS":"g:/Hexo/public/demo/NetEaseDemo/deploy/names.json","OBF_COMPATIBLE":true,"OBF_SOURCE_MAP":false,"OBF_MAX_CS_INLINE_SIZE":50,"OBF_MAX_JS_INLINE_SIZE":0,"OBF_CORE_INLINE_FLAG":0,"OBF_DROP_CONSOLE":false,"CORE_FREQUENCY_JS":2,"CORE_FREQUENCY_CS":2,"CORE_IGNORE_ENTRY":false,"WRP_SCRIPT_SOURCE":"%s","WRP_INLINE_CS":"<textarea name=\"css\">%s</textarea>","WRP_EXLINE_CS":"<textarea name=\"css\" data-src=\"%s\"></textarea>","WRP_INLINE_JS":"<textarea name=\"js\">%s</textarea>","WRP_EXLINE_JS":"<textarea name=\"js\" data-src=\"/demo/NetEaseDemo%s\"></textarea>","WRP_INLINE_TP":"<textarea id=\"%s\" name=\"%s\">%s</textarea>","WRP_INLINE_STYLE":"<style type=\"text/css\">\n%s\n</style>","WRP_EXLINE_STYLE":"<link rel=\"stylesheet\" href=\"%s\"/>","WRP_INLINE_SCRIPT":"<script>\n%s\n</script>","WRP_EXLINE_SCRIPT":"<script src=\"%s\"></script>","WCS_UPLOAD_URL":"","WCS_UPLOAD_TOKEN":"","WCS_APP_ID":"","WCS_NATIVE_ID":"","WCS_FILE_INCLUDE":"","WCS_FILE_EXCLUDE":"","WCS_CONFIG_FILE":"g:/Hexo/public/demo/NetEaseDemo/deploy/cache.json","X_AUTO_EXLINK_PATH":false,"X_AUTO_EXLINK_SCRIPT":false,"X_RELEASE_MODE":"online","X_LOGGER_LEVEL":"ALL","X_LOGGER_FILE":"g:/Hexo/public/demo/NetEaseDemo/deploy/20161020172947356.log","":""}
+[I] 2016-10-20 17:29:47.366 - cache nej config
+[I] 2016-10-20 17:29:47.367 - prepare merge config
+[I] 2016-10-20 17:29:47.376 - dump template files
+[I] 2016-10-20 17:29:47.387 - dump html files
+[I] 2016-10-20 17:29:47.417 - parse input files
+[D] 2016-10-20 17:29:47.424 - loading resource g:/Hexo/public/demo/NetEaseDemo/src/html/m/index.html
+[D] 2016-10-20 17:29:47.431 - loading resource g:/Hexo/public/demo/NetEaseDemo/src/html/pages/animate/index.html
+[D] 2016-10-20 17:29:47.437 - loading resource g:/Hexo/public/demo/NetEaseDemo/src/html/pages/datepicker/index.html
+[D] 2016-10-20 17:29:47.442 - loading resource g:/Hexo/public/demo/NetEaseDemo/src/html/pages/index.html
+[D] 2016-10-20 17:29:47.449 - loading resource g:/Hexo/public/demo/NetEaseDemo/src/html/pages/train/index.html
+[D] 2016-10-20 17:29:47.469 - loading resource g:/Hexo/public/demo/NetEaseDemo/src/html/regular/helloworld/index.html
+[D] 2016-10-20 17:29:47.474 - loading resource g:/Hexo/public/demo/NetEaseDemo/src/html/regular/index.html
+[D] 2016-10-20 17:29:47.480 - loading resource g:/Hexo/public/demo/NetEaseDemo/src/html/regular/todomvc/index.html
+[D] 2016-10-20 17:29:47.488 - parse resource g:/Hexo/public/demo/NetEaseDemo/src/html/m/index.html
+[D] 2016-10-20 17:29:47.591 - parse resource g:/Hexo/public/demo/NetEaseDemo/src/html/m/inline-1476955787166
+[D] 2016-10-20 17:29:47.599 - loading resource g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/javascript/web/module/m/index.js
+[D] 2016-10-20 17:29:47.606 - parse resource g:/Hexo/public/demo/NetEaseDemo/src/html/pages/animate/index.html
+[D] 2016-10-20 17:29:47.616 - loading resource g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/css/pages/animate/index.css
+[D] 2016-10-20 17:29:47.621 - parse resource g:/Hexo/public/demo/NetEaseDemo/src/html/pages/animate/inline-1476955787167
+[D] 2016-10-20 17:29:47.626 - loading resource g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/javascript/web/module/pages/animate/index.js
+[D] 2016-10-20 17:29:47.635 - parse resource g:/Hexo/public/demo/NetEaseDemo/src/html/pages/datepicker/index.html
+[D] 2016-10-20 17:29:47.641 - loading resource g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/css/pages/datepicker/index.css
+[D] 2016-10-20 17:29:47.646 - parse resource g:/Hexo/public/demo/NetEaseDemo/src/html/pages/datepicker/inline-1476955787168
+[D] 2016-10-20 17:29:47.654 - loading resource g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/javascript/web/module/pages/datepicker/index.js
+[D] 2016-10-20 17:29:47.659 - parse resource g:/Hexo/public/demo/NetEaseDemo/src/html/pages/index.html
+[D] 2016-10-20 17:29:47.671 - parse resource g:/Hexo/public/demo/NetEaseDemo/src/html/pages/inline-1476955787169
+[D] 2016-10-20 17:29:47.676 - loading resource g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/javascript/web/module/pages/index.js
+[D] 2016-10-20 17:29:47.681 - parse resource g:/Hexo/public/demo/NetEaseDemo/src/html/pages/train/index.html
+[D] 2016-10-20 17:29:47.689 - loading resource g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/css/pages/train/index.css
+[D] 2016-10-20 17:29:47.695 - parse resource g:/Hexo/public/demo/NetEaseDemo/src/html/pages/train/inline-1476955787170
+[D] 2016-10-20 17:29:47.703 - loading resource g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/javascript/web/module/pages/train/index.js
+[D] 2016-10-20 17:29:47.708 - parse resource g:/Hexo/public/demo/NetEaseDemo/src/html/regular/index.html
+[D] 2016-10-20 17:29:47.719 - parse resource g:/Hexo/public/demo/NetEaseDemo/src/html/regular/inline-1476955787171
+[D] 2016-10-20 17:29:47.726 - loading resource g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/javascript/web/module/regular/index.js
+[D] 2016-10-20 17:29:47.734 - parse resource g:/Hexo/public/demo/NetEaseDemo/src/html/regular/helloworld/index.html
+[D] 2016-10-20 17:29:47.745 - parse resource g:/Hexo/public/demo/NetEaseDemo/src/html/regular/helloworld/inline-1476955787172
+[D] 2016-10-20 17:29:47.754 - loading resource g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/javascript/web/module/regular/helloworld/index.js
+[D] 2016-10-20 17:29:47.759 - parse resource g:/Hexo/public/demo/NetEaseDemo/src/html/regular/todomvc/index.html
+[D] 2016-10-20 17:29:47.767 - loading resource g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/css/regular/todomvc/index.css
+[D] 2016-10-20 17:29:47.772 - parse resource g:/Hexo/public/demo/NetEaseDemo/src/html/regular/todomvc/inline-1476955787173
+[D] 2016-10-20 17:29:47.777 - loading resource g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/javascript/web/module/regular/todomvc/index.js
+[D] 2016-10-20 17:29:47.784 - parse resource g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/javascript/web/module/m/index.js
+[W] 2016-10-20 17:29:47.791 - cant read file g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/javascript/web/module/m/index.js for utf-8, cause:
+{"errno":-4058,"code":"ENOENT","syscall":"open","path":"g:\\Hexo\\public\\demo\\NetEaseDemo\\demo\\NetEaseDemo\\src\\javascript\\web\\module\\m\\index.js"}
+[D] 2016-10-20 17:29:47.797 - parse resource g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/css/pages/animate/index.css
+[W] 2016-10-20 17:29:47.816 - illegal style content {"reason":"missing '}'","filename":"g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/css/pages/animate/index.css","line":2,"column":2}
+[W] 2016-10-20 17:29:47.823 - cant read file g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/css/pages/animate/index.css for utf-8, cause:
+{"errno":-4058,"code":"ENOENT","syscall":"open","path":"g:\\Hexo\\public\\demo\\NetEaseDemo\\demo\\NetEaseDemo\\src\\css\\pages\\animate\\index.css"}
+[D] 2016-10-20 17:29:47.829 - parse resource g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/javascript/web/module/pages/animate/index.js
+[W] 2016-10-20 17:29:47.836 - cant read file g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/javascript/web/module/pages/animate/index.js for utf-8, cause:
+{"errno":-4058,"code":"ENOENT","syscall":"open","path":"g:\\Hexo\\public\\demo\\NetEaseDemo\\demo\\NetEaseDemo\\src\\javascript\\web\\module\\pages\\animate\\index.js"}
+[D] 2016-10-20 17:29:47.841 - parse resource g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/css/pages/datepicker/index.css
+[W] 2016-10-20 17:29:47.848 - illegal style content {"reason":"missing '}'","filename":"g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/css/pages/datepicker/index.css","line":2,"column":2}
+[W] 2016-10-20 17:29:47.855 - cant read file g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/css/pages/datepicker/index.css for utf-8, cause:
+{"errno":-4058,"code":"ENOENT","syscall":"open","path":"g:\\Hexo\\public\\demo\\NetEaseDemo\\demo\\NetEaseDemo\\src\\css\\pages\\datepicker\\index.css"}
+[D] 2016-10-20 17:29:47.862 - parse resource g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/javascript/web/module/pages/datepicker/index.js
+[W] 2016-10-20 17:29:47.873 - cant read file g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/javascript/web/module/pages/datepicker/index.js for utf-8, cause:
+{"errno":-4058,"code":"ENOENT","syscall":"open","path":"g:\\Hexo\\public\\demo\\NetEaseDemo\\demo\\NetEaseDemo\\src\\javascript\\web\\module\\pages\\datepicker\\index.js"}
+[D] 2016-10-20 17:29:47.878 - parse resource g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/javascript/web/module/pages/index.js
+[W] 2016-10-20 17:29:47.885 - cant read file g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/javascript/web/module/pages/index.js for utf-8, cause:
+{"errno":-4058,"code":"ENOENT","syscall":"open","path":"g:\\Hexo\\public\\demo\\NetEaseDemo\\demo\\NetEaseDemo\\src\\javascript\\web\\module\\pages\\index.js"}
+[D] 2016-10-20 17:29:47.891 - parse resource g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/css/pages/train/index.css
+[W] 2016-10-20 17:29:47.897 - illegal style content {"reason":"missing '}'","filename":"g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/css/pages/train/index.css","line":2,"column":2}
+[W] 2016-10-20 17:29:47.905 - cant read file g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/css/pages/train/index.css for utf-8, cause:
+{"errno":-4058,"code":"ENOENT","syscall":"open","path":"g:\\Hexo\\public\\demo\\NetEaseDemo\\demo\\NetEaseDemo\\src\\css\\pages\\train\\index.css"}
+[D] 2016-10-20 17:29:47.913 - parse resource g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/javascript/web/module/pages/train/index.js
+[W] 2016-10-20 17:29:47.921 - cant read file g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/javascript/web/module/pages/train/index.js for utf-8, cause:
+{"errno":-4058,"code":"ENOENT","syscall":"open","path":"g:\\Hexo\\public\\demo\\NetEaseDemo\\demo\\NetEaseDemo\\src\\javascript\\web\\module\\pages\\train\\index.js"}
+[D] 2016-10-20 17:29:47.927 - parse resource g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/javascript/web/module/regular/index.js
+[W] 2016-10-20 17:29:47.937 - cant read file g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/javascript/web/module/regular/index.js for utf-8, cause:
+{"errno":-4058,"code":"ENOENT","syscall":"open","path":"g:\\Hexo\\public\\demo\\NetEaseDemo\\demo\\NetEaseDemo\\src\\javascript\\web\\module\\regular\\index.js"}
+[D] 2016-10-20 17:29:47.945 - parse resource g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/javascript/web/module/regular/helloworld/index.js
+[W] 2016-10-20 17:29:47.954 - cant read file g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/javascript/web/module/regular/helloworld/index.js for utf-8, cause:
+{"errno":-4058,"code":"ENOENT","syscall":"open","path":"g:\\Hexo\\public\\demo\\NetEaseDemo\\demo\\NetEaseDemo\\src\\javascript\\web\\module\\regular\\helloworld\\index.js"}
+[D] 2016-10-20 17:29:47.965 - parse resource g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/css/regular/todomvc/index.css
+[W] 2016-10-20 17:29:47.973 - illegal style content {"reason":"missing '}'","filename":"g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/css/regular/todomvc/index.css","line":2,"column":2}
+[W] 2016-10-20 17:29:47.980 - cant read file g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/css/regular/todomvc/index.css for utf-8, cause:
+{"errno":-4058,"code":"ENOENT","syscall":"open","path":"g:\\Hexo\\public\\demo\\NetEaseDemo\\demo\\NetEaseDemo\\src\\css\\regular\\todomvc\\index.css"}
+[D] 2016-10-20 17:29:47.987 - parse resource g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/javascript/web/module/regular/todomvc/index.js
+[D] 2016-10-20 17:29:47.994 - dependencies map -> {}
+[I] 2016-10-20 17:29:48.002 - merge core list
+[D] 2016-10-20 17:29:48.042 - style used in file g:/Hexo/public/demo/NetEaseDemo/src/html/m/index.html is []
+[D] 2016-10-20 17:29:48.051 - style used in file g:/Hexo/public/demo/NetEaseDemo/src/html/pages/animate/index.html is ["g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/css/pages/animate/index.css"]
+[D] 2016-10-20 17:29:48.057 - style used in file g:/Hexo/public/demo/NetEaseDemo/src/html/pages/datepicker/index.html is ["g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/css/pages/datepicker/index.css"]
+[D] 2016-10-20 17:29:48.063 - style used in file g:/Hexo/public/demo/NetEaseDemo/src/html/pages/index.html is []
+[D] 2016-10-20 17:29:48.071 - style used in file g:/Hexo/public/demo/NetEaseDemo/src/html/pages/train/index.html is ["g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/css/pages/train/index.css"]
+[D] 2016-10-20 17:29:48.077 - style used in file g:/Hexo/public/demo/NetEaseDemo/src/html/regular/helloworld/index.html is []
+[D] 2016-10-20 17:29:48.084 - style used in file g:/Hexo/public/demo/NetEaseDemo/src/html/regular/index.html is []
+[D] 2016-10-20 17:29:48.090 - style used in file g:/Hexo/public/demo/NetEaseDemo/src/html/regular/todomvc/index.html is ["g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/css/regular/todomvc/index.css"]
+[D] 2016-10-20 17:29:48.096 - core style list -> []
+[D] 2016-10-20 17:29:48.104 - script used in file g:/Hexo/public/demo/NetEaseDemo/src/html/m/index.html is ["g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/javascript/web/module/m/index.js"]
+[D] 2016-10-20 17:29:48.110 - script used in file g:/Hexo/public/demo/NetEaseDemo/src/html/pages/animate/index.html is ["g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/javascript/web/module/pages/animate/index.js"]
+[D] 2016-10-20 17:29:48.118 - script used in file g:/Hexo/public/demo/NetEaseDemo/src/html/pages/datepicker/index.html is ["g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/javascript/web/module/pages/datepicker/index.js"]
+[D] 2016-10-20 17:29:48.125 - script used in file g:/Hexo/public/demo/NetEaseDemo/src/html/pages/index.html is ["g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/javascript/web/module/pages/index.js"]
+[D] 2016-10-20 17:29:48.131 - script used in file g:/Hexo/public/demo/NetEaseDemo/src/html/pages/train/index.html is ["g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/javascript/web/module/pages/train/index.js"]
+[D] 2016-10-20 17:29:48.138 - script used in file g:/Hexo/public/demo/NetEaseDemo/src/html/regular/helloworld/index.html is ["g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/javascript/web/module/regular/helloworld/index.js"]
+[D] 2016-10-20 17:29:48.145 - script used in file g:/Hexo/public/demo/NetEaseDemo/src/html/regular/index.html is ["g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/javascript/web/module/regular/index.js"]
+[D] 2016-10-20 17:29:48.156 - script used in file g:/Hexo/public/demo/NetEaseDemo/src/html/regular/todomvc/index.html is ["g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/javascript/web/module/regular/todomvc/index.js"]
+[D] 2016-10-20 17:29:48.163 - core script list -> []
+[I] 2016-10-20 17:29:48.170 - sort input files by module dependency
+[D] 2016-10-20 17:29:48.178 - page list order by module dependency is ["g:/Hexo/public/demo/NetEaseDemo/src/html/m/index.html","g:/Hexo/public/demo/NetEaseDemo/src/html/pages/animate/index.html","g:/Hexo/public/demo/NetEaseDemo/src/html/pages/datepicker/index.html","g:/Hexo/public/demo/NetEaseDemo/src/html/pages/index.html","g:/Hexo/public/demo/NetEaseDemo/src/html/pages/train/index.html","g:/Hexo/public/demo/NetEaseDemo/src/html/regular/helloworld/index.html","g:/Hexo/public/demo/NetEaseDemo/src/html/regular/index.html","g:/Hexo/public/demo/NetEaseDemo/src/html/regular/todomvc/index.html"]
+[I] 2016-10-20 17:29:48.188 - split core from input files
+[D] 2016-10-20 17:29:48.197 - tp_m_index.js -> ["g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/javascript/web/module/m/index.js"]
+[D] 2016-10-20 17:29:48.205 - tp_pages_animate_index.css -> ["g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/css/pages/animate/index.css"]
+[D] 2016-10-20 17:29:48.212 - tp_pages_animate_index.js -> ["g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/javascript/web/module/pages/animate/index.js"]
+[D] 2016-10-20 17:29:48.219 - tp_pages_datepicker_index.css -> ["g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/css/pages/datepicker/index.css"]
+[D] 2016-10-20 17:29:48.225 - tp_pages_datepicker_index.js -> ["g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/javascript/web/module/pages/datepicker/index.js"]
+[D] 2016-10-20 17:29:48.237 - tp_pages_index.js -> ["g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/javascript/web/module/pages/index.js"]
+[D] 2016-10-20 17:29:48.242 - tp_pages_train_index.css -> ["g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/css/pages/train/index.css"]
+[D] 2016-10-20 17:29:48.252 - tp_pages_train_index.js -> ["g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/javascript/web/module/pages/train/index.js"]
+[D] 2016-10-20 17:29:48.260 - tp_regular_helloworld_index.js -> ["g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/javascript/web/module/regular/helloworld/index.js"]
+[D] 2016-10-20 17:29:48.269 - tp_regular_index.js -> ["g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/javascript/web/module/regular/index.js"]
+[D] 2016-10-20 17:29:48.275 - tp_regular_todomvc_index.css -> ["g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/css/regular/todomvc/index.css"]
+[D] 2016-10-20 17:29:48.281 - tp_regular_todomvc_index.js -> ["g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/javascript/web/module/regular/todomvc/index.js"]
+[I] 2016-10-20 17:29:48.289 - minify script
+[E] 2016-10-20 17:29:48.312 - js code parse error for tp_m_index.js, source code in tp_m_index.js, exception information :
+SyntaxError: Unexpected token: name (read) at line 1 col 5
+ -->	1:	cant read file g:/Hexo/public/demo/NetEaseDemo/demo/NetEaseDemo/src/javascript/web/module/m/index.js for utf-8, cause:
+{"errno":-4058,"code":"ENOENT","syscall":"open","path":"g:\\Hexo\\public\\demo\\NetEaseDemo\\demo\\NetEaseDemo\\src\\javascript\\web\\module\\m\\index.js"}

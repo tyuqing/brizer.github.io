@@ -1,0 +1,13 @@
+<meta charset="utf-8"/>
+
+<textarea name="txt" id="regular-helloworld">
+{#if username}
+  Hello, {username}. <a href="javascript:;" on-click={username = ''}>Logout</a>
+{#else}
+  Sorry, Guest. Please <a href="javascript:;" on-click={this.login()}>Login</a>
+{/if}
+</textarea>
+
+<!-- @TEMPLATE -->
+<textarea name="js" data-src="/demo/NetEaseDemo/src/javascript/web/module/regular/helloworld/index.js"></textarea>
+<!-- /@TEMPLATE -->
