@@ -1,0 +1,1 @@
+{"version":3,"file":"../test.css","sources":["test.scss"],"sourcesContent":[".abc {\r\n    color:green;\r\n    .bcd {\r\n        color:red; \r\n    }  \r\n} \r\n"],"mappings":"AAAA,AAAA,IAAI,AAAC,CACD,KAAK,CAAC,KAAM,CAIf,AALD,AAEI,IAFA,CAEA,IAAI,AAAC,CACD,KAAK,CAAC,GAAI,CACb","names":[]}
