@@ -1,0 +1,749 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="brizer,前端,博客,刘放" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x524D;&amp;#x8A00;&amp;#x4EE5;&amp;#x524D;&amp;#xFF0C;&amp;#x5728;&amp;#x81EA;&amp;#x5DF1;&amp;#x7684;&amp;#x5DE5;&amp;#x7A0B;&amp;#x4E2D;&amp;#x7528;&amp;#x8FC7;grunt&amp;#xFF0C;&amp;#x548C;&amp;#x4ED6;&amp;#x7684;&amp;#x4E00;&amp;#x4E9B;&amp;#x63D2;&amp;#x4EF6;&amp;#x6BD4;&amp;#x5982;aut">
+<meta property="og:type" content="article">
+<meta property="og:title" content="gulp使用实践">
+<meta property="og:url" content="http://http://brizer.top/2016/11/13/gulp使用实践/index.html">
+<meta property="og:site_name" content="Brizer's Blog">
+<meta property="og:description" content="&amp;#x524D;&amp;#x8A00;&amp;#x4EE5;&amp;#x524D;&amp;#xFF0C;&amp;#x5728;&amp;#x81EA;&amp;#x5DF1;&amp;#x7684;&amp;#x5DE5;&amp;#x7A0B;&amp;#x4E2D;&amp;#x7528;&amp;#x8FC7;grunt&amp;#xFF0C;&amp;#x548C;&amp;#x4ED6;&amp;#x7684;&amp;#x4E00;&amp;#x4E9B;&amp;#x63D2;&amp;#x4EF6;&amp;#x6BD4;&amp;#x5982;aut">
+<meta property="og:image" content="http://http://brizer.top//brizer.top/2016/11/13/gulp使用实践/../gulp使用实践/1.png">
+<meta property="og:updated_time" content="2016-11-13T02:59:46.716Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="gulp使用实践">
+<meta name="twitter:description" content="&amp;#x524D;&amp;#x8A00;&amp;#x4EE5;&amp;#x524D;&amp;#xFF0C;&amp;#x5728;&amp;#x81EA;&amp;#x5DF1;&amp;#x7684;&amp;#x5DE5;&amp;#x7A0B;&amp;#x4E2D;&amp;#x7528;&amp;#x8FC7;grunt&amp;#xFF0C;&amp;#x548C;&amp;#x4ED6;&amp;#x7684;&amp;#x4E00;&amp;#x4E9B;&amp;#x63D2;&amp;#x4EF6;&amp;#x6BD4;&amp;#x5982;aut">
+<meta name="twitter:image" content="http://http://brizer.top//brizer.top/2016/11/13/gulp使用实践/../gulp使用实践/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> gulp使用实践 | Brizer's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Brizer's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">刘放 学习笔记</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+  
+    <style type="text/css">
+		#so360{white-space:nowrap;margin:10px auto;}
+		#so360 form{margin:0;padding:0}
+		#so360_keyword{width:157px;height:32px;line-height:32px;font:14px arial;padding:2px 5px;margin-right:5px;
+		border:2px solid #061201;outline:0;vertical-align:middle}
+		#so360_keyword{background:url(https://p.ssl.qhimg.com/t01ab1a3fb05f0ee893.png) no-repeat 236px center}
+		#so360_submit{width:60px;height:40px;border:0;color:#fff;background:#061201;
+		font-weight:bold;font:bold 14px arial;padding:0;padding-top:3px\9;cursor:pointer;
+		vertical-align:middle}
+	</style>
+	<div id="so360">
+	    <form action="http://www.so.com/s" target="_blank" id="so360form">
+	   <input type="text" autocomplete="off" name="q" id="so360_keyword">
+	        <input type="submit" id="so360_submit" value="搜 索">
+	        <input type="hidden" name="ie" value="utf8">
+	        <input type="hidden" name="src" value="zz_brizer.top">
+	        <input type="hidden" name="site" value="brizer.top">
+	        <input type="hidden" name="rg" value="1">
+	    </form>
+	</div> 
+	
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/demo" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            demo
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                gulp使用实践
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-13T10:01:43+08:00" content="2016-11-13">
+              2016-11-13
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/node/" itemprop="url" rel="index">
+                    <span itemprop="name">node</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/13/gulp使用实践/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/13/gulp使用实践/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+                    
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+              </span>
+                     
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="&#x524D;&#x8A00;"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a><strong>&#x524D;&#x8A00;</strong></h1><p>&#x4EE5;&#x524D;&#xFF0C;&#x5728;&#x81EA;&#x5DF1;&#x7684;&#x5DE5;&#x7A0B;&#x4E2D;&#x7528;&#x8FC7;<a href="http://blog.csdn.net/mevicky/article/details/48968183?locationNum=3&amp;fps=1" target="_blank" rel="external">grunt</a>&#xFF0C;&#x548C;&#x4ED6;&#x7684;&#x4E00;&#x4E9B;&#x63D2;&#x4EF6;&#x6BD4;&#x5982;<a href="http://blog.csdn.net/mevicky/article/details/49157295" target="_blank" rel="external">autoprefixer</a>&#x3001;<a href="http://blog.csdn.net/mevicky/article/details/50198345?locationNum=1&amp;fps=1" target="_blank" rel="external">jshint</a>&#x7B49;&#x7B49;&#x3002;<br>&#x4E5F;&#x5728;    &#x5B66;&#x4E60;&#x8FC7;<a href="/categories/webpack/">webpack</a>&#x7684;&#x4F7F;&#x7528;&#x3002;&#x800C;&#x73B0;&#x5728;&#x6240;&#x5904;&#x9879;&#x76EE;&#x7EC4;&#x7528;&#x7684;&#x662F;gulp&#x6765;&#x6784;&#x5EFA;&#x524D;&#x7AEF;&#x5DE5;&#x4F5C;&#x6D41;&#xFF0C;&#x6545;&#x6B64;&#x5B66;&#x4E60;&#x6574;&#x7406;&#x3002;</p>
+<hr>
+<h1 id="&#x57FA;&#x672C;&#x7528;&#x6CD5;"><a href="#&#x57FA;&#x672C;&#x7528;&#x6CD5;" class="headerlink" title="&#x57FA;&#x672C;&#x7528;&#x6CD5;"></a><strong>&#x57FA;&#x672C;&#x7528;&#x6CD5;</strong></h1><p>&#x9996;&#x5148;&#x7406;&#x89E3;&#x4E00;&#x904D;<a href="http://www.gulpjs.com.cn/docs/api/" target="_blank" rel="external">&#x4E2D;&#x6587;api</a>&#x3002;&#x5BF9;&#x65B0;&#x4E8B;&#x7269;&#x7684;&#x5B66;&#x4E60;&#xFF0C;&#x5C31;&#x76F4;&#x63A5;&#x6709;&#x6548;&#x7684;&#x65B9;&#x6CD5;&#x5C31;&#x662F;&#x5C06;&#x5B98;&#x7F51;&#x5168;&#x90E8;&#x6D4F;&#x89C8;&#x4E00;&#x904D;&#x3002;</p>
+<h2 id="gulp-src-globs-options"><a href="#gulp-src-globs-options" class="headerlink" title="gulp.src(globs[,options])"></a>gulp.src(globs[,options])</h2><p>&#x8F93;&#x51FA;&#x6587;&#x4EF6;&#x6D41;&#x6216;&#x6587;&#x4EF6;&#xFF0C;&#x53EF;&#x4EE5;pipe&#x5230;&#x522B;&#x7684;&#x63D2;&#x4EF6;&#x4E2D;&#x53BB;&#x3002;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">gulp.src(<span class="string">&apos;client/templates/*.jade&apos;</span>)</div><div class="line">  .pipe(jade())</div><div class="line">  .pipe(minify())</div><div class="line">  .pipe(gulp.dest(<span class="string">&apos;build/minified_templates&apos;</span>));</div></pre></td></tr></table></figure></p>
+<h3 id="globs"><a href="#globs" class="headerlink" title="globs"></a>globs</h3><p>string&#x6216;array&#x7C7B;&#x578B;&#xFF0C;&#x8981;&#x8BFB;&#x53D6;&#x7684;glob&#x6216;&#x5305;&#x542B;globs&#x7684;&#x6570;&#x7EC4;&#x3002;</p>
+<h3 id="options"><a href="#options" class="headerlink" title="options"></a>options</h3><p>object&#x7C7B;&#x578B;&#xFF0C;&#x6709;&#x4EE5;&#x4E0B;&#x53C2;&#x6570;&#xFF1A;</p>
+<h4 id="options-buffer"><a href="#options-buffer" class="headerlink" title="options.buffer"></a>options.buffer</h4><p>boolean&#x7C7B;&#x578B;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;true&#xFF0C;&#x4E3A;false&#x65F6;&#x4F1A;&#x4EE5;steam&#x5F62;&#x5F0F;&#x800C;&#x4E0D;&#x662F;buffer&#x5F62;&#x5F0F;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x3002;</p>
+<h4 id="options-read"><a href="#options-read" class="headerlink" title="options.read"></a>options.read</h4><p>boolean&#x7C7B;&#x578B;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;true&#xFF0C;&#x4E3A;false&#x65F6;&#xFF0C;&#x4F1A;&#x8FD4;&#x56DE;&#x7A7A;&#xFF0C;&#x4E5F;&#x5373;&#x662F;&#x4E0D;&#x53BB;&#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#x3002;</p>
+<h4 id="options-base"><a href="#options-base" class="headerlink" title="options.base"></a>options.base</h4><p>string&#x7C7B;&#x578B;&#xFF0C;&#x9ED8;&#x8BA4;&#x503C;&#x4E3A;glob&#x4E4B;&#x524D;&#x3002;&#x770B;demo&#xFF1A;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">gulp.src(<span class="string">&apos;client/js/**/*.js&apos;</span>) <span class="comment">// &#x5339;&#x914D; &apos;client/js/somedir/somefile.js&apos; &#x5E76;&#x4E14;&#x5C06; `base` &#x89E3;&#x6790;&#x4E3A; `client/js/`</span></div><div class="line">  .pipe(minify())</div><div class="line">  .pipe(gulp.dest(<span class="string">&apos;build&apos;</span>));  <span class="comment">// &#x5199;&#x5165; &apos;build/somedir/somefile.js&apos;</span></div><div class="line"></div><div class="line">gulp.src(<span class="string">&apos;client/js/**/*.js&apos;</span>, { <span class="attr">base</span>: <span class="string">&apos;client&apos;</span> })</div><div class="line">  .pipe(minify())</div><div class="line">  .pipe(gulp.dest(<span class="string">&apos;build&apos;</span>));  <span class="comment">// &#x5199;&#x5165; &apos;build/js/somedir/somefile.js&apos;</span></div></pre></td></tr></table></figure></p>
+<h2 id="glup-dest-path-options"><a href="#glup-dest-path-options" class="headerlink" title="glup.dest(path[,options])"></a>glup.dest(path[,options])</h2><p>&#x5199;&#x64CD;&#x4F5C;&#xFF0C;&#x5982;&#x679C;&#x6587;&#x4EF6;&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x5219;&#x521B;&#x5EFA;&#x4E4B;&#x3002;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">gulp.src(<span class="string">&apos;./client/templates/*.jade&apos;</span>)</div><div class="line">  .pipe(jade())</div><div class="line">  .pipe(gulp.dest(<span class="string">&apos;./build/templates&apos;</span>))</div><div class="line">  .pipe(minify())</div><div class="line">  .pipe(gulp.dest(<span class="string">&apos;./build/minified_templates&apos;</span>));</div></pre></td></tr></table></figure></p>
+<p>&#x76F8;&#x5BF9;&#x8DEF;&#x5F84;&#x662F;&#x6839;&#x636E;base&#x6765;&#x8BA1;&#x7B97;&#x7684;&#x3002;</p>
+<h3 id="path"><a href="#path" class="headerlink" title="path"></a>path</h3><p>string&#x6216;&#x8005;function&#x7C7B;&#x578B;&#xFF0C;&#x6587;&#x4EF6;&#x88AB;&#x5199;&#x5165;&#x7684;&#x8DEF;&#x5F84;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x5728;&#x51FD;&#x6570;&#x4E2D;&#x8FD4;&#x56DE;&#x8DEF;&#x5F84;&#x5373;&#x53EF;&#x3002;</p>
+<h3 id="options-1"><a href="#options-1" class="headerlink" title="options"></a>options</h3><p>object&#x7C7B;&#x578B;</p>
+<h4 id="options-cwd"><a href="#options-cwd" class="headerlink" title="options.cwd"></a>options.cwd</h4><p>string&#x7C7B;&#x578B;&#xFF0C;&#x9ED8;&#x8BA4;&#x503C;&#x4E3A;process.cwd()&#xFF0C;&#x8F93;&#x51FA;&#x76EE;&#x5F55;&#x7684;cwd&#x53C2;&#x6570;&#xFF0C;&#x53EA;&#x5728;&#x6240;&#x7ED9;&#x7684;&#x8F93;&#x51FA;&#x76EE;&#x5F55;&#x662F;&#x76F8;&#x5BF9;&#x8DEF;&#x5F84;&#x65F6;&#x5019;&#x6709;&#x6548;&#x3002;</p>
+<h4 id="options-mode"><a href="#options-mode" class="headerlink" title="options.mode"></a>options.mode</h4><p>string&#x7C7B;&#x578B;&#xFF0C;&#x9ED8;&#x8BA4;&#x503C;&#x4E3A;0777&#xFF0C;&#x516B;&#x8FDB;&#x5236;&#x6743;&#x9650;&#x5B57;&#x7B26;&#xFF0C;&#x7528;&#x4EE5;&#x5B9A;&#x4E49;&#x6240;&#x6709;&#x5728;&#x8F93;&#x51FA;&#x76EE;&#x5F55;&#x4E2D;&#x6240;&#x521B;&#x5EFA;&#x7684;&#x76EE;&#x5F55;&#x7684;&#x6743;&#x9650;&#x3002;</p>
+<h2 id="gulp-task-name-deps-fn"><a href="#gulp-task-name-deps-fn" class="headerlink" title="gulp.task(name[,deps],fn)"></a>gulp.task(name[,deps],fn)</h2><p>&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x4EFB;&#x52A1;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">gulp.task(<span class="string">&apos;somename&apos;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</div><div class="line">  <span class="comment">// &#x505A;&#x4E00;&#x4E9B;&#x4E8B;</span></div><div class="line">});</div></pre></td></tr></table></figure></p>
+<h3 id="name"><a href="#name" class="headerlink" title="name"></a>name</h3><p>&#x4EFB;&#x52A1;&#x540D;&#x79F0;</p>
+<h3 id="deps"><a href="#deps" class="headerlink" title="deps"></a>deps</h3><p>&#x7C7B;&#x4F3C;&#x4E3A;array&#xFF0C;&#x4E00;&#x4E2A;&#x5305;&#x542B;&#x4EFB;&#x52A1;&#x5217;&#x8868;&#x7684;&#x6570;&#x7EC4;&#xFF0C;&#x8FD9;&#x4E9B;&#x4EFB;&#x52A1;&#x4F1A;&#x5728;&#x4F60;&#x5F53;&#x524D;&#x4EFB;&#x52A1;&#x8FD0;&#x884C;&#x4E4B;&#x524D;&#x5B8C;&#x6210;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">gulp.task(<span class="string">&apos;mytask&apos;</span>, [<span class="string">&apos;array&apos;</span>, <span class="string">&apos;of&apos;</span>, <span class="string">&apos;task&apos;</span>, <span class="string">&apos;names&apos;</span>], <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</div><div class="line">  <span class="comment">// &#x505A;&#x4E00;&#x4E9B;&#x4E8B;</span></div><div class="line">});</div></pre></td></tr></table></figure></p>
+<h3 id="fn"><a href="#fn" class="headerlink" title="fn"></a>fn</h3><p>&#x8BE5;&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#x4EFB;&#x52A1;&#x6240;&#x8981;&#x6267;&#x884C;&#x7684;&#x4E00;&#x4E9B;&#x64CD;&#x4F5C;&#x3002;&#x901A;&#x5E38;&#x8FD9;&#x79CD;&#x5F62;&#x5F0F;&#xFF1A;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gulp.src().pipe(someplugin())</div></pre></td></tr></table></figure></p>
+<p>&#x4E5F;&#x53EF;&#x4EE5;&#x662F;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#xFF0C;&#x63A5;&#x53D7;callback&#xFF1A;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// &#x5728; shell &#x4E2D;&#x6267;&#x884C;&#x4E00;&#x4E2A;&#x547D;&#x4EE4;</span></div><div class="line"><span class="keyword">var</span> exec = <span class="built_in">require</span>(<span class="string">&apos;child_process&apos;</span>).exec;</div><div class="line">gulp.task(<span class="string">&apos;jekyll&apos;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">cb</span>) </span>{</div><div class="line">  <span class="comment">// &#x7F16;&#x8BD1; Jekyll</span></div><div class="line">  exec(<span class="string">&apos;jekyll build&apos;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>{</div><div class="line">    <span class="keyword">if</span> (err) <span class="keyword">return</span> cb(err); <span class="comment">// &#x8FD4;&#x56DE; error</span></div><div class="line">    cb(); <span class="comment">// &#x5B8C;&#x6210; task</span></div><div class="line">  });</div><div class="line">});</div></pre></td></tr></table></figure></p>
+<p>&#x6216;&#x8005;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;stream&#xFF1A;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">gulp.task(<span class="string">&apos;somename&apos;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</div><div class="line">  <span class="keyword">var</span> stream = gulp.src(<span class="string">&apos;client/**/*.js&apos;</span>)</div><div class="line">    .pipe(minify())</div><div class="line">    .pipe(gulp.dest(<span class="string">&apos;build&apos;</span>));</div><div class="line">  <span class="keyword">return</span> stream;</div><div class="line">});</div></pre></td></tr></table></figure></p>
+<p>&#x6216;&#x8005;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;promise&#xFF1A;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Q = <span class="built_in">require</span>(<span class="string">&apos;q&apos;</span>);</div><div class="line"></div><div class="line">gulp.task(<span class="string">&apos;somename&apos;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</div><div class="line">  <span class="keyword">var</span> deferred = Q.defer();</div><div class="line"></div><div class="line">  <span class="comment">// &#x6267;&#x884C;&#x5F02;&#x6B65;&#x7684;&#x64CD;&#x4F5C;</span></div><div class="line">  setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</div><div class="line">    deferred.resolve();</div><div class="line">  }, <span class="number">1</span>);</div><div class="line"></div><div class="line">  <span class="keyword">return</span> deferred.promise;</div><div class="line">});</div></pre></td></tr></table></figure></p>
+<p>&#x6CE8;&#x610F;&#xFF1A;<strong>&#x9ED8;&#x8BA4;task&#x5C06;&#x4EE5;&#x6700;&#x5927;&#x7684;&#x5E76;&#x53D1;&#x6570;&#x6267;&#x884C;&#xFF0C;gulp&#x4F1A;&#x4E00;&#x6B21;&#x6027;&#x8FD0;&#x884C;&#x6240;&#x6709;&#x7684;task&#x5E76;&#x4E14;&#x4E0D;&#x505A;&#x4EFB;&#x4F55;&#x7B49;&#x5F85;</strong>&#x3002;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x6784;&#x5EFA;&#x4E00;&#x4E2A;&#x4EFB;&#x52A1;&#x961F;&#x5217;&#xFF0C;&#x9700;&#x8981;&#x505A;&#x4EE5;&#x4E0B;&#x4E8B;&#x60C5;&#xFF1A;<br>1) &#x7ED9;&#x51FA;&#x63D0;&#x793A;&#xFF0C;&#x544A;&#x77E5;task&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x6267;&#x884C;&#x5B8C;&#x6BD5;&#xFF1B;<br>2) &#x518D;&#x7ED9;&#x51FA;&#x63D0;&#x793A;&#xFF0C;&#x544A;&#x77E5;task&#x4F9D;&#x8D56;&#x53E6;&#x5916;&#x7684;task&#x7684;&#x5B8C;&#x6210;</p>
+<p>&#x8FD9;&#x91CC;&#x6709;&#x4E00;&#x4E2A;demo&#x3002;&#x4E24;&#x4E2A;&#x4EFB;&#x52A1;&#xFF1A;one&#x548C;two&#x3002;two&#x4F9D;&#x8D56;one&#x7684;&#x5B8C;&#x6210;&#xFF1A;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">&apos;gulp&apos;</span>);</div><div class="line"><span class="comment">// &#x8FD4;&#x56DE;&#x4E00;&#x4E2A; callback&#xFF0C;&#x56E0;&#x6B64;&#x7CFB;&#x7EDF;&#x53EF;&#x4EE5;&#x77E5;&#x9053;&#x5B83;&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x5B8C;&#x6210;</span></div><div class="line">gulp.task(<span class="string">&apos;one&apos;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">cb</span>) </span>{</div><div class="line">    <span class="comment">// &#x505A;&#x4E00;&#x4E9B;&#x4E8B; -- &#x5F02;&#x6B65;&#x7684;&#x6216;&#x8005;&#x5176;&#x4ED6;&#x7684;</span></div><div class="line">    cb(err); <span class="comment">// &#x5982;&#x679C; err &#x4E0D;&#x662F; null &#x6216; undefined&#xFF0C;&#x5219;&#x4F1A;&#x505C;&#x6B62;&#x6267;&#x884C;&#xFF0C;&#x4E14;&#x6CE8;&#x610F;&#xFF0C;&#x8FD9;&#x6837;&#x4EE3;&#x8868;&#x6267;&#x884C;&#x5931;&#x8D25;&#x4E86;</span></div><div class="line">});</div><div class="line"><span class="comment">// &#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x6240;&#x4F9D;&#x8D56;&#x7684; task &#x5FC5;&#x987B;&#x5728;&#x8FD9;&#x4E2A; task &#x6267;&#x884C;&#x4E4B;&#x524D;&#x5B8C;&#x6210;</span></div><div class="line">gulp.task(<span class="string">&apos;two&apos;</span>, [<span class="string">&apos;one&apos;</span>], <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</div><div class="line">    <span class="comment">// &apos;one&apos; &#x5B8C;&#x6210;&#x540E;</span></div><div class="line">});</div><div class="line">gulp.task(<span class="string">&apos;default&apos;</span>, [<span class="string">&apos;one&apos;</span>, <span class="string">&apos;two&apos;</span>]);</div></pre></td></tr></table></figure></p>
+<h2 id="gulp-watch-glob-opts-tasks-&#x6216;gulp-watch-glob-opts-cb"><a href="#gulp-watch-glob-opts-tasks-&#x6216;gulp-watch-glob-opts-cb" class="headerlink" title="gulp.watch(glob[,opts],tasks)&#x6216;gulp.watch(glob[,opts,cb])"></a>gulp.watch(glob[,opts],tasks)&#x6216;gulp.watch(glob[,opts,cb])</h2><p>&#x76D1;&#x89C6;&#x6587;&#x4EF6;&#xFF0C;&#x5E76;&#x4E14;&#x5728;&#x6587;&#x4EF6;&#x6539;&#x53D8;&#x65F6;&#x505A;&#x4E00;&#x4E9B;&#x4E8B;&#x60C5;&#xFF0C;&#x603B;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x4E8B;&#x4EF6;</p>
+<h3 id="gulp-watch-glob-opts-tasks"><a href="#gulp-watch-glob-opts-tasks" class="headerlink" title="gulp.watch(glob[,opts],tasks)"></a>gulp.watch(glob[,opts],tasks)</h3><h4 id="glob"><a href="#glob" class="headerlink" title="glob"></a>glob</h4><p>&#x7C7B;&#x578B;&#x4E3A;string&#x6216;array&#xFF0C;&#x7528;&#x6765;&#x6307;&#x5B9A;&#x5177;&#x4F53;&#x76D1;&#x63A7;&#x54EA;&#x4E9B;&#x6587;&#x4EF6;&#x7684;&#x53D8;&#x52A8;&#x3002;</p>
+<h4 id="opts"><a href="#opts" class="headerlink" title="opts"></a>opts</h4><p>object&#x7C7B;&#x578B;</p>
+<h4 id="tasks"><a href="#tasks" class="headerlink" title="tasks"></a>tasks</h4><p>array&#x7C7B;&#x578B;&#xFF0C;&#x9700;&#x8981;&#x5728;&#x6587;&#x4EF6;&#x53D8;&#x52A8;&#x540E;&#x6267;&#x884C;&#x7684;&#x4EFB;&#x52A1;&#x540D;&#x79F0;&#xFF1A;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> watcher = gulp.watch(<span class="string">&apos;js/**/*.js&apos;</span>, [<span class="string">&apos;uglify&apos;</span>,<span class="string">&apos;reload&apos;</span>]);</div><div class="line">watcher.on(<span class="string">&apos;change&apos;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>{</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">&apos;File &apos;</span> + event.path + <span class="string">&apos; was &apos;</span> + event.type + <span class="string">&apos;, running tasks...&apos;</span>);</div><div class="line">});</div></pre></td></tr></table></figure></p>
+<h3 id="gulp-watch-glob-opts-cb"><a href="#gulp-watch-glob-opts-cb" class="headerlink" title="gulp.watch(glob[,opts,cb])"></a>gulp.watch(glob[,opts,cb])</h3><h4 id="glob-1"><a href="#glob-1" class="headerlink" title="glob"></a>glob</h4><p>&#x7C7B;&#x578B;&#x4E3A;string&#x6216;array&#xFF0C;&#x7528;&#x6765;&#x6307;&#x5B9A;&#x5177;&#x4F53;&#x76D1;&#x63A7;&#x54EA;&#x4E9B;&#x6587;&#x4EF6;&#x7684;&#x53D8;&#x52A8;&#x3002;</p>
+<h4 id="opts-1"><a href="#opts-1" class="headerlink" title="opts"></a>opts</h4><p>object&#x7C7B;&#x578B;</p>
+<h4 id="cb-event"><a href="#cb-event" class="headerlink" title="cb(event)"></a>cb(event)</h4><p>function&#x7C7B;&#x578B;&#xFF0C;&#x6BCF;&#x6B21;&#x53D8;&#x52A8;&#x9700;&#x8981;&#x6267;&#x884C;&#x7684;&#x51FD;&#x6570;&#xFF1A;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">gulp.watch(<span class="string">&apos;js/**/*.js&apos;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>{</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">&apos;File &apos;</span> + event.path + <span class="string">&apos; was &apos;</span> + event.type + <span class="string">&apos;, running tasks...&apos;</span>);</div><div class="line">});</div></pre></td></tr></table></figure></p>
+<p>&#x8BE5;event&#x5BF9;&#x8C61;&#x8BB0;&#x5F55;&#x76D1;&#x63A7;&#x5230;&#x7684;&#x53D8;&#x52A8;<br>event.type:&#x53D8;&#x52A8;&#x7C7B;&#x578B;&#x5982;added&#xFF0C;changed&#xFF0C;deleted<br>event.path&#xFF1A;&#x89E6;&#x53D1;&#x8BE5;&#x4E8B;&#x4EF6;&#x7684;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;</p>
+<h2 id="&#x4F7F;&#x7528;"><a href="#&#x4F7F;&#x7528;" class="headerlink" title="&#x4F7F;&#x7528;"></a>&#x4F7F;&#x7528;</h2><p>&#x9996;&#x5148;&#x5B89;&#x88C5;&#x597D;gulp&#xFF1A;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --global gulp</div></pre></td></tr></table></figure></p>
+<p>&#x5728;&#x9879;&#x76EE;&#x4E2D;&#x5F15;&#x7528;&#xFF1A;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save-dev gulp</div></pre></td></tr></table></figure></p>
+<p>npm&#x5177;&#x4F53;&#x8BED;&#x6CD5;&#xFF0C;&#x53C2;&#x8003;<a href="/2016/11/11/npm%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/#more">&#x522B;&#x5904;</a>&#x3002;<br>&#x9ED8;&#x8BA4;&#x6267;&#x884C;default&#x4EFB;&#x52A1;&#xFF1A;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var gulp = require(&apos;gulp&apos;);</div><div class="line"></div><div class="line">gulp.task(&apos;default&apos;, function() {</div><div class="line">  // &#x5C06;&#x4F60;&#x7684;&#x9ED8;&#x8BA4;&#x7684;&#x4EFB;&#x52A1;&#x4EE3;&#x7801;&#x653E;&#x5728;&#x8FD9;</div><div class="line">});</div></pre></td></tr></table></figure></p>
+<p>&#x8FD0;&#x884C;&#x547D;&#x4EE4;&#xFF1A;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gulp</div></pre></td></tr></table></figure></p>
+<p>&#x60F3;&#x8981;&#x5355;&#x72EC;&#x6267;&#x884C;&#x7279;&#x5B9A;&#x7684;&#x4EFB;&#x52A1;&#xFF08;task&#xFF09;&#xFF0C;&#x8BF7;&#x8F93;&#x5165;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gulp &lt;task&gt; &lt;othertask&gt;</div></pre></td></tr></table></figure></p>
+<hr>
+<h1 id="&#x5E38;&#x7528;&#x63D2;&#x4EF6;"><a href="#&#x5E38;&#x7528;&#x63D2;&#x4EF6;" class="headerlink" title="&#x5E38;&#x7528;&#x63D2;&#x4EF6;"></a><strong>&#x5E38;&#x7528;&#x63D2;&#x4EF6;</strong></h1><p>&#x8FD9;&#x91CC;&#x4E3B;&#x8981;&#x5C06;&#x81EA;&#x5DF1;&#x7528;&#x5230;&#x7684;&#x63D2;&#x4EF6;&#x8FDB;&#x884C;&#x6574;&#x7406;&#xFF0C;&#x5BF9;&#x505A;&#x7B80;&#x5355;demo&#x6F14;&#x793A;&#xFF0C;&#x65B9;&#x4FBF;&#x65E5;&#x540E;&#x590D;&#x7528;&#x3002;&#x6240;&#x6709;&#x63D2;&#x4EF6;&#x5747;&#x53EF;&#x5728;<a href="https://www.npmjs.com/package/package" target="_blank" rel="external">npm&#x5305;&#x67E5;&#x8BE2;&#x9875;&#x9762;</a>&#x4E2D;&#x627E;&#x5230;&#x3002;</p>
+<h2 id="yargs"><a href="#yargs" class="headerlink" title="yargs"></a>yargs</h2><p>&#x4E00;&#x4E2A;&#x7528;&#x6765;&#x63A5;&#x6536;&#x547D;&#x4EE4;&#x53C2;&#x6570;&#x5E76;&#x8FDB;&#x884C;&#x5904;&#x7406;&#x7684;&#x6A21;&#x5757;&#xFF0C;<a href="https://www.npmjs.com/package/yargs" target="_blank" rel="external">&#x5B98;&#x7F51;api</a>&#x3002;<br>&#x4E00;&#x4E2A;demo&#x5C31;&#x53EF;&#x4EE5;&#x89E3;&#x91CA;&#x5176;&#x4F7F;&#x7528;&#x65B9;&#x5F0F;&#xFF1A;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> argv = <span class="built_in">require</span>(<span class="string">&apos;yargs&apos;</span>).argv;</div><div class="line"> </div><div class="line"><span class="keyword">if</span> (argv.ships &gt; <span class="number">3</span> &amp;&amp; argv.distance &lt; <span class="number">53.5</span>) {</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">&apos;Plunder more riffiwobbles!&apos;</span>);</div><div class="line">} <span class="keyword">else</span> {</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">&apos;Retreat from the xupptumblers!&apos;</span>);</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>&#x4F7F;&#x7528;&#x65B9;&#x5F0F;&#xFF1A;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ ./plunder.js --ships=4 --distance=22</div><div class="line">Plunder more riffiwobbles!</div><div class="line"></div><div class="line">$ ./plunder.js --ships 12 --distance 98.7</div><div class="line">Retreat from the xupptumblers!</div></pre></td></tr></table></figure></p>
+<h2 id="gulp-sass"><a href="#gulp-sass" class="headerlink" title="gulp-sass"></a>gulp-sass</h2><p>&#x4E00;&#x4E2A;&#x5F88;&#x5E38;&#x7528;&#x7684;&#x6A21;&#x5757;&#xFF0C;&#x529F;&#x80FD;&#x662F;&#x5C06;sass&#x6216;scss&#x4EE3;&#x7801;&#x8F6C;&#x6362;&#x4E3A;css&#x4EE3;&#x7801;&#x3002;<a href="https://www.npmjs.com/package/gulp-sass" target="_blank" rel="external">&#x5B98;&#x7F51;api</a>&#x3002;<br>&#x5177;&#x4F53;&#x7528;&#x6CD5;&#x8BF7;&#x81EA;&#x884C;&#x67E5;&#x9605;api&#x3002;&#x8FD9;&#x91CC;&#x4EE5;&#x8BE5;&#x7AD9;demo&#x9879;&#x76EE;&#x4E3A;&#x4F8B;&#x5B50;&#xFF0C;&#x6765;&#x6F14;&#x793A;&#x8BE5;&#x6A21;&#x5757;&#x7684;&#x4F7F;&#x7528;&#x3002;<br>&#x9996;&#x5148;&#x5728;&#x9879;&#x76EE;&#x6839;&#x76EE;&#x5F55;&#x4E0B;&#x5B9A;&#x4E49;gulpfile.js&#x6587;&#x4EF6;&#xFF1A;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">&apos;gulp&apos;</span>),</div><div class="line">    config = <span class="built_in">require</span>(<span class="string">&apos;./public/demo/tool/config.js&apos;</span>);</div><div class="line"><span class="built_in">require</span>(<span class="string">&apos;./public/demo/tool/scripts/sass&apos;</span>);</div><div class="line">gulp.task(<span class="string">&apos;default&apos;</span>, [<span class="string">&apos;watch:scss&apos;</span>]);</div><div class="line"><span class="built_in">module</span>.exports = gulp;</div></pre></td></tr></table></figure></p>
+<p>&#x5176;&#x4E2D;config.js&#x6587;&#x4EF6;&#x4E2D;&#x5B9A;&#x4E49;&#x5404;&#x4E2A;&#x63D2;&#x4EF6;&#x7684;&#x8F93;&#x5165;&#x8F93;&#x51FA;&#x8DEF;&#x5F84;&#xFF1A;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = {</div><div class="line">    <span class="attr">scss</span>: {</div><div class="line">        <span class="attr">srcPath</span>: {</div><div class="line">        	<span class="string">&apos;pa&apos;</span>:<span class="string">&apos;./public/demo/pagesDemo/scss/**/*.scss&apos;</span></div><div class="line">        },</div><div class="line">        <span class="attr">outputPath</span>: {</div><div class="line">            <span class="string">&apos;pa&apos;</span>:<span class="string">&apos;./public/demo/pagesDemo/css&apos;</span></div><div class="line">        }</div><div class="line">    }</div><div class="line">};</div></pre></td></tr></table></figure></p>
+<p>sass.js&#x4E2D;&#x5219;&#x662F;gulp-sass&#x6A21;&#x5757;&#x7684;&#x529F;&#x80FD;&#xFF1A;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">&apos;gulp&apos;</span>),</div><div class="line">	sass =<span class="built_in">require</span>(<span class="string">&apos;gulp-sass&apos;</span>),</div><div class="line">	sourcemaps = <span class="built_in">require</span>(<span class="string">&apos;gulp-sourcemaps&apos;</span>),</div><div class="line">	config = <span class="built_in">require</span>(<span class="string">&apos;../config.js&apos;</span>).scss,</div><div class="line">	argv = <span class="built_in">require</span>(<span class="string">&apos;yargs&apos;</span>).argv;</div><div class="line"><span class="comment">//gulp-sass&#x6A21;&#x5757;&#x5177;&#x4F53;&#x529F;&#x80FD;&#xFF0C;&#x5C06;scss&#x7F16;&#x8BD1;&#x4E3A;css</span></div><div class="line">gulp.task(<span class="string">&apos;scss&apos;</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</div><div class="line">	<span class="keyword">var</span> srcPath = config.srcPath[argv.p];</div><div class="line">	<span class="keyword">var</span> outputPath = config.outputPath[argv.p];</div><div class="line">	</div><div class="line">	<span class="keyword">return</span> gulp.src(srcPath)</div><div class="line">		.pipe(sourcemaps.init())</div><div class="line">		.pipe(sass({</div><div class="line">            <span class="string">&apos;outputStyle&apos;</span>: <span class="string">&apos;compressed&apos;</span>,</div><div class="line">            <span class="string">&apos;errLogToConsole&apos;</span>: <span class="literal">true</span>			</div><div class="line">		}).on(<span class="string">&apos;error&apos;</span>,sass.logError))</div><div class="line">		.pipe(sourcemaps.write(<span class="string">&apos;./map&apos;</span>))</div><div class="line">		.pipe(gulp.dest(outputPath));</div><div class="line">});</div><div class="line"><span class="comment">//watch,&#x81EA;&#x5DF1;&#x76D1;&#x542C;&#x6587;&#x4EF6;&#x4FEE;&#x6539;&#x8FDB;&#x884C;&#x7F16;&#x8BD1;</span></div><div class="line">gulp.task(<span class="string">&apos;watch:scss&apos;</span>,[<span class="string">&apos;scss&apos;</span>],<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</div><div class="line">	<span class="keyword">var</span> pArr = argv.p;</div><div class="line">	 <span class="built_in">console</span>.log(<span class="string">&apos;********&#x60A8;&#x5DF2;&#x5F00;&#x542F;watch:&apos;</span>+ pArr + <span class="string">&apos; *********&apos;</span>);</div><div class="line">	<span class="keyword">var</span> cssWatcher = gulp.watch(config.srcPath[pArr],[<span class="string">&apos;scss&apos;</span>]);</div><div class="line">	cssWatcher.on(<span class="string">&apos;change&apos;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>{</div><div class="line">		<span class="built_in">console</span>.log(<span class="string">&apos;File &apos;</span>+event.path+<span class="string">&apos; was &apos;</span>+event.type);</div><div class="line">	});</div><div class="line">});</div><div class="line"></div><div class="line">gulp.task(<span class="string">&apos;watch&apos;</span>,[<span class="string">&apos;watch:scss&apos;</span>]);</div></pre></td></tr></table></figure></p>
+<p>&#x4F7F;&#x7528;&#x65F6;&#xFF1A;<br><img src="//brizer.top/2016/11/13/gulp&#x4F7F;&#x7528;&#x5B9E;&#x8DF5;/../gulp&#x4F7F;&#x7528;&#x5B9E;&#x8DF5;/1.png" alt="img"></p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/11/npm常用命令/" rel="next" title="npm相关总结">
+                <i class="fa fa-chevron-left"></i> npm相关总结
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/11/13/gulp使用实践/"
+     data-title="gulp使用实践"
+     data-content=""
+     data-url="http://http://brizer.top/2016/11/13/gulp使用实践/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/11/13/gulp使用实践/"
+           data-title="gulp使用实践" data-url="http://http://brizer.top/2016/11/13/gulp使用实践/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://nos.netease.com/edu-image/5AA61D30A78B81D8CF5AE7608A1468C2.jpg"
+               alt="刘放" />
+          <p class="site-author-name" itemprop="name">刘放</p>
+          <p class="site-description motion-element" itemprop="description">网易前端开发 brizer@163.com</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">112</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/brizer" target="_blank" title="github">
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/3978835322" target="_blank" title="weibo">
+                  
+                  weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://study.163.com/topics/2016-11sales/#/main" title="云课堂充电节" target="_blank">云课堂充电节</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://study.163.com/" title="网易云课堂" target="_blank">网易云课堂</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.icourse163.org/" title="中国大学MOOC" target="_blank">中国大学MOOC</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://100.163.com/" title="网易100分" target="_blank">网易100分</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基本用法"><span class="nav-number">2.</span> <span class="nav-text">基本用法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#gulp-src-globs-options"><span class="nav-number">2.1.</span> <span class="nav-text">gulp.src(globs[,options])</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#globs"><span class="nav-number">2.1.1.</span> <span class="nav-text">globs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#options"><span class="nav-number">2.1.2.</span> <span class="nav-text">options</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#options-buffer"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">options.buffer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#options-read"><span class="nav-number">2.1.2.2.</span> <span class="nav-text">options.read</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#options-base"><span class="nav-number">2.1.2.3.</span> <span class="nav-text">options.base</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#glup-dest-path-options"><span class="nav-number">2.2.</span> <span class="nav-text">glup.dest(path[,options])</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#path"><span class="nav-number">2.2.1.</span> <span class="nav-text">path</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#options-1"><span class="nav-number">2.2.2.</span> <span class="nav-text">options</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#options-cwd"><span class="nav-number">2.2.2.1.</span> <span class="nav-text">options.cwd</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#options-mode"><span class="nav-number">2.2.2.2.</span> <span class="nav-text">options.mode</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gulp-task-name-deps-fn"><span class="nav-number">2.3.</span> <span class="nav-text">gulp.task(name[,deps],fn)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#name"><span class="nav-number">2.3.1.</span> <span class="nav-text">name</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#deps"><span class="nav-number">2.3.2.</span> <span class="nav-text">deps</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fn"><span class="nav-number">2.3.3.</span> <span class="nav-text">fn</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gulp-watch-glob-opts-tasks-或gulp-watch-glob-opts-cb"><span class="nav-number">2.4.</span> <span class="nav-text">gulp.watch(glob[,opts],tasks)或gulp.watch(glob[,opts,cb])</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#gulp-watch-glob-opts-tasks"><span class="nav-number">2.4.1.</span> <span class="nav-text">gulp.watch(glob[,opts],tasks)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#glob"><span class="nav-number">2.4.1.1.</span> <span class="nav-text">glob</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#opts"><span class="nav-number">2.4.1.2.</span> <span class="nav-text">opts</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tasks"><span class="nav-number">2.4.1.3.</span> <span class="nav-text">tasks</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gulp-watch-glob-opts-cb"><span class="nav-number">2.4.2.</span> <span class="nav-text">gulp.watch(glob[,opts,cb])</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#glob-1"><span class="nav-number">2.4.2.1.</span> <span class="nav-text">glob</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#opts-1"><span class="nav-number">2.4.2.2.</span> <span class="nav-text">opts</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cb-event"><span class="nav-number">2.4.2.3.</span> <span class="nav-text">cb(event)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用"><span class="nav-number">2.5.</span> <span class="nav-text">使用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常用插件"><span class="nav-number">3.</span> <span class="nav-text">常用插件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#yargs"><span class="nav-number">3.1.</span> <span class="nav-text">yargs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gulp-sass"><span class="nav-number">3.2.</span> <span class="nav-text">gulp-sass</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刘放</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i> 总访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"brizer"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+  
+  
+</body>
+</html>
