@@ -35,6 +35,12 @@ NEJ.define([
 		prof = new HelloRegular();
 		this.__body = document.createElement('div');
 		prof.$inject(this.__body);
+
+        var a = document.getElementByClassName('class');
+
+
+        var a = document.getElementByClassName('class');
+
     }
 
     // 模块的显示
@@ -42,6 +48,7 @@ NEJ.define([
         // 除非你有自己的显示方式
         // 否则一定要调用父类方法
         // 此外options参数不要漏掉
+
         this.__super(options);
 
         // magic code
