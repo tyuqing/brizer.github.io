@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <title>Title</title>
+    <script src="./js/alloyfinger.js"></script>
+    <style>
+        .m-finger-a {
+            height:600px;
+            width:100%;
+            background-color:red;
+        }
+    </style>
+</head>
+<body>
+    <div class="m-finger-a j-a"></div>
+    <script>
+        var aNode = document.querySelector('.j-a');
+        new AlloyFinger(aNode, {
+            touchStart: function () {
+                console.log('touchStart');
+            },
+            touchMove: function () {
+                console.log('touchMove');
+            },
+            touchEnd:  function () {
+                console.log('touchEnd');
+            },
+            touchCancel: function () {
+                console.log('touchCancel');
+            },
+            multipointStart: function () { },
+            multipointEnd: function () { },
+            tap: function () {
+                console.log('tap');
+            },
+            doubleTap: function () {
+                console.log('doubleTap');
+            },
+            longTap: function () {
+                console.log('longTap');
+            },
+            singleTap: function () {
+                console.log('singleTap');
+
+            },
+            rotate: function (evt) {
+                console.log(evt.angle);
+            },
+            pinch: function (evt) {
+                console.log(evt.scale);
+            },
+            pressMove: function (evt) {
+                console.log(evt.deltaX);
+                console.log(evt.deltaY);
+            },
+            swipe: function (evt) {
+                console.log("swipe" + evt.direction);
+            }
+        });
+    </script>
+    <script src="./js/alloylever.js"></script>
+
+</body>
+</html>
