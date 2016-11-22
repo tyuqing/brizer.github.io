@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>视觉差效果-拥有层级关系</title>
+    <script src="./js/jquery-1.7.2.min.js"></script>
+    <script src="./js/jquery.jparallax.min.js"></script>
+    <style>
+        #parallax {position:relative; overflow:hidden; width:950px; height:250px;
+            background-image:url('imgs/parallax_background.jpg');}
+        .layer{ position: absolute;}
+        .a {
+            z-index:1;
+        }
+        .b {
+            z-index:2;
+        }
+        .c {
+            z-index:3;
+        }
+    </style>
+</head>
+<body>
+<div id="parallax">
+    <div class="layer a" style="width:1200px; height:250px;">
+        <img src="imgs/parallax_grass.png" style="width:1200px; height:250px;"/>
+    </div>
+    <div class="layer b" style="width:500px; height:250px;">
+        <img src="imgs/parallax_frog2.png" style="width:500px; height:250px;"/>
+    </div>
+    <div class="layer c" style="width:1200px; height:300px;">
+        <img src="imgs/parallax_butterflies3.png"  style="width:1200px; height:300px;"/>
+    </div>
+</div>
+<script>
+    $(document).ready(function(e) {
+        $('#parallax .layer').parallax({
+            mouseport:$('#parallax'),
+            decay:0.66,//响应鼠标的速度
+            xorigin:0.2//鼠标初次移动上去,各元素x轴偏移位置
+        },{
+            //第一层额外配置
+            xparallax:'20%',//x轴可移动范围
+        },{
+            //第二层额外配置
+            xparallax:'30%',//x轴可移动范围
+        },{
+            //第三层额外配置
+            xparallax:'80%',//x轴可移动范围
+        });
+    });
+</script>
+</body>
+</html>
