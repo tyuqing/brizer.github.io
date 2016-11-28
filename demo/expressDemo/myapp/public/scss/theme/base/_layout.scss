@@ -1,0 +1,59 @@
+/* 如果body最小为1180则用mbody1180，最小为960则用mbody960 */
+body{ width:100%; min-width:960px; padding-top:50px;}
+body.mbody1180{ min-width:1180px;}
+
+/* 设计宽度=960 */
+.g-wrap{ width:100%;}
+.g-container{ width: 960px; margin: 0 auto;}
+
+/* 俩栏布局 右边自适应,左边定宽340px */
+.g-sd{ position:relative; float:left; width:280px; margin-right:-300px}
+.g-mn{ float:right; width:100%;}
+.g-mnc{ margin-left:300px;}
+
+/* 模块内容 */
+.g-group{
+	display:block;
+	padding:30px 0;
+}
+
+/* 模块内一块内容 */
+.g-block{
+	display:block;
+	padding:10px 0;
+}
+
+/* 比块更小 */
+.g-line{
+	display:block;
+	padding:5px 0;
+}
+
+/* blank */
+.b-5,.b-10, .b-20, .b-30, .b-15, .b-40 { clear: both; height: 10px; overflow: hidden; display: block; }
+.b-5  { height: 5px; }
+.b-20 { height: 20px; }
+.b-30 { height: 30px; }
+.b-15 { height: 15px; }
+.b-40 { height: 40px; }
+.b-50 { height: 50px; }
+
+.w-5, .w-10, .w-15, .w-20, .w-30, .w-40, .w-50, .w-100, .w-200, .w-400{ min-height:1px; overflow: hidden;}
+.w-5{ width:5px;}
+.w-10{ width:10px;}
+.w-15{ width:15px;}
+.w-20{ width:20px;}
+.w-30{ width:30px;}
+.w-40{ width:40px;}
+.w-50{ width:50px;}
+.w-100{ width:100px;}
+.w-200{ width:200px;}
+.w-400{ width:400px;}
+
+
+/* 窗口宽度<1180,设计宽度=1280 */
+@media screen and (min-width: 1200px) {
+	.g-container{width:1180px; }
+
+
+}

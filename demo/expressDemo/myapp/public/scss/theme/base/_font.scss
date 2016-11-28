@@ -1,0 +1,45 @@
+
+/* 字体类型 */
+body,textarea,input,button,select,keygen,legend{font-family: "Arial","Hiragino Sans GB", \5b8b\4f53, "Georgia", "serif"; outline:0;}
+h1,h2,h3,h4,h5,h6,small{font-family: "Arial","Hiragino Sans GB","Microsoft YaHei", \5fae\8f6f\96c5\9ed1, "Helvetica", "sans-serif"; font-weight: normal;}
+
+/* 非衬线字体 -- 用于标题 */
+.f-f0{font-family: "Arial","Hiragino Sans GB","Microsoft YaHei", \5fae\8f6f\96c5\9ed1, "Helvetica", "sans-serif"; }
+/* 衬线字体 -- 用于正文 */
+.f-f1{font-family: "Arial","Hiragino Sans GB", \5b8b\4f53, "Georgia", "serif"; }
+
+/* 字体大小与行高 */
+html,body,textarea,input,button,select,keygen,legend{ font-size:14px; line-height:1.14;}
+h1{ color: #333; font-size:28px; margin:16px 0; line-height:1.4;}
+h2{ color: #333; font-size:24px; margin:12px 0; line-height:1.4;}
+h3{ color: #333; font-size:20px; margin:10px 0; line-height:1.4;}
+h4{ color: #333; font-size:18px; margin:8px 0; line-height:1.4;}
+h5{ color: #444; font-size:16px; margin:6px 0; line-height:1.4;}
+h6{ color: #444; font-size:15px; margin:4px 0; line-height:1.4;}
+p, span, label{ font-size:14px; margin:0; line-height:1.8;}
+
+/* 字体颜色 */
+body{ background:#fff; color:#666;}
+.f-c0{color: #000; }
+.f-c3{color: #333; }
+.f-c6{color: #666; }
+.f-c9{color: #999; }
+.f-cf{color: #fff; }
+
+/* 统一设置hover颜色 */
+a{
+	color: #333;
+	
+	&:hover,
+	.f-c0:hover,
+	 &.f-c0:hover,
+	.f-c3:hover,
+	 &.f-c3:hover,
+	.f-c6:hover,
+	 &.f-c6:hover,
+	.f-c9:hover,
+	 &.f-c9:hover:hover{
+		color: #09924b;
+	}
+}
+

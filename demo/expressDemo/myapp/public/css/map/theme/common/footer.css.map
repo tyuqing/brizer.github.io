@@ -1,0 +1,1 @@
+{"version":3,"file":"../../../theme/common/footer.css","sources":["theme/common/footer.scss"],"sourcesContent":[".m-footer {\n    &-contain {\n        background:url(/images/headBg.png) repeat-x;\n    }\n}"],"mappings":"AAAA,AAAA,iBAAS,AACK,CACN,UAAU,CAAuB,uBAAC,CAAC,QAAQ,CAC9C","names":[]}
