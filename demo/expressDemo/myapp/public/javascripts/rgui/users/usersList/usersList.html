@@ -1,0 +1,24 @@
+<div class="m-userList">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+        {#if users}
+            {#list users as item}
+            <tr>
+                <td>{item.name}</td>
+                <td>{item.age}</td>
+                <td></td>
+            </tr>
+            {/list}
+        {#else}
+            <tr><td>没有数据!!</td></tr>
+        {/if}
+        </tbody>
+    </table>
+</div>

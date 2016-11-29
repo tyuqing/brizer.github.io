@@ -11,8 +11,8 @@
 <div class="g-wrap m-allUsers">
     <div class="g-container">
         <div class="b-10"></div>
-        <div class="j-allUsers">
-            这里是所有用户列表
+        <div id="j-allUsers">
+
         </div>
         <div class="b-10"></div>
     </div>
@@ -20,6 +20,7 @@
 
 <% include ../common/footer.html %>
 
-<script src="/javascripts/users/page/allUsers.js"></script>
+<!--require模块写法-->
+<script data-main="users/page/allUsers" type="text/javascript" src="/javascripts/vendor/require.js"></script>
 </body>
 </html>

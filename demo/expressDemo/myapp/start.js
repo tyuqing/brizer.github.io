@@ -15,7 +15,7 @@ mongoose.connection.on('connected',function(){
     console.log('connect to the mongodb success');
 });
 mongoose.connection.on('error',function(err){
-    console.log('connnect to the mongodb error:'+err);
+    console.log('connect to the mongodb error:'+err);
     process.exit(1);
 });
 mongoose.connection.on('disconnected',function(){
@@ -26,4 +26,4 @@ mongoose.connection.on('disconnected',function(){
 app.listen(app.get('config').port || 3000,function(){
     console.log('Express server start success');
     debug('Express server listening on port '+ app.get('config').port || 3000);
-})
+});
