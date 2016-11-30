@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>h5player</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" href="./css/h5player.css">
+    <style>
+        video {
+            object-fit:fill;
+        }
+    </style>
+</head>
+<body>
+<div class="u-video">
+    <video webkit-playsinline>
+        <source src="./videos/movie.mp4" type="video/mp4">
+        <p>你的浏览器不支持html5播放器</p>
+    </video>
+    <img class="u-video-play" src="./imgs/play.png" alt="播放">
+    <div class="u-video-controls">
+        <div class="u-video-bar">
+            <div class="u-video-progressBar">
+                <div class="u-video-timeBar"></div>
+            </div>
+        </div>
+        <div class="u-video-time">
+            <span class="u-video-current">00:00</span>/
+            <span class="u-video-duration">00:00</span>
+        </div>
+        <div class="u-video-ful">
+            <span class="u-video-full">全屏</span>
+        </div>
+    </div>
+</div>
+<video webkit-playsinline controls="controls">
+    <source src="./videos/movie.mp4" type="video/mp4">
+    <p>你的浏览器不支持html5播放器</p>
+</video>
+</body>
+</html>
