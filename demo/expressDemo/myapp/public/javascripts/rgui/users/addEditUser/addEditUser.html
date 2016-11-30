@@ -1,0 +1,10 @@
+<div class="m-addEditUser">
+    <label for="name"></label>
+    <input type="text" class="form-control" id="name" placeholder="输入姓名" r-model={name}>
+    <div class="b-10"></div>
+    <label for="age"></label>
+    <input type="number" class="form-control" id="age" placeholder="输入年龄" r-model={age}>
+    <div class="b-10"></div>
+    <button class="btn btn-primary" on-click={this.saveUserInfo()}>保存</button>
+    <div class="b-10"></div>
+</div>

@@ -10,10 +10,11 @@
         <tbody>
         {#if users}
             {#list users as item}
+            <div class="f-dn">{item._id}</div>
             <tr>
                 <td>{item.name}</td>
                 <td>{item.age}</td>
-                <td></td>
+                <td><button class="btn btn-success" on-click={this.editUser(item.name)}>编辑</button><button class="btn btn-danger" on-click={this.removeUser(item.name)}>删除</button></td>
             </tr>
             {/list}
         {#else}

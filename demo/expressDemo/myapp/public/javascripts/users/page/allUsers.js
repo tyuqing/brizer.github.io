@@ -6,9 +6,10 @@
 //})();
 define(['jquery','regular','/javascripts/rgui/users/usersList/usersList.js'],function(jq,Regular,usersListUI){
     var usersList;
-
+    var addNewNode = $('.j-addNew');
     function init() {
         jq.get('/users/getAllUsers', cbGetAllUsers);
+        bindEvent();
     }
 
     function cbGetAllUsers(data){
@@ -26,6 +27,11 @@ define(['jquery','regular','/javascripts/rgui/users/usersList/usersList.js'],fun
             }
         });
         usersList.$inject('#j-allUsers');
+    }
+    function bindEvent(){
+        addNewNode.on('click',function(){
+            window.location.href = '/users/addEditUser';
+        });
     }
 
     init();

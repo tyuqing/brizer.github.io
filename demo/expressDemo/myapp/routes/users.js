@@ -7,8 +7,14 @@ var router = express.Router();
 router.get('/allUsers', function(req, res, next) {
     res.render('users/allUsers');
 });
+router.get('/addEditUser',function(req,res,next){
+    res.render('users/addEditUser');
+});
 
 //api
 router.get('/getAllUsers',usersAPI.getAllUsers);
+router.get('/getOneUser',usersAPI.getOneUser);
+router.post('/sendUserInfo',usersAPI.sendUserInfo);
+router.post('/removeUser',usersAPI.removeUser);
 
 module.exports = router;
