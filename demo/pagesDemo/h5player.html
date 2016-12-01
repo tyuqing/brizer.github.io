@@ -10,32 +10,172 @@
             object-fit:fill;
         }
     </style>
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.9.0/jquery.js"></script>
 </head>
 <body>
-<div class="u-video">
-    <video webkit-playsinline>
+<!--我们自己开发的-->
+<!--<div class="u-video">-->
+    <!--<video webkit-playsinline>-->
+        <!--<source src="./videos/movie.mp4" type="video/mp4">-->
+        <!--<p>你的浏览器不支持html5播放器</p>-->
+    <!--</video>-->
+    <!--<img class="u-video-play" src="./imgs/play.png" alt="播放">-->
+    <!--<div class="u-video-controls">-->
+        <!--<div class="u-video-bar">-->
+            <!--<div class="u-video-progressBar">-->
+                <!--<div class="u-video-timeBar"></div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="u-video-time">-->
+            <!--<span class="u-video-current">00:00</span>/-->
+            <!--<span class="u-video-duration">00:00</span>-->
+        <!--</div>-->
+        <!--<div class="u-video-ful">-->
+            <!--<span class="u-video-full">全屏</span>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+
+<div class="u-video j-videoUI">
+    <video class="j-video" webkit-playsinline>
         <source src="./videos/movie.mp4" type="video/mp4">
         <p>你的浏览器不支持html5播放器</p>
     </video>
-    <img class="u-video-play" src="./imgs/play.png" alt="播放">
-    <div class="u-video-controls">
-        <div class="u-video-bar">
-            <div class="u-video-progressBar">
-                <div class="u-video-timeBar"></div>
-            </div>
-        </div>
-        <div class="u-video-time">
-            <span class="u-video-current">00:00</span>/
-            <span class="u-video-duration">00:00</span>
-        </div>
-        <div class="u-video-ful">
-            <span class="u-video-full">全屏</span>
-        </div>
-    </div>
 </div>
+
+浏览器原始的
 <video webkit-playsinline controls="controls">
     <source src="./videos/movie.mp4" type="video/mp4">
     <p>你的浏览器不支持html5播放器</p>
 </video>
+<script>
+;(function(jq,g){
+    function VideoPlayer(){
+        return this.init.apply(this,arguments);
+    }
+
+    var _pro = VideoPlayer.prototype;
+
+    _pro.init = function(data){
+//        if(!data){
+//            return;
+//        }
+        var _this = this;
+        this.data = data;
+        this.videoUINode = jq('.j-videoUI');
+        this.videoNode = this.videoUINode.find('.j-video');
+        this.initPlay();
+        this.initControls();
+        this.bindEvent();
+    };
+    //初始化播放按钮
+    _pro.initPlay = function(){
+        this.videoPlayNode = jq('<img/>');
+        //图片可转为base64,解耦
+        this.videoPlayNode.attr('src','./imgs/play.png');
+        this.videoPlayNode.addClass('u-video-play');
+        this.videoPlayNode.appendTo(this.videoUINode);
+    };
+    //初始化控制条
+    _pro.initControls = function(){
+        this.controlsTmp = '<div class="u-video-bar">\
+                <div class="u-video-progressBar">\
+                    <div class="u-video-timeBar j-timeBar"></div>\
+                </div>\
+            </div>\
+                <div class="u-video-time">\
+                    <span class="u-video-current j-current">00:00</span>/\
+                    <span class="u-video-duration j-duration">00:00</span>\
+                </div>\
+                <div class="u-video-ful">\
+                    <span class="u-video-full">全屏</span>\
+                </div>';
+        this.controlsNode = jq('<div></div>');
+        this.controlsNode.addClass('u-video-controls');
+        this.controlsNode.html(this.controlsTmp);
+        this.controlsNode.appendTo(this.videoUINode);
+        this.timeBarNode = this.controlsNode.find('.j-timeBar');
+        this.currentNode = this.controlsNode.find('.j-current');
+        this.durationNode = this.controlsNode.find('.j-duration');
+    };
+    //事件绑定
+    _pro.bindEvent = function(){
+        var _this = this;
+        //设置视频长度
+        this.videoNode.on('loadedmetadata',function(){
+            _this.durationTime = this.duration;
+            var durationTime = _this.stom(this.duration);
+            _this.durationNode.html(durationTime);
+        });
+        //视频播放后事件
+        this.videoNode.on('play',function(){
+            _this.videoPlayNode.hide();
+            _this.controlsNode.addClass('f-vhidden');
+            _this.sto = setTimeout(function(){
+                _this.controlsNode.hide();
+            },1000);
+        });
+        //视频暂停事件
+        this.videoNode.on('pause',function(){
+            _this.videoPlayNode.show();
+            _this.controlsNode.removeClass('f-vhidden').show();
+            if(_this.sto){
+                clearTimeout(_this.sto);
+            }
+        });
+        //视频播放中事件
+        this.videoNode.on('timeupdate',function(){
+            _this.currentTime = this.currentTime;
+            //更新进度条
+            var percentage = 100*_this.currentTime/_this.durationTime;
+            _this.timeBarNode.css('width',percentage+'%');
+            //更新当前播放时间
+            var currentTime = _this.stom(this.currentTime);
+            _this.currentNode.html(currentTime);
+
+        });
+        //视频组件点击事件
+        this.videoNode.on('click',function(){
+            if(this.paused || this.ended){
+                //暂停时点击就播放
+                if(this.ended){
+                    //如果播放完毕就从头开始播放
+                    this.currentTime = 0;
+                }
+                this.play();
+            } else {
+                //播放时点击就暂停
+                this.pause();
+            }
+        });
+        //视频组件滑动事件
+        this.videoNode.on('swiperight',function(){
+            this.currentTime +=5;
+        });
+        this.videoNode.on('swipeleft',function(){
+            this.currentTime -=5;
+        });
+
+        //视频播放点击事件
+        this.videoPlayNode.on('click',function(){
+            _this.videoNode[0].play();
+        });
+    };
+
+    //时间转换工具
+    _pro.stom = function(time){
+        var m = Math.floor(time/60);
+        m<10 && (m='0'+m);
+        return m+":"+(time%60/100).toFixed(2).slice(-2);
+    };
+
+
+
+    jq.showPlayer = function(data){
+        return new VideoPlayer(data);
+    };
+})(jQuery,window);
+$.showPlayer();
+</script>
 </body>
 </html>
