@@ -1,0 +1,42 @@
+body {
+    width:100%;
+}
+li {
+    list-style-type:none;
+}
+.u-nav {
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    overflow: scroll;
+    ul {
+        padding:0;
+        width:800px;
+        height:60px;
+        font-size:0;
+        li {
+            display:inline-block;
+            width:100px;
+            height:60px;
+            color:#fff;
+            font-size:12px;
+            background-color:red;
+            &.active {
+                background-color: blue;
+            }
+        }
+    }
+}
+.u-content {
+    width:100%;
+    &-item {
+        height:600px;
+        &:nth-child(2n+1){
+            background:yellow;
+        }
+        &:nth-child(2n){
+            background:green;
+        }
+    }
+}
