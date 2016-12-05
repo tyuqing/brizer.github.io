@@ -6,7 +6,6 @@ li {
     list-style-type:none;
 }
 .u-nav {
-    position:fixed;
     top:0;
     left:0;
     width:100%;
@@ -33,10 +32,10 @@ li {
     width:100%;
     &-item {
         height:600px;
-        &:nth-child(2n+1){
+        &:nth-of-type(2n+1){
             background:yellow;
         }
-        &:nth-child(2n){
+        &:nth-of-type(2n){
             background:green;
         }
     }
