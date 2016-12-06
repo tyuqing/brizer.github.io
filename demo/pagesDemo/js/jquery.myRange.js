@@ -59,7 +59,7 @@
                 }
             };
 
-            //添加事件绑定
+            //添加PC端事件绑定
             $this.on('mousedown',function(e){
                 isMouseDown = true;
                 _offset = $this.offset().left;
@@ -81,6 +81,41 @@
                     options.onChange(_value);
                 }
             });
+            //添加移动端事件绑定
+            $this.on('touchstart',function(e) {
+                isMouseDown = true;
+                _offset = $this.offset().left;
+                _cursor_position =e.originalEvent.changedTouches[0].pageX-_offset-$handle.position().left;
+            });
+            $this.on('touchmove',function(e){
+                e.stopPropagation();
+                e.preventDefault();
+                if(isMouseDown){
+                    var move = e.originalEvent.changedTouches[0].pageX - _offset;
+                    if(_cursor_position>0&&_cursor_position<_handle_width){   //鼠标在手柄中位置，对值的修正
+                        move -=_cursor_position;
+                    }
+                    move = Math.max(0,move);
+                    move = Math.min(move,_width);
+                    $value.css({
+                        'width':move
+                    });
+                    $handle.css({
+                        'left':move
+                    });
+                    _value = Math.round(move/(_length*options.steps))*options.steps+options.min;
+                    options.onSlide(_value);
+                }
+            });
+            $this.on('touchend',function(e){
+                if(isMouseDown){
+                    isMouseDown = false;
+                    setSelectable($body,true);
+                    _api.setValue();
+                    options.onChange(_value);
+                }
+            });
+
             //鼠标滑出组件也可以正常使用
             $document.on('mousemove',function(e){
                if(!!isMouseDown){
