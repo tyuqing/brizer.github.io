@@ -81,6 +81,7 @@
                     options.onChange(_value);
                 }
             });
+            //鼠标滑出组件也可以正常使用
             $document.on('mousemove',function(e){
                if(!!isMouseDown){
                    var move = e.pageX - _offset;
