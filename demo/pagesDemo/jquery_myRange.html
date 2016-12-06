@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./css/jquery_myRange.css">
+    <script src="./js/jquery-1.7.2.min.js"></script>
+    <script src="./js/jquery.myRange.js"></script>
+</head>
+<body>
+<div class="u-range j-range">
+
+</div>
+<p>当前值</p><div class="j-value"></div>
+<p>最终值</p><div class="j-finalValue"></div>
+<script>
+    $('.j-range').myRange({
+        onSlide:function(value){
+            $('.j-value').html(value);
+        },
+        onChange:function(value){
+            $('.j-finalValue').html(value);
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+.u-range {
+    width:200px;
+    height:20px;
+    border:1px solid grey;
+    background:#fff;
+    .value {
+        background:#00B7FF;
+    }
+    .handle {
+        top:-1px;
+        width:4px;
+        height:20px;
+        background:#fff;
+        border:1px solid #00B7FF;
+    }
+}
