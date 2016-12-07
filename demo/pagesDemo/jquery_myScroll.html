@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <title>Title</title>
+    <link rel="stylesheet" href="./css/jquery_myScroll.css">
+    <script src="./js/jquery-1.7.2.min.js"></script>
+    <script src="./js/jquery.myScroll.js"></script>
+</head>
+<body>
+<p>myScroll(),纵向的效果</p>
+
+<div class="u-scroll j-scroll">
+    <div class="box">
+        <ul class="content">
+            <li>数据1</li>
+            <li>数据2</li>
+            <li>数据3</li>
+            <li>数据4</li>
+            <li>数据5</li>
+            <li>数据6</li>
+            <li>数据7</li>
+            <li>数据8</li>
+            <li>数据9</li>
+            <li>数据10</li>
+            <li>数据11</li>
+            <li>数据12</li>
+            <li>数据13</li>
+            <li>数据14</li>
+        </ul>
+    </div>
+    <div class="track">
+        <div class="thumb"></div>
+    </div>
+</div>
+<p>myScroll({'direction':'x'}),横向的效果</p>
+<div class="u-scrollX j-scrollX">
+    <div class="box">
+        <ul class="content">
+            <li>数据1</li>
+            <li>数据2</li>
+            <li>数据3</li>
+            <li>数据4</li>
+            <li>数据5</li>
+            <li>数据6</li>
+            <li>数据7</li>
+            <li>数据8</li>
+            <li>数据9</li>
+            <li>数据10</li>
+            <li>数据11</li>
+            <li>数据12</li>
+            <li>数据13</li>
+            <li>数据14</li>
+        </ul>
+    </div>
+    <div class="track">
+        <div class="thumb"></div>
+    </div>
+</div>
+<script>
+    $('.j-scroll').myScroll();
+    $('.j-scrollX').myScroll({'direction':'x'});
+</script>
+</body>
+</html>

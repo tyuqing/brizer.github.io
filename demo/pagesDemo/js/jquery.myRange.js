@@ -14,12 +14,10 @@
             onChange:function(){}//滑动后触发事件
         };
         var options = $.extend({},defaults,options);
-        var $window = $(window);
         var $document = $(document);
         var $body = $('body');
         return this.each(function(){
             //定义对象
-            var _self = this;
             var $this = $(this);
             var $value = $("<div class='"+options.valueCls+"'></div>").appendTo($this);
             var $handle = $("<div class='"+options.handleCls+"'></div>").appendTo($this);
@@ -38,7 +36,7 @@
             $handle.css('position','absolute');
 
             //共有方法
-            //移动端指定值
+            //移动到指定值
             _api.setValue = function(value){
                 _value = value || _value;
                 _value = Math.min(_value,options.max);
@@ -50,7 +48,7 @@
             };
 
             //私有方法
-            //控制时候可以被选中
+            //控制是否可以被选中
             function setSelectable(obj, enabled) {
                 if(enabled) {
                     obj.removeAttr("unselectable").removeAttr("onselectstart").css("user-select", "");
