@@ -1,0 +1,712 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="brizer,前端,博客,刘放" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x524D;&amp;#x8A00;&amp;#x4ECA;&amp;#x5929;&amp;#x4E3B;&amp;#x8981;&amp;#x4ECB;&amp;#x7ECD;&amp;#x4E00;&amp;#x4E2A;&amp;#x517C;&amp;#x5BB9;PC&amp;#x548C;&amp;#x79FB;&amp;#x52A8;Web&amp;#x7684;&amp;#x6ED1;&amp;#x52A8;&amp;#x533A;&amp;#x57DF;&amp;#x7EC4;&amp;#x4EF6;myScroll.&amp;#x4E4B;&amp;#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery滑动区域组件myScroll">
+<meta property="og:url" content="http://http://brizer.top/2016/12/07/jQuery滑动区域组件myScroll/index.html">
+<meta property="og:site_name" content="Brizer's Blog">
+<meta property="og:description" content="&amp;#x524D;&amp;#x8A00;&amp;#x4ECA;&amp;#x5929;&amp;#x4E3B;&amp;#x8981;&amp;#x4ECB;&amp;#x7ECD;&amp;#x4E00;&amp;#x4E2A;&amp;#x517C;&amp;#x5BB9;PC&amp;#x548C;&amp;#x79FB;&amp;#x52A8;Web&amp;#x7684;&amp;#x6ED1;&amp;#x52A8;&amp;#x533A;&amp;#x57DF;&amp;#x7EC4;&amp;#x4EF6;myScroll.&amp;#x4E4B;&amp;#">
+<meta property="og:updated_time" content="2016-12-07T06:38:07.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jQuery滑动区域组件myScroll">
+<meta name="twitter:description" content="&amp;#x524D;&amp;#x8A00;&amp;#x4ECA;&amp;#x5929;&amp;#x4E3B;&amp;#x8981;&amp;#x4ECB;&amp;#x7ECD;&amp;#x4E00;&amp;#x4E2A;&amp;#x517C;&amp;#x5BB9;PC&amp;#x548C;&amp;#x79FB;&amp;#x52A8;Web&amp;#x7684;&amp;#x6ED1;&amp;#x52A8;&amp;#x533A;&amp;#x57DF;&amp;#x7EC4;&amp;#x4EF6;myScroll.&amp;#x4E4B;&amp;#">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> jQuery滑动区域组件myScroll | Brizer's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Brizer's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">刘放 学习笔记</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+  
+    <style type="text/css">
+		#so360{white-space:nowrap;margin:10px auto;}
+		#so360 form{margin:0;padding:0}
+		#so360_keyword{width:157px;height:32px;line-height:32px;font:14px arial;padding:2px 5px;margin-right:5px;
+		border:2px solid #061201;outline:0;vertical-align:middle}
+		#so360_keyword{background:url(https://p.ssl.qhimg.com/t01ab1a3fb05f0ee893.png) no-repeat 236px center}
+		#so360_submit{width:60px;height:40px;border:0;color:#fff;background:#061201;
+		font-weight:bold;font:bold 14px arial;padding:0;padding-top:3px\9;cursor:pointer;
+		vertical-align:middle}
+	</style>
+	<div id="so360">
+	    <form action="http://www.so.com/s" target="_blank" id="so360form">
+	   <input type="text" autocomplete="off" name="q" id="so360_keyword">
+	        <input type="submit" id="so360_submit" value="搜 索">
+	        <input type="hidden" name="ie" value="utf8">
+	        <input type="hidden" name="src" value="zz_brizer.top">
+	        <input type="hidden" name="site" value="brizer.top">
+	        <input type="hidden" name="rg" value="1">
+	    </form>
+	</div> 
+	
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/demo" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            demo
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                jQuery滑动区域组件myScroll
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-12-07T14:26:40+08:00" content="2016-12-07">
+              2016-12-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/jquery/" itemprop="url" rel="index">
+                    <span itemprop="name">jquery</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/12/07/jQuery滑动区域组件myScroll/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/07/jQuery滑动区域组件myScroll/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+                    
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+              </span>
+                     
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="&#x524D;&#x8A00;"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a><strong>&#x524D;&#x8A00;</strong></h1><p>&#x4ECA;&#x5929;&#x4E3B;&#x8981;&#x4ECB;&#x7ECD;&#x4E00;&#x4E2A;&#x517C;&#x5BB9;PC&#x548C;&#x79FB;&#x52A8;Web&#x7684;&#x6ED1;&#x52A8;&#x533A;&#x57DF;&#x7EC4;&#x4EF6;myScroll.&#x4E4B;&#x524D;&#x5728;<a href="/2016/06/06/&#x79FB;&#x52A8;&#x7AEF;&#x6ED1;&#x52A8;iscroll&#x4F7F;&#x7528;&#x5B9E;&#x8DF5;/">&#x4E00;&#x7BC7;&#x6587;&#x7AE0;</a>&#x4E2D;&#x4ECB;&#x7ECD;&#x8FC7;<br>iscroll,&#x5176;&#x529F;&#x80FD;&#x867D;&#x7136;&#x5F88;&#x5F3A;&#x5927;,&#x4F46;&#x662F;&#x6587;&#x4EF6;&#x5927;&#x5C0F;&#x4E0D;&#x5C0F;,&#x800C;&#x4E14;&#x9700;&#x8981;&#x4E00;&#x5B9A;&#x7684;&#x5B66;&#x4E60;&#x6210;&#x672C;.&#x800C;&#x5F88;&#x591A;&#x60C5;&#x51B5;,&#x6211;&#x4EEC;<br>&#x53EA;&#x662F;&#x9700;&#x8981;&#x5F88;&#x7B80;&#x5355;&#x7684;&#x8F83;&#x4E3A;&#x6D41;&#x7545;&#x7684;&#x6ED1;&#x52A8;&#x4F53;&#x9A8C;&#x5373;&#x53EF;.</p>
+<hr>
+<h1 id="&#x7B80;&#x4ECB;"><a href="#&#x7B80;&#x4ECB;" class="headerlink" title="&#x7B80;&#x4ECB;"></a><strong>&#x7B80;&#x4ECB;</strong></h1><p>&#x5148;&#x770B;&#x770B;&#x6548;&#x679C;:</p>
+<iframe src="/demo/pagesDemo/jquery_myScroll.html" width="320px" height="400px"></iframe>
+
+<p><a href="/demo/pagesDemo/jquery_myScroll.html">&#x5B8C;&#x6574;demo</a></p>
+<p>&#x5982;&#x679C;&#x53EA;&#x662F;&#x9700;&#x8981;&#x7B80;&#x5355;&#x7684;&#x4F7F;&#x7528;&#x5B83;,&#x5219;&#x4E0B;&#x8F7D;<a href="/demo/pagesDemo/js/jquery.myScroll.js">js&#x4EE3;&#x7801;</a>.</p>
+<p>&#x4F7F;&#x7528;&#x65B9;&#x5F0F;&#x4E5F;&#x5F88;&#x7B80;&#x5355;:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">&apos;.j-scroll&apos;</span>).myScroll();</div></pre></td></tr></table></figure></p>
+<p>&#x53C2;&#x6570;&#x5217;&#x8868;&#x5982;&#x4E0B;:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> defaults = {</div><div class="line">    <span class="attr">contentCls</span>:<span class="string">&apos;content&apos;</span>,<span class="comment">//&#x5185;&#x5BB9;&#x533A;class</span></div><div class="line">    trackCls:<span class="string">&apos;track&apos;</span>,<span class="comment">//&#x6ED1;&#x5757;&#x7684;class</span></div><div class="line">    direction:<span class="string">&apos;y&apos;</span>,<span class="comment">//&#x6EDA;&#x52A8;&#x6761;&#x7684;&#x65B9;&#x5411;,y&#x6216;&#x8005;x</span></div><div class="line">    steps:<span class="number">50</span>,<span class="comment">//&#x6EDA;&#x52A8;&#x9F20;&#x6807;&#x4E2D;&#x8F74;&#x7684;&#x5355;&#x4F4D;</span></div><div class="line">    touchable:<span class="literal">true</span>,<span class="comment">//&#x662F;&#x5426;&#x5141;&#x8BB8;&#x89E6;&#x6478;&#x64CD;&#x4F5C;</span></div><div class="line">    slide:<span class="number">0</span><span class="comment">//&#x9ED8;&#x8BA4;&#x79FB;&#x52A8;&#x7684;&#x8DDD;&#x79BB;</span></div><div class="line">};</div></pre></td></tr></table></figure></p>
+<p>demo&#x4E2D;&#x7684;&#x7EB5;&#x5411;&#x6ED1;&#x52A8;&#x548C;&#x6A2A;&#x5411;&#x6ED1;&#x52A8;html&#x7ED3;&#x6784;&#x662F;&#x4E00;&#x6837;&#x7684;:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;u-scroll j-scroll&quot;</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;content&quot;</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span>&#x6570;&#x636E;1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span>&#x6570;&#x636E;2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span>&#x6570;&#x636E;3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span>&#x6570;&#x636E;4<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span>&#x6570;&#x636E;5<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span>&#x6570;&#x636E;6<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span>&#x6570;&#x636E;7<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span>&#x6570;&#x636E;8<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span>&#x6570;&#x636E;9<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span>&#x6570;&#x636E;10<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span>&#x6570;&#x636E;11<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span>&#x6570;&#x636E;12<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span>&#x6570;&#x636E;13<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span>&#x6570;&#x636E;14<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;track&quot;</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;thumb&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>&#x53EA;&#x4E0D;&#x8FC7;&#x6837;&#x5F0F;&#x4E0D;&#x540C;,scss:<br><figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.u-scroll</span> {</div><div class="line">    <span class="attribute">width</span>:<span class="number">200px</span>;</div><div class="line">    <span class="selector-class">.box</span> {</div><div class="line">        <span class="attribute">width</span>:<span class="number">200px</span>;</div><div class="line">        <span class="attribute">height</span>:<span class="number">200px</span>;</div><div class="line">        <span class="selector-class">.content</span> {</div><div class="line">            <span class="attribute">width</span>:<span class="number">100%</span>;</div><div class="line">            <span class="selector-tag">li</span> {</div><div class="line">                <span class="attribute">height</span>:<span class="number">30px</span>;</div><div class="line">                <span class="attribute">line-height</span>:<span class="number">30px</span>;</div><div class="line">                <span class="attribute">text-align</span>: center;</div><div class="line">                &amp;:nth-of-type(2n+1) {</div><div class="line">                    <span class="attribute">background</span>:<span class="number">#00B7FF</span>;</div><div class="line">                }</div><div class="line">            }</div><div class="line">        }</div><div class="line">    }</div><div class="line">    <span class="selector-class">.track</span> {</div><div class="line">        <span class="attribute">top</span>:<span class="number">0</span>;</div><div class="line">        <span class="attribute">right</span>:<span class="number">0</span>;</div><div class="line">        <span class="attribute">height</span>:<span class="number">100%</span>;</div><div class="line">        <span class="attribute">width</span>:<span class="number">5px</span>;</div><div class="line">        <span class="attribute">background</span>:<span class="number">#e3e3e3</span>;</div><div class="line">        <span class="selector-class">.thumb</span> {</div><div class="line">            <span class="attribute">position</span>:relative;</div><div class="line">            <span class="attribute">background</span>: <span class="number">#00fefe</span>;;</div><div class="line">        }</div><div class="line">    }</div><div class="line">}</div><div class="line"><span class="selector-class">.u-scrollX</span> {</div><div class="line">    <span class="attribute">width</span>:<span class="number">300px</span>;</div><div class="line">    <span class="selector-class">.box</span> {</div><div class="line">        <span class="attribute">width</span>:<span class="number">300px</span>;</div><div class="line">        <span class="attribute">height</span>:<span class="number">100px</span>;</div><div class="line">        <span class="selector-class">.content</span> {</div><div class="line">            <span class="attribute">height</span>:<span class="number">100%</span>;</div><div class="line">            <span class="selector-tag">li</span> {</div><div class="line">                <span class="attribute">float</span>:left;</div><div class="line">                <span class="attribute">display</span>:inline-block;</div><div class="line">                <span class="attribute">width</span>:<span class="number">80px</span>;</div><div class="line">                <span class="attribute">height</span>:<span class="number">100px</span>;</div><div class="line">                <span class="attribute">line-height</span>:<span class="number">100px</span>;</div><div class="line">                <span class="attribute">text-align</span>:center;</div><div class="line">                &amp;:nth-of-type(2n+1){</div><div class="line">                    <span class="attribute">background</span>: <span class="number">#00b7ff</span>;</div><div class="line">                }</div><div class="line">            }</div><div class="line">        }</div><div class="line">    }</div><div class="line">    <span class="selector-class">.track</span> {</div><div class="line">        <span class="attribute">left</span>:<span class="number">0</span>;</div><div class="line">        <span class="attribute">bottom</span>:<span class="number">0</span>;</div><div class="line">        <span class="attribute">width</span>:<span class="number">100%</span>;</div><div class="line">        <span class="attribute">height</span>:<span class="number">5px</span>;</div><div class="line">        <span class="attribute">background</span>:<span class="number">#e3e3e3</span>;</div><div class="line">        <span class="selector-class">.thumb</span> {</div><div class="line">            <span class="attribute">height</span>:<span class="number">5px</span>;</div><div class="line">            <span class="attribute">position</span>:relative;</div><div class="line">            <span class="attribute">background</span>:<span class="number">#00fefe</span>;</div><div class="line">        }</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<hr>
+<h1 id="&#x539F;&#x7406;"><a href="#&#x539F;&#x7406;" class="headerlink" title="&#x539F;&#x7406;"></a><strong>&#x539F;&#x7406;</strong></h1><p>&#x63D2;&#x4EF6;&#x5B8C;&#x6574;&#x4EE3;&#x7801;&#x5982;&#x4E0B;:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by liufang on 2016/12/7.</div><div class="line"> */</div><div class="line">;(<span class="function"><span class="keyword">function</span>(<span class="params">$</span>)</span>{</div><div class="line">    $.fn.myScroll = <span class="function"><span class="keyword">function</span>(<span class="params">options</span>)</span>{</div><div class="line">        <span class="keyword">var</span> defaults = {</div><div class="line">            <span class="attr">contentCls</span>:<span class="string">&apos;content&apos;</span>,<span class="comment">//&#x5185;&#x5BB9;&#x533A;class</span></div><div class="line">            trackCls:<span class="string">&apos;track&apos;</span>,<span class="comment">//&#x6ED1;&#x5757;&#x7684;class</span></div><div class="line">            direction:<span class="string">&apos;y&apos;</span>,<span class="comment">//&#x6EDA;&#x52A8;&#x6761;&#x7684;&#x65B9;&#x5411;,y&#x6216;&#x8005;x</span></div><div class="line">            steps:<span class="number">50</span>,<span class="comment">//&#x6EDA;&#x52A8;&#x9F20;&#x6807;&#x4E2D;&#x8F74;&#x7684;&#x5355;&#x4F4D;</span></div><div class="line">            touchable:<span class="literal">true</span>,<span class="comment">//&#x662F;&#x5426;&#x5141;&#x8BB8;&#x89E6;&#x6478;&#x64CD;&#x4F5C;</span></div><div class="line">            slide:<span class="number">0</span><span class="comment">//&#x9ED8;&#x8BA4;&#x79FB;&#x52A8;&#x7684;&#x8DDD;&#x79BB;</span></div><div class="line">        };</div><div class="line">        <span class="keyword">var</span> options = $.extend({},defaults,options);</div><div class="line">        <span class="keyword">var</span> $<span class="built_in">document</span> = $(<span class="built_in">document</span>);</div><div class="line">        <span class="keyword">var</span> $body = $(<span class="string">&apos;body&apos;</span>);</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.each(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</div><div class="line">            <span class="comment">//&#x5B9A;&#x4E49;&#x5BF9;&#x8C61;</span></div><div class="line">            <span class="keyword">var</span> $<span class="keyword">this</span> = $(<span class="keyword">this</span>);</div><div class="line">            <span class="keyword">var</span> $content = $<span class="keyword">this</span>.find(<span class="string">&apos;.&apos;</span>+options.contentCls);</div><div class="line">            <span class="keyword">var</span> $track = $<span class="keyword">this</span>.find(<span class="string">&apos;.&apos;</span>+options.trackCls);</div><div class="line">            <span class="keyword">var</span> $thumb = $track.children();</div><div class="line">            <span class="comment">//&#x5168;&#x5C40;&#x53D8;&#x91CF;</span></div><div class="line">            <span class="keyword">var</span> _api = {};</div><div class="line">            <span class="keyword">var</span> _track_offset = <span class="number">0</span>;</div><div class="line">            <span class="keyword">var</span> _content_position = <span class="number">0</span>;</div><div class="line">            <span class="keyword">var</span> _cursor_position = <span class="number">0</span>;</div><div class="line">            <span class="keyword">var</span> _start = {};</div><div class="line">            <span class="keyword">var</span> isMouseDown = <span class="literal">false</span>;</div><div class="line">            <span class="keyword">var</span> _track_length,_content_length,_box_length,_thumb_length,_distance,_room;</div><div class="line">            <span class="comment">//&#x6837;&#x5F0F;&#x521D;&#x59CB;&#x5316;</span></div><div class="line">            $<span class="keyword">this</span>.css({<span class="string">&apos;position&apos;</span>:<span class="string">&apos;relative&apos;</span>,<span class="string">&apos;overflow&apos;</span>:<span class="string">&apos;hidden&apos;</span>});</div><div class="line">            $content.css(<span class="string">&apos;position&apos;</span>,<span class="string">&apos;absolute&apos;</span>);</div><div class="line">            $track.css(<span class="string">&apos;position&apos;</span>,<span class="string">&apos;absolute&apos;</span>);</div><div class="line"></div><div class="line">            <span class="comment">//&#x5171;&#x6709;&#x65B9;&#x6CD5;</span></div><div class="line">            <span class="comment">//&#x79FB;&#x52A8;&#x5230;&#x6307;&#x5B9A;&#x503C;</span></div><div class="line">            _api.setValue = <span class="function"><span class="keyword">function</span>(<span class="params">value</span>)</span>{</div><div class="line">                <span class="keyword">if</span>(value&gt;_room){</div><div class="line">                    value = _room;</div><div class="line">                }<span class="keyword">else</span> <span class="keyword">if</span>(value&lt;<span class="number">0</span>){</div><div class="line">                    value = <span class="number">0</span>;</div><div class="line">                }</div><div class="line">                <span class="keyword">if</span>(_room&gt;=<span class="number">0</span>){</div><div class="line">                    $thumb.css(options.direction==<span class="string">&apos;y&apos;</span>?<span class="string">&apos;top&apos;</span>:<span class="string">&apos;left&apos;</span>,value*_api.ratio+<span class="string">&apos;px&apos;</span>);</div><div class="line">                    $content.css(options.direction==<span class="string">&apos;y&apos;</span>?<span class="string">&apos;top&apos;</span>:<span class="string">&apos;left&apos;</span>,-value+<span class="string">&apos;px&apos;</span>);</div><div class="line">                }</div><div class="line">            };</div><div class="line">            <span class="comment">//&#x521D;&#x59CB;&#x5316;</span></div><div class="line">            _api.init = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</div><div class="line">                <span class="keyword">if</span>(options.direction==<span class="string">&apos;x&apos;</span>){</div><div class="line">                    <span class="keyword">var</span> width = <span class="number">0</span>;</div><div class="line">                    $content.children().each(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</div><div class="line">                        <span class="keyword">var</span> $<span class="keyword">this</span> = $(<span class="keyword">this</span>);</div><div class="line">                        $<span class="keyword">this</span>.removeAttr(<span class="string">&apos;style&apos;</span>).css(<span class="string">&apos;width&apos;</span>,$<span class="keyword">this</span>.width()+<span class="string">&apos;px&apos;</span>);</div><div class="line">                        width += $<span class="keyword">this</span>.outerWidth(<span class="literal">true</span>);</div><div class="line">                    });</div><div class="line">                    $content.css(<span class="string">&apos;width&apos;</span>,width+<span class="string">&apos;px&apos;</span>);</div><div class="line">                }</div><div class="line">                $track.show();</div><div class="line">                _track_length = options.direction==<span class="string">&apos;y&apos;</span>?$track.height():$track.width();<span class="comment">//&#x6ED1;&#x52A8;&#x680F;&#x957F;&#x5EA6;</span></div><div class="line">                _content_length = options.direction==<span class="string">&apos;y&apos;</span>?$content.height():$content.width();<span class="comment">//&#x5185;&#x5BB9;&#x533A;&#x603B;&#x957F;&#x5EA6;</span></div><div class="line">                _box_length = options.direction==<span class="string">&apos;y&apos;</span>?$<span class="keyword">this</span>.height():$<span class="keyword">this</span>.width();<span class="comment">//&#x5BB9;&#x5668;&#x957F;&#x5EA6;</span></div><div class="line">                _thumb_length = _box_length/_content_length*_track_length;<span class="comment">//&#x8BA1;&#x7B97;&#x51FA;&#x6ED1;&#x5757;&#x957F;&#x5EA6;</span></div><div class="line">                _distance = <span class="built_in">Math</span>.max(_track_length-_thumb_length,<span class="number">0</span>);<span class="comment">//&#x6ED1;&#x5757;&#x8DDD;&#x79BB;&#x5E95;&#x90E8;&#x7684;&#x8DDD;&#x79BB;</span></div><div class="line">                _room = <span class="built_in">Math</span>.max(_content_length-_box_length,<span class="number">0</span>);<span class="comment">//&#x5185;&#x5BB9;&#x533A;&#x591A;&#x51FA;&#x5BB9;&#x5668;&#x7684;&#x957F;&#x5EA6;</span></div><div class="line">                <span class="comment">//&#x6839;&#x636E;&#x957F;&#x5EA6;&#x5224;&#x65AD;&#x662F;&#x5426;&#x51FA;&#x73B0;&#x6ED1;&#x52A8;&#x680F;</span></div><div class="line">                <span class="keyword">if</span>(_content_length&gt;_box_length){</div><div class="line">                    $thumb.css(options.direction==<span class="string">&apos;y&apos;</span>?<span class="string">&apos;height&apos;</span>:<span class="string">&apos;width&apos;</span>,_thumb_length+<span class="string">&apos;px&apos;</span>);</div><div class="line">                }<span class="keyword">else</span> {</div><div class="line">                    $track.hide();</div><div class="line">                }</div><div class="line">                _api.ratio = _distance+_room?_distance/_room:<span class="number">0</span>;<span class="comment">//&#x83B7;&#x53D6;&#x53EF;&#x6ED1;&#x52A8;&#x533A;&#x548C;&#x591A;&#x4F59;&#x5185;&#x5BB9;&#x533A;&#x7684;&#x6BD4;&#x4F8B;</span></div><div class="line">            }</div><div class="line"></div><div class="line">            <span class="comment">//&#x79C1;&#x6709;&#x65B9;&#x6CD5;</span></div><div class="line">            <span class="comment">//&#x63A7;&#x5236;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x88AB;&#x9009;&#x4E2D;</span></div><div class="line">            <span class="function"><span class="keyword">function</span> <span class="title">setSelectable</span>(<span class="params">obj, enabled</span>) </span>{</div><div class="line">                <span class="keyword">if</span>(enabled) {</div><div class="line">                    obj.removeAttr(<span class="string">&quot;unselectable&quot;</span>).removeAttr(<span class="string">&quot;onselectstart&quot;</span>).css(<span class="string">&quot;user-select&quot;</span>, <span class="string">&quot;&quot;</span>);</div><div class="line">                } <span class="keyword">else</span> {</div><div class="line">                    obj.attr(<span class="string">&quot;unselectable&quot;</span>, <span class="string">&quot;on&quot;</span>).attr(<span class="string">&quot;onselectstart&quot;</span>, <span class="string">&quot;return false;&quot;</span>).css(<span class="string">&quot;user-select&quot;</span>, <span class="string">&quot;none&quot;</span>);</div><div class="line">                }</div><div class="line">            };</div><div class="line"></div><div class="line">            <span class="comment">//&#x6DFB;&#x52A0;PC&#x7AEF;&#x4E8B;&#x4EF6;&#x7ED1;&#x5B9A;</span></div><div class="line">            $track.on(<span class="string">&apos;mousedown&apos;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>{</div><div class="line">                isMouseDown = <span class="literal">true</span>;</div><div class="line">                _track_offset = options.direction==<span class="string">&apos;y&apos;</span>?$track.offset().top:$track.offset().left;</div><div class="line">                _cursor_position = options.direction==<span class="string">&apos;y&apos;</span>? e.pageY-_track_offset-$thumb.position().top: e.pageX-_track_offset-$thumb.position().left;</div><div class="line">                <span class="comment">//&#x6392;&#x9664;&#x9009;&#x4E2D;&#x7684;&#x8BEF;&#x5DEE;</span></div><div class="line">                setSelectable($body,<span class="literal">false</span>);</div><div class="line">            });</div><div class="line">            $track.on(<span class="string">&apos;mouseup&apos;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>{</div><div class="line">                <span class="keyword">if</span>(!!isMouseDown){</div><div class="line">                    isMouseDown = <span class="literal">false</span>;</div><div class="line">                    setSelectable($body,<span class="literal">true</span>);</div><div class="line">                    <span class="keyword">var</span> move = options.direction==<span class="string">&apos;y&apos;</span>? e.pageY - _track_offset: e.pageX-_track_offset;</div><div class="line">                    <span class="keyword">if</span>(_cursor_position&gt;<span class="number">0</span>&amp;&amp;_cursor_position&lt;_thumb_length){</div><div class="line">                        move -= _cursor_position;</div><div class="line">                    }</div><div class="line">                    _api.setValue(move/_api.ratio);</div><div class="line">                }</div><div class="line">            });</div><div class="line">            <span class="comment">//&#x9F20;&#x6807;&#x6ED1;&#x8F6E;&#x4E8B;&#x4EF6;</span></div><div class="line">            $<span class="keyword">this</span>.on(<span class="string">&apos;mousewheel&apos;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>{</div><div class="line">                <span class="keyword">if</span>($track.css(<span class="string">&apos;display&apos;</span>)!=<span class="string">&apos;none&apos;</span>){</div><div class="line">                    <span class="keyword">var</span> delta = -e.originalEvent.wheelDelta/<span class="number">120</span>|| e.originalEvent.detail/<span class="number">3</span>;</div><div class="line">                    <span class="keyword">var</span> move = options.direction==<span class="string">&quot;y&quot;</span>?-$content.position().top+delta*options.steps:-$content.position().left+delta*options.steps;</div><div class="line">                    <span class="keyword">if</span>(move&gt;_room){</div><div class="line">                        move = _room;</div><div class="line">                        e.preventDefault();</div><div class="line">                        e.stopPropagation();</div><div class="line">                    }<span class="keyword">else</span> <span class="keyword">if</span>(move&lt;<span class="number">0</span>){</div><div class="line">                        move = <span class="number">0</span>;</div><div class="line">                        e.preventDefault();</div><div class="line">                        e.stopPropagation();</div><div class="line">                    }<span class="keyword">else</span>{</div><div class="line">                        e.preventDefault();</div><div class="line">                        e.stopPropagation();</div><div class="line">                    }</div><div class="line">                    _api.setValue(move);</div><div class="line">                }</div><div class="line">            });</div><div class="line">            <span class="comment">//&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E86;&#x79FB;&#x52A8;&#x7AEF;&#x53EF;&#x7528;</span></div><div class="line">            <span class="keyword">if</span>(!!options.touchable){</div><div class="line">                <span class="comment">//&#x6DFB;&#x52A0;&#x79FB;&#x52A8;&#x7AEF;&#x4E8B;&#x4EF6;&#x7ED1;&#x5B9A;</span></div><div class="line">                $<span class="keyword">this</span>.on(<span class="string">&apos;touchstart&apos;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>{</div><div class="line">                    e.stopPropagation();</div><div class="line">                    _start = {</div><div class="line">                        <span class="attr">pageX</span>: e.originalEvent.changedTouches[<span class="number">0</span>].pageX,</div><div class="line">                        <span class="attr">pageY</span>: e.originalEvent.changedTouches[<span class="number">0</span>].pageY</div><div class="line">                    };</div><div class="line">                    <span class="keyword">if</span>(options.direction==<span class="string">&quot;y&quot;</span>){</div><div class="line">                        _content_position = -$content.position().top||<span class="number">0</span>;</div><div class="line">                    }<span class="keyword">else</span>{</div><div class="line">                        _content_position = -$content.position().left||<span class="number">0</span>;</div><div class="line">                    }</div><div class="line">                });</div><div class="line">                $<span class="keyword">this</span>.on(<span class="string">&apos;touchmove&apos;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>{</div><div class="line">                    e.stopPropagation();</div><div class="line">                    <span class="keyword">var</span> current = {</div><div class="line">                        <span class="attr">pageX</span>: e.originalEvent.changedTouches[<span class="number">0</span>].pageX,</div><div class="line">                        <span class="attr">pageY</span>: e.originalEvent.changedTouches[<span class="number">0</span>].pageY</div><div class="line">                    };</div><div class="line">                    <span class="keyword">var</span> move = options.direction==<span class="string">&quot;x&quot;</span>?_start.pageX - current.pageX:_start.pageY - current.pageY;<span class="comment">//&#x79FB;&#x52A8;&#x8DDD;&#x79BB;&#x89E6;&#x53D1;&#x70B9;&#x7684;&#x8DDD;&#x79BB;</span></div><div class="line">                    <span class="keyword">if</span> (options.direction==<span class="string">&quot;x&quot;</span>&amp;&amp;<span class="built_in">Math</span>.abs(current.pageY - _start.pageY) &lt; <span class="built_in">Math</span>.abs(move)||options.direction==<span class="string">&quot;y&quot;</span>) {  <span class="comment">//chrome&#x79FB;&#x52A8;&#x7248;&#x4E0B;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E8B;&#x4EF6;&#x4E0E;&#x81EA;&#x5B9A;&#x4E49;&#x4E8B;&#x4EF6;&#x7684;&#x51B2;&#x7A81;</span></div><div class="line">                        move +=_content_position;</div><div class="line">                        e.preventDefault();</div><div class="line">                        <span class="keyword">if</span>(move&lt;<span class="number">0</span>){</div><div class="line">                            move = <span class="number">0</span>;</div><div class="line">                        }<span class="keyword">else</span> <span class="keyword">if</span>(move&gt;_room){</div><div class="line">                            move = _room;</div><div class="line">                        }</div><div class="line">                        <span class="keyword">if</span>(_distance&gt;<span class="number">0</span>){</div><div class="line">                            $thumb.css(options.direction==<span class="string">&quot;y&quot;</span>?<span class="string">&apos;top&apos;</span>:<span class="string">&apos;left&apos;</span>, move*_api.ratio + <span class="string">&quot;px&quot;</span>);</div><div class="line">                            $content.css(options.direction==<span class="string">&quot;y&quot;</span>?<span class="string">&apos;top&apos;</span>:<span class="string">&apos;left&apos;</span>,  - move  + <span class="string">&quot;px&quot;</span>);</div><div class="line">                        }</div><div class="line">                    }</div><div class="line">                });</div><div class="line">                $<span class="keyword">this</span>.on(<span class="string">&apos;touchend&apos;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>{</div><div class="line">                    e.stopPropagation();</div><div class="line">                });</div><div class="line">            }</div><div class="line"></div><div class="line">            <span class="comment">//&#x9F20;&#x6807;&#x6ED1;&#x51FA;&#x7EC4;&#x4EF6;&#x4E5F;&#x53EF;&#x4EE5;&#x6B63;&#x5E38;&#x4F7F;&#x7528;</span></div><div class="line">            $<span class="built_in">document</span>.on(<span class="string">&apos;mousemove&apos;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>{</div><div class="line">                <span class="keyword">if</span>(!!isMouseDown){</div><div class="line">                    <span class="keyword">var</span> move = options.direction==<span class="string">&quot;y&quot;</span>?e.pageY - _track_offset:e.pageX - _track_offset;</div><div class="line">                    <span class="keyword">if</span>(_cursor_position&gt;<span class="number">0</span>&amp;&amp;_cursor_position&lt;_thumb_length){</div><div class="line">                        move-=_cursor_position;</div><div class="line">                    }</div><div class="line">                    _api.setValue(move/_api.ratio);</div><div class="line">                }</div><div class="line">            });</div><div class="line">            $<span class="built_in">document</span>.on(<span class="string">&apos;mouseup&apos;</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>{</div><div class="line">                isMouseDown = <span class="literal">false</span>;</div><div class="line">                setSelectable($body,<span class="literal">true</span>);</div><div class="line">                _cursor_position = <span class="number">0</span>;</div><div class="line">            });</div><div class="line">            <span class="comment">//&#x521D;&#x59CB;&#x5316;</span></div><div class="line">            _api.init();</div><div class="line">            _api.setValue(options.slide);</div><div class="line">        });</div><div class="line">    };</div><div class="line">})(jQuery);</div></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/06/“jQuery滑动数值选择组件myRange”/" rel="next" title="“jQuery滑动数值选择组件myRange”">
+                <i class="fa fa-chevron-left"></i> “jQuery滑动数值选择组件myRange”
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/12/07/jQuery滑动区域组件myScroll/"
+     data-title="jQuery滑动区域组件myScroll"
+     data-content=""
+     data-url="http://http://brizer.top/2016/12/07/jQuery滑动区域组件myScroll/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/12/07/jQuery滑动区域组件myScroll/"
+           data-title="jQuery滑动区域组件myScroll" data-url="http://http://brizer.top/2016/12/07/jQuery滑动区域组件myScroll/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://nos.netease.com/edu-image/5AA61D30A78B81D8CF5AE7608A1468C2.jpg"
+               alt="刘放" />
+          <p class="site-author-name" itemprop="name">刘放</p>
+          <p class="site-description motion-element" itemprop="description">网易前端开发 brizer@163.com</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">116</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/brizer" target="_blank" title="github">
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/3978835322" target="_blank" title="weibo">
+                  
+                  weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element">
+            <div class="links-of-blogroll-title">
+              <i class="fa fa-globe fa-fw"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://study.163.com/" title="网易云课堂" target="_blank">网易云课堂</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.icourse163.org/" title="中国大学MOOC" target="_blank">中国大学MOOC</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://100.163.com/" title="网易100分" target="_blank">网易100分</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-number">2.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#原理"><span class="nav-number">3.</span> <span class="nav-text">原理</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刘放</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i> 总访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"brizer"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+  
+  
+</body>
+</html>
