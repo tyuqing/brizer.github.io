@@ -1,0 +1,50 @@
+@import 'base/reset';
+
+.b-30 {
+    height:30px;
+}
+.u-merry {
+    position:relative;
+    display: inline-block;
+    width:220px;
+    height:200px;
+    overflow:hidden;
+    background-color: #31b0d5;
+    .container {
+        width:220px;
+        height:200px;
+        color:#fff;
+        overflow:hidden;
+        .content {
+            width:220px;
+            text-align: center;
+        }
+        li {
+            height:40px;
+            line-height:40px;
+        }
+    }
+}
+.u-merryY {
+    position:relative;
+    width:500px;
+    height:40px;
+    overflow:hidden;
+    background-color:#31b0d5;
+    .container {
+        width:9000px;
+        height:40px;
+        color:#fff;
+        overflow:hidden;
+        .content {
+            float:left;
+            height:40px;
+            text-align:center;
+        }
+        li {
+            float:left;
+            width:150px;
+            line-height:40px;
+        }
+    }
+}

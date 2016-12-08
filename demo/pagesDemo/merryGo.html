@@ -99,51 +99,51 @@
 		<div class="item">12</div>
 	</div>
 <script>
-//	var $content = $('.j-content');
-//	var $list1 = $('.j-lists1');
-//	var $list2 = $('.j-lists2');
-//  var _top = 0;
-//  var _top2 = 0;
-//  var _ani1;
-//  var _ani2;
-//  function setAnimate1(){
-//      if(_top != -400){
-//          _top = _top-0.5;
-//          $list1.css('top',_top);
-//          _ani1 =  setTimeout(setAnimate1,1000/60);  
-//      }else{
-//          _top = 0;
-//          _ani1 = setTimeout(setAnimate1,1000/60); 
-//      }
-//  }
-//  function setAnimate2(){
-//  	if(_top2 != -400){
-//          _top2 = _top2-0.5;
-//          $list2.css('top',_top2);
-//          _ani2 = setTimeout(setAnimate2,1000/60);    		
-//  	} else {
-//  		_top2 = 0;
-//          _ani2 = setTimeout(setAnimate2,1000/60);    		
-//  	}
-//  }
-//  function stopAnimate(){
-//  	clearTimeout(_ani1);
-//  	clearTimeout(_ani2);
-//  }
-//  function setAnimate(){
-//  	setAnimate1();
-//  	setAnimate2();
-//  }
-//  $content.on('mouseover',function(){
-//  	stopAnimate();
-//  });
-//  $content.on('mouseleave',function(){
-//  	setAnimate();
-//  });
-//  setAnimate();	
+	var $content = $('.j-content');
+	var $list1 = $('.j-lists1');
+	var $list2 = $('.j-lists2');
+  var _top = 0;
+  var _top2 = 0;
+  var _ani1;
+  var _ani2;
+  function setAnimate1(){
+      if(_top != -400){
+          _top = _top-0.5;
+          $list1.css('top',_top);
+          _ani1 =  setTimeout(setAnimate1,1000/60);
+      }else{
+          _top = 0;
+          _ani1 = setTimeout(setAnimate1,1000/60);
+      }
+  }
+  function setAnimate2(){
+  	if(_top2 != -400){
+          _top2 = _top2-0.5;
+          $list2.css('top',_top2);
+          _ani2 = setTimeout(setAnimate2,1000/60);
+  	} else {
+  		_top2 = 0;
+          _ani2 = setTimeout(setAnimate2,1000/60);
+  	}
+  }
+  function stopAnimate(){
+  	clearTimeout(_ani1);
+  	clearTimeout(_ani2);
+  }
+  function setAnimate(){
+  	setAnimate1();
+  	setAnimate2();
+  }
+  $content.on('mouseover',function(){
+  	stopAnimate();
+  });
+  $content.on('mouseleave',function(){
+  	setAnimate();
+  });
+  setAnimate();
 
 /*merryGo组件使用*/
-$('.j-demo').merryGo();
+//$('.j-demo').merryGo();
 </script>	
 	</body>
 </html>
