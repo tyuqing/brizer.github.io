@@ -566,6 +566,7 @@
             callback.call(this,slider);
         });
     };
+    //css3动画扩展
     $.fn.extend({
         animateCss: function (animationName) {
             var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';

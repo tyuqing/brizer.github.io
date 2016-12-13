@@ -9,6 +9,8 @@
     <script src="./js/jquery.mySlider.js"></script>
 </head>
 <body>
+<p>    $(".j-slider1").mySlider({inEndEffect:"none",duration:300,delay:5000});
+</p>
 <div class="u-slider1 j-slider1">
     <div class="prev"><</div>
     <div class="next">></div>
@@ -24,6 +26,10 @@
     </div>
 </div>
 <div class="b-30"></div>
+<p>
+    $(".j-slider2").mySlider({inEndEffect:"cycle",duration:300,delay:5000});
+
+</p>
 <div class="u-slider2 j-slider2">
     <div class="prev"><</div>
     <div class="next">></div>
@@ -39,6 +45,10 @@
     </div>
 </div>
 <div class="b-30"></div>
+<p>
+    $(".j-slider3").mySlider({inEndEffect:"cycle",animate:false});
+
+</p>
 <div class="u-slider3 j-slider3">
     <div class="prev"><</div>
     <div class="next">></div>
@@ -62,6 +72,12 @@
     </ul>
 </div>
 <div class="b-30"></div>
+<p>
+    $(".j-slider4").mySlider({inEndEffect: "cycle",auto: true,animate: false,afterEvent: function (){
+    $('.j-slider4').find('.content').animateCss('fadeIn');
+    }
+    });
+</p>
 <div class="u-slider4 j-slider4">
     <div class="container">
         <ul class="content">
