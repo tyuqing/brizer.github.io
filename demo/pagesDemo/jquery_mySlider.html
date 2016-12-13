@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <title>Title</title>
+    <link rel="stylesheet" href="./css/jquery_mySlider.css">
+    <script src="./js/jquery-1.7.2.min.js"></script>
+    <script src="./js/jquery.mySlider.js"></script>
+</head>
+<body>
+<div class="u-slider1 j-slider1">
+    <div class="prev"><</div>
+    <div class="next">></div>
+    <div class="container">
+        <ul class="content">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+        </ul>
+    </div>
+</div>
+<div class="b-30"></div>
+<div class="u-slider2 j-slider2">
+    <div class="prev"><</div>
+    <div class="next">></div>
+    <div class="container">
+        <ul class="content">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+        </ul>
+    </div>
+</div>
+<div class="b-30"></div>
+<div class="u-slider3 j-slider3">
+    <div class="prev"><</div>
+    <div class="next">></div>
+    <div class="container">
+        <ul class="content animated fadeIn">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+        </ul>
+    </div>
+    <ul class="nav">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<div class="b-30"></div>
+<div class="u-slider4 j-slider4">
+    <div class="container">
+        <ul class="content">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+        </ul>
+    </div>
+    <ul class="nav">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<script>
+    $(".j-slider1").mySlider({inEndEffect:"none",duration:300,delay:5000});
+    $(".j-slider2").mySlider({inEndEffect:"cycle",duration:300,delay:5000});
+    $(".j-slider3").mySlider({inEndEffect:"cycle",animate:false});
+    $(".j-slider4").mySlider({inEndEffect: "cycle",auto: true,animate: false,afterEvent: function (){
+            $('.j-slider4').find('.content').animateCss('fadeIn');
+        }
+    });
+
+</script>
+</body>
+</html>

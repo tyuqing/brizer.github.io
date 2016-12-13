@@ -1,0 +1,139 @@
+@import "base/base";
+
+.u-slider1,.u-slider2 {
+    position:relative;
+    width:600px;
+    height:150px;
+    .prev,.next {
+        position: absolute;
+        top:52px;
+        width:20px;
+        height:20px;
+        text-align: center;
+        cursor:pointer;
+        background:grey;
+        &.disable {
+            opacity:.3;
+        }
+    }
+    .prev {
+        left:0;
+    }
+    .next {
+        right:0;
+    }
+    .container {
+        margin:0 auto;
+        width:560px;
+        height:130px;
+        overflow:hidden;
+        li {
+            height:130px;
+            width:140px;
+            &:nth-of-type(2n){
+                background:#ff5555;
+            }
+            &:nth-of-type(2n+1){
+                background:#06b6ef;
+            }
+        }
+    }
+    .nav {
+        display:none;
+        margin:10px auto;
+        text-align:center;
+        li {
+            display:inline-block;
+            width:20px;
+            height:20px;
+            text-align:center;
+            background:grey;
+            &.active {
+                background:#06b6ef;
+            }
+        }
+    }
+}
+.u-slider3,.u-slider4 {
+    position:relative;
+    width:180px;
+    height:150px;
+    .prev,.next {
+        position: absolute;
+        top:52px;
+        width:20px;
+        height:20px;
+        text-align: center;
+        cursor:pointer;
+        background:grey;
+    }
+    .prev {
+        left:0;
+    }
+    .next {
+        right:0;
+    }
+    .container {
+        margin:0 auto;
+        width:140px;
+        height:130px;
+        overflow:hidden;
+        li {
+            height:130px;
+            width:140px;
+            &:nth-of-type(2n){
+                background:#ff5555;
+            }
+            &:nth-of-type(2n+1){
+                background:#06b6ef;
+            }
+        }
+    }
+    .nav {
+        margin:10px auto;
+        text-align:center;
+        li {
+            display:inline-block;
+            width:20px;
+            height:20px;
+            text-align:center;
+            background:grey;
+            &.active {
+                background:#06b6ef;
+            }
+        }
+    }
+
+}
+
+//css3动画
+.animated {
+    -webkit-animation-duration: .5s;
+    animation-duration: .5s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.fadeIn {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+}
