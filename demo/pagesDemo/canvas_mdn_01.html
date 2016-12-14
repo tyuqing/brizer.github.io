@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<style>
+    .b-30 {
+        clear:both;
+        height:30px;
+    }
+    .u-canvas {
+        float:left;
+        border:1px solid grey;
+    }
+</style>
+</head>
+<body>
+<canvas class="j-canvas1 u-canvas" width="150" height="150"></canvas>
+<canvas class="j-canvas2 u-canvas" width="150" height="150"></canvas>
+<canvas class="j-canvas3 u-canvas" width="150" height="150"></canvas>
+<canvas class="j-canvas4 u-canvas" width="150" height="150"></canvas>
+<div class="b-30"></div>
+<canvas class="j-canvas5 u-canvas" width="150" height="150"></canvas>
+<canvas class="j-canvas6 u-canvas" width="150" height="200"></canvas>
+<canvas class="j-canvas7 u-canvas" width="150" height="150"></canvas>
+<canvas class="j-canvas8 u-canvas" width="150" height="150"></canvas>
+<div class="b-30"></div>
+<canvas class="j-canvas9 u-canvas" width="150" height="150"></canvas>
+<canvas class="j-canvas10 u-canvas" width="150" height="150"></canvas>
+<canvas class="j-canvas11 u-canvas" width="150" height="150"></canvas>
+<canvas class="j-canvas12 u-canvas" width="150" height="150"></canvas>
+<div class="b-30"></div>
+<canvas class="j-canvas13 u-canvas" width="150" height="150"></canvas>
+<canvas class="j-canvas14 u-canvas" width="150" height="150"></canvas>
+<canvas class="j-canvas15 u-canvas" width="150" height="150"></canvas>
+<div class="b-30"></div>
+<canvas class="j-canvas16 u-canvas" width="300" height="300"></canvas>
+
+<script>
+    function draw1(){
+        var canvas = document.querySelector('.j-canvas1');
+        if (canvas.getContext){
+            var ctx = canvas.getContext('2d');
+            ctx.fillStyle = "rgb(200,0,0)";
+            ctx.fillRect (10, 10, 55, 50);
+
+            ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
+            ctx.fillRect (30, 30, 55, 50);
+        }
+    };
+    function draw2(){
+        var canvas = document.querySelector('.j-canvas2');
+        if (canvas.getContext){
+            var ctx = canvas.getContext('2d');
+            //绘制一个填充的矩形
+            ctx.fillRect(25,25,100,100);
+            //绘制一个矩形的边框
+            ctx.clearRect(45,45,60,60);
+            //使得某一部分完成透明
+            ctx.strokeRect(50,50,50,50);
+        }
+    }
+    function draw3(){
+        var canvas = document.querySelector('.j-canvas3');
+        if (canvas.getContext){
+            var ctx = canvas.getContext('2d');
+            //开始绘制
+            ctx.beginPath();
+            //笔触移动到
+            ctx.moveTo(75,50);
+            //划线
+            ctx.lineTo(100,75);
+            ctx.lineTo(100,25);
+            //填充内容
+            ctx.fill();
+        }
+    }
+    function draw4(){
+        var canvas = document.querySelector('.j-canvas4');
+        if (canvas.getContext){
+            var ctx = canvas.getContext('2d');
+
+            ctx.beginPath();
+            ctx.arc(75,75,50,0,Math.PI*2,true); // 绘制
+            ctx.moveTo(110,75);
+            ctx.arc(75,75,35,0,Math.PI,false);   // 口(顺时针)
+            ctx.moveTo(65,65);
+            ctx.arc(60,65,5,0,Math.PI*2,true);  // 左眼
+            ctx.moveTo(95,65);
+            ctx.arc(90,65,5,0,Math.PI*2,true);  // 右眼
+            ctx.stroke();
+        }
+    }
+    function draw5(){
+        var canvas = document.querySelector('.j-canvas5');
+        if (canvas.getContext){
+            var ctx = canvas.getContext('2d');
+
+            // 填充三角形
+            ctx.beginPath();
+            ctx.moveTo(25,25);
+            ctx.lineTo(105,25);
+            ctx.lineTo(25,105);
+            ctx.fill();
+
+            // 描边三角形
+            ctx.beginPath();
+            ctx.moveTo(125,125);
+            ctx.lineTo(125,45);
+            ctx.lineTo(45,125);
+            ctx.closePath();
+            ctx.stroke();
+        }
+    }
+    function draw6(){
+        var canvas = document.querySelector('.j-canvas6');
+        if (canvas.getContext){
+            var ctx = canvas.getContext('2d');
+            //每行
+            for(var i=0;i<4;i++){
+                //每列
+                for(var j=0;j<3;j++){
+                    ctx.beginPath();
+                    var x              = 25+j*50;               // x 坐标值
+                    var y              = 25+i*50;               // y 坐标值
+                    var radius         = 20;                    // 圆弧半径
+                    var startAngle     = 0;                     // 开始点
+                    var endAngle       = Math.PI+(Math.PI*j)/2; // 结束点
+                    var anticlockwise  = i%2==0 ? false : true; // 顺时针或逆时针
+
+                    ctx.arc(x, y, radius, startAngle, endAngle, anticlockwise);
+
+                    if (i>1){
+                        ctx.fill();
+                    } else {
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+    }
+    function draw7(){
+        var canvas = document.querySelector('.j-canvas7');
+        if (canvas.getContext){
+            var ctx = canvas.getContext('2d');
+
+            // 贝尔赛曲线
+            ctx.beginPath();
+            ctx.moveTo(75,25);
+            ctx.quadraticCurveTo(25,25,25,62.5);
+            ctx.quadraticCurveTo(25,100,50,100);
+            ctx.quadraticCurveTo(50,120,30,125);
+            ctx.quadraticCurveTo(60,120,65,100);
+            ctx.quadraticCurveTo(125,100,125,62.5);
+            ctx.quadraticCurveTo(125,25,75,25);
+            ctx.stroke();
+
+        }
+    }
+    function draw8(){
+        var canvas = document.querySelector('.j-canvas8');
+        if (canvas.getContext){
+            var ctx = canvas.getContext('2d');
+
+            for (var i=0;i<6;i++){
+                for (var j=0;j<6;j++){
+                    ctx.fillStyle = 'rgb(' + Math.floor(255-42.5*i) + ',' +
+                            Math.floor(255-42.5*j) + ',0)';
+                    ctx.fillRect(j*25,i*25,25,25);
+                }
+            }
+
+        }
+    }
+    function draw9(){
+        var canvas = document.querySelector('.j-canvas9');
+        if (canvas.getContext){
+            var ctx = canvas.getContext('2d');
+
+            // 画背景
+            ctx.fillStyle = '#FD0';
+            ctx.fillRect(0,0,75,75);
+            ctx.fillStyle = '#6C0';
+            ctx.fillRect(75,0,75,75);
+            ctx.fillStyle = '#09F';
+            ctx.fillRect(0,75,75,75);
+            ctx.fillStyle = '#F30';
+            ctx.fillRect(75,75,75,75);
+            ctx.fillStyle = '#FFF';
+
+            // 设置透明度值
+            ctx.globalAlpha = 0.2;
+
+            // 画半透明圆
+            for (var i=0;i<7;i++){
+                ctx.beginPath();
+                ctx.arc(75,75,10+10*i,0,Math.PI*2,true);
+                ctx.fill();
+            }
+
+        }
+    }
+    function draw10(){
+        var canvas = document.querySelector('.j-canvas10');
+        if (canvas.getContext){
+            var ctx = canvas.getContext('2d');
+
+            for (var i = 0; i < 10; i++){
+                ctx.lineWidth = 1+i;
+                ctx.beginPath();
+                ctx.moveTo(5+i*14,5);
+                ctx.lineTo(5+i*14,140);
+                ctx.stroke();
+            }
+
+        }
+    }
+    function draw11(){
+        var ctx = document.querySelector('.j-canvas11').getContext('2d');
+        var offset = 0;
+
+        function draw() {
+            ctx.clearRect(0,0, 150, 150);
+            ctx.setLineDash([4, 2]);
+            ctx.lineDashOffset = -offset;
+            ctx.strokeRect(10,10, 100, 100);
+        }
+
+        function march() {
+            offset++;
+            if (offset > 16) {
+                offset = 0;
+            }
+            draw();
+            setTimeout(march, 200);
+        }
+
+        march();
+    }
+    function draw12(){
+        var canvas = document.querySelector('.j-canvas12');
+        if (canvas.getContext){
+            var ctx = canvas.getContext('2d');
+
+            // 创建gradient
+            var lingrad = ctx.createLinearGradient(0,0,0,150);
+            //上半部分蓝色渐变
+            lingrad.addColorStop(0, '#00ABEB');
+            lingrad.addColorStop(0.5, '#fff');
+            //下半部分绿色渐变
+            lingrad.addColorStop(0.5, '#26C000');
+            lingrad.addColorStop(1, '#fff');
+            //中间黑色框渐变
+            var lingrad2 = ctx.createLinearGradient(0,50,0,95);
+            lingrad2.addColorStop(0.5, '#000');
+            lingrad2.addColorStop(1, 'rgba(0,0,0,0)');
+
+            // 指定属性
+            ctx.fillStyle = lingrad;
+            ctx.strokeStyle = lingrad2;
+
+            // 一个填充一个边框
+            ctx.fillRect(10,10,130,130);
+            ctx.strokeRect(50,50,50,50);
+
+        }
+    }
+    function draw13(){
+        var canvas = document.querySelector('.j-canvas13');
+        if (canvas.getContext){
+            var ctx = canvas.getContext('2d');
+
+            // 创建渐变
+            //绿球渐变
+            var radgrad = ctx.createRadialGradient(45,45,10,52,50,30);
+            radgrad.addColorStop(0, '#A7D30C');
+            radgrad.addColorStop(0.9, '#019F62');
+            radgrad.addColorStop(1, 'rgba(1,159,98,0)');
+            //红球渐变
+            var radgrad2 = ctx.createRadialGradient(105,105,20,112,120,50);
+            radgrad2.addColorStop(0, '#FF5F98');
+            radgrad2.addColorStop(0.75, '#FF0188');
+            radgrad2.addColorStop(1, 'rgba(255,1,136,0)');
+            //篮球渐变
+            var radgrad3 = ctx.createRadialGradient(95,15,15,102,20,40);
+            radgrad3.addColorStop(0, '#00C9FF');
+            radgrad3.addColorStop(0.8, '#00B5E2');
+            radgrad3.addColorStop(1, 'rgba(0,201,255,0)');
+            //黄球渐变
+            var radgrad4 = ctx.createRadialGradient(0,150,50,0,140,90);
+            radgrad4.addColorStop(0, '#F4F201');
+            radgrad4.addColorStop(0.8, '#E4C700');
+            radgrad4.addColorStop(1, 'rgba(228,199,0,0)');
+
+            // 画图形
+            ctx.fillStyle = radgrad4;
+            ctx.fillRect(0,0,150,150);
+            ctx.fillStyle = radgrad3;
+            ctx.fillRect(0,0,150,150);
+            ctx.fillStyle = radgrad2;
+            ctx.fillRect(0,0,150,150);
+            ctx.fillStyle = radgrad;
+            ctx.fillRect(0,0,150,150);
+
+        }
+    }
+    function draw14(){
+        var canvas = document.querySelector('.j-canvas14');
+        if (canvas.getContext){
+            var ctx = canvas.getContext('2d');
+
+            ctx.fillRect(0,0,150,150);   // 使用默认设置绘制一个矩形
+
+            ctx.fillStyle = '#FFF'       // 再次改变配置
+            ctx.fillRect(30,30,90,90);   // 白色矩形
+            ctx.save();                  // 保存状态
+
+            ctx.fillStyle ='red';       //红色矩形
+            ctx.fillRect(30,30,90,90);
+
+            ctx.restore();               // 重新加载之前的状态
+            ctx.fillRect(30,30,90,90);   //直接绘制,矩形变为白色
+
+        }
+    }
+    function draw15(){
+        var canvas = document.querySelector('.j-canvas15');
+        if (canvas.getContext){
+            var ctx = canvas.getContext('2d');
+
+            ctx.translate(75,75);
+            //环的数量
+            for (var i=1;i<6;i++){
+                ctx.save();
+                ctx.fillStyle = 'rgb('+(51*i)+','+(255-51*i)+',255)';
+                //每一环多少个点
+                for (var j=0;j<i*6;j++){ // draw individual dots
+                    ctx.rotate(Math.PI*2/(i*6));
+                    ctx.beginPath();
+                    ctx.arc(0,i*12.5,5,0,Math.PI*2,true);
+                    ctx.fill();
+                }
+
+                ctx.restore();
+            }
+
+        }
+    }
+    function draw16(){
+        var sun = new Image();
+        var moon = new Image();
+        var earth = new Image();
+        function init(){
+            sun.src = 'https://mdn.mozillademos.org/files/1456/Canvas_sun.png';
+            moon.src = 'https://mdn.mozillademos.org/files/1443/Canvas_moon.png';
+            earth.src = 'https://mdn.mozillademos.org/files/1429/Canvas_earth.png';
+            window.requestAnimationFrame(draw);
+        }
+
+        function draw() {
+            var ctx = document.querySelector('.j-canvas16').getContext('2d');
+
+            ctx.globalCompositeOperation = 'destination-over';
+            ctx.clearRect(0,0,300,300); // clear canvas
+
+            ctx.fillStyle = 'rgba(0,0,0,0.4)';
+            ctx.strokeStyle = 'rgba(0,153,255,0.4)';
+            ctx.save();
+            ctx.translate(150,150);
+
+            // Earth
+            var time = new Date();
+            ctx.rotate( ((2*Math.PI)/60)*time.getSeconds() + ((2*Math.PI)/60000)*time.getMilliseconds() );
+            ctx.translate(105,0);
+            ctx.fillRect(0,-12,50,24); // Shadow
+            ctx.drawImage(earth,-12,-12);
+
+            // Moon
+            ctx.save();
+            ctx.rotate( ((2*Math.PI)/6)*time.getSeconds() + ((2*Math.PI)/6000)*time.getMilliseconds() );
+            ctx.translate(0,28.5);
+            ctx.drawImage(moon,-3.5,-3.5);
+            ctx.restore();
+
+            ctx.restore();
+
+            ctx.beginPath();
+            ctx.arc(150,150,105,0,Math.PI*2,false); // Earth orbit
+            ctx.stroke();
+
+            ctx.drawImage(sun,0,0,300,300);
+
+            window.requestAnimationFrame(draw);
+        }
+
+        init();
+    }
+    draw1();
+    draw2();
+    draw3();
+    draw4();
+    draw5();
+    draw6();
+    draw7();
+    draw8();
+    draw9();
+    draw10();
+    draw11();
+    draw12();
+    draw13();
+    draw14();
+    draw15();
+    draw16();
+</script>
+</body>
+</html>
