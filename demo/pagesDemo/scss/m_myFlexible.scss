@@ -1,0 +1,29 @@
+@import 'base/base';
+@import 'base/flexible';
+.m-banner {
+    height: px2rem(640px);
+    background:#06b6ef;
+    &-itro {
+        margin:0 auto;
+        padding:px2rem(110px) 0 px2rem(40px) 0;
+        width: px2rem(660px);
+        font-size: px2rem(66px);
+        line-height: px2rem(90px);
+        text-align: center;
+    }
+    &-des {
+        margin: 0 auto;
+        width: px2rem(660px);
+        font-size: px2rem(24px);
+        line-height: px2rem(36px);
+        text-align: center;
+    }
+    &-video {
+        left: 50%;
+        margin: px2rem(60px) 0 0 px2rem(-50px);
+        width: px2rem(100px);
+        height: px2rem(100px);
+        background: url(http://nos.netease.com/edu-image/3AB7C15D5AF4FD7C573E34D05535F5F8.png) no-repeat;
+        background-size: 100%;
+    }
+}
