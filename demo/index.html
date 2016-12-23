@@ -1,141 +1,218 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>demo</title>
-<!-- 新 Bootstrap 核心 CSS 文件 -->
-<link rel="stylesheet" href="./pagesDemo/css/bootstrap.css">
-
-<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-<script src="./pagesDemo/js/jquery-1.7.2.min.js"></script>
-
+    <meta charset="UTF-8">
+    <title>demo</title>
+    <link rel="stylesheet" href="pagesDemo/css/index.css">
 </head>
 <body>
+<div class="g-container j-demo">
+</div>
 
-		<div class="j-demo">
+<script id="u-lists" type="text/regular" name="u-lists">
+    <ul class="u-lists">
+    {#list items as item}
+        <li class="item">
+            <a class="tit" target="_blank" {#if !!item.href}href='{item.href}'{#else} href="/demo/pagesDemo/{item.name}.html"{/if}>{item.name}</a>
+            <p class="des" title="{item.des}">{item.des}</p>
+        </li>
+     {/list}
+    </ul>
+</script>
+<script id="u-nav" type="text/regular" name="u-nav">
+    <ul class="u-nav">
+    {#list items as item}
+        <li class="{ item === now? 'z-act' : '' }" on-click='active'>{item}</li>
+    {/list}
+    </ul>
+</script>
+<script id="u-head" type="text/regular" name="u-head">
+    <div class="txt f-pr">
+        <div class="txtc f-pr">
+            <div class="tit">偶滴demo小仓库</div>
+            <div class="des">知识越多,越令人陶醉.(<a href="/">回主页的地方在这里啦</a>)</div>
+        </div>
+    </div>
+</script>
 
-		</div>
-	
+<script id="u-demo" type="text/regular" name="u-demo">
+    <div class="m-head">
+    <uhead></uhead>
+    </div>
+    <div class="g-flow f-cb">
+        <div class="g-left m-aside">
+            <unav items={navData} now={now} on-active={this.setListsData($event)}></unav>
+        </div>
+        <div class="g-right m-body">
+            <ulists items={listsData}></ulists>
+        </div>
+    </div>
+</script>
+<!-- 引入regular.js -->
+<script src="pagesDemo/js/regular.js"></script>
+
+
 <script>
-var demoArr = 
-[
-	{
-		'name':'eventListener',
-		'des':'自定义事件监听器'
-	},
-	{
-		'name':'fullpage',
-		'des':'全屏滚动'
-	},
-	{
-		'name':'jquery_map',
-		'des':'遍历map的方式'
-	},
-	{
-		'name':'regular_todomvc',
-		'des':'regular版本的todomvc'
-	},
-	{
-		'name':'test',
-		'des':'模板文件'
-	},
-	{
-		'name':'video20160713',
-		'des':'调起浏览器摄像头'
-	},
-	{
-		'name':'slider',
-		'des':'侧边栏定位组件-jquery'
-	},
-	{
-		'name':'drag',
-		'des':'拖拽'		
-	},
-	{
-		'name':'dragfileupload',
-		'des':'H5拖拽文件上传'		
-	},
-	{
-		'name':'draglist',
-		'des':'H5拖拽增加列表项'		
-	},
-	{
-		'name':'templateCompare',
-		'des':'前端模板引擎性能对比'		
-	},
-	{
-		'name':'NeteaseDemo',
-		'des':'NEJ模块化路由'
-	},
-	{
-		'name':'parallax',
-		'des':'背景随鼠标移动而移动'
-	},
-    {
-        'name':'parallax_new',
-        'des':'不同层级配置的视觉差'
-    },
-	{
-		'name':'m_alloyfinger',
-		'des':'移动端手势'
-	},
-	{
-		'name':'h5player',
-		'des':'h5播放器'
-	},
-	{
-		'name':'m_iscroll_nav',
-		'des':'iscroll移动端导航'
-	},
-	{
-		'name':'jquery_myRange',
-		'des':'jquery滑动数字选择器组件'
-	},
-	{
-		'name':'jquery_myScroll',
-		'des':'jquery滑动区域组件'
-	},
-	{
-		'name':'jquery_myTimer',
-		'des':'倒计时组件'
-	},
-	{
-		'name':'jquery_myMerry',
-        'des':'jquery走马灯组件'
-	},
-	{
-		'name':'jquery_mySlider',
-		'des':'jquery轮播图组件'
-	},
-	{
-		'name':'canvas_mdn_01',
-		'des':'canvas入门级demo'
-	},
-	{
-		'name':'three_01',
-		'des':'threejs入门级demo'
-	},
-    {
-        'name':'m_myFlexible',
-        'des':'移动端适配方案'
+    //demo数据
+    var demoData = {
+        'jquery':[
+            {
+                'name':'fullpage',
+                'des':'全屏滚动'
+            },
+            {
+                'name':'jquery_map',
+                'des':'jquery遍历map格式的方法'
+            },
+            {
+                'name':'slider',
+                'des':'侧边栏滑动组件'
+            },
+            {
+                'name':'parallax',
+                'des':'背景随鼠标移动而移动'
+            },
+            {
+                'name':'parallax_new',
+                'des':'不同层级配置不同视觉差'
+            },
+            {
+                'name':'h5player',
+                'des':'极其简单的h5播放器'
+            },
+            {
+                'name':'jquery_myRange',
+                'des':'jquery滑动数字选择组件'
+            },
+            {
+                'name':'jquery_myScroll',
+                'des':'jquery滑动条组件'
+            },
+            {
+                'name':'jquery_myTimer',
+                'des':'jquery倒计时组件'
+            },
+            {
+                'name':'jquery_myMerry',
+                'des':'jquery走马灯组件'
+            },
+            {
+                'name':'jquery_mySlider',
+                'des':'jquery轮播图组件'
+            }
+        ],
+        'javascript':[
+            {
+                'name':'eventListener',
+                'des':'自定义事件监听器'
+            },
+            {
+                'name':'video20160713',
+                'des':'调用浏览器摄像头'
+            },
+            {
+                'name':'drag',
+                'des':'拖拽'
+            },
+            {
+                'name':'dragfileupload',
+                'des':'拖拽文件上传'
+            },
+            {
+                'name':'draglist',
+                'des':'h5拖拽列表项'
+            },
+            {
+                'name':'templateCompare',
+                'des':'前端模板引擎性能比较'
+            }
+        ],
+        'regular':[
+            {
+                'name':'regular入门demo',
+                'des':'当前页面不就是使用regular构建的,是不是很简介呢',
+                'href':'/demo/'
+            },
+            {
+                'name':'regular_todomvc',
+                'des':'regular版本的todolist'
+            },
+            {
+                'name':'regular_react',
+                'des':'regular实现react官网demo',
+                'href':'/demo/NetEaseDemo/index.html#/regular/reactdemo'
+            }
+        ],
+        'nej':[
+            {
+                'name':'NeteaseDemo',
+                'des':'网易前端框架NEJ,Regular等子demo系统',
+                'href':'/demo/NetEaseDemo/index.html#/m'
+            }
+        ],
+        '移动web':[
+            {
+                'name':'m_alloyfinger',
+                'des':'移动端手势库和移动端调试工具'
+            },
+            {
+                'name':'m_iscroll_nav',
+                'des':'iscroll完成的移动端导航组件'
+            },
+            {
+                'name':'m_myFlexible',
+                'des':'移动端动态计算rem适配方案'
+            }
+        ],
+        'webGL':[
+            {
+                'name':'canvas_mdn_01',
+                'des':'canvas入门'
+            },
+            {
+                'name':'three_01',
+                'des':'threejs入门'
+            }
+        ]
+    };
+    //nav构建数据
+    var navData = [];
+    var listsData = [];
+    for(var item in demoData){
+        navData.push(item);
     }
-];	
 
-	var _str = '<table class="table">';
-	var $demoNode = $('.j-demo');
-	_str += ''
-	demoArr.forEach(function(item,index,arr){
-		_str += '<tr>\
-		  <td class="active">__name__</td>\
-		  <td class="success"><a href="./pagesDemo/__name__.html" target="_blank">demo地址</a></td>\
-		  <td class="warning">__des__</td>\
-		</tr>';
-		_str = _str.replace(/__name__/g,item.name);
-		_str = _str.replace(/__des__/g,item.des);
 
-	});
-	_str += '</table>';
-	$demoNode.append($(_str));
-</script>	
+
+    var uNavUI = Regular.extend({
+        name:'unav',
+        template:'#u-nav'
+    });
+    var uListsUI = Regular.extend({
+        name:'ulists',
+        template: '#u-lists'
+    });
+    var uHeadUI = Regular.extend({
+        name:'uhead',
+        template:'#u-head'
+    });
+    var uDemoUI = Regular.extend({
+        template:'#u-demo'
+    });
+
+    var uDemo = new uDemoUI({
+        data:{
+            navData:navData,
+            listsData:demoData['jquery'],
+            now:'jquery'
+        },
+        setListsData:function(e){
+            var navName = e.target.innerHTML;
+            this.data.now = navName;
+            this.data.listsData=demoData[navName];
+        }
+    });
+    uDemo.$inject('.j-demo');
+</script>
 </body>
 </html>

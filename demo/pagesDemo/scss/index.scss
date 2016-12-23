@@ -1,0 +1,93 @@
+@import 'base/base';
+a{
+    color:#333;
+    text-decoration: none;
+}
+body {
+    background-color:#eee!important;
+}
+.g-flow {
+    margin:20px auto;
+    width:960px;
+}
+@media screen and (min-width: 1210px){
+    .g-flow {
+        margin:20px auto;
+        width:1205px;
+    }
+}
+.g-left {
+    float:left;
+    margin-right:20px;
+    width:200px;
+}
+.g-right {
+    overflow:hidden;
+}
+.m-head {
+    height:160px;
+    text-align: center;
+    background:url(http://study.163.com/res/images/cloudclass/mycloudheadbg.png) center;
+    .txt {
+        top:50%;
+    }
+    .txtc {
+        top:-50%;
+        -webkit-transform : translate3d(0, -50%, 0);
+        transform : translate3d(0, -50%, 0);
+        line-height:40px;
+    }
+    .tit {
+        font-size:24px;
+    }
+    .des {
+        font-size:15px;
+    }
+}
+.m-aside{
+    .u-nav {
+        text-align:center;
+        background:#fff;
+        -webkit-box-shadow: 0px 1px 2px #bbb;
+        box-shadow: 0px 1px 2px #bbb;
+        cursor:pointer;
+        li {
+            height:40px;
+            line-height:40px;
+            border-bottom:1px solid #ddd;
+            &:hover {
+                background:#f8f8f8;
+            }
+            &.z-act {
+                background:#50c485;
+            }
+        }
+    }
+}
+.m-body {
+    box-shadow: 0px 1px 2px #bbb;
+    .u-lists {
+        padding:20px;
+        background:#fff;
+    }
+    .item {
+        display:inline-block;
+        margin:0 10px 10px 20px;
+        width:280px;
+        height:50px;
+        border:1px solid #eee;
+        .tit {
+            cursor:pointer;
+            &:hover {
+                color:#50c485;
+                text-decoration: underline;
+            }
+        }
+        .des {
+            color:#999;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    }
+}
