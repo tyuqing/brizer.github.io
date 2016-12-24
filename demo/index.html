@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>demo</title>
     <link rel="stylesheet" href="pagesDemo/css/index.css">
+    <link rel="stylesheet" href="pagesdemo/css/animate.css" />
 </head>
 <body>
 <div class="g-container j-demo">
@@ -12,7 +13,7 @@
 <script id="u-lists" type="text/regular" name="u-lists">
     <ul class="u-lists">
     {#list items as item}
-        <li class="item">
+        <li class="item animated" on-mouseover={isHover = item_index} r-animation="on: enter;class: fadeIn;when: isHover==item_index;class: swing">
             <a class="tit" target="_blank" {#if !!item.href}href='{item.href}'{#else} href="/demo/pagesDemo/{item.name}.html"{/if}>{item.name}</a>
             <p class="des" title="{item.des}">{item.des}</p>
         </li>
